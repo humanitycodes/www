@@ -1,0 +1,5 @@
+title: Use an advanced terminal emulator
+languages:
+  - setup
+prereqs:
+  - static-laptop-setup

@@ -1,0 +1,25 @@
+@mixin svg-circle-wobble-keyframes($base-stroke-width: 2px, $max-variance: 2px) {
+  @keyframes wobble-#{$base-stroke-width}-#{$max-variance} {
+    0%   { stroke-width: $base-stroke-width + $max-variance * 0.5; }
+    10%  { stroke-width: $base-stroke-width + $max-variance; }
+    20%  { stroke-width: $base-stroke-width; }
+    30%  { stroke-width: $base-stroke-width + $max-variance; }
+    40%  { stroke-width: $base-stroke-width - $max-variance * 0.5; }
+    50%  { stroke-width: $base-stroke-width + $max-variance * 0.5; }
+    60%  { stroke-width: $base-stroke-width; }
+    70%  { stroke-width: $base-stroke-width - $max-variance * 0.5; }
+    80%  { stroke-width: $base-stroke-width + $max-variance * 0.5; }
+    90%  { stroke-width: $base-stroke-width + $max-variance; }
+    100% { stroke-width: $base-stroke-width; }
+  }
+}
+
+@mixin svg-circle-wobble($base-stroke-width: 2px, $max-variance: 2px) {
+  animation-name: wobble-#{$base-stroke-width}-#{$max-variance};
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+}

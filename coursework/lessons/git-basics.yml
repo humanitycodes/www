@@ -1,0 +1,5 @@
+title: Use Git and GitHub for basic version control and collaboration
+languages:
+  - git
+prereqs:
+  - static-laptop-setup

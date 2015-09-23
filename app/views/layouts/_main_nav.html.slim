@@ -1,0 +1,30 @@
+nav.navbar
+
+  .navbar-header
+    button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#navbar_links'
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    = link_to 'Code Lab', root_path, class: 'navbar-brand'
+
+  .collapse.navbar-collapse#navbar_links
+    ul.nav.navbar-nav
+      li= link_to 'Lessons', lessons_path
+
+    ul.nav.navbar-nav.navbar-right
+
+      - if user_signed_in?
+
+        li= link_to current_user.portfolio_url do
+          .glyphicon.glyphicon-user>
+          = current_user.name
+        li= link_to signout_path, method: :delete do
+          span.glyphicon.glyphicon-log-out>
+          | Sign out
+
+      - else
+
+        li= link_to '/auth/github' do
+          span.glyphicon.glyphicon-log-in>
+          | Sign in with github

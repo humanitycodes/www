@@ -1,0 +1,23 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'run', 'start' ]
+2 info using npm@2.11.2
+3 info using node@v0.12.5
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info prestart codelab-externals@1.0.0
+6 info start codelab-externals@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 verbose stack Error: write EPIPE
+8 verbose stack     at exports._errnoException (util.js:746:11)
+8 verbose stack     at WriteWrap.afterWrite (net.js:775:14)
+9 verbose cwd /Users/fritzc/Dropbox/code/lab/map/app/externals
+10 error Darwin 14.5.0
+11 error argv "node" "/usr/local/bin/npm" "run" "start"
+12 error node v0.12.5
+13 error npm  v2.11.2
+14 error code EPIPE
+15 error errno EPIPE
+16 error syscall write
+17 error write EPIPE
+18 error If you need help, you may report this error at:
+18 error     <https://github.com/npm/npm/issues>
+19 verbose exit [ 1, true ]

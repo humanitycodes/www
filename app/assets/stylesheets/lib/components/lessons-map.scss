@@ -1,0 +1,36 @@
+// Setting colors here so that they can later inherit from SCSS variables.
+
+.node {
+  circle.lesson {
+    stroke: #999;
+    fill: #ccc;
+  }
+
+  &.html  circle.lesson { fill: #6D9CA5; stroke: #6D9CA5; }
+  &.css   circle.lesson { fill: #87A38F; stroke: #87A38F; }
+  &.js    circle.lesson { fill: #9B8FAB; stroke: #9B8FAB; }
+  &.rb    circle.lesson { fill: #AB8E8B; stroke: #AB8E8B; }
+  &.git   circle.lesson { fill: #5D7B92; stroke: #5D7B92; }
+  &.setup circle.lesson { fill: #A0958B; stroke: #A0958B; }
+  &.life  circle.lesson { fill: #BE944E; stroke: #BE944E; }
+
+  &.recommended circle.lesson {
+    transition: all 0.5s;
+    @include svg-circle-wobble(4px, 2px);
+
+    &:hover {
+      @include svg-circle-wobble(8px, 2px);
+    }
+  }
+}
+
+@include svg-circle-wobble-keyframes(4px, 2px);
+@include svg-circle-wobble-keyframes(8px, 2px);
+
+.edgePath path {
+  stroke: #777;
+}
+
+tspan {
+  fill: #fff;
+}
