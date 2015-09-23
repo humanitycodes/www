@@ -79,7 +79,7 @@ Now we actually want to get our website online - for free. It'll take a little w
 
 If you've been using computers long enough to remember DOS, that's a terminal. It's usually a black window where you can type in words to do things.
 
-And just like magic words in Harry Potter, they often look like nonsense to the uninitiated. But if you know this nonsense and you say it at the right time, you can make magic happen.
+And just like magic words in Harry Potter, they often look like nonsense to the uninitiated. But if you know this nonsense and you say it at the right time, you _can_ make magic happen.
 
 First, a few good __vocab words__ for working in the terminal:
 

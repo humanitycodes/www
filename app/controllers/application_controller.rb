@@ -9,6 +9,7 @@ private
 
   def prepare_presenter
     @presenter = {
+      user: current_user,
       authenticityToken: form_authenticity_token
     }
   end
