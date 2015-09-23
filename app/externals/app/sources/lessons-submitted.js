@@ -8,7 +8,6 @@ export default (token, query) => {
     let repos = []
     githubRepo$.subscribe(
       repo => {
-        console.log(repo)
         repos.push(repo)
       },
       error => {
