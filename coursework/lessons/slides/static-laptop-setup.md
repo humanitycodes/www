@@ -73,13 +73,11 @@ If you do, try making a change to that file in Atom. Then save it again and refr
 
 ## Installing a terminal program
 
-Now we actually want to get our website online - for free. It'll take a little while to set up the first time, but then after that, updating a current website or publishing a new one will take literally _seconds_.
+The terminal is useful for a lot of development work. It'll take a little while to set up the first time, but then after that, you'll be set until you get a new computer! The recommended terminal program for your system is listed below:
 
-### Using the terminal
-
-- Terminal on Mac
-- Terminal on Ubuntu
-- Git Bash (https://git-scm.com/download/win)
+- Mac OS X: Terminal (already installed!)
+- Ubuntu: Terminal (already installed!)
+- Windows: [Git Bash](https://git-scm.com/download/win) (must be downloaded and installed)
 
 ---
 

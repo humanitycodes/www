@@ -1,4 +1,4 @@
-//= require vendor/marked
+//= require ../vendor/marked
 
 CodeLab.LessonProject = class extends React.Component {
   render() {
@@ -18,7 +18,9 @@ CodeLab.LessonProject = class extends React.Component {
               return (
                 <li
                   key = {criterion}
-                  dangerouslySetInnerHTML = {{__html: marked(criterion)}}
+                  dangerouslySetInnerHTML = {{
+                    __html: marked(criterion).replace(/<p>|<\/p>/gi, '')
+                  }}
                 />
               )
             })
