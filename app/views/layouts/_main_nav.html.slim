@@ -18,7 +18,7 @@ nav.navbar
 
         - if user_signed_in?
 
-          li= link_to current_user.portfolio_url do
+          li= link_to current_user.portfolio_url, target: '_blank' do
             .glyphicon.glyphicon-user>
             = current_user.name
           li= link_to signout_path, method: :delete do

@@ -16,7 +16,6 @@ CodeLab.Lesson = class extends React.Component {
     const newPage = event.target.dataset ?
       event.target.dataset.newPage :
       event.target.getAttribute('data-new-page')
-    console.log(newPage)
     if (newPage < 1 || newPage > this.slides.length) return
     const newURL = `${this.baseUrl}/${newPage}`
     history.pushState({}, null, newURL)
@@ -41,28 +40,24 @@ CodeLab.Lesson = class extends React.Component {
             />
           </CodeLab.Card> : ''
         }
-        <CodeLab.Card>
+        <CodeLab.Card style={{
+          maxWidth: 600,
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>
           <CodeLab.LessonSlides slides={this.slides} page={this.state.page}/>
         </CodeLab.Card>
-        <CodeLab.Row>
-          <CodeLab.Column md='6'>
-            <CodeLab.Card style={{marginBottom: 0}}>
-              <h3 style={{marginTop: 0}}>
-                Next steps
-              </h3>
-              <CodeLab.LessonNextSteps
-                user = {this.props.user}
+        {
+          this.props.user ?
+            <CodeLab.Card>
+              <CodeLab.LessonProject
                 lesson = {this.props.lesson}
                 authenticityToken = {this.props.authenticityToken}
+                user = {this.props.user}
               />
-            </CodeLab.Card>
-          </CodeLab.Column>
-          <CodeLab.Column md='6'>
-            <CodeLab.Card style={{marginBottom: 0}}>
-              <CodeLab.LessonProjects projects={this.props.lesson.projects}/>
-            </CodeLab.Card>
-          </CodeLab.Column>
-        </CodeLab.Row>
+            </CodeLab.Card> : ''
+        }
+
       </div>
     )
   }

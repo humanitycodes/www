@@ -1,4 +1,3 @@
-//= require ../vendor/d3
 //= require ../vendor/dagre-d3
 
 CodeLab.LessonsMapper = class {
@@ -43,7 +42,7 @@ CodeLab.LessonsMapper = class {
 
     this.lessons.forEach(lesson => {
       this.graph.setNode(lesson.key, {
-        label: lesson.languages[0] ? lesson.languages[0].toUpperCase() : '...',
+        label: lesson.categories[0] ? lesson.categories[0].toUpperCase() : '...',
         width: 32,
         height: 32,
         shape: 'circle',
@@ -115,7 +114,7 @@ CodeLab.LessonsMapper = class {
       const lesson = this.graph.node(key).lesson
       let classes = [
         'node',
-        lesson.languages[0],
+        lesson.categories[0],
         lesson.status
       ]
       this.recommendedLessonKeys.indexOf(key) > -1 && classes.push('recommended')

@@ -19,12 +19,13 @@ private
   def get_lessons
     Dir[ File.dirname(__FILE__) + '/lessons/*.yml' ].map do |file|
       lesson = YAML.load_file(file).symbolize_keys
+      next if lesson[:draft]
       lesson = lesson.merge({
         key: filename_without_extension = File.basename( file, '.*' ),
         slides: File.read( File.dirname(__FILE__) + '/lessons/slides/' + filename_without_extension + '.md' ),
-        languages: lesson[:languages] || [],
+        categories: lesson[:categories] || [],
         prereqs: lesson[:prereqs] || []
       })
-    end
+    end.compact
   end
 end

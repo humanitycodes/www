@@ -1,1 +1,0 @@
-CodeLab.config.members = []

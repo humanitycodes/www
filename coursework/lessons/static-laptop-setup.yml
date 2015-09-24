@@ -1,9 +1,9 @@
 title: Set up your laptop to build simple websites
-languages:
+categories:
   - setup
-projects:
-  - title: Publish a very basic website to the Internet
-    criteria:
-      - one
-      - two
-      - three
+project:
+  title: Publish a very basic website to the Internet
+  criteria:
+    - Your website is hosted online.
+    - Your website is on GitHub.
+    - When you paste the address of your website into [the W3C validator](https://validator.w3.org/), it returns no errors (warnings are OK).

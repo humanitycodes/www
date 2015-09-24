@@ -1,0 +1,14 @@
+.card {
+  position: relative;
+  vertical-align: top;
+  background-color: #fff;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+
+  & > :first-child { margin-top:    0; }
+  & > :last-child  { margin-bottom: 0; }
+
+  & > div {
+    & > :first-child { margin-top:    0; }
+    & > :last-child  { margin-bottom: 0; }
+  }
+}

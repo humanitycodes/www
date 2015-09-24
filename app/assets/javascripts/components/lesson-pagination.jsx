@@ -1,4 +1,3 @@
-//= require ../vendor/d3
 //= require ../vendor/radium
 
 CodeLab.LessonPagination = Radium(class extends React.Component {

@@ -1,3 +1,4 @@
 const CodeLab = {
-  config: {}
+  config: {},
+  helpers: {}
 }

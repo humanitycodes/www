@@ -1,9 +1,15 @@
 ## What we'll be doing
 
+I'm going to say it upfront. This is the most boring project you'll work on at the Code Lab. And maybe also the longest. We're going to do a lot of setup to get your computer ready for the work we'll be doing.
+
+By the end though, you _will_ have a website on the Internet, using tools that professional web developers actually use every day. So please be patient and don't hesitate to ask for help when you need it.
+
 1. Install the Atom code editor
 2. Create our first HTML file
 3. Look at our website in the browser (then make some changes and refresh)
-4. Put our website on the Internet! (npm & surge, introduce the word "deploy")
+4. Put our website on the Internet!
+5. Share our website on GitHub
+6. Get some feedback from a Code Lab mentor
 
 ---
 
@@ -28,6 +34,8 @@ to this colorized version:
 It's not glamorous, but carefully reading instructions is a huge part of what coders do. Check out [these instructions](https://atom.io/docs/latest/getting-started-installing-atom) to learn how to install the Atom text editor.
 
 ---
+
+## Create your first HTML file
 
 Create a new folder somewhere on your computer, maybe called `my-first-website`. Why use dashes instead of spaces for the name? The short answer is when we're working on the terminal, spaces often make a little extra work. We'll learn why later in this lesson.
 
@@ -69,13 +77,13 @@ Now we actually want to get our website online - for free. It'll take a little w
 
 ### Using the terminal
 
-- Terminal on Ubuntu
 - Terminal on Mac
+- Terminal on Ubuntu
 - Git Bash (https://git-scm.com/download/win)
 
 ---
 
-## Terminal commands are basically magic words
+## Terminal commands are magic words
 
 If you've been using computers long enough to remember DOS, that's a terminal. It's usually a black window where you can type in words to do things.
 
@@ -88,28 +96,28 @@ First, a few good __vocab words__ for working in the terminal:
 - "directory" means "folder"
 - "working directory" means "current folder"
 
-And now, __you're first magic words__:
+And now, __your first magic words__:
 
 ``` bash
 pwd # Print Working Directory - print the current directory (i.e. folder)
-ls  # List - print a list of files and folders in the current directory
+ls # List - print a list of files and folders in the current directory
 ```
 
-Both of those commands you can use without any "parameters" (aka "arguments"), which just means you won't type anything after them for the command to work. I can just type in `pwd`, press enter, and get something like `/Users/fritzc/` printed back at me.
+Both of those commands you can use without any "parameters" (aka "arguments"), which just means you won't type anything after them for the command to work. I can just type in `pwd`, press enter, and get something like `/Users/fritzc/` printed back at me. That means I'm in the `fritzc` directory, which is inside of the `Users` directory.
 
 Other commands, like `cd`, _do_ require parameters. Check out the examples below.
 
 ``` bash
 # Change Directory - change the working directory
 cd some-folder # change to "some-folder", which is a sub-folder of the current directory
-cd ..          # change to the parent directory (i.e. the folder that the current folder is in)
+cd .. # change to the parent directory (i.e. the folder that the current folder is in)
 ```
 
 Now remember when I suggested leaving spaces out of folder and file names? Here's why:
 
 ``` bash
-cd some-folder  # works great!
-cd some folder  # returns an error, as it looks for a folder called "some" with "folder" passed as an additional parameter
+cd some-folder # works great!
+cd some folder # returns an error, as it looks for a folder called "some" with "folder" passed as an additional parameter
 cd some\ folder # works great, but we have to remember to put that backslash in front of every space
 ```
 
@@ -117,13 +125,43 @@ If you think you're ready to try these commands out, open your terminal program 
 
 ---
 
-## Surge
+## Beef up our terminal with Node and NPM
 
-- install node and npm https://nodejs.org/en/download/
+Node and NPM (the Node Package Manager) will allow us to add special commands to our terminal, including a command to put our website on the Internet for free!
+
+To install these, follow the instructions for your operating system:
+
+- [Mac OS X](http://blog.teamtreehouse.com/install-node-js-npm-mac)
+- [Ubuntu](http://blog.teamtreehouse.com/install-node-js-npm-linux)
+- [Windows](http://blog.teamtreehouse.com/install-node-js-npm-windows)
+
+---
+
+## Getting online, for free, with Surge
+
+Now let's open a terminal and use our newfound `cd` skills to change into the directory of the website you just built. As always, if you need help, just flag down a mentor. Once there, you can :
 
 ``` bash
-mkdir my-first-website   # MAKE a DIRECTORY (i.e. folder) called "my-first-website"
-cd my-first-website      # CHANGE the current DIRECTORY to "my-first-website"
-npm init                 # INITIALIZE (i.e. set up) a new project
-npm install --save surge #
+npm install --global surge # Install the "surge" command into your terminal
+cd /path/to/your-project-directory # Change into your project directory
+surge # Run the surge command to put your website online!
 ```
+
+---
+
+## Sharing our code
+
+So we have some code and it looks pretty good to us. Now what would a pro do? Share it and get feedback! So that's what _we're_ going to do. In fact, that's what we'll do for every Code Lab project. For our first time, this also requires a little setup.
+
+1. Create an account on [GitHub](https://github.com/). This is where many, if not most developers, choose to share their code.
+2. Install Git (which we'll use to get our code on GitHub):
+  - __Mac OS X__: `brew install git` on the terminal
+  - __Ubuntu__: `sudo apt-get install git` on the terminal
+  - __Windows__: you already have it installed, as it's part of the Git Bash terminal
+3. Follow instructions below in the "Next Steps" section. Since we already have a project folder this first time though, instead of using the `git clone the-clone-url` command, we'll `cd` into our current directory and type `git remote add origin the-clone-url`. Then follow the rest of the instructions.
+
+---
+
+## You're done!
+
+Whew, that was a long one. Don't worry, future lessons won't be so involved. Because of our hard work on this lesson though, we're now set up to build websites _extremely quickly_, put them online, for free, in _seconds_, and very easily get feedback on our code. And all using the tools and processes of __real developers__. Great work!

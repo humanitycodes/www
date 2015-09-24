@@ -1,11 +1,25 @@
 CodeLab.LessonSlides = class extends React.Component {
+  componentDidMount() {
+    this.highlightCodeBlocks()
+  }
+
+  componentDidUpdate() {
+    this.highlightCodeBlocks()
+  }
+
+  highlightCodeBlocks() {
+    document && $(React.findDOMNode(this)).find('pre > code').each((i, block) => {
+      hljs.highlightBlock(block)
+    })
+  }
+
   render() {
     const slideIndex = this.props.page - 1
     const slide = this.props.slides[slideIndex]
 
     if (slide) {
       return (
-        <div dangerouslySetInnerHTML={{__html: marked(slide)}}></div>
+        <div className='lesson-slide' dangerouslySetInnerHTML = {{__html: marked(slide)}}/>
       )
     } else {
       return (
