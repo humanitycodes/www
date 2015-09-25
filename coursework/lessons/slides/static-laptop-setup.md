@@ -18,7 +18,7 @@ By the end though, you _will_ have a website on the Internet, using tools that p
 Great question! The short answer is it makes code easier to read and write. For example, editors will often use special colors to make certain parts of the code stand out. Like this:
 
 ``` html
-<p>This is a <strong>paragraph tag</strong> in HTML.</title>
+<p>This is a <strong>paragraph tag</strong> in HTML.</p>
 ```
 
 ---
