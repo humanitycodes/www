@@ -31,13 +31,16 @@ CodeLab.LessonsMapper = class {
   }
 
   initializeGraph() {
+    this.marginX = 50
+    this.marginY = 50
+
     this.graph = new dagreD3.graphlib.Graph().setGraph({
       nodesep: 10,
       rankdir: 'LR',
       edgesep: 0,
       ranksep: 100,
-      marginx: 5,
-      marginy: 5
+      marginx: this.marginX,
+      marginy: this.marginY
     }).setDefaultEdgeLabel(() => { return {} })
 
     this.lessons.forEach(lesson => {
@@ -82,8 +85,9 @@ CodeLab.LessonsMapper = class {
   enablePanning() {
     const zoomed = () => {
       let drawWidth = d3.select('g.nodes')[0][0].getBBox().width
-      let minX = d3.min([0, this.containerWidth - 10 - drawWidth])
-      let maxX = d3.max([this.containerWidth - 10 - drawWidth, 0])
+      let distanceBetweenGraphEdgeAndContainerLimit = this.containerWidth - this.marginX * 2 - drawWidth
+      let minX = d3.min([0, distanceBetweenGraphEdgeAndContainerLimit])
+      let maxX = d3.max([distanceBetweenGraphEdgeAndContainerLimit, 0])
       let newX = d3.min([d3.max([d3.event.translate[0], minX]), maxX])
       zoomer.translate([newX, 0])
       this.svgInner.attr('transform', `translate(${newX},0)`)
@@ -99,7 +103,10 @@ CodeLab.LessonsMapper = class {
     this.svg.on('wheel.zoom', null)
     this.svg.on('mousewheel.zoom', null)
 
-    this.svg.attr('class', 'grabbable')
+    this.svg
+      .attr('class', 'grabbable')
+      .style('margin-left', -1)
+      .style('margin-bottom', -5)
   }
 
   computeAndDrawLayout() {
@@ -167,8 +174,8 @@ CodeLab.LessonsMapper = class {
     })
 
     $(`#${this.containerID} svg circle`).popover({
-      container: '#' + this.containerID,
-      placement: 'right',
+      container: 'body',
+      placement: 'bottom',
       animation: false,
       trigger: 'hover'
     })

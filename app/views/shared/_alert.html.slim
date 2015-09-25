@@ -1,0 +1,8 @@
+- type    ||= :error
+- message ||= 'An unknown error has occurred!'
+
+.alert.slide.up class="#{bootstrap_alert_class_for(type)}"
+  button.close type='button' data-dismiss='alert'
+    span aria-hidden='true' &times;
+    span.sr-only Close
+  = message

@@ -28,28 +28,39 @@ CodeLab.Lesson = class extends React.Component {
     return (
       <div>
         <CodeLab.Card>
-          <a href='/lessons'>Lessons</a> > <strong>{ this.props.lesson.title }</strong>
-        </CodeLab.Card>
-        { this.slides.length > 1 ?
-          <CodeLab.Card>
+          <div style={{marginBottom: 15}}>
+            <a href='/lessons'>Lessons</a> > <strong>{ this.props.lesson.title }</strong>
+          </div>
+          { this.slides.length > 1 ?
             <CodeLab.LessonSlidesNavigation
               page = {this.state.page}
               slides = {this.slides}
               baseUrl = {this.baseUrl}
               onUpdatePage = {this.updatePage}
-            />
-          </CodeLab.Card> : ''
-        }
+            /> : ''
+          }
+        </CodeLab.Card>
         <CodeLab.Card style={{
           maxWidth: 600,
+          marginTop: -21,
           marginLeft: 'auto',
-          marginRight: 'auto'
+          marginRight: 'auto',
+          padding: '20px 50px 50px',
+          borderTop: 0,
+          borderBottom: 0,
+          borderTopLeftRadius: 0,
+          borderTopRightRadius: 0
         }}>
           <CodeLab.LessonSlides slides={this.slides} page={this.state.page}/>
         </CodeLab.Card>
         {
           this.props.user ?
-            <CodeLab.Card>
+            <CodeLab.Card style={{
+              maxWidth: 600,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              padding: 50
+            }}>
               <CodeLab.LessonProject
                 lesson = {this.props.lesson}
                 authenticityToken = {this.props.authenticityToken}

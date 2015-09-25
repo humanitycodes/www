@@ -12,7 +12,7 @@ We assume you're already a full-time student or professional. You don't live at 
 
 Unlike many online courses, where you might code in a little window on a website, we believe in removing as many abstractions from real work as possible. That means you'll be doing all your work on your own laptop, using the tools and processes that actual developers use. And with every project, you'll make real websites, live on the Internet. You don't pretend to work out at the gym, you do it. At the Code Lab, you will be an Actual Developer from day one.
 
-### Personal trainer
+### Personal training
 
 You get much better results at the gym with a personal trainer - an expert not just in fitness, but also in coaching. The Lansing Code Lab's lead instructor is not just a professional web developer, but also a trained and experienced educator. This sets us apart from the vast majority of bootcamps, university degree programs, and online courses. We integrate cutting edge curriculum design with educational psychology to bring you a uniquely student-directed and emotionally intelligent experience.
 

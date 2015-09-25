@@ -24,6 +24,14 @@ CodeLab.LessonsMap = class extends React.Component {
   }
 
   render() {
-    return <div id={this.containerID}/>
+    return (
+      <div
+        id = {this.containerID}
+        className = 'well card'
+        style = {{
+          padding: 0
+        }}
+      />
+    )
   }
 }
