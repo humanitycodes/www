@@ -4,7 +4,7 @@ class RepositoriesController < ApplicationController
       user: current_user.username,
       oauth_token: current_user.github_token
     ).repos.create(name: "codelab-#{params[:key]}")
-    redirect_to "/lessons/#{params[:key]}"
+    redirect_to :back
   end
 
   def submit
@@ -17,6 +17,6 @@ class RepositoriesController < ApplicationController
       title: 'Code Lab Feedback',
       body: "Can you take a look at this @chrisvfritz?"
     )
-    redirect_to "/lessons/#{params[:key]}"
+    redirect_to :back
   end
 end

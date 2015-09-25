@@ -5,23 +5,17 @@ I'm going to say it upfront. This is the most boring project you'll work on at t
 By the end though, you _will_ have a website on the Internet, using tools that professional web developers actually use every day. So please be patient and don't hesitate to ask for help when you need it.
 
 1. Install the Atom code editor
-2. Create our first HTML file
-3. Look at our website in the browser (then make some changes and refresh)
-4. Put our website on the Internet!
-5. Share our website on GitHub
+2. Create your first HTML file
+3. Look at your website in the browser (then make some changes and refresh)
+4. Put your website on the Internet!
+5. Share your website on GitHub
 6. Get some feedback from a Code Lab mentor
 
 ---
 
 ## Why a special program for writing code?
 
-Great question! The short answer is it makes code easier to read and write. For example, editors will often use special colors to make certain parts of the code stand out. Compare this monochrome version:
-
-```
-<p>This is a <strong>paragraph tag</strong> in HTML.</title>
-```
-
-to this colorized version:
+Great question! The short answer is it makes code easier to read and write. For example, editors will often use special colors to make certain parts of the code stand out. Like this:
 
 ``` html
 <p>This is a <strong>paragraph tag</strong> in HTML.</title>
@@ -87,6 +81,7 @@ If you've been using computers long enough to remember DOS, that's a terminal. I
 
 And just like magic words in Harry Potter, they often look like nonsense to the uninitiated. But if you know this nonsense and you say it at the right time, you _can_ make magic happen.
 
+
 First, a few good __vocab words__ for working in the terminal:
 
 - you can think of "terminal", "command line", "console", and "bash" as all the same thing
@@ -94,7 +89,11 @@ First, a few good __vocab words__ for working in the terminal:
 - "directory" means "folder"
 - "working directory" means "current folder"
 
-And now, __your first magic words__:
+### Your turn
+
+If you think you're ready to try out some magic words yourself, open your terminal program and do so now! If you're feeling kind of confused, flag down a mentor and they'll be happy to help. :-)
+
+#### Your first magic words (_pwd_ and _ls_):
 
 ``` bash
 pwd # Print Working Directory - print the current directory (i.e. folder)
@@ -102,6 +101,11 @@ ls # List - print a list of files and folders in the current directory
 ```
 
 Both of those commands you can use without any "parameters" (aka "arguments"), which just means you won't type anything after them for the command to work. I can just type in `pwd`, press enter, and get something like `/Users/fritzc/` printed back at me. That means I'm in the `fritzc` directory, which is inside of the `Users` directory.
+
+By the way: in all our code examples, text you see after a # is a comment I made for you. You won't type this in. It's just for your information.
+
+
+#### Some magic words require parameters (_cd_)
 
 Other commands, like `cd`, _do_ require parameters. Check out the examples below.
 
@@ -111,6 +115,8 @@ cd some-folder # change to "some-folder", which is a sub-folder of the current d
 cd .. # change to the parent directory (i.e. the folder that the current folder is in)
 ```
 
+#### The problem with spaces
+
 Now remember when I suggested leaving spaces out of folder and file names? Here's why:
 
 ``` bash
@@ -119,7 +125,7 @@ cd some folder # returns an error, as it looks for a folder called "some" with "
 cd some\ folder # works great, but we have to remember to put that backslash in front of every space
 ```
 
-If you think you're ready to try these commands out, open your terminal program and do so now! If you're feeling kind of confused, flag down a mentor and they'll be happy to help. :-)
+
 
 ---
 
@@ -141,8 +147,7 @@ Now let's open a terminal and use our newfound `cd` skills to change into the di
 
 ``` bash
 npm install --global surge # Install the "surge" command into your terminal
-cd /path/to/your-project-directory # Change into your project directory
-surge # Run the surge command to put your website online!
+surge # Run the surge command and follow its instructions
 ```
 
 ---
@@ -156,7 +161,8 @@ So we have some code and it looks pretty good to us. Now what would a pro do? Sh
   - __Mac OS X__: `brew install git` on the terminal
   - __Ubuntu__: `sudo apt-get install git` on the terminal
   - __Windows__: you already have it installed, as it's part of the Git Bash terminal
-3. Follow instructions below in the "Next Steps" section. Since we already have a project folder this first time though, instead of using the `git clone the-clone-url` command, we'll `cd` into our current directory and type `git remote add origin the-clone-url`. Then follow the rest of the instructions.
+3. Log in to this site with the "Sign in with GitHub" button in the upper-right.
+4. Follow instructions below in the "Next Steps" section. Since we already have a project folder this first time though, instead of using the `git clone the-clone-url` command, we'll `cd` into our current directory, enter `git init`, and then enter `git remote add origin the-clone-url`. Then follow the rest of the instructions.
 
 ---
 

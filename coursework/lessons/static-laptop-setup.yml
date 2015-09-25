@@ -6,4 +6,5 @@ project:
   criteria:
     - Your website is hosted online.
     - Your website is on GitHub.
+    - Your website has your name visible on it.
     - When you paste the address of your website into [the W3C validator](https://validator.w3.org/), it returns no errors (warnings are OK).

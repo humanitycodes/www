@@ -2,13 +2,23 @@
 
 ## What makes the Code Lab different? Who is it for?
 
-Unlike a single-semester bootcamp, this isn't a full-time, intensive course to help you switch careers. We assume that you're already a full-time student or professional and don't want to drop everything to advance your coding skills. Instead, we focus on helping people who might not _just_ want to code. Because we believe _everyone_ should have a chance to learn to code. No matter what your goals are, programming can help you be orders of magnitude more successful in achieving them.
+Lansing Code Lab is less of a course and more of a gym membership for coding.
 
-Unlike many online courses, where you might code in a little window on a website, we also believe in removing as many abstractions from real work as possible. That means you'll be doing all your work on your laptop, using the tools and processes that actual developers use. And with every project, you'll make real websites, live on the Internet.
+### After work/school
 
-Finally, unlike the vast majority of bootcamps, university degree programs, and online courses, the Lansing Code Lab is led not only by a professional web developer, but also a trained and experienced educator. We integrate cutting edge curriculum design and educational psychology to bring you a student-directed and emotionally intelligent experience, unlike any other we know of.
+We assume you're already a full-time student or professional. You don't live at the gym, and you don't want to drop everything to advance your coding skills either. So we focus on helping people who might want to include code as part of their _current_ career, rather than those wishing to completely change careers. Because just like everyone should get exercise, we believe _everyone_ should have a chance to learn to code. No matter what your goals are, programming can help you be orders of magnitude more effective in achieving them.
 
-The end result is less of a course and more of a gym membership for coding. If you keep coming, you'll keep getting better. And you can work on what matters most to _you_.
+### Real world
+
+Unlike many online courses, where you might code in a little window on a website, we believe in removing as many abstractions from real work as possible. That means you'll be doing all your work on your own laptop, using the tools and processes that actual developers use. And with every project, you'll make real websites, live on the Internet. You don't pretend to work out at the gym, you do it. At the Code Lab, you will be an Actual Developer from day one.
+
+### Personal trainer
+
+You get much better results at the gym with a personal trainer - an expert not just in fitness, but also in coaching. The Lansing Code Lab's lead instructor is not just a professional web developer, but also a trained and experienced educator. This sets us apart from the vast majority of bootcamps, university degree programs, and online courses. We integrate cutting edge curriculum design with educational psychology to bring you a uniquely student-directed and emotionally intelligent experience.
+
+### The Code Lab is for you
+
+The Code Lab fits into your life, it gives you real world experience, and you get personal coaching to keep you on track. If you keep coming, you'll keep getting better. If you want to take a break to go on vacation, don't pay that month. And when you come back, you can work on what matters most to _you_.
 
 ## What you should know as a student
 
@@ -30,7 +40,7 @@ When you've tried Googling, but you're truly stuck and have no idea what to do n
 
 ![Tech support cheat sheet](https://imgs.xkcd.com/comics/tech_support_cheat_sheet.png)
 
-Like I said, this is normal. The world of code is _huge_ and no one can possibly know everything. That's why we share. But for the many of us with perfectionist tendencies, sharing can be really hard. It's difficult to put something out there that we _know_ is broken or at least imperfect. What if someone tells us that we're stupid?
+Like I said, this is normal! The world of code is _huge_ and no one can possibly know everything. That's why we share. But for the many of us with perfectionist tendencies, sharing can be really hard. It's difficult to put something out there that we _know_ is broken or at least imperfect. What if someone tells us that we're stupid?
 
 Fortunately, the most talented coders will _never_ tell you you're stupid. They know they only got where they are by asking lots and _lots_ of questions. It's the only cure for ignorance. They became better by putting themselves out there and learning from dozens, hundreds, or even thousands of other programmers. So believe it or not...
 
@@ -62,7 +72,7 @@ I recommend regular practice of at least one of the following:
 
 - __Vigorous exercise__. The health of the body really does contribute to the health of the mind.
 - __Meditation__. Vipassana meditation in particular has a nice, simple focus on mindfulness and it's the only practice I know of that's completely friendly to both theists and atheists. There are also YouTube channels and mobile apps with guided meditation that many find useful - Headspace and Calm are two that I know of.
-- __Yoga__. The _30 Day Yoga Challenge_ on YouTube is a good place to start.
+- __Yoga__. Search _30 Day Yoga Challenge_ or _Yoga for beginners_ on YouTube for a good place to start.
 - __Cuddle with a cat__. Hey, it helps a lot of people! If there's something else that helps to calm and center you personally, do that.
 
 ![Be present in the meow](http://www.toxel.com/wp-content/uploads/2012/02/yogacats09.jpg)
@@ -77,6 +87,8 @@ Please, stop. Eat. Trust me, you'll be much more productive when your body isn't
 
 ## Rules
 
-Yes, there are rules. We need rules, because we want everyone to feel safe and productive in our space. The overarching rule is essentially __be kind, to everyone, all the time__. That's it. If you can't be kind, take a walk and cool off. If you have a problem with someone, talk to Chris Fritz and he'll help you work it out.
+Yes, there are rules. We need rules, because we want everyone to feel safe and productive in our space.
+
+The overarching rule is essentially __be kind, to everyone, all the time__. That's it. If you can't be kind, take a walk and cool off. If you have a problem with someone, talk to Chris Fritz and he'll help you work it out.
 
 One problem with this rule though, is sometimes we can be _accidentally_ unkind. To help you avoid this, we enforce [the same social rules as Recurse](https://www.recurse.com/manual#sub-sec-social-rules). Please read them now to help you avoid implicity unkindness. They are important.
