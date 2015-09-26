@@ -9,7 +9,7 @@ class Lesson
     end
   end
 
-  def self.where(requirements, user=nil)
+  def self.where requirements, user=nil
     Rails.cache.fetch("Lesson.where #{requirements}, #{user && user.id}", expires_in: 1.hour, force: true) do
       lesson_hashes = LESSONS_WATCHER.lessons.select do |lesson_hash|
         requirements.all? { |attribute, value| lesson_hash[attribute] == value }
