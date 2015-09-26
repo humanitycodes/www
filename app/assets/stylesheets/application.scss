@@ -1,7 +1,9 @@
+@import 'lib/variables';
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
 @import 'lib/mixins/**/*';
-@import 'lib/layout/**/*';
+@import 'lib/elements/**/*';
 @import 'lib/controls/**/*';
 @import 'lib/components/**/*';

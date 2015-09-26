@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
   def show
     lesson = Lesson.find(params[:key], current_user)
     unless lesson
-      flash[:alert] = "There isn't a lesson with the key: #{params[:key]}"
+      flash.now[:alert] = "There isn't a lesson with the key: #{params[:key]}"
       render and return
     end
     @presenter = @presenter.merge({

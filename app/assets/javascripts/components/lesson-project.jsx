@@ -5,12 +5,6 @@ CodeLab.LessonProject = class extends React.Component {
     return (
       <div>
         <h3>Project: { this.props.lesson.project.title }</h3>
-        <h4>Next steps</h4>
-        <CodeLab.LessonNextSteps
-          user = {this.props.user}
-          lesson = {this.props.lesson}
-          authenticityToken = {this.props.authenticityToken}
-        />
         <h4>Criteria</h4>
         <ul>
           {
@@ -26,6 +20,12 @@ CodeLab.LessonProject = class extends React.Component {
             })
           }
         </ul>
+        <h4>Next steps</h4>
+        <CodeLab.LessonNextSteps
+          user = {this.props.user}
+          lesson = {this.props.lesson}
+          authenticityToken = {this.props.authenticityToken}
+        />
       </div>
     )
   }
