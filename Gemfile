@@ -16,7 +16,7 @@ gem 'omniauth-github'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'rest-client'
 gem 'github_api'
-gem 'passenger'
+gem 'puma'
 
 group :development do
   gem 'spring'            # Spring speeds up development by keeping your application running in the background
