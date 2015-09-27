@@ -1,10 +1,9 @@
 //= require ../vendor/dagre-d3
 
 CodeLab.LessonsMapper = class {
-  constructor(containerID, lessons, userData={approvedLessonKeys: ['static-laptop-setup']}) {
+  constructor(containerID, lessons) {
     this.containerID = containerID
     this.lessons = lessons
-    this.userData = userData
 
     this.evaluateForUser()
     this.initializeGraph()

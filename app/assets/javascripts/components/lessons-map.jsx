@@ -3,20 +3,38 @@
 CodeLab.LessonsMap = class extends React.Component {
   constructor(props) {
     super(props)
-    const lessonsID = props.lessons.map(lesson => {
-      return lesson.key
-        .split('-')
-        .map(word => word[0])
-        .join('')
-        .toString()
-    }).join('')
-    this.containerID = `lessons-map-${ lessonsID }`
-    this.mapper = new CodeLab.LessonsMapper(this.containerID, props.lessons, props.userData)
+    this.state = {
+      lessons: props.lessons
+    }
+    this.containerID = `lessons-map-${ Math.random().toString().replace('.','') }`
+    this.initializeNewMapper = this.initializeNewMapper.bind(this)
+  }
+
+  initializeNewMapper() {
+    if (this.mapper) {
+      window && window.removeEventListener('resize', this.mapper.draw, false)
+    }
+    this.mapper = new CodeLab.LessonsMapper(this.containerID, this.state.lessons)
+    this.mapper.draw()
+    window && window.addEventListener('resize', this.mapper.draw, false)
+  }
+
+  componentWillMount() {
+    if (this.props.user) {
+      $.getJSON('/lessons').done(response => {
+        this.setState({
+          lessons: response.lessons
+        })
+      })
+    }
   }
 
   componentDidMount() {
-    this.mapper.draw()
-    window && window.addEventListener('resize', this.mapper.draw, false)
+    this.initializeNewMapper()
+  }
+
+  componentDidUpdate() {
+    this.initializeNewMapper()
   }
 
   componentWillUnmount() {

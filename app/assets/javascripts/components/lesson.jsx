@@ -4,11 +4,23 @@ CodeLab.Lesson = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      page: props.page
+      page: props.page,
+      lesson: props.lesson
     }
+
     this.updatePage = this.updatePage.bind(this)
-    this.baseUrl = `/lessons/${props.lesson.key}`
+    this.baseURL = `/lessons/${props.lesson.key}`
     this.slides = props.lesson.slides.split('\n---\n')
+  }
+
+  componentWillMount() {
+    if (this.props.user) {
+      $.getJSON(this.baseURL).done(response => {
+        this.setState({
+          lesson: response.lesson
+        })
+      })
+    }
   }
 
   updatePage(event) {
@@ -17,7 +29,7 @@ CodeLab.Lesson = class extends React.Component {
       event.target.dataset.newPage :
       event.target.getAttribute('data-new-page')
     if (newPage < 1 || newPage > this.slides.length) return
-    const newURL = `${this.baseUrl}/${newPage}`
+    const newURL = `${this.baseURL}/${newPage}`
     history.pushState({}, null, newURL)
     this.setState({
       page: parseInt(newPage)
@@ -29,13 +41,13 @@ CodeLab.Lesson = class extends React.Component {
       <div>
         <CodeLab.Card>
           <div style={{marginBottom: 15}}>
-            <a href='/lessons'>Lessons</a> > <strong>{ this.props.lesson.title }</strong>
+            <a href='/lessons'>Lessons</a> > <strong>{ this.state.lesson.title }</strong>
           </div>
           { this.slides.length > 1 ?
             <CodeLab.LessonSlidesNavigation
               page = {this.state.page}
               slides = {this.slides}
-              baseUrl = {this.baseUrl}
+              baseURL = {this.baseURL}
               onUpdatePage = {this.updatePage}
             /> : ''
           }
@@ -62,7 +74,7 @@ CodeLab.Lesson = class extends React.Component {
               padding: 50
             }}>
               <CodeLab.LessonProject
-                lesson = {this.props.lesson}
+                lesson = {this.state.lesson}
                 authenticityToken = {this.props.authenticityToken}
                 user = {this.props.user}
               />

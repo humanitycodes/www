@@ -1,8 +1,9 @@
 class Lesson
+  DISABLE_CACHING = true
   LESSONS_WATCHER = LessonsWatcher.new
 
   def self.all user=nil
-    Rails.cache.fetch("Lesson.all #{user && user.id}", expires_in: 1.hour, force: true) do
+    Rails.cache.fetch("Lesson.all #{user && user.id}", expires_in: 1.hour, force: DISABLE_CACHING) do
       LESSONS_WATCHER.lessons.map do |lesson_hash|
         Lesson.new lesson_hash, user && LessonsStatusFetcher.new(user).dictionary
       end
@@ -10,7 +11,7 @@ class Lesson
   end
 
   def self.where requirements, user=nil
-    Rails.cache.fetch("Lesson.where #{requirements}, #{user && user.id}", expires_in: 1.hour, force: true) do
+    Rails.cache.fetch("Lesson.where #{requirements}, #{user && user.id}", expires_in: 1.hour, force: DISABLE_CACHING) do
       lesson_hashes = LESSONS_WATCHER.lessons.select do |lesson_hash|
         requirements.all? { |attribute, value| lesson_hash[attribute] == value }
       end
@@ -22,7 +23,7 @@ class Lesson
   end
 
   def self.find key, user=nil
-    Rails.cache.fetch("Lesson.find #{key}, #{user && user.id}", expires_in: 1.hour, force: true) do
+    Rails.cache.fetch("Lesson.find #{key}, #{user && user.id}", expires_in: 1.hour, force: DISABLE_CACHING) do
       lesson_hash = LESSONS_WATCHER.lessons.find do |lesson_hash|
         lesson_hash[:key] == key
       end

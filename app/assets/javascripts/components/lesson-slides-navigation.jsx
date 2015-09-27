@@ -5,7 +5,7 @@ CodeLab.LessonSlidesNavigation = class extends React.Component {
         return {
           preventDefault: () => {},
           target: {
-            href: `${this.props.baseUrl}/${newPage}`,
+            href: `${this.props.baseURL}/${newPage}`,
             dataset: { newPage: newPage }
           }
         }
@@ -49,7 +49,7 @@ CodeLab.LessonSlidesNavigation = class extends React.Component {
         />
         <a
           className = 'btn btn-primary pull-left'
-          href = {`${this.props.baseUrl}/${prevPage}`}
+          href = {`${this.props.baseURL}/${prevPage}`}
           data-new-page = {prevPage}
           disabled = {!prevPageDoesExist}
           onClick = {this.props.onUpdatePage}
@@ -57,7 +57,7 @@ CodeLab.LessonSlidesNavigation = class extends React.Component {
         >Prev</a>
         <a
           className = 'btn btn-primary pull-right'
-          href = {`${this.props.baseUrl}/${this.props.page + 1}`}
+          href = {`${this.props.baseURL}/${this.props.page + 1}`}
           data-new-page = {nextPage}
           disabled = {!nextPageDoesExist}
           onClick = {this.props.onUpdatePage}
