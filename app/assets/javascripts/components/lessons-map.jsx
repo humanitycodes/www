@@ -21,7 +21,7 @@ CodeLab.LessonsMap = class extends React.Component {
 
   componentWillMount() {
     if (this.props.user) {
-      $.getJSON('/lessons').done(response => {
+      $.getJSON('/lessons.json').done(response => {
         this.setState({
           lessons: response.lessons
         })

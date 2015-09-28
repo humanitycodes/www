@@ -15,7 +15,7 @@ CodeLab.Lesson = class extends React.Component {
 
   componentWillMount() {
     if (this.props.user) {
-      $.getJSON(this.baseURL).done(response => {
+      $.getJSON(this.baseURL + '.json').done(response => {
         this.setState({
           lesson: response.lesson
         })
