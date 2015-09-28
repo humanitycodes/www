@@ -1,9 +1,9 @@
-title: Use an advanced terminal emulator
+title: Use basic CSS to style a webpage
 draft: false
 categories:
-  - setup
+  - css
 prereqs:
-  - static-laptop-setup
+  - html-basics
 project:
   title: arst
   criteria:

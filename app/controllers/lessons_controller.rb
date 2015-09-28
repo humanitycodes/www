@@ -1,8 +1,7 @@
 class LessonsController < ApplicationController
-  LESSONS_WATCHER = LessonsWatcher.new
 
   def index
-    lessons = Lesson.all(request.format.symbol == :json && current_user)
+    lessons = Lesson.all(current_user, from_cache: request.format.symbol != :json)
     @presenter = @presenter.merge({
       lessons: lessons,
     })
@@ -13,7 +12,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    lesson = Lesson.find(params[:key], request.format.symbol == :json && current_user)
+    lesson = Lesson.find(params[:key], current_user, from_cache: request.format.symbol != :json)
     unless lesson
       flash.now[:alert] = "There isn't a lesson with the key: #{params[:key]}"
       render and return

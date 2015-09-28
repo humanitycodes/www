@@ -1,9 +1,9 @@
-title: Use an advanced terminal emulator
+title: Programming HTML with JavaScript
 draft: false
 categories:
-  - setup
+  - js
 prereqs:
-  - static-laptop-setup
+  - css-intro
 project:
   title: arst
   criteria:

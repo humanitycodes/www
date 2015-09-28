@@ -1,9 +1,9 @@
-title: Use an advanced terminal emulator
+title: Use semantic elements in HTML5
 draft: false
 categories:
-  - setup
+  - html
 prereqs:
-  - static-laptop-setup
+  - css-intro
 project:
   title: arst
   criteria:
