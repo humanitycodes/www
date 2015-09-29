@@ -4,7 +4,11 @@ CodeLab.LessonProject = class extends React.Component {
   render() {
     return (
       <div>
-        <h3>Project: { this.props.lesson.project.title }</h3>
+        <h3
+          dangerouslySetInnerHTML = {{
+            __html: 'Project: ' + marked(this.props.lesson.project.title)
+          }}
+        />
         <h4>Criteria</h4>
         <ul>
           {

@@ -1,9 +1,9 @@
 title: Organize CSS, JavaScript, and images in separate files
 draft: false
 categories:
+  - wip
   - html
 prereqs:
-  - css-intro
   - js-intro
 project:
   title: arst

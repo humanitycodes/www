@@ -1,0 +1,13 @@
+title: Steal styles for better design
+draft: false
+categories:
+  - css
+prereqs:
+  - css-intro
+project:
+  title: Make a webpage with your first name in the style of the Google logo
+  criteria:
+    - The font size of your name must be at least 70 pixels, so that it's easy to see.
+    - "Use `span` elements to wrap each letter of your name in a different style, like this: `<span>C</span><span>h</span><span>r</span><span>i</span><span>s</span>`"
+    - Use a color picker to steal the colors in [this image](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_Google_2013_Official.svg/2000px-Logo_Google_2013_Official.svg.png) and use them to make your name the colors of the Google logo.
+    - Put a shadow around your entire name, using the style around [the calculator here](https://www.google.com/search?q=4+%2B+2). Inspect the calculator in your web browser to figure out what CSS it's using to create that effect.

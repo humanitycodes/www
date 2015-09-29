@@ -9,13 +9,21 @@ CodeLab.Lesson = class extends React.Component {
     }
 
     this.updatePage = this.updatePage.bind(this)
-    this.baseURL = `/lessons/${props.lesson.key}`
-    this.slides = props.lesson.slides.split('\n---\n')
+    this.slides = this.slides.bind(this)
+    this.baseURL = this.baseURL.bind(this)
+  }
+
+  slides() {
+    return this.state.lesson.slides.split('\n---\n')
+  }
+
+  baseURL() {
+    return `/lessons/${this.state.lesson.key}`
   }
 
   componentWillMount() {
     if (this.props.user) {
-      $.getJSON(this.baseURL + '.json').done(response => {
+      $.getJSON(this.baseURL() + '/' + this.state.page + '.json').done(response => {
         this.setState({
           lesson: response.lesson
         })
@@ -28,8 +36,8 @@ CodeLab.Lesson = class extends React.Component {
     const newPage = event.target.dataset ?
       event.target.dataset.newPage :
       event.target.getAttribute('data-new-page')
-    if (newPage < 1 || newPage > this.slides.length) return
-    const newURL = `${this.baseURL}/${newPage}`
+    if (newPage < 1 || newPage > this.slides().length) return
+    const newURL = `${this.baseURL()}/${newPage}`
     history.pushState({}, null, newURL)
     this.setState({
       page: parseInt(newPage)
@@ -43,11 +51,11 @@ CodeLab.Lesson = class extends React.Component {
           <div style={{marginBottom: 15}}>
             <a href='/lessons'>Lessons</a> > <strong>{ this.state.lesson.title }</strong>
           </div>
-          { this.slides.length > 1 ?
+          { this.slides().length > 1 ?
             <CodeLab.LessonSlidesNavigation
               page = {this.state.page}
-              slides = {this.slides}
-              baseURL = {this.baseURL}
+              slides = {this.slides()}
+              baseURL = {this.baseURL()}
               onUpdatePage = {this.updatePage}
             /> : ''
           }
@@ -63,7 +71,7 @@ CodeLab.Lesson = class extends React.Component {
           borderTopLeftRadius: 0,
           borderTopRightRadius: 0
         }}>
-          <CodeLab.LessonSlides slides={this.slides} page={this.state.page}/>
+          <CodeLab.LessonSlides slides={this.slides()} page={this.state.page}/>
         </CodeLab.Card>
         {
           this.props.user ?

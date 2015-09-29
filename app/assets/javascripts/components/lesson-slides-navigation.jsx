@@ -45,7 +45,7 @@ CodeLab.LessonSlidesNavigation = class extends React.Component {
           page = {this.props.page}
           slides = {this.props.slides}
           onUpdatePage = {this.props.onUpdatePage}
-          style = {{margin: '7px 75px -39px'}}
+          style = {{margin: '7px 75px -42px'}}
         />
         <a
           className = 'btn btn-primary pull-left'

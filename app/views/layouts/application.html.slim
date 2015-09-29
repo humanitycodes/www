@@ -4,13 +4,17 @@ html
   head
   
     title Map
-    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Open+Sans'
+
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700'
     = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css'
     = stylesheet_link_tag 'application', media: 'all'
-    
+
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js'
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js'
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js'
+    - if Rails.env.production?
+      = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.min.js'
+    - else
+      = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js'
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js'
     = javascript_include_tag 'application' 
     = csrf_meta_tags

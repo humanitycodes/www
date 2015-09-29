@@ -1,0 +1,11 @@
+title: Build simple webpages with basic HTML elements
+categories:
+  - html
+prereqs:
+  - static-laptop-setup
+project:
+  title: Build a simple resume for a fictional character, applying to a fictional job
+  criteria:
+    - "Use each of the following elements at least once: `h1`, `a`, `p`, `img`, `ul`, `ol`, and `li`."
+    - When you paste the address of your website into [the W3C validator](https://validator.w3.org/), it returns no errors (warnings are OK).
+    - This is the last time I'll mention it, but once again, your project should be on GitHub and hosted online (I recommend using surge again).

@@ -1,10 +1,12 @@
-title: Use basic CSS to style a webpage
+title: Building webpages with style
 draft: false
 categories:
   - css
 prereqs:
-  - html-basics
+  - html-intro
 project:
-  title: arst
+  title: Style your resume
   criteria:
-    - arst
+    - "include at least one instance of the following properties: `margin`, `padding`, `border`, `color`, `background`, `font-size`, `line-height` (properties must have a visible effect)"
+    - return no errors (warnings are OK) when the HTML document is uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
+    - return no errors or warnings when contents of your CSS are pasted into [CSS Lint](http://csslint.net/)

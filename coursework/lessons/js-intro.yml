@@ -3,8 +3,10 @@ draft: false
 categories:
   - js
 prereqs:
-  - css-intro
+  - stealing-style
 project:
-  title: arst
+  title: "Build a webpage with a button that shares a random joke, quote, or something else with a visitor in an alert (hint: you may find an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [`Math.random()`](http://stackoverflow.com/questions/5915096/get-random-item-from-javascript-array) useful in accomplishing this)"
   criteria:
-    - arst
+    - Include a button that will randomly display one of at least 3 different strings in an alert
+    - Return no errors (warnings are OK) when the HTML is uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
+    - Return no errors or warnings when the JavaScript is pasted into [JavaScript Lint](http://www.javascriptlint.com/online_lint.php)
