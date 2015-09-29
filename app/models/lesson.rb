@@ -3,7 +3,7 @@ class Lesson
   LESSONS_WATCHER = LessonsWatcher.new
 
   def self.all user, options={}
-    Rails.cache.fetch("Lesson.all #{user && user.id}", force: !options[:from_cache]) do
+    Rails.cache.fetch("Lesson.all #{user && user.id}", force: !user || !options[:from_cache]) do
       LESSONS_WATCHER.lessons.map do |lesson_hash|
         Lesson.new lesson_hash, user && LessonsStatusFetcher.new(user).dictionary
       end
@@ -11,7 +11,7 @@ class Lesson
   end
 
   def self.where requirements, user, options={}
-    Rails.cache.fetch("Lesson.where #{requirements}, #{user && user.id}", force: !options[:from_cache]) do
+    Rails.cache.fetch("Lesson.where #{requirements}, #{user && user.id}", force: !user || !options[:from_cache]) do
       lesson_hashes = LESSONS_WATCHER.lessons.select do |lesson_hash|
         requirements.all? { |attribute, value| lesson_hash[attribute] == value }
       end
@@ -23,7 +23,7 @@ class Lesson
   end
 
   def self.find key, user, options={}
-    Rails.cache.fetch("Lesson.find #{key}, #{user && user.id}", force: !options[:from_cache]) do
+    Rails.cache.fetch("Lesson.find #{key}, #{user && user.id}", force: !user || !options[:from_cache]) do
       lesson_hash = LESSONS_WATCHER.lessons.find do |lesson_hash|
         lesson_hash[:key] == key
       end
