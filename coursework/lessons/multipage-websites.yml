@@ -1,10 +1,10 @@
 title: Manage multiple pages in a website
 categories:
-  - wip
   - html
 prereqs:
   - html-intro
 project:
-  title: Publish a very basic website to the Internet
+  title: Create a website with a directory of students
   criteria:
-    - display text on the screen when a user visits the website
+    - a `/students` route exists, that lists the first names of 3 other Code Lab students (seek their permission first - if they're not comfortable with their first name on the page, you can make up a name)
+    - a route for each student exists at `/students/NAME`, where their name and favorite color is featured
