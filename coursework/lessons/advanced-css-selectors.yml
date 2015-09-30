@@ -1,11 +1,15 @@
 title: Use advanced CSS selectors to target any element or (almost) any group of elements
-draft: false
 categories:
-  - wip
   - css
 prereqs:
   - css-intro
 project:
-  title: arst
+  title: Build a list of something, using either a `ul`, `ol`, or `table` element
   criteria:
-    - arst
+    - not have any classes or ids included anywhere in the HTML (we can do a lot without them!)
+    - "include a list where the background alternates every other item (hint: use the `:nth-child` selector)"
+    - include a visible change on list items when you hover over them with your mouse
+    - include special, visible styles on only the first and last elements in the list
+    - include at least one empty list item that your CSS will hide using the `:empty` selector
+    - return no errors (warnings are OK) when the HTML document is uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
+    - return no errors or warnings when contents of the CSS file are pasted into [CSS Lint](http://csslint.net/)
