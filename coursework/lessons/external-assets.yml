@@ -1,11 +1,13 @@
 title: Organize CSS, JavaScript, and images in separate files
-draft: false
 categories:
-  - wip
   - html
 prereqs:
   - js-intro
 project:
-  title: arst
+  title: Create an HTML that links to external `.css` and `.js` files
   criteria:
-    - arst
+    - all the styles are in an external `.css` file that have a visible effect on the page
+    - all the JavaScript is in an external `.js` file, with some behavioral effect on the page
+    - return no errors (warnings are OK) when the HTML document is uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
+    - return no errors or warnings when contents of the CSS file are pasted into [CSS Lint](http://csslint.net/)
+    - return no errors or warnings when the JavaScript is pasted into [JavaScript Lint](http://www.javascriptlint.com/online_lint.php)

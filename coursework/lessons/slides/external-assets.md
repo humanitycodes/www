@@ -1,27 +1,25 @@
-## Separating styles into separate files
+## Separating styles into a separate file
 
----
-
-In web development, we like to separate our __content__ from our __presentation__. The content belongs in your HTML document, inside the body element. Then we'll typically keep all our styles in a separate __style_sheet___, which we'll link to in our head element.
+It's often helpful organizationally to separate our CSS from our HTML, so many developers will keep all their styles in a separate __style_sheet___, which we'll link to in our `head` element.
 
 This is partly to keep that one file from getting too big, but also for [other, more philosophical reasons](http://alistapart.com/article/separationdilemma).
 
----
+To put this into action, create a separate file that we'll call `style.css` and put it in the same folder as your HTML file. Then put all your styles in that file.
 
-To put this into action, create a separate file that we'll call `style.css`. It has to be in the same folder as your `.html` file. If you haven't already created a project folder to keep all your website files in, now would also be a good time to do that.
-
-Now, to include the styles in `style.css` in your webpage, you can add this line inside your head element.
+Now, to include the styles from your `style.css` file into the webpage, add this line inside your `head` element:
 
 ``` html
 <link rel="stylesheet" type="text/css" href="style.css">
 ```
 
-## Setup
+---
 
-Before we get started, remember how we created a separate file just for our CSS? Well, guess where our JavaScript belongs? You guessed it. In yet another separate file. You can call this one `script.js` and once again, it should be in the same folder as your main `.html` file.
+## Separating scripts into a separate file
 
-To include it, we'll use a **script** element:
+Just like we pulled out our CSS, it's often helpful to separate our JavaScript into another file. You can call this one `script.js` and once again, let's put it in the same folder as your main HTML file.
 
-<pre><code data-trim>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+To include it, we'll use a __script__ element with a `src` attribute, but nothing inside of it:
 
-If you're wondering why this tag isn't self-closing when it has no contents, it's because JavaScript can also go *between* the opening and closing tags. It's just cleaner to point to a source in a separate file.
+``` html
+<script src="script.js"></script>
+```
