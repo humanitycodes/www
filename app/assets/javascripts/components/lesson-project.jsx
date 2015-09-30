@@ -6,7 +6,7 @@ CodeLab.LessonProject = class extends React.Component {
       <div>
         <h3
           dangerouslySetInnerHTML = {{
-            __html: 'Project: ' + marked(this.props.lesson.project.title)
+            __html: 'Project: ' + marked(this.props.lesson.project.title).replace(/<p>|<\/p>/gi, '')
           }}
         />
         <h4>Criteria</h4>
