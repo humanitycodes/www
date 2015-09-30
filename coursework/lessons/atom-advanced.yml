@@ -1,0 +1,10 @@
+title: Atom
+categories:
+  - wip
+  - setup
+prereqs:
+  - static-laptop-setup
+project:
+  title: arst
+  criteria:
+    - arst

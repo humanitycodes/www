@@ -1,10 +1,10 @@
 title: Set up your laptop to build dynamic web applications with Ruby
 categories:
-  - wip
   - ruby
 prereqs:
   - external-assets
 project:
-  title: arst
+  title: Deploy Heroku's "Get Started with Ruby" app to both GitHub and Heroku
   criteria:
-    - arst
+    - be in a GitHub repo (since you're getting the app from Heroku, you'll once again have to add the GitHub repo to your local git repo with `git remote add origin https://github.com/YOUR-USERNAME/codelab-ruby-laptop-setup.git`)
+    - be hosted on Heroku

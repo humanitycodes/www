@@ -1,0 +1,10 @@
+title: Use zsh
+categories:
+  - wip
+  - setup
+prereqs:
+  - advanced-terminals
+project:
+  title: arst
+  criteria:
+    - arst

@@ -1,0 +1,10 @@
+title: Use prezto
+categories:
+  - wip
+  - setup
+prereqs:
+  - zsh-intro
+project:
+  title: arst
+  criteria:
+    - arst
