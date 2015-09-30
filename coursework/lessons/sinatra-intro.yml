@@ -1,0 +1,11 @@
+title: Build a simple webapp with Sinatra
+categories:
+  - ruby
+prereqs:
+  - ruby-laptop-setup
+project:
+  title: Build a minimally functional Sinatra app
+  criteria:
+    - display text when a user visits your homepage (e.g. `something.herokuapp.com`)
+    - use Ruby to display the current year on the homepage
+    - display text when a user visits an `/about` page (e.g. `something.herokuapp.com/about`)

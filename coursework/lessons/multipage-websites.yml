@@ -1,0 +1,10 @@
+title: Manage multiple pages in a website
+categories:
+  - wip
+  - html
+prereqs:
+  - html-intro
+project:
+  title: Publish a very basic website to the Internet
+  criteria:
+    - display text on the screen when a user visits the website
