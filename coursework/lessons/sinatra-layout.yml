@@ -1,0 +1,12 @@
+title: DRY up Sinatra views with a layout file
+categories:
+  - wip
+  - ruby
+prereqs:
+  - sinatra-erb
+project:
+  title: Build a minimally functional Sinatra app
+  criteria:
+    - display text when a user visits your homepage (e.g. `something.herokuapp.com`)
+    - use Ruby to display the current year on the homepage
+    - display text when a user visits an `/about` page (e.g. `something.herokuapp.com/about`)

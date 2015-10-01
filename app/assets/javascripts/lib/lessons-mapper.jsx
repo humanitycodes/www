@@ -32,12 +32,14 @@ CodeLab.LessonsMapper = class {
   initializeGraph() {
     this.marginX = 50
     this.marginY = 50
+    this.ranksep = 100
+    this.nodeDiameter = 32
 
     this.graph = new dagreD3.graphlib.Graph().setGraph({
       nodesep: 10,
       rankdir: 'LR',
       edgesep: 0,
-      ranksep: 100,
+      ranksep: this.ranksep,
       marginx: this.marginX,
       marginy: this.marginY
     }).setDefaultEdgeLabel(() => { return {} })
@@ -45,8 +47,8 @@ CodeLab.LessonsMapper = class {
     this.lessons.forEach(lesson => {
       this.graph.setNode(lesson.key, {
         label: lesson.categories[0] ? lesson.categories[0].toUpperCase() : '...',
-        width: 32,
-        height: 32,
+        width: this.nodeDiameter,
+        height: this.nodeDiameter,
         shape: 'circle',
         lesson: lesson,
         // Necessary to set here for dagre-d3 to correctly center labels
@@ -88,17 +90,17 @@ CodeLab.LessonsMapper = class {
       let minX = d3.min([0, distanceBetweenGraphEdgeAndContainerLimit])
       let maxX = d3.max([distanceBetweenGraphEdgeAndContainerLimit, 0])
       let newX = d3.min([d3.max([d3.event.translate[0], minX]), maxX])
-      zoomer.translate([newX, 0])
+      this.zoomer.translate([newX, 0])
       this.svgInner.attr('transform', `translate(${newX},0)`)
     }
 
-    const zoomer = d3.behavior.zoom()
+    this.zoomer = d3.behavior.zoom()
       .scaleExtent([1, 1])
       .on('zoom', zoomed)
 
-    this.svg.call(zoomer)
+    this.svg.call(this.zoomer)
 
-    // Disable mousewheel zoom
+    // Disable mousewheel zoom, so that the viz doesn't prevent page scrolling
     this.svg.on('wheel.zoom', null)
     this.svg.on('mousewheel.zoom', null)
 
@@ -111,6 +113,13 @@ CodeLab.LessonsMapper = class {
   computeAndDrawLayout() {
     this.renderer(d3.select('svg g'), this.graph)
     this.svg.attr('height', this.graph.graph().height)
+
+    const firstRecommendedLessonPosition = d3.min(
+      this.recommendedLessonKeys.map(key => this.graph.node(key).x)
+    )
+    const initialPanPosition = -firstRecommendedLessonPosition + this.marginX + this.nodeDiameter / 2
+    this.zoomer.translate([initialPanPosition, 0])
+    this.svgInner.attr('transform', `translate(${initialPanPosition},0)`)
   }
 
   customizeGraph() {

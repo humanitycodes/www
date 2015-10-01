@@ -19,6 +19,10 @@ CodeLab.LessonsMap = class extends React.Component {
     window && window.addEventListener('resize', this.mapper.draw, false)
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return !_.isEqual(nextState.lessons, this.state.lessons)
+  }
+
   componentWillMount() {
     if (this.props.user) {
       $.getJSON('/lessons.json').done(response => {
