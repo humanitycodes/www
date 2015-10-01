@@ -3,7 +3,7 @@ draft: false
 categories:
   - js
 prereqs:
-  - stealing-style
+  - css-intro
 project:
   title: "Build a webpage with a button that shares a random joke, quote, or something else with a visitor in an alert (hint: you may find an [`array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [`Math.random()`](http://stackoverflow.com/questions/5915096/get-random-item-from-javascript-array) useful in accomplishing this)"
   criteria:
