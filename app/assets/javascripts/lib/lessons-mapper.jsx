@@ -84,19 +84,20 @@ CodeLab.LessonsMapper = class {
   }
 
   enablePanning() {
-    const zoomed = () => {
-      let drawWidth = d3.select('g.nodes')[0][0].getBBox().width
-      let distanceBetweenGraphEdgeAndContainerLimit = this.containerWidth - this.marginX * 2 - drawWidth
-      let minX = d3.min([0, distanceBetweenGraphEdgeAndContainerLimit])
-      let maxX = d3.max([distanceBetweenGraphEdgeAndContainerLimit, 0])
-      let newX = d3.min([d3.max([d3.event.translate[0], minX]), maxX])
+    this.zoom = translateTo => {
+      const drawWidth = d3.select('g.nodes')[0][0].getBBox().width
+      const distanceBetweenGraphEdgeAndContainerLimit = this.containerWidth - this.marginX * 2 - drawWidth
+      const minX = d3.min([0, distanceBetweenGraphEdgeAndContainerLimit])
+      const maxX = d3.max([distanceBetweenGraphEdgeAndContainerLimit, 0])
+      const translation = translateTo ? translateTo : d3.event.translate[0]
+      const newX = d3.min([d3.max([translation, minX]), maxX])
       this.zoomer.translate([newX, 0])
       this.svgInner.attr('transform', `translate(${newX},0)`)
     }
 
     this.zoomer = d3.behavior.zoom()
       .scaleExtent([1, 1])
-      .on('zoom', zoomed)
+      .on('zoom', this.zoom)
 
     this.svg.call(this.zoomer)
 
@@ -118,8 +119,9 @@ CodeLab.LessonsMapper = class {
       this.recommendedLessonKeys.map(key => this.graph.node(key).x)
     )
     const initialPanPosition = -firstRecommendedLessonPosition + this.marginX + this.nodeDiameter / 2
-    this.zoomer.translate([initialPanPosition, 0])
-    this.svgInner.attr('transform', `translate(${initialPanPosition},0)`)
+    this.zoom(initialPanPosition)
+    // this.zoomer.translate([initialPanPosition, 0])
+    // this.svgInner.attr('transform', `translate(${initialPanPosition},0)`)
   }
 
   customizeGraph() {
