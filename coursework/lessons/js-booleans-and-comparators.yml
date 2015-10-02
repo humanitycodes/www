@@ -1,10 +1,11 @@
 title: Booleans and comparators
 categories:
-  - wip
   - js
 prereqs:
   - js-functions-strings-variables
 project:
-  title: arst
+  title: Write a short choose-your-own adventure story in JavaScript
   criteria:
-    - arst
+    - include at least 2 choices for the user to make
+    - use `prompt` and `confirm` to collect choices from the user
+    - use comparators with `if` and `else` to branch the story, depending on user choices
