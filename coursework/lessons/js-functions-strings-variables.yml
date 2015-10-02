@@ -1,0 +1,12 @@
+title: Use functions, strings, and variables for conversational JavaScript
+categories:
+  - js
+prereqs:
+  - js-intro
+project:
+  title: Use information from prompts to fill out a user profile
+  criteria:
+    - an HTML profile with a name, favorite color, and at least one other attribute
+    - the containing element for each attribute is blank initially
+    - prompts are used to collect text values for each attribute
+    - each attribute is given an `id` (e.g. "name", "favorite-color"), which is used to target that element and set its `innerHTML` to the value provided by the user
