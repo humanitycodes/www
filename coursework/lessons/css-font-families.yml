@@ -1,0 +1,12 @@
+title: Customize the fonts in your websites
+categories:
+  - css
+prereqs:
+  - external-assets
+  - stealing-style
+project:
+  title: Include custom fonts in a webpage
+  criteria:
+    - include at least one font from Google Fonts in your page, using a `link` element
+    - include at least one font from DaFont.com in your page, using a `@font-face` rule
+    - every included font should be visibly applied to text on the page
