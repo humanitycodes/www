@@ -18,7 +18,7 @@ CodeLab.config.mentors = [
     name: 'Rich McLaughlin',
     username: 'RichMcL'
   }, {
-    name: 'Stuart Pierson',
+    name: 'Stuart Pierman',
     username: 'stuartpearson'
   }
 ]
