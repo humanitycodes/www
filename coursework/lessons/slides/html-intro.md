@@ -142,7 +142,7 @@ Here are a few examples:
 <input type="text" placeholder="Username">
 ```
 
-You may also see them with the option `/` at the end:
+You may also see them with the optional `/` at the end:
 
 ``` html
 <hr/>

@@ -2,7 +2,7 @@
 
 So far, we've only created an `index.html` file, which shows up on the homepage of a website. As you've probably noticed however, most websites have many pages. So how do we make that happen?
 
-Let's say we want an About page. Let's create a new file in the same project folder as `index.html` and call it `about.html`. Go ahead and put some valid HTML in that page.
+Let's practice in your folder for the last project. Say we want an About page. Let's create a new file in the same project folder as `index.html` and call it `about.html`. Go ahead and put some valid HTML in that page.
 
 Now our website just got a little more complex, so directly opening the HTML file in a web browser won't work very well. To make things simple again, make sure you're in your project directory in the terminal, then install `live-server` and run it with the code below:
 
@@ -84,6 +84,6 @@ No matter what page we're on, that absolute link will work. Now let's look at th
 <a href="staff/alice">Meet Alice</a>
 ```
 
-Subtle difference. When we're at `/` (our homepage), that link will work. When we're on the `/staff` page though, it'll send a visitor to `/staff/staff/alice` - a page that doesn't exist! When you're at `/staff/bob`, that link will send a visitor to `/staff/bob/staff/alice` - another non-existant page. Yuck.
+Subtle difference. When we're at `/` (our homepage), that link will work. When we're on the `/staff` page though, it'll send a visitor to `/staff/staff/alice` - a page that doesn't exist! When you're at `/staff/bob`, that link will send a visitor to `/staff/bob/staff/alice` - another non-existent page. Yuck.
 
 So stick with absolute links. Then no matter what page you're on, your links will _always_ work!
