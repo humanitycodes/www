@@ -65,13 +65,13 @@ CodeLab.LessonPagination = Radium(class extends React.Component {
                       r = {circleRadius}
                       cy = {-circleRadius}
                       data-new-page = {page}
-                      data-content = {slideHeading}
+                      data-content = {CodeLab.helpers.parseMarkdown(slideHeading, { unwrap: true })}
                       onClick = {this.props.onUpdatePage}
                       style = {[
                         this.styles.breadcrumbCircle.base,
                         this.props.page === page && this.styles.breadcrumbCircle.active
                       ]}
-                    ></circle>
+                    />
                   </g>
                 )
               })

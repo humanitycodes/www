@@ -19,7 +19,12 @@ CodeLab.LessonSlides = class extends React.Component {
 
     if (slide) {
       return (
-        <div className='lesson-slide' dangerouslySetInnerHTML = {{__html: marked(slide)}}/>
+        <div
+          className = 'lesson-slide'
+          dangerouslySetInnerHTML = {{
+            __html: CodeLab.helpers.parseMarkdown(slide)
+          }}
+        />
       )
     } else {
       return (

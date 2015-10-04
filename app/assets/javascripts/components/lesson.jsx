@@ -1,5 +1,3 @@
-//= require ../vendor/marked
-
 CodeLab.Lesson = class extends React.Component {
   constructor(props) {
     super(props)

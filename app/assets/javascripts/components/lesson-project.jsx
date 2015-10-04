@@ -1,12 +1,13 @@
-//= require ../vendor/marked
-
 CodeLab.LessonProject = class extends React.Component {
   render() {
     return (
       <div>
         <h3
           dangerouslySetInnerHTML = {{
-            __html: 'Project: ' + marked(this.props.lesson.project.title).replace(/<p>|<\/p>/gi, '')
+            __html: 'Project: ' + CodeLab.helpers.parseMarkdown(
+              this.props.lesson.project.title,
+              { unwrap: true }
+            )
           }}
         />
         <h4>Criteria</h4>
@@ -17,7 +18,7 @@ CodeLab.LessonProject = class extends React.Component {
                 <li
                   key = {criterion}
                   dangerouslySetInnerHTML = {{
-                    __html: marked(criterion).replace(/<p>|<\/p>/gi, '')
+                    __html: CodeLab.helpers.parseMarkdown(criterion, { unwrap: true })
                   }}
                 />
               )
