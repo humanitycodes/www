@@ -14,6 +14,9 @@ __We will not require you to host more than 5 apps, so giving your credit card i
 
 ---
 
-## Ruby
+## Installing Ruby
 
-Once you've signed up for Heroku, it'll [give you instructions](https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction) on how to set up your computer with Ruby. __You only have to follow the instructions up to and including _Deploy the app_.__
+Once you've signed up for Heroku, it'll [give you instructions](https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction) on how to set up your computer with Ruby. __Two important notes:__
+
+- __You only have to follow the instructions up to and including _Deploy the app_.__
+- __If you're running Windows, Heroku will suggest installing JRuby instead of regular Ruby. Please ignore that suggestion and follow [the normal instructions for Windows](http://guides.railsgirls.com/install/#setup-for-windows).__
