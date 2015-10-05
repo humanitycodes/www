@@ -10,4 +10,4 @@ project:
     - use the `container` class appropriately to center your page content
     - split your content into 2 columns on large (lg) and medium (md) sized screens, but collapse them on top of each other on small (sm) and extra small (xs) screens
     - use a `thumbnail` class on an at least one image in your page
-    - use a `navbar` class to display the name of your site and a list of at least 3 at the top of your page
+    - use a `navbar` class to display the name of your site and a list of at least 3 links at the top of your page

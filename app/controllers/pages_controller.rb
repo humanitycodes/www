@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  def schedule
+  def students_guide
   end
-  
+
 end

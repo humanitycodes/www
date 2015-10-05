@@ -222,6 +222,7 @@ GEM
       execjs
       rails (>= 3.2)
       tilt
+    redcarpet (3.3.2)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -332,6 +333,7 @@ DEPENDENCIES
   puma
   rails (= 4.2.4)
   react-rails (~> 1.0)
+  redcarpet
   rest-client
   rollbar (~> 2.2.1)
   rspec-rails (~> 3.3.3)

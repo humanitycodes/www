@@ -10,13 +10,13 @@ gem 'jbuilder', '~> 2.0'         # Build JSON APIs with ease. Read more: https:/
 gem 'react-rails', '~> 1.0'      # Makes it easy to use React and JSX
 gem 'slim-rails'
 gem 'autoprefixer-rails'
-# AUTHENTICATION
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'rest-client'
 gem 'github_api'
 gem 'puma'
+gem 'redcarpet'
 
 group :development do
   gem 'spring'            # Spring speeds up development by keeping your application running in the background
