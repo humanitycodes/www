@@ -35,7 +35,8 @@ CodeLab.LessonPagination = Radium(class extends React.Component {
       container: '#' + this.breadcrumbsContainerID,
       placement: 'top',
       animation: false,
-      trigger: 'hover'
+      trigger: 'hover',
+      html: true
     })
   }
 
