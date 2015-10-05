@@ -7,5 +7,6 @@ project:
   title: Write a short choose-your-own adventure story in JavaScript
   criteria:
     - include at least 2 choices for the user to make
-    - use `prompt` and `confirm` to collect choices from the user
+    - use `prompt` to collect choices from the user (the entire story can take place in dialog boxes, so your `body` element could be empty for this project)
     - use comparators with `if` and `else` to branch the story, depending on user choices
+    - don't get _too_ carried away - it can be tempting to build a complex video game, but remember, you can always come back and build on this project once you learn more
