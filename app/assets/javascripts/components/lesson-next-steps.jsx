@@ -5,7 +5,7 @@ CodeLab.LessonNextSteps = class extends React.Component {
 
     switch (this.props.lesson.status) {
       case 'started': return (
-        <CodeLab.LessonNextStepStarted repoURL={repoURL}/>
+        <CodeLab.LessonNextStepStarted repoURL={repoURL} project={this.props.lesson.project}/>
       )
       case 'submitted': return (
         <CodeLab.LessonNextStepSubmitted repoURL={repoURL}/>

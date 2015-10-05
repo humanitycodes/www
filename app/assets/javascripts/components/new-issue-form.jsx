@@ -17,7 +17,7 @@ CodeLab.NewIssueForm = class extends React.Component {
     const hostedURL = this.refs.hostedURL.getDOMNode().value
     const newIssueURL = `${ this.props.repoURL }/issues/new?${ $.param({
       title: 'Code Lab Feedback',
-      body: `Hey @${mentor}, can you take a look at this? It's [hosted here](${hostedURL}).`
+      body: `Hey @${mentor}, can you take a look at this? It's [hosted here](${hostedURL}) and the [project](http://lansingcodelab.com/lessons/${this.props.repoURL.split('codelab-')[1]}/1) criteria are:\n\n- ${this.props.project.criteria.join('\n- ')}`
     }) }`
     window.open(newIssueURL, '_blank').focus()
   }

@@ -15,7 +15,10 @@ CodeLab.LessonNextStepStarted = class extends React.Component {
           <li><code>git push origin master</code> (pushes your latest commits to GitHub - i.e origin)</li>
         </ol>
         <p>Then whenever you've met the project criteria to the right, request feedback below and we'll help you refine it:</p>
-        <CodeLab.NewIssueForm repoURL={this.props.repoURL}/>
+        <CodeLab.NewIssueForm
+          repoURL = {this.props.repoURL}
+          project = {this.props.project}
+        />
       </div>
     )
   }
