@@ -44,6 +44,7 @@ group :test do
 end
 
 group :production do
-  gem 'rollbar', '~> 2.2.1'
+  gem 'rollbar', '~> 2.4.0'
+  gem 'oj', '~> 2.12.14'
   gem 'newrelic_rpm'
 end

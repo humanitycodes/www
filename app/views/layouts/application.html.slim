@@ -9,6 +9,8 @@ html
     = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css'
     = stylesheet_link_tag 'application', media: 'all'
 
+    - if Rails.env.production?
+      == render 'layouts/rollbar_js'
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js'
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js'
     = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'
