@@ -1,4 +1,4 @@
-CodeLab.NewIssueForm = class extends React.Component {
+CodeLab.NewIssueForm = Radium(class extends React.Component {
   constructor(props) {
     super(props)
     this.openNewIssue = this.openNewIssue.bind(this)
@@ -6,6 +6,9 @@ CodeLab.NewIssueForm = class extends React.Component {
       inlineText: {
         base: {
           padding: '0 5px'
+        },
+        first: {
+          padding: '0 5px 0 0'
         }
       }
     }
@@ -17,7 +20,7 @@ CodeLab.NewIssueForm = class extends React.Component {
     const hostedURL = this.refs.hostedURL.getDOMNode().value
     const newIssueURL = `${ this.props.repoURL }/issues/new?${ $.param({
       title: 'Code Lab Feedback',
-      body: `Hey @${mentor}, can you take a look at this? It's [hosted here](${hostedURL}) and the [project](http://lansingcodelab.com/lessons/${this.props.repoURL.split('codelab-')[1]}/1) criteria are:\n\n- ${this.props.project.criteria.join('\n- ')}`
+      body: `Hey @${mentor}, can you take a look at this? It's [hosted here](${hostedURL}) and meets the following [project](http://lansingcodelab.com/lessons/${this.props.repoURL.split('codelab-')[1]}/1) criteria:\n\n- [x] ${this.props.project.criteria.join('\n- [x] ')}`
     }) }`
     window.open(newIssueURL, '_blank').focus()
   }
@@ -26,7 +29,14 @@ CodeLab.NewIssueForm = class extends React.Component {
     return (
       <form onSubmit={this.openNewIssue} className='well'>
         <p>
-          <span style={this.styles.inlineText.base}>Hey</span>
+          <span
+            style = {[
+              this.styles.inlineText.base,
+              this.styles.inlineText.first
+            ]}
+          >
+            Hey
+          </span>
           <select ref='mentor' name='mentor'>
             {
               CodeLab.helpers.shuffle(CodeLab.config.mentors).map(mentor => {
@@ -52,4 +62,4 @@ CodeLab.NewIssueForm = class extends React.Component {
       </form>
     )
   }
-}
+})

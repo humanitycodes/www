@@ -4,7 +4,7 @@ class RepositoriesController < ApplicationController
       user: current_user.username,
       oauth_token: current_user.github_token
     ).repos.create(name: "codelab-#{params[:key]}")
-    redirect_to :back
+    redirect_to request.referer + '#project'
   end
 
   def submit
