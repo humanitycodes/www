@@ -69,7 +69,12 @@ CodeLab.Lesson = class extends React.Component {
           borderTopLeftRadius: 0,
           borderTopRightRadius: 0
         }}>
-          <CodeLab.LessonSlides slides={this.slides()} page={this.state.page}/>
+          <CodeLab.LessonSlides
+            slides = {this.slides()} 
+            page = {this.state.page}
+            baseURL = {this.baseURL()}
+            onUpdatePage = {this.updatePage}
+          />
         </CodeLab.Card>
         {
           this.props.user ?

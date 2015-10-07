@@ -1,4 +1,9 @@
 CodeLab.LessonSlides = class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.updatePage = this.updatePage.bind(this)
+  }
+
   componentDidMount() {
     this.highlightCodeBlocks()
   }
@@ -13,18 +18,32 @@ CodeLab.LessonSlides = class extends React.Component {
     })
   }
 
+  updatePage(event) {
+    this.props.onUpdatePage(event)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
+  }
+
   render() {
     const slideIndex = this.props.page - 1
     const slide = this.props.slides[slideIndex]
 
     if (slide) {
       return (
-        <div
-          className = 'lesson-slide'
-          dangerouslySetInnerHTML = {{
-            __html: CodeLab.helpers.parseMarkdown(slide)
-          }}
-        />
+        <div>
+          <div
+            className = 'lesson-slide'
+            dangerouslySetInnerHTML = {{
+              __html: CodeLab.helpers.parseMarkdown(slide)
+            }}
+          />
+          <hr/>
+          <CodeLab.LessonSlidesNavigation
+            page = {this.props.page}
+            slides = {this.props.slides}
+            baseURL = {this.props.baseURL}
+            onUpdatePage = {this.updatePage}
+          />
+        </div>
       )
     } else {
       return (

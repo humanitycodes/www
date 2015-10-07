@@ -7,7 +7,7 @@ CodeLab.LessonPagination = Radium(class extends React.Component {
       containerWidth: 0
     }
     this.updateContainerWidth = this.updateContainerWidth.bind(this)
-    this.breadcrumbsContainerID = 'lesson-page-breadcrumbs'
+    this.breadcrumbsContainerID = 'lesson-page-breadcrumbs' + Math.random() * 1e20
     this.styles = {
       breadcrumbCircle: {
         base: {
