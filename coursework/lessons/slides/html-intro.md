@@ -26,7 +26,7 @@ Get it? If not, don't worry, I love explaining jokes.
 </html>
 ```
 
-This code should look familiar. If you right-click on any webpage on the Internet, you can click on _View Page Source_ (or something similar) to see code like the above.
+This code should look familiar from the last lesson. If you right-click on any webpage on the Internet, you can click on _View Page Source_ (or something similar) to see code like the above.
 
 That's it. That's HTML. You may notice some patterns. First, there are a lot of groups of letters wrapped by a `<` and a `>` like this: `<body>`. Each of these is called a __tag__.
 
