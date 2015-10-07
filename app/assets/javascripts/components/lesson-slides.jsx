@@ -36,13 +36,18 @@ CodeLab.LessonSlides = class extends React.Component {
               __html: CodeLab.helpers.parseMarkdown(slide)
             }}
           />
-          <hr/>
-          <CodeLab.LessonSlidesNavigation
-            page = {this.props.page}
-            slides = {this.props.slides}
-            baseURL = {this.props.baseURL}
-            onUpdatePage = {this.updatePage}
-          />
+          {
+            this.props.slides.length > 1 ?
+              <div>
+                <hr/>
+                <CodeLab.LessonSlidesNavigation
+                  page = {this.props.page}
+                  slides = {this.props.slides}
+                  baseURL = {this.props.baseURL}
+                  onUpdatePage = {this.updatePage}
+                />
+              </div> : ''
+          }
         </div>
       )
     } else {
