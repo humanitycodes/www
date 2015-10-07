@@ -125,8 +125,6 @@ cd some folder # returns an error, as it looks for a folder called "some" with "
 cd some\ folder # works great, but we have to remember to put that backslash in front of every space
 ```
 
-
-
 ---
 
 ## Beef up our terminal with Node and NPM
@@ -162,7 +160,7 @@ So we have some code and it looks pretty good to us. Now what would a pro do? Sh
   - __Ubuntu__: `sudo apt-get install git` on the terminal
   - __Windows__: you already have it installed, as it's part of the Git Bash terminal
 3. Log in to this site with the "Sign in with GitHub" button in the upper-right.
-4. Follow instructions below in the "Next Steps" section. Since we already have a project folder this first time though, instead of using the `git clone the-clone-url` command, we'll `cd` into our current directory, enter `git init`, and then enter `git remote add origin the-clone-url`. Then follow the rest of the instructions.
+4. Follow instructions below in the "Next Steps" section. Once you've created a folder with the `git clone` command, move your `index.html` file into that folder, then follow the rest of the instructions.
 
 ---
 
