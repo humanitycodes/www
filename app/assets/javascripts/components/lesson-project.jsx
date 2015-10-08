@@ -20,20 +20,41 @@ CodeLab.LessonProject = class extends React.Component {
           padding: '15px 20px'
         }}>
           <h4>Criteria</h4>
-          <ul>
-            {
-              this.props.lesson.project.criteria.map(criterion => {
+          {(() => {
+            if (this.props.lesson.status === 'started') {
+              return this.props.lesson.project.criteria.map(criterion => {
                 return (
-                  <li
-                    key = {criterion}
-                    dangerouslySetInnerHTML = {{
-                      __html: CodeLab.helpers.parseMarkdown(criterion, { unwrap: true })
-                    }}
-                  />
+                  <div className='checkbox' key={criterion}>
+                    <label>
+                      <input
+                        type = 'checkbox'
+                        dangerouslySetInnerHTML = {{
+                          __html: CodeLab.helpers.parseMarkdown(criterion, { unwrap: true })
+                        }}
+                      />
+                    </label>
+                  </div>
                 )
               })
+            } else {
+              return (
+                <ul>
+                  {
+                    this.props.lesson.project.criteria.map(criterion => {
+                      return (
+                        <li
+                          key = {criterion}
+                          dangerouslySetInnerHTML = {{
+                            __html: CodeLab.helpers.parseMarkdown(criterion, { unwrap: true })
+                          }}
+                        />
+                      )
+                    })
+                  }
+                </ul>
+              )
             }
-          </ul>
+          })()}
         </div>
         <h4>Next steps</h4>
         <CodeLab.LessonNextSteps

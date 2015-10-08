@@ -16,13 +16,33 @@ CodeLab.NewIssueForm = Radium(class extends React.Component {
 
   openNewIssue(event) {
     event.preventDefault()
-    const mentor = this.refs.mentor.getDOMNode().value
-    const hostedURL = this.refs.hostedURL.getDOMNode().value
-    const newIssueURL = `${ this.props.repoURL }/issues/new?${ $.param({
-      title: 'Code Lab Feedback',
-      body: `Hey @${mentor}, can you take a look at this? It's [hosted here](${hostedURL}) and meets the following [project](http://lansingcodelab.com/lessons/${this.props.repoURL.split('codelab-')[1]}/1) criteria:\n\n- [x] ${this.props.project.criteria.join('\n- [x] ')}`
-    }) }`
-    window.open(newIssueURL, '_blank').focus()
+
+    const $projectCriteria = $('#project-criteria')
+
+    const allCriteriaAreChecked = () => {
+      return $projectCriteria.find('input[type="checkbox"]').toArray().every(checkbox => {
+        return checkbox.checked
+      })
+    }
+
+    if (allCriteriaAreChecked()) {
+
+      const mentor = this.refs.mentor.getDOMNode().value
+      const hostedURL = this.refs.hostedURL.getDOMNode().value
+      const newIssueURL = `${ this.props.repoURL }/issues/new?${ $.param({
+        title: 'Code Lab Feedback',
+        body: `Hey @${mentor}, can you take a look at this? It's [hosted here](${hostedURL}) and meets the following [project](http://lansingcodelab.com/lessons/${this.props.repoURL.split('codelab-')[1]}/1) criteria:\n\n- [x] ${this.props.project.criteria.join('\n- [x] ')}`
+      }) }`
+      window.open(newIssueURL, '_blank').focus()
+
+    } else {
+      $('html,body').animate({
+        scrollTop: $projectCriteria.offset().top
+      }).promise().done(() => {
+        alert("Please make sure your work meets the project criteria before submitting. As you do, check each checkbox. Then you can submit your work for feedback.")
+      })
+    }
+
   }
 
   render() {
