@@ -8,6 +8,7 @@ describe User do
       it 'returns a valid user' do
         expect(@user).to be_valid
       end
+
     end
   end
 
