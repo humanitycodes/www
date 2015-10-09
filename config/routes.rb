@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/lessons/:key/:page' => 'lessons#show'
   get '/lessons/:key', to: redirect('/lessons/%{key}/1')
 
+  get 'mentors/:username/feedback' => 'mentors#feedback'
+
   resources :repositories, only: [:create, :update]
   post '/repositories/:key/submit' => 'repositories#submit'
 

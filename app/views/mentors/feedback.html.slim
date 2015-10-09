@@ -1,0 +1,16 @@
+.well.card
+  h2 
+    form
+      ' Helped
+      => pluralize @comments.group_by(&:student).size, 'student'
+      ' with 
+      => pluralize @comments.size, 'comment'
+      ' since
+      input type='text' name='min_date' class='form-control' value="#{ @min_date }"
+      button type='submit' class='btn btn-primary' Refresh
+   
+  ul
+    - @comments.select { |comment| comment.created_at >= @min_date }.each do |comment|
+      li
+        => link_to comment.student, comment.url
+        = comment.created_at
