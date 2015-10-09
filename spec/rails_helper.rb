@@ -5,15 +5,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 
-require 'webmock/rspec'
-WebMock.disable_net_connect!(
-  allow_localhost: true,
-  allow: [
-    /google.com/, # example valid domain
-    /oih1235oieh1235oihe12io3e5hoi1.com/ # example domain that will never exist
-  ]
-)
-
+require_relative 'support/webmock'
 require_relative 'support/capybara'
 require_relative 'support/database_cleaner'
 require_relative 'support/factory_girl'
@@ -48,4 +40,9 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.before(:each) do
+    stub_request(:get, 'http://localhost:8080/lesson-repos/').
+      to_return(status: 200, body: '{"lessons":{}}')
+  end
 end
