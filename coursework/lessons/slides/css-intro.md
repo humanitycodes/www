@@ -4,7 +4,7 @@ __CSS (Cascading Style Sheets)__ are what make the difference between a plain, b
 
 ![The difference styles make](https://www.dropbox.com/s/pe0bjp0e20t8nay/Screenshot%202015-09-29%2014.57.32.png?dl=1)
 
-If you want to see what other pages look like without styles, you can install the free [Web Developer browser extension](http://chrispederick.com/work/web-developer/) (for Chrome, Firefox, and Opera - if you're not using one of those, you can download and install one of them now).
+If you want to see what other pages look like without styles, you can install the free [Web Developer browser extension](http://chrispederick.com/work/web-developer/) (for Chrome, Firefox, and Opera - if you're not using one of those, we recommend that you download and install one of them now).
 
 Once installed, you can [follow these instructions](http://stackoverflow.com/questions/14046738/how-to-disable-css-in-browser-for-testing-purposes#answer-14046754) to temporarily disable all styles on a page and see the difference.
 
