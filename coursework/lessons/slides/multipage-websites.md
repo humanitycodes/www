@@ -13,6 +13,8 @@ live-server
 
 Now visit `localhost:8080` in your web browser to see your website. Do you see your homepage? Then try visiting `localhost:8080/about.html` to make sure you see your About page.
 
+You can stop `live-server` at any time by pressing `ctrl-c`. 
+
 ---
 
 ## Getting rid of the `.html` in page names

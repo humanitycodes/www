@@ -4,4 +4,6 @@ Targeting exactly the elements you want is an art in and of itself. And [this is
 
 And after that, [this article about CSS specificity](http://www.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/) is also helpful.
 
-I recommend browsing both of those, then keeping them as a reference as you complete the project below.
+[This game](http://flukeout.github.io/) is a great way to check your understanding.
+
+I recommend browsing both resources, then keeping them as a reference as you complete the project below.
