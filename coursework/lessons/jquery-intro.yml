@@ -1,11 +1,15 @@
-title: Jquery intro
+title: Use jQuery to select elements, respond to events, and manipulate styles
 categories:
-  - wip
   - js
 prereqs:
   - advanced-css-selectors
   - external-assets
+  - js-booleans-and-comparators
 project:
-  title: arst
+  title: Program Tic Tac Toe
   criteria:
-    - arst
+    - "[This HTML file](https://gist.github.com/chrisvfritz/6ff8b4a898468bdf6d2c) is used to build off (you may change any part of it)"
+    - Players have some way to add either an X or O to each square (apart from event handlers, you may also find [the `text` function](http://api.jquery.com/text/#text2) useful)
+    - Squares with Xs and squares with Os have different background colors
+    - The reset button clears Xs and Os from every square
+    - (optional) Win conditions do _NOT_ have to be detected and reported, but can try to accomplish this if you'd like a challenge
