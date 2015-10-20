@@ -12,4 +12,4 @@ project:
     - Players have some way to add either an X or O to each square (apart from event handlers, you may also find [the `text` function](http://api.jquery.com/text/#text2) useful)
     - Squares with Xs and squares with Os have different background colors
     - The reset button clears Xs and Os from every square
-    - (optional) Win conditions do _NOT_ have to be detected and reported, but can try to accomplish this if you'd like a challenge
+    - (optional) Win conditions do _NOT_ have to be detected and reported, but you can try to accomplish this if you'd like a challenge
