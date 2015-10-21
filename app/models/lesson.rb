@@ -1,11 +1,21 @@
 class Lesson
-  DISABLE_CACHING = true
   LESSONS_WATCHER = LessonsWatcher.new
 
   class << self
 
     def all user, options={}
-      Rails.cache.fetch("Lesson.all #{user && user.id}", expires_in: 1.hour, force: !user || !options[:from_cache]) do
+      if user.nil?
+        return LESSONS_WATCHER.lessons.map { |lesson_hash| Lesson.new lesson_hash }
+      end
+
+      lessons_key = "Lesson.all #{user.id}"
+      cached_lessons = Rails.cache.read(lessons_key)
+
+      if cached_lessons && options[:from_cache]
+        return cached_lessons
+      end
+
+      Rails.cache.fetch(lessons_key, expires_in: 1.hour) do
         LESSONS_WATCHER.lessons.map do |lesson_hash|
           Lesson.new lesson_hash, user_dictionary(user)
         end
@@ -42,7 +52,7 @@ class Lesson
 
   end
 
-  def initialize lesson_hash, status_dictionary
+  def initialize lesson_hash, status_dictionary=nil
     lesson_hash.each do |attribute, value|
       instance_variable_set("@#{attribute}", value)
       Lesson.class_eval { attr_reader attribute.to_sym }
