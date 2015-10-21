@@ -5,7 +5,7 @@ class Lesson
   class << self
 
     def all user, options={}
-      Rails.cache.fetch("Lesson.all #{user && user.id}", force: !user || !options[:from_cache]) do
+      Rails.cache.fetch("Lesson.all #{user && user.id}", expires_in: 1.hour, force: !user || !options[:from_cache]) do
         LESSONS_WATCHER.lessons.map do |lesson_hash|
           Lesson.new lesson_hash, user_dictionary(user)
         end

@@ -8,6 +8,7 @@ CodeLab.LessonsMap = class extends React.Component {
     }
     this.containerID = `lessons-map-${ Math.random().toString().replace('.','') }`
     this.initializeNewMapper = this.initializeNewMapper.bind(this)
+    this.refreshLessons = this.refreshLessons.bind(this)
   }
 
   initializeNewMapper() {
@@ -23,7 +24,7 @@ CodeLab.LessonsMap = class extends React.Component {
     return !_.isEqual(nextState.lessons, this.state.lessons)
   }
 
-  componentWillMount() {
+  refreshLessons() {
     if (this.props.user) {
       $.getJSON('/lessons.json').done(response => {
         this.setState({
