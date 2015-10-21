@@ -1,6 +1,7 @@
 title: Set up your laptop to build dynamic web applications with Ruby
 categories:
   - setup
+  - ruby
 prereqs:
   - external-assets
 project:
