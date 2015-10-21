@@ -1,12 +1,13 @@
 title: Serve HTML files with embedded Ruby in Sinatra
 categories:
-  - wip
   - ruby
 prereqs:
   - sinatra-intro
 project:
-  title: Build a minimally functional Sinatra app
+  title: Build an instant dating profile generator (it does not have to be for humans - questions could be catered to pets, plants, aliens, or members of a fictional universe)
   criteria:
-    - display text when a user visits your homepage (e.g. `something.herokuapp.com`)
-    - use Ruby to display the current year on the homepage
-    - display text when a user visits an `/about` page (e.g. `something.herokuapp.com/about`)
+    - The root of your site (`/`) has a form to collect information that will be embedded in the dating profile
+    - Submitting the form at the root of the site creates a new dating profile at `/profile`
+    - One of the form inputs takes the URL of an image to be displayed on the generated profile
+    - Any CSS or JavaScript is embedded in the page with a `style` or `script` element (we'll learn about including other files in a later lesson)
+    - (optional) For an added challenge, use [the free Formspree service](http://formspree.io/) to generate a contact form on the profile page, so that interested parties have a way of getting in touch with the creator of the profile
