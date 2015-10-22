@@ -4,18 +4,8 @@ class Lesson
   class << self
 
     def all user, options={}
-      if user.nil?
-        return LESSONS_WATCHER.lessons.map { |lesson_hash| Lesson.new lesson_hash }
-      end
-
-      lessons_key = "Lesson.all #{user.id}"
-      cached_lessons = Rails.cache.read(lessons_key)
-
-      if cached_lessons && options[:from_cache]
-        return cached_lessons
-      end
-
-      Rails.cache.fetch(lessons_key, expires_in: 1.hour) do
+      lessons_key = "Lesson.all #{user && user.id}"
+      Rails.cache.fetch(lessons_key, expires_in: 1.hour, force: options[:force_refresh]) do
         LESSONS_WATCHER.lessons.map do |lesson_hash|
           Lesson.new lesson_hash, user_dictionary(user)
         end

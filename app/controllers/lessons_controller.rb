@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
 
   def index
-    lessons = Lesson.all(current_user, from_cache: request.format.symbol != :json)
+    lessons = Lesson.all(current_user, force_refresh: request.format.symbol == :json)
     @presenter = @presenter.merge({
       lessons: lessons,
     })
