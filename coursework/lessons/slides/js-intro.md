@@ -40,7 +40,7 @@ Before we get started, we need a place to _put_ our JavaScript code. Just like w
 </script>
 ```
 
-Try opening up a local HTML document in your editor and making that code the last element inside your `body` element.
+Try opening up a local HTML document in your editor and __make that code the last element inside your `body` element__.
 
 ---
 
