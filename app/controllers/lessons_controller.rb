@@ -1,7 +1,10 @@
 class LessonsController < ApplicationController
 
   def index
-    lessons = Lesson.all(current_user, force_refresh: request.format.symbol == :json)
+    lessons = Lesson.all(
+      current_user,
+      force_refresh: request.format.symbol == :json || params[:force]
+    )
     @presenter = @presenter.merge({
       lessons: lessons,
     })
@@ -12,7 +15,11 @@ class LessonsController < ApplicationController
   end
 
   def show
-    lesson = Lesson.find(params[:key], current_user, from_cache: request.format.symbol != :json)
+    lesson = Lesson.find(
+      params[:key],
+      current_user,
+      force_refresh: request.format.symbol == :json || params[:force]
+    )
     unless lesson
       flash.now[:alert] = "There isn't a lesson with the key: #{params[:key]}"
       render and return
