@@ -7,6 +7,13 @@ prereqs:
 project:
   title: Style your resume
   criteria:
-    - "include at least one instance of each of the following properties: `margin`, `padding`, `border`, `color`, `background`, `font-size`, `line-height` (properties must have a visible effect)"
-    - return no errors (warnings are OK) when the HTML document is uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
-    - return no errors or warnings when contents of your CSS are pasted into [CSS Lint](http://csslint.net/)
+    - Include at least one instance of the `margin` property.
+    - Include at least one instance of the `padding` property.
+    - Include at least one instance of the `border` property.
+    - Include at least one instance of the `color` property.
+    - Include at least one instance of the `background` property.
+    - Include at least one instance of the `font-size` property.
+    - Include at least one instance of the `line-height` property.
+    - All properties must have a visible effect.
+    - Return no errors (warnings are OK) when the HTML document is uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
+    - Return no errors or warnings when contents of your CSS are pasted into [CSS Lint](http://csslint.net/)
