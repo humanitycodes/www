@@ -1,0 +1,10 @@
+title: Use arrays, uninjected ERB, and more gems
+categories:
+  - wip
+  - ruby
+prereqs:
+  - sinatra-erb
+project:
+  title: arst
+  criteria:
+    - arst

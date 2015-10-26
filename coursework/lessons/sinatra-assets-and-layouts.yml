@@ -1,0 +1,13 @@
+title: Avoid repetition in your app with CSS, JS, and layout files
+categories:
+  - ruby
+prereqs:
+  - sinatra-erb
+project:
+  title: Refactor (i.e. improve without changing functionality) a previous project to make the code cleaner
+  criteria:
+    - The code from the previous Sinatra project is copied into this project folder
+    - You have more than one view file served to more than one route
+    - A `.css` and `.js` file are included on every page via a `link` and `script` element, respectively (make sure those files have some effect on the page so that we know it worked)
+    - A `layout.erb` file is used to DRY up your HTML
+    - There are not _any_ duplicate lines of code between view files
