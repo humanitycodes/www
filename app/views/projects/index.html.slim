@@ -7,7 +7,7 @@ h1 Submitted
     tbody
       - @projects['submitted'] && @projects['submitted'].each do |project|
         tr
-          td= link_to project.lesson.instance_variable_get(:@title), "https://github.com/#{project.user.username}/#{project.lesson.instance_variable_get(:@key)}"
+          td= link_to project.lesson.instance_variable_get(:@title), "https://github.com/#{project.user.username}/codelab-#{project.lesson.instance_variable_get(:@key)}", target: '_blank'
           td= project.user.username
 
 h1 Started
