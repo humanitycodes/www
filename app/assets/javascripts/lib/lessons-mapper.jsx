@@ -101,9 +101,18 @@ CodeLab.LessonsMapper = class {
 
     this.svg.call(this.zoomer)
 
-    // Disable mousewheel zoom, so that the viz doesn't prevent page scrolling
-    this.svg.on('wheel.zoom', null)
-    this.svg.on('mousewheel.zoom', null)
+    const zoomWithScroll = () => {
+      const currentOffsetX = parseInt(
+        this.svgInner.attr('transform')
+          .match(/(?:translate\()+([\-\d]+)[ ,]+/)[1]
+      )
+      const translateTo = currentOffsetX - d3.event.deltaX
+      if (translateTo) {
+        this.zoom(translateTo)
+      }
+    }
+    this.svg.on('wheel.zoom', zoomWithScroll)
+    this.svg.on('mousewheel.zoom', zoomWithScroll)
 
     this.svg
       .attr('class', 'grabbable')

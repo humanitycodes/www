@@ -12,8 +12,15 @@ nav.navbar.navbar-default
 
     .collapse.navbar-collapse#navbar_links
       ul.nav.navbar-nav
-        li= link_to 'Student Guide', students_guide_path
-        li= link_to 'Lessons', lessons_path
+        li class="#{nav_classes(students_guide_path)}"
+          = link_to 'Student Guide', students_guide_path
+        li.dropdown class="#{nav_classes(lessons_path)}"
+          a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" expanded="false"
+            ' Lessons
+            span.caret
+          ul.dropdown-menu
+            li class="#{nav_classes(lessons_path)}"
+              = link_to 'Web', lessons_path
 
       ul.nav.navbar-nav.navbar-right
 

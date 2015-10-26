@@ -1,14 +1,19 @@
-$body-bg: #222;
+$body-bg: #f9f7f5;
 
 $font-family-sans-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
 $font-size-base: 16px;
 $line-height-base: 1.5;
+$border-radius-base: 0;
 
 $brand-primary: #407CBF;
-
 $navbar-default-bg: white;
-$navbar-border-radius: 0;
 $navbar-default-color: $brand-primary;
 $navbar-default-link-color: $navbar-default-color;
 $navbar-default-link-active-color: $navbar-default-color;
 $navbar-default-link-hover-color: darken($navbar-default-link-color, 10%);
+
+$navbar-height: 75px;
+$navbar-border-radius: 0;
+$navbar-default-link-active-bg: darken($navbar-default-bg, 1%);
+
+$btn-border-radius-base: 3px;
