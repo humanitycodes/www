@@ -1,4 +1,18 @@
 CodeLab.LessonNextSteps = class extends React.Component {
+  componentDidMount() {
+    this.highlightCodeBlocks()
+  }
+
+  componentDidUpdate() {
+    this.highlightCodeBlocks()
+  }
+
+  highlightCodeBlocks() {
+    document && $(React.findDOMNode(this)).find('pre > code').each((i, block) => {
+      hljs.highlightBlock(block)
+    })
+  }
+
   render() {
     const repoKey = `${ this.props.user.username }/${ 'codelab-' + this.props.lesson.key }`
     const repoURL = `https://github.com/${ repoKey }`
