@@ -6,8 +6,9 @@ class Lesson
     def all user, options={}
       lessons_key = "Lesson.all #{user && user.id}"
       Rails.cache.fetch(lessons_key, expires_in: 1.hour, force: !user || options[:force_refresh]) do
+        dictionary = user_dictionary(user)
         LESSONS_WATCHER.lessons.map do |lesson_hash|
-          Lesson.new lesson_hash, user_dictionary(user)
+          Lesson.new lesson_hash, dictionary
         end
       end
     end
@@ -18,8 +19,9 @@ class Lesson
           requirements.all? { |attribute, value| lesson_hash[attribute] == value }
         end
         lesson_keys = lessons.map { |lesson| lesson[:key] } if user
+        dictionary = user_dictionary(user, lesson_keys)
         lesson_hashes.map do |lesson_hash|
-          Lesson.new lesson_hash, user_dictionary(user, lesson_keys)
+          Lesson.new lesson_hash, dictionary
         end
       end
     end

@@ -17,6 +17,9 @@ export default (token, query) => {
         .filter(project => {
           if (query.single) {
             return project.name === `codelab-${query.single}`
+          } else if (query.keys) {
+            const keys = query.keys.split(',')
+            return keys.some(key => key === `codelab-${key}`)
           } else {
             return project.name.match(/^codelab-/)
           }

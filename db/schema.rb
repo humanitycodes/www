@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919232318) do
+ActiveRecord::Schema.define(version: 20151026200852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
@@ -28,7 +29,11 @@ ActiveRecord::Schema.define(version: 20150919232318) do
     t.string   "github_token"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.hstore   "lesson_statuses"
   end
+
+  add_index "users", ["lesson_statuses"], name: "index_users_on_lesson_statuses", using: :gin
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"

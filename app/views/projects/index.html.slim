@@ -1,0 +1,23 @@
+h1 Submitted
+.well.card
+  table.table.table-striped
+    thead
+      th Project
+      th User
+    tbody
+      - @projects['submitted'].each do |project|
+        tr
+          td= link_to project.lesson.instance_variable_get(:@title), "https://github.com/#{project.user.username}/#{project.lesson.instance_variable_get(:@key)}"
+          td= project.user.username
+
+h1 Started
+.well.card
+  table.table.table-striped
+    thead
+      th Project
+      th User
+    tbody
+      - @projects['started'].each do |project|
+        tr
+          td= project.lesson.instance_variable_get(:@title)
+          td= project.user.username

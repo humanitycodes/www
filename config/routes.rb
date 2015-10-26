@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :repositories, only: [:create, :update]
   post '/repositories/:key/submit' => 'repositories#submit'
 
+  resources :projects, only: [:index]
+
   get '/students-guide' => 'pages#students_guide'
 
   # The priority is based upon order of creation: first created -> highest priority.
