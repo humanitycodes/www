@@ -6,6 +6,11 @@ prereqs:
 project:
   title: Build a simple resume for a fictional character, applying to a fictional job
   criteria:
-    - "Use each of the following elements at least once: `h1`, `a`, `p`, `img`, `ul`, and `li`."
+    - Use at least one `h1` element.
+    - Use at least one `a` element.
+    - Use at least one `p` element.
+    - Use at least one `img` element.
+    - Use at least one `ul` element.
+    - Use at least one `li` element.
     - When you paste the address of your website into [the W3C validator](https://validator.w3.org/), it returns no errors (warnings are OK).
     - This is the last time I'll mention it, but once again, your project should be on GitHub and hosted online (I recommend using surge again).
