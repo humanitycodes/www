@@ -1,0 +1,8 @@
+machine:
+  timezone: America/Detroit
+  ruby:
+    version: 2.2.3p173
+
+test:
+  override:
+    - bundle exec rspec
