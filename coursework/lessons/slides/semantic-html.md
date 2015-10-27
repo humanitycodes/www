@@ -32,11 +32,11 @@ While this works for applying styles, it's not a perfect solution.
 
 ## The problem with "unsemantic" elements
 
-__The main problem is search engines__. Classes like "image-with-caption", "blog-post", or "navigation-menu" - Google and other search engines have no idea what that means, so it's harder for them to read and make sense of your website. On other websites, someone will use completely different classes to mean the same things.
+__The main problem is search engines__. Classes like "image-with-caption", "blog-post", or "navigation-menu" - Google and other search engines have no idea what they mean. There is no standard for how to use classes, so they cannot be used to make sense of your website.
 
 So semantic HTML elements bring consistency. And here are some other reasons:
 
-- When screen readers and other assistive technologies are scanning your website, it's easier for them to organize. It's helpful in a similar way to making a building wheelchair accessible. You want _everyone_ to be able to use your website without having to ask someone who's differently abled to help.
+- When screen readers and other assistive technologies are scanning your website, it's easier for them to organize. It's similar to making a building wheelchair accessible. You want _everyone_ to be able to use your website without having to ask for help.
 - Some semantic elements (such as `video`) come with special attributes that give them extra power, unique to their context.
 - When browsing your code, it's easier to tell at a glance what everything is.
 
