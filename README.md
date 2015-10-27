@@ -1,6 +1,6 @@
 # www.lansingcodelab.com
 
-[![Circle CI](https://circleci.com/gh/lansingcodelab/www.svg?style=svg)](https://circleci.com/gh/lansingcodelab/www)
+[![Circle CI](https://circleci.com/gh/lansingcodelab/www.svg?style=svg)](https://circleci.com/gh/lansingcodelab/www) [![Dependency Status](https://gemnasium.com/lansingcodelab/www.svg)](https://gemnasium.com/lansingcodelab/www)
 
 ## Development
 
