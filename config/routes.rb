@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/repositories/:key/submit' => 'repositories#submit'
 
   resources :projects, only: [:index]
+  put '/projects' => 'projects#refresh', as: 'refresh_projects'
 
   get '/students-guide' => 'pages#students_guide'
 
