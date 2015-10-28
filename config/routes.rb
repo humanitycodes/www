@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'lessons#index'
+  root 'pages#landing'
 
   match  '/auth/github/callback' => 'sessions#create', via: [:get, :post]
   delete '/signout'              => 'sessions#destroy', as: :signout
