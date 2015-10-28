@@ -12,6 +12,12 @@ Assuming you have Ruby installed:
 bundle install
 ```
 
+Make sure Postgres is running and create the database:
+
+``` shell
+bundle exec rake db:create db:migrate
+```
+
 The app uses an asynchronous fetcher API that runs as a separate node app. The easiest way to run both of these at the same time is with foreman. If you don't already have it installed, `gem install foreman` and then you can run both apps with:
 
 ``` shell
