@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :projects, only: [:index]
   put '/projects' => 'projects#refresh', as: 'refresh_projects'
 
+  get '/team' => 'pages#staff'
+  get '/students' => 'pages#students'
   get '/students-guide' => 'pages#students_guide'
 
   # The priority is based upon order of creation: first created -> highest priority.

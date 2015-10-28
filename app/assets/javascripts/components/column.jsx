@@ -4,13 +4,18 @@ CodeLab.Column = class extends React.Component {
 
     let columnClasses = []
     collapseWidths.forEach(collapseWidth => {
-      if (this.props[collapseWidth]) {
-        columnClasses.push(`col-${collapseWidth}-${this.props[collapseWidth]}`)
+      const collapseValue = this.props[collapseWidth]
+      if (collapseValue) {
+        columnClasses.push(`col-${collapseWidth}-${collapseValue}`)
+      }
+      const offsetValue = this.props[`${collapseWidth}Offset`]
+      if (offsetValue) {
+        columnClasses.push(`col-${collapseWidth}-offset-${offsetValue}`)
       }
     })
 
     return (
-      <div className={columnClasses}>
+      <div className={columnClasses.join(' ')}>
         { this.props.children }
       </div>
     )
