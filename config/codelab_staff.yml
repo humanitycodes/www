@@ -53,8 +53,8 @@
     - Mentor
 -
   name: Erik Gillespie
-  bio: I'm is a professional juggler of coding, board gaming, writing, parenting, and businessing. The coding happens at <a href="http://vertafore.com/">Vertafore</a>, board gaming with anyone who says yes, writing on <a href="http://geekandsundry.com/author/erikgillespie/">Geek & Sundry</a>, evidence of parenting is on my <a href="http://gillespieproject.com/">blog</a>, and I business at <a href="http://technicalrex.co m/">Technical Rex</a>.
-  tech: Anything and everything Java. JavaScript both client- and server-side, SQL, shell scripting (including just getting around the terminal). More abstract things such as how the Internet works and REST. I think some not-coding-but-handy-for-coders things like Inkscape and Gimp (since they're free), agile concepts, unit testing (TDD even), and application security. If you're looking for more specific answers I can break any of these down for you.
+  bio: I'm a professional juggler of coding, board gaming, writing, parenting, and businessing. The coding and businessing happens at <a href="http://technicalrex.com/" target="_blank">Technical Rex</a>, board gaming with anyone who says yes, writing on <a href="http://geekandsundry.com/author/erikgillespie/" target="_blank">Geek & Sundry</a>, and evidence of parenting can be found on my <a href="http://gillespieproject.com/" target="_blank">blog</a>.
+  tech: Java, JavaScript (client- and server-side), SQL, shell scripting (including just getting around the terminal). More abstract things such as HTTP and REST. Not-coding-but-handy-for-coders things like Inkscape and Gimp, agile concepts, unit testing, and application security.
   contact_methods:
     -
       type: GitHub
