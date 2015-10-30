@@ -18,6 +18,7 @@ CodeLab.StaffMember = Radium(class extends React.Component {
       },
       contactList: {
         base: {
+          marginBottom: 0,
           paddingLeft: 0
         }
       },

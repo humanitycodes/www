@@ -8,29 +8,38 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Code Lab', root_path, class: 'navbar-brand'
+      = link_to root_path, class: 'navbar-brand' do
+        =' image_tag 'lansing-codes-logo.svg'
+        | Code Lab
 
     .collapse.navbar-collapse#navbar_links
       ul.nav.navbar-nav
         li.dropdown class="#{nav_classes(lessons_path)}"
-          a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" expanded="false"
+          a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" expanded="false"
             ' Lessons
             span.caret
           ul.dropdown-menu
             li class="#{nav_classes(lessons_path)}"
               = link_to 'Web', lessons_path
         li class="#{nav_classes(team_path)}"
-          = link_to 'The Team', team_path
-        li class="#{nav_classes(students_guide_path)}"
-          = link_to 'Student Guide', students_guide_path
+          = link_to 'Team', team_path
+        li= link_to 'Blog', 'http://blog.lansingcodelab.com/'
 
       ul.nav.navbar-nav.navbar-right
 
         - if user_signed_in?
 
-          li= link_to current_user.portfolio_url, target: '_blank' do
-            .glyphicon.glyphicon-user>
-            = current_user.name
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" expanded="false"
+              .glyphicon.glyphicon-user>
+              =' current_user.name
+              span.caret
+            ul.dropdown-menu
+              li= link_to 'Projects', current_user.portfolio_url, target: '_blank'
+              li.divider role="separator"
+              li class="#{nav_classes(students_guide_path)}"
+                = link_to 'Student Guide', students_guide_path
+
           li= link_to signout_path, method: :delete do
             span.glyphicon.glyphicon-log-out>
             | Sign out
