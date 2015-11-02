@@ -1,5 +1,5 @@
 class LessonsStatusFetcher
-  FETCHER_BASE_URL = 'http://localhost:8080/lesson-repos/'
+  FETCHER_BASE_URL = 'http://localhost:4000/lesson-repos/'
 
   def initialize user, keys=nil
     @user = user

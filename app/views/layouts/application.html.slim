@@ -6,22 +6,15 @@ html
     title Lansing Code Lab
 
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Open+Sans:400,600,700'
-    = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css'
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+    = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css'
     = stylesheet_link_tag 'application', media: 'all'
 
     - if Rails.env.production?
-      == render 'layouts/rollbar_js'
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js'
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js'
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'
-    - if Rails.env.production?
-      = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.min.js'
-    - else
-      = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js'
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js'
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js'
+      = render 'layouts/rollbar_js'
     = javascript_include_tag 'application'
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/dropdown.js'
+    = render 'layouts/react_hot_assets'
 
     = csrf_meta_tags
     = favicon_link_tag 'favicon.ico'

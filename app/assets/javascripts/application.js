@@ -1,4 +1,2 @@
-//= require jquery_ujs
-//= require react_ujs
-//= require bootstrap
-//= require components
+//= require react_integration
+//= require react_bundle

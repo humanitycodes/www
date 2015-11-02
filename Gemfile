@@ -7,7 +7,6 @@ gem 'bootstrap-sass', '~> 3.3.5' # Bootstrap!
 gem 'uglifier', '>= 1.3.0'       # Use Uglifier as compressor for JavaScript assets
 gem 'jquery-rails'               # Use jquery as the JavaScript library
 gem 'jbuilder', '~> 2.0'         # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'react-rails', '~> 1.0'      # Makes it easy to use React and JSX
 gem 'slim-rails'
 gem 'autoprefixer-rails'
 gem 'omniauth'
@@ -17,6 +16,7 @@ gem 'rest-client'
 gem 'github_api'
 gem 'puma'
 gem 'redcarpet'
+gem 'react_webpack_rails', github: 'netguru/react_webpack_rails'
 
 group :development do
   gem 'spring'            # Spring speeds up development by keeping your application running in the background

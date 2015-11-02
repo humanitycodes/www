@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  constraints lambda { |req| req.session[:user_id].present? } do
+    root to: redirect('/lessons'), as: :authenticated_root
+  end
+
   root 'pages#landing'
 
   match  '/auth/github/callback' => 'sessions#create', via: [:get, :post]
