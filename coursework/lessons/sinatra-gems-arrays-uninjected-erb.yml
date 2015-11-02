@@ -1,10 +1,12 @@
 title: Use arrays, uninjected ERB, and more gems
 categories:
-  - wip
   - ruby
 prereqs:
   - sinatra-erb
 project:
-  title: arst
+  title: Build a search page for the best game deals
   criteria:
-    - arst
+    - Use [the CheapShark gem](https://github.com/GA114/cheapshark) as your search engine
+    - Allow the user to search for games by title with an input box
+    - On the same page as the input box, list the games returned by the search
+    - For each game in the search results, return at the very least a __title__, __thumbnail image__, __the cheapest price__, and __a link to the deal with that price__ using the id of the cheapest deal (e.g. `http://www.cheapshark.com/redirect.php?dealID=WHATEVER_THE_CHEAPEST_DEAL_ID_IS`)
