@@ -13,7 +13,6 @@ html
     - if Rails.env.production?
       = render 'layouts/rollbar_js'
     = javascript_include_tag 'application'
-    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/dropdown.js'
     = render 'layouts/react_hot_assets'
 
     = csrf_meta_tags
