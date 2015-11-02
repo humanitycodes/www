@@ -64,15 +64,22 @@ Now let's take a look at what's going on line-by-line.
 <% [ 'American Shorthair', 'Abyssinian', 'Russian Blue' ].each do |breed| %>
 ```
 
-Inside of uninjected ERB (`<%` `%>`), we're defining our array ([ 'American Shorthair', 'Abyssinian', 'Russian Blue' ]) and then going through each breed in that array (`.each do |breed|`).
+Inside of uninjected ERB (`<%` `%>`), we're defining our array (`[ 'American Shorthair', 'Abyssinian', 'Russian Blue' ]`) and then going through each breed in that array (`.each do |breed|`).
 
 ```
 <li class="cat <%= breed.downcase.gsub(' ','-') %>"><%= breed %></li>
 ```
 
-Then for each breed, we create an `li` element, with two classes: "cat" and an all lowercased (i.e. "downcased") version of our breed, with the spaces substituted for dashes (`gsub` stands for "global substitution", which just means "replace all"). Inside of our `li` element, we inject the name of our breed.
+Then for each breed, we create an `li` element, with two classes:
 
-`<% end %>`
+  - "cat"
+  - an all lowercased (i.e. "downcased") version of our breed, with the spaces substituted for dashes (`gsub` stands for "global substitution", which just means "replace all").
+
+Inside of our `li` element, we inject the name of our breed.
+
+```
+<% end %>
+```
 
 And finally, we tell Ruby that we're at the "end" of doing something for each cat breed. Just like in our `app.rb`, where we have pairs of `get '/something' do` and `end`, you'll notice that whenever you have a `do` in Ruby, we're starting a section of code that will eventually have to be closed with an `end`.
 
@@ -251,7 +258,7 @@ If that variable were called `pictures` instead of `@pictures`, our `cats.erb` v
 
 ---
 
-## Embedding our cats into the page with Ruby
+## Embedding our cats into the page with ERB
 
 ```
 <% @pictures.each do |pic| %>
