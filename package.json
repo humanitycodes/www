@@ -40,7 +40,7 @@
     "yaml-loader": "^0.1.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test jest",
     "start": "webpack -w --config webpack/dev.config.js",
     "start-hot-dev": "webpack-dev-server --hot --inline --config webpack/hot-dev.config.js",
     "build": "webpack -p --config webpack/production.config.js"
@@ -51,14 +51,6 @@
     "testFileExtensions": [
       "ls",
       "js"
-    ],
-    "unmockedModulePathPatterns": [
-      "jquery",
-      "react",
-      "react-dom",
-      "radium",
-      "arch-dom",
-      "react-addons-test-utils"
     ]
   },
   "engines": {

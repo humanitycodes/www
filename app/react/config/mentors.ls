@@ -1,8 +1,7 @@
-if document?
+if process.env.NODE_ENV is 'test'
 
-  require! { '../../../config/codelab_staff.yml': staff }
-
-else
+  # Can't require webpack loaders through jest,
+  # because jest doesn't play well with webpack.
 
   require! {
     'js-yaml': YAML
@@ -13,6 +12,10 @@ else
   staff = YAML.load FS.read-file-sync do
     Path.join __dirname, '../../../config/codelab_staff.yml'
     'utf8'
+
+else
+
+  require! { '../../../config/codelab_staff.yml': staff }
 
 module.exports = staff
   |> filter ->

@@ -22,7 +22,7 @@ for key of $
 root import require './helpers.ls'
 
 # VENDOR RUN
-if document?
+if window?
   require 'jquery-ujs'
   # require 'bootstrap/js/dropdown'
   require 'bootstrap/js/tooltip'
