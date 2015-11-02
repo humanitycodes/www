@@ -21,7 +21,10 @@ module.exports = {
     noParse: [/autoit.js/]
   },
   resolve: {
-    extensions: ['', '.js', '.ls']
+    extensions: ['', '.js', '.ls'],
+    alias: {
+      'dagre': __dirname + '/node_modules/dagre'
+    }
   },
   plugins: []
 }

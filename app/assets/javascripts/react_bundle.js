@@ -45934,10 +45934,10 @@
 	      }
 	    };
 	    return $a({
-	      href: urlFor(this.props.method, $i({
-	        className: "fa fa-" + (iconFor[type] || 'link')
-	      }), '&nbsp;', type)
-	    });
+	      href: urlFor(this.props.method)
+	    }, $i({
+	      className: "fa fa-" + (iconFor[type] || 'link')
+	    }), ' ', type);
 	  };
 	  function ContactMethod(){
 	    ContactMethod.superclass.apply(this, arguments);

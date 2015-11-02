@@ -22,7 +22,7 @@ module.exports = class ContactMethod extends React.Component
       case 'Email' then "mailto:#{method.body}"
       case 'Slack' then "https://lansingcodes.slack.com/messages/@#{method.body}"
 
-    $a href: url-for @props.method,
+    $a href: url-for(@props.method),
       $i class-name: "fa fa-#{icon-for[type] or 'link'}"
-      '&nbsp;'
+      ' '
       type
