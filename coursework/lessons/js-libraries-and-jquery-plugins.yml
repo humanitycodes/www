@@ -1,0 +1,10 @@
+title: Lightning-fast development with JavaScript libraries and jQuery plugins
+categories:
+  - js
+prereqs:
+  - jquery-intro
+project:
+  title: Create a super fancy landing page for a fictional product with JavaScript libraries
+  criteria:
+    - Use at least 1 jQuery plugin for visible effect (you can use one listed on the last page of the lesson, one recommended by a mentor, or one that you just find by Googling)
+    - Use at least 1 non-jQuery JavaScript library for visible effect (you can use one listed on the last page of the lesson, one recommended by a mentor, or one that you just find by Googling)
