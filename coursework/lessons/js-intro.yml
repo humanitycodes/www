@@ -7,6 +7,6 @@ prereqs:
 project:
   title: "Build a webpage with a button that shares a joke when clicked"
   criteria:
-    - Include a button that will display a silly, but tasteful joke in an alert when clicked
+    - Include [a button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Example) that will display a silly, but tasteful joke in an alert when clicked
     - Return no errors (warnings are OK) when the HTML is uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
     - Return no errors or warnings when the JavaScript is pasted into [JavaScript Lint](http://www.javascriptlint.com/online_lint.php)
