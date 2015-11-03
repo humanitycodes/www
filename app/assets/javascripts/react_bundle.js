@@ -78,7 +78,7 @@
 	  root["$" + key] = $[key];
 	}
 	import$(root, __webpack_require__(232));
-	if (typeof document != 'undefined' && document !== null) {
+	if (typeof window != 'undefined' && window !== null) {
 	  __webpack_require__(234);
 	  __webpack_require__(235);
 	  __webpack_require__(236);
@@ -32171,14 +32171,14 @@
 /* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__dirname) {var staff, YAML, FS, Path;
-	if (typeof document != 'undefined' && document !== null) {
-	  staff = __webpack_require__(194);
-	} else {
-	  YAML = __webpack_require__(195);
-	  FS = __webpack_require__(230);
-	  Path = __webpack_require__(231);
+	/* WEBPACK VAR INJECTION */(function(process, __dirname) {var YAML, FS, Path, staff;
+	if (process.env.NODE_ENV === 'test') {
+	  YAML = __webpack_require__(194);
+	  FS = __webpack_require__(229);
+	  Path = __webpack_require__(230);
 	  staff = YAML.load(FS.readFileSync(Path.join(__dirname, '../../../config/codelab_staff.yml'), 'utf8'));
+	} else {
+	  staff = __webpack_require__(231);
 	}
 	module.exports = map(function(it){
 	  it.username = function(it){
@@ -32199,180 +32199,20 @@
 	staff));
 	//# sourceMappingURL=/Users/fritzc/Dropbox/code/lab/www/node_modules/livescript-loader/index.js!/Users/fritzc/Dropbox/code/lab/www/app/react/config/mentors.ls.map
 
-	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), "/"))
 
 /***/ },
 /* 194 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = [
-		{
-			"name": "Chris Fritz",
-			"bio": "I dig helping people learn - and coding things that help people learn. My favorite way of getting to know someone is over a warm cup, so <a href=\"mailto:chrisvfritz@gmail.com\">shoot me an email</a> and you can tell me about <em>your</em> passions.",
-			"tech": "A lot of stuff - I like to play! I also love meeting other developers, so if there's something specific you'd like help with, I almost certainly know someone who could help if I can't.",
-			"contact_methods": [
-				{
-					"type": "GitHub",
-					"body": "chrisvfritz"
-				},
-				{
-					"type": "Slack",
-					"body": "chrisvfritz"
-				},
-				{
-					"type": "Email",
-					"body": "chrisvfritz@gmail.com"
-				}
-			],
-			"roles": [
-				"Admin",
-				"Leader",
-				"Founder",
-				"Mentor"
-			]
-		},
-		{
-			"name": "Jesse Flores",
-			"bio": "I'm a startup junkie and tech enthusiast. The founder of StartupLansing, the non-profit that educates, connects, and celebrates entrepreneurship in mid-Michigan. With Chris, I helped found several tech meetups and launch the Code Lab. My most recent project is founding SuperWebPros, which is eliminating the hassle of building and maintaining websites for small business owners.",
-			"tech": "Ruby, HTML, CSS",
-			"contact_methods": [
-				{
-					"type": "GitHub",
-					"body": "jflores1"
-				},
-				{
-					"type": "Twitter",
-					"body": "jflores1c"
-				},
-				{
-					"type": "LinkedIn",
-					"body": "jafloresjr"
-				}
-			],
-			"roles": [
-				"Founder",
-				"Leader"
-			]
-		},
-		{
-			"name": "Nick Rutowski",
-			"bio": "I've been working in tech since my freshman year at MSU in 2011. I got my start in professional development business intelligence applications at MSU's NSCL, since then I have had 2 internships with Epic Health Systems and completed numerous freelance jobs. I joined Code Lab as a mentor because I believe an education in software development is an incredible tool for any career. Helping students be successful is my number one priority, I'm always happy to chat about how I can help!",
-			"tech": "Python, C#, Html, JS, CSS, Rails, Node.js, UI/UX, PHP, C++, C",
-			"contact_methods": [
-				{
-					"type": "GitHub",
-					"body": "badsauce"
-				},
-				{
-					"type": "Twitter",
-					"body": "badsauce"
-				},
-				{
-					"type": "Email",
-					"body": "NickRutowski@gmail.com"
-				}
-			],
-			"roles": [
-				"Leader",
-				"Mentor"
-			]
-		},
-		{
-			"name": "Erik Gillespie",
-			"bio": "I'm a professional juggler of coding, board gaming, writing, parenting, and businessing. The coding and businessing happens at <a href=\"http://technicalrex.com/\" target=\"_blank\">Technical Rex</a>, board gaming with anyone who says yes, writing on <a href=\"http://geekandsundry.com/author/erikgillespie/\" target=\"_blank\">Geek & Sundry</a>, and evidence of parenting can be found on my <a href=\"http://gillespieproject.com/\" target=\"_blank\">blog</a>.",
-			"tech": "Java, JavaScript (client- and server-side), SQL, shell scripting (including just getting around the terminal). More abstract things such as HTTP and REST. Not-coding-but-handy-for-coders things like Inkscape and Gimp, agile concepts, unit testing, and application security.",
-			"contact_methods": [
-				{
-					"type": "GitHub",
-					"body": "egillespie"
-				},
-				{
-					"type": "Email",
-					"body": "erik.gillespie@gmail.com"
-				},
-				{
-					"type": "Stack Overflow",
-					"body": "erik-gillespie",
-					"url": "http://stackoverflow.com/users/1696044/erik-gillespie/"
-				},
-				{
-					"type": "LinkedIn",
-					"body": "eriklgillespie"
-				},
-				{
-					"type": "Twitter",
-					"body": "eriklgillespie"
-				},
-				{
-					"type": "Blog",
-					"body": "The Gillespie Project",
-					"url": "http://gillespieproject.com/"
-				},
-				{
-					"type": "Business",
-					"body": "Technical Rex",
-					"url": "http://technicalrex.com/"
-				}
-			],
-			"roles": [
-				"Mentor"
-			]
-		},
-		{
-			"name": "Kiera Wheatley",
-			"bio": "Hi! My name is Kiera Wheatley and I'm a Computer Science major at Michigan State University. I will be graduating in the Spring. I am pursuing a career in software development. I love video games and steak.",
-			"tech": "Beyond the languages we use for web development, I could also mentor C++, C, and C# confidently.",
-			"contact_methods": [
-				{
-					"type": "GitHub",
-					"body": "kieraw"
-				},
-				{
-					"type": "LinkedIn",
-					"body": "kiera-wheatley"
-				}
-			],
-			"roles": [
-				"Mentor"
-			]
-		},
-		{
-			"name": "Nicole Lawrence",
-			"bio": "I'm a senior at Michigan State University currently majoring in Computer Science and Engineering with a cognate in Media and Information. I am the current webmaster of MSU's Women in Computing (WIC) club. I got into computer science in high school and haven't looked back. I like how you can turn seemingly meaningless letters and numbers into something wonderful; whether it is a website or a mobile app. The list of possibilities is endless!",
-			"tech": "HTML5, CSS, JS, SCSS, PHP, and Unix terminal commands.",
-			"contact_methods": [
-				{
-					"type": "GitHub",
-					"body": "icy-wolf"
-				},
-				{
-					"type": "Email",
-					"body": "nicole.lawrence93@gmail.com"
-				}
-			],
-			"roles": [
-				"Mentor"
-			]
-		},
-		{
-			"name": "Stuart Pearman",
-			"bio": "Hi, I'm Stuart! I haven't been coding for long, a little more than two years, but what I've discovered is that you can do a lot with a little knowledge. Coding has become a passion of mine, but learning new things and sharing them with others is really what I love to do most. As someone who has too many hobbies to count, coding has complemented my life ways I never could have expected, and many of the positive opportunities I've had in the past few years would have never come to me had I not developed this wonderful new skill. I hope to continue to learn and to grow, creating new experiences for myself and others for many years to come.",
-			"tech": "Design and animation, HTML, CSS, JavaScript and jQuery, Git and GitHub, and video game development with JS Canvas or Unity.",
-			"contact_methods": [
-				{
-					"type": "GitHub",
-					"body": "stuartpearman"
-				},
-				{
-					"type": "Email",
-					"body": "swpearman@gmail.com"
-				}
-			],
-			"roles": [
-				"Mentor"
-			]
-		}
-	];
+	'use strict';
+
+
+	var yaml = __webpack_require__(195);
+
+
+	module.exports = yaml;
+
 
 /***/ },
 /* 195 */
@@ -32381,21 +32221,8 @@
 	'use strict';
 
 
-	var yaml = __webpack_require__(196);
-
-
-	module.exports = yaml;
-
-
-/***/ },
-/* 196 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-
-	var loader = __webpack_require__(197);
-	var dumper = __webpack_require__(229);
+	var loader = __webpack_require__(196);
+	var dumper = __webpack_require__(228);
 
 
 	function deprecated(name) {
@@ -32405,25 +32232,25 @@
 	}
 
 
-	module.exports.Type                = __webpack_require__(206);
-	module.exports.Schema              = __webpack_require__(205);
-	module.exports.FAILSAFE_SCHEMA     = __webpack_require__(209);
-	module.exports.JSON_SCHEMA         = __webpack_require__(208);
-	module.exports.CORE_SCHEMA         = __webpack_require__(207);
-	module.exports.DEFAULT_SAFE_SCHEMA = __webpack_require__(204);
-	module.exports.DEFAULT_FULL_SCHEMA = __webpack_require__(224);
+	module.exports.Type                = __webpack_require__(205);
+	module.exports.Schema              = __webpack_require__(204);
+	module.exports.FAILSAFE_SCHEMA     = __webpack_require__(208);
+	module.exports.JSON_SCHEMA         = __webpack_require__(207);
+	module.exports.CORE_SCHEMA         = __webpack_require__(206);
+	module.exports.DEFAULT_SAFE_SCHEMA = __webpack_require__(203);
+	module.exports.DEFAULT_FULL_SCHEMA = __webpack_require__(223);
 	module.exports.load                = loader.load;
 	module.exports.loadAll             = loader.loadAll;
 	module.exports.safeLoad            = loader.safeLoad;
 	module.exports.safeLoadAll         = loader.safeLoadAll;
 	module.exports.dump                = dumper.dump;
 	module.exports.safeDump            = dumper.safeDump;
-	module.exports.YAMLException       = __webpack_require__(199);
+	module.exports.YAMLException       = __webpack_require__(198);
 
 	// Deprecated schema names from JS-YAML 2.0.x
-	module.exports.MINIMAL_SCHEMA = __webpack_require__(209);
-	module.exports.SAFE_SCHEMA    = __webpack_require__(204);
-	module.exports.DEFAULT_SCHEMA = __webpack_require__(224);
+	module.exports.MINIMAL_SCHEMA = __webpack_require__(208);
+	module.exports.SAFE_SCHEMA    = __webpack_require__(203);
+	module.exports.DEFAULT_SCHEMA = __webpack_require__(223);
 
 	// Deprecated functions from JS-YAML 1.x.x
 	module.exports.scan           = deprecated('scan');
@@ -32433,18 +32260,18 @@
 
 
 /***/ },
-/* 197 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	/*eslint-disable max-len,no-use-before-define*/
 
-	var common              = __webpack_require__(198);
-	var YAMLException       = __webpack_require__(199);
-	var Mark                = __webpack_require__(203);
-	var DEFAULT_SAFE_SCHEMA = __webpack_require__(204);
-	var DEFAULT_FULL_SCHEMA = __webpack_require__(224);
+	var common              = __webpack_require__(197);
+	var YAMLException       = __webpack_require__(198);
+	var Mark                = __webpack_require__(202);
+	var DEFAULT_SAFE_SCHEMA = __webpack_require__(203);
+	var DEFAULT_FULL_SCHEMA = __webpack_require__(223);
 
 
 	var _hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -34019,7 +33846,7 @@
 
 
 /***/ },
-/* 198 */
+/* 197 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34086,7 +33913,7 @@
 
 
 /***/ },
-/* 199 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// YAML error class. http://stackoverflow.com/questions/8458984
@@ -34094,7 +33921,7 @@
 	'use strict';
 
 
-	var inherits = __webpack_require__(200).inherits;
+	var inherits = __webpack_require__(199).inherits;
 
 
 	function YAMLException(reason, mark) {
@@ -34138,7 +33965,7 @@
 
 
 /***/ },
-/* 200 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -34666,7 +34493,7 @@
 	}
 	exports.isPrimitive = isPrimitive;
 
-	exports.isBuffer = __webpack_require__(201);
+	exports.isBuffer = __webpack_require__(200);
 
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -34710,7 +34537,7 @@
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(202);
+	exports.inherits = __webpack_require__(201);
 
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -34731,7 +34558,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(7)))
 
 /***/ },
-/* 201 */
+/* 200 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -34742,7 +34569,7 @@
 	}
 
 /***/ },
-/* 202 */
+/* 201 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -34771,13 +34598,13 @@
 
 
 /***/ },
-/* 203 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var common = __webpack_require__(198);
+	var common = __webpack_require__(197);
 
 
 	function Mark(name, buffer, position, line, column) {
@@ -34855,7 +34682,7 @@
 
 
 /***/ },
-/* 204 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// JS-YAML's default schema for `safeLoad` function.
@@ -34868,37 +34695,37 @@
 	'use strict';
 
 
-	var Schema = __webpack_require__(205);
+	var Schema = __webpack_require__(204);
 
 
 	module.exports = new Schema({
 	  include: [
-	    __webpack_require__(207)
+	    __webpack_require__(206)
 	  ],
 	  implicit: [
-	    __webpack_require__(217),
-	    __webpack_require__(218)
+	    __webpack_require__(216),
+	    __webpack_require__(217)
 	  ],
 	  explicit: [
-	    __webpack_require__(219),
+	    __webpack_require__(218),
+	    __webpack_require__(220),
 	    __webpack_require__(221),
-	    __webpack_require__(222),
-	    __webpack_require__(223)
+	    __webpack_require__(222)
 	  ]
 	});
 
 
 /***/ },
-/* 205 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	/*eslint-disable max-len*/
 
-	var common        = __webpack_require__(198);
-	var YAMLException = __webpack_require__(199);
-	var Type          = __webpack_require__(206);
+	var common        = __webpack_require__(197);
+	var YAMLException = __webpack_require__(198);
+	var Type          = __webpack_require__(205);
 
 
 	function compileList(schema, name, result) {
@@ -34999,12 +34826,12 @@
 
 
 /***/ },
-/* 206 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var YAMLException = __webpack_require__(199);
+	var YAMLException = __webpack_require__(198);
 
 	var TYPE_CONSTRUCTOR_OPTIONS = [
 	  'kind',
@@ -35066,7 +34893,7 @@
 
 
 /***/ },
-/* 207 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Standard YAML's Core schema.
@@ -35079,18 +34906,18 @@
 	'use strict';
 
 
-	var Schema = __webpack_require__(205);
+	var Schema = __webpack_require__(204);
 
 
 	module.exports = new Schema({
 	  include: [
-	    __webpack_require__(208)
+	    __webpack_require__(207)
 	  ]
 	});
 
 
 /***/ },
-/* 208 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Standard YAML's JSON schema.
@@ -35104,24 +34931,24 @@
 	'use strict';
 
 
-	var Schema = __webpack_require__(205);
+	var Schema = __webpack_require__(204);
 
 
 	module.exports = new Schema({
 	  include: [
-	    __webpack_require__(209)
+	    __webpack_require__(208)
 	  ],
 	  implicit: [
+	    __webpack_require__(212),
 	    __webpack_require__(213),
 	    __webpack_require__(214),
-	    __webpack_require__(215),
-	    __webpack_require__(216)
+	    __webpack_require__(215)
 	  ]
 	});
 
 
 /***/ },
-/* 209 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Standard YAML's Failsafe schema.
@@ -35131,15 +34958,29 @@
 	'use strict';
 
 
-	var Schema = __webpack_require__(205);
+	var Schema = __webpack_require__(204);
 
 
 	module.exports = new Schema({
 	  explicit: [
+	    __webpack_require__(209),
 	    __webpack_require__(210),
-	    __webpack_require__(211),
-	    __webpack_require__(212)
+	    __webpack_require__(211)
 	  ]
+	});
+
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Type = __webpack_require__(205);
+
+	module.exports = new Type('tag:yaml.org,2002:str', {
+	  kind: 'scalar',
+	  construct: function (data) { return null !== data ? data : ''; }
 	});
 
 
@@ -35149,11 +34990,11 @@
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
-	module.exports = new Type('tag:yaml.org,2002:str', {
-	  kind: 'scalar',
-	  construct: function (data) { return null !== data ? data : ''; }
+	module.exports = new Type('tag:yaml.org,2002:seq', {
+	  kind: 'sequence',
+	  construct: function (data) { return null !== data ? data : []; }
 	});
 
 
@@ -35163,11 +35004,11 @@
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
-	module.exports = new Type('tag:yaml.org,2002:seq', {
-	  kind: 'sequence',
-	  construct: function (data) { return null !== data ? data : []; }
+	module.exports = new Type('tag:yaml.org,2002:map', {
+	  kind: 'mapping',
+	  construct: function (data) { return null !== data ? data : {}; }
 	});
 
 
@@ -35177,21 +35018,7 @@
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
-
-	module.exports = new Type('tag:yaml.org,2002:map', {
-	  kind: 'mapping',
-	  construct: function (data) { return null !== data ? data : {}; }
-	});
-
-
-/***/ },
-/* 213 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	function resolveYamlNull(data) {
 	  if (null === data) {
@@ -35228,12 +35055,12 @@
 
 
 /***/ },
-/* 214 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	function resolveYamlBoolean(data) {
 	  if (null === data) {
@@ -35271,13 +35098,13 @@
 
 
 /***/ },
-/* 215 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var common = __webpack_require__(198);
-	var Type   = __webpack_require__(206);
+	var common = __webpack_require__(197);
+	var Type   = __webpack_require__(205);
 
 	function isHexCode(c) {
 	  return ((0x30/* 0 */ <= c) && (c <= 0x39/* 9 */)) ||
@@ -35460,13 +35287,13 @@
 
 
 /***/ },
-/* 216 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var common = __webpack_require__(198);
-	var Type   = __webpack_require__(206);
+	var common = __webpack_require__(197);
+	var Type   = __webpack_require__(205);
 
 	var YAML_FLOAT_PATTERN = new RegExp(
 	  '^(?:[-+]?(?:[0-9][0-9_]*)\\.[0-9_]*(?:[eE][-+][0-9]+)?' +
@@ -35572,12 +35399,12 @@
 
 
 /***/ },
-/* 217 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	var YAML_TIMESTAMP_REGEXP = new RegExp(
 	  '^([0-9][0-9][0-9][0-9])'          + // [1] year
@@ -35671,12 +35498,12 @@
 
 
 /***/ },
-/* 218 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	function resolveYamlMerge(data) {
 	  return '<<' === data || null === data;
@@ -35689,7 +35516,7 @@
 
 
 /***/ },
-/* 219 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35698,8 +35525,8 @@
 
 	// A trick for browserified version.
 	// Since we make browserifier to ignore `buffer` module, NodeBuffer will be undefined
-	var NodeBuffer = __webpack_require__(220).Buffer;
-	var Type       = __webpack_require__(206);
+	var NodeBuffer = __webpack_require__(219).Buffer;
+	var Type       = __webpack_require__(205);
 
 
 	// [ 64, 65, 66 ] -> [ padding, CR, LF ]
@@ -35829,18 +35656,18 @@
 
 
 /***/ },
-/* 220 */
+/* 219 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 221 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	var _hasOwnProperty = Object.prototype.hasOwnProperty;
 	var _toString       = Object.prototype.toString;
@@ -35897,12 +35724,12 @@
 
 
 /***/ },
-/* 222 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	var _toString = Object.prototype.toString;
 
@@ -35964,12 +35791,12 @@
 
 
 /***/ },
-/* 223 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	var _hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -36003,7 +35830,7 @@
 
 
 /***/ },
-/* 224 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// JS-YAML's default schema for `load` function.
@@ -36018,28 +35845,28 @@
 	'use strict';
 
 
-	var Schema = __webpack_require__(205);
+	var Schema = __webpack_require__(204);
 
 
 	module.exports = Schema.DEFAULT = new Schema({
 	  include: [
-	    __webpack_require__(204)
+	    __webpack_require__(203)
 	  ],
 	  explicit: [
+	    __webpack_require__(224),
 	    __webpack_require__(225),
-	    __webpack_require__(226),
-	    __webpack_require__(227)
+	    __webpack_require__(226)
 	  ]
 	});
 
 
 /***/ },
-/* 225 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	function resolveJavascriptUndefined() {
 	  return true;
@@ -36068,12 +35895,12 @@
 
 
 /***/ },
-/* 226 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	function resolveJavascriptRegExp(data) {
 	  if (null === data) {
@@ -36157,7 +35984,7 @@
 
 
 /***/ },
-/* 227 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36172,13 +35999,13 @@
 	//    found too - then fail to parse.
 	//
 	try {
-	  esprima = __webpack_require__(228);
+	  esprima = __webpack_require__(227);
 	} catch (_) {
 	  /*global window */
 	  if (typeof window !== 'undefined') { esprima = window.esprima; }
 	}
 
-	var Type = __webpack_require__(206);
+	var Type = __webpack_require__(205);
 
 	function resolveJavascriptFunction(data) {
 	  if (null === data) {
@@ -36247,7 +36074,7 @@
 
 
 /***/ },
-/* 228 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -41996,17 +41823,17 @@
 
 
 /***/ },
-/* 229 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	/*eslint-disable no-use-before-define*/
 
-	var common              = __webpack_require__(198);
-	var YAMLException       = __webpack_require__(199);
-	var DEFAULT_FULL_SCHEMA = __webpack_require__(224);
-	var DEFAULT_SAFE_SCHEMA = __webpack_require__(204);
+	var common              = __webpack_require__(197);
+	var YAMLException       = __webpack_require__(198);
+	var DEFAULT_FULL_SCHEMA = __webpack_require__(223);
+	var DEFAULT_SAFE_SCHEMA = __webpack_require__(203);
 
 	var _toString       = Object.prototype.toString;
 	var _hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -42843,14 +42670,14 @@
 
 
 /***/ },
-/* 230 */
+/* 229 */
 /***/ function(module, exports) {
 
 	console.log("I'm `fs` modules");
 
 
 /***/ },
-/* 231 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -43079,6 +42906,179 @@
 	;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ },
+/* 231 */
+/***/ function(module, exports) {
+
+	module.exports = [
+		{
+			"name": "Chris Fritz",
+			"bio": "I dig helping people learn - and coding things that help people learn. My favorite way of getting to know someone is over a warm cup, so <a href=\"mailto:chrisvfritz@gmail.com\">shoot me an email</a> and you can tell me about <em>your</em> passions.",
+			"tech": "A lot of stuff - I like to play! I also love meeting other developers, so if there's something specific you'd like help with, I almost certainly know someone who could help if I can't.",
+			"contact_methods": [
+				{
+					"type": "GitHub",
+					"body": "chrisvfritz"
+				},
+				{
+					"type": "Slack",
+					"body": "chrisvfritz"
+				},
+				{
+					"type": "Email",
+					"body": "chrisvfritz@gmail.com"
+				}
+			],
+			"roles": [
+				"Admin",
+				"Leader",
+				"Founder",
+				"Mentor"
+			]
+		},
+		{
+			"name": "Jesse Flores",
+			"bio": "I'm a startup junkie and tech enthusiast. The founder of StartupLansing, the non-profit that educates, connects, and celebrates entrepreneurship in mid-Michigan. With Chris, I helped found several tech meetups and launch the Code Lab. My most recent project is founding SuperWebPros, which is eliminating the hassle of building and maintaining websites for small business owners.",
+			"tech": "Ruby, HTML, CSS",
+			"contact_methods": [
+				{
+					"type": "GitHub",
+					"body": "jflores1"
+				},
+				{
+					"type": "Twitter",
+					"body": "jflores1c"
+				},
+				{
+					"type": "LinkedIn",
+					"body": "jafloresjr"
+				}
+			],
+			"roles": [
+				"Founder",
+				"Leader"
+			]
+		},
+		{
+			"name": "Nick Rutowski",
+			"bio": "I've been working in tech since my freshman year at MSU in 2011. I got my start in professional development business intelligence applications at MSU's NSCL, since then I have had 2 internships with Epic Health Systems and completed numerous freelance jobs. I joined Code Lab as a mentor because I believe an education in software development is an incredible tool for any career. Helping students be successful is my number one priority, I'm always happy to chat about how I can help!",
+			"tech": "Python, C#, Html, JS, CSS, Rails, Node.js, UI/UX, PHP, C++, C",
+			"contact_methods": [
+				{
+					"type": "GitHub",
+					"body": "badsauce"
+				},
+				{
+					"type": "Twitter",
+					"body": "badsauce"
+				},
+				{
+					"type": "Email",
+					"body": "NickRutowski@gmail.com"
+				}
+			],
+			"roles": [
+				"Leader",
+				"Mentor"
+			]
+		},
+		{
+			"name": "Erik Gillespie",
+			"bio": "I'm a professional juggler of coding, board gaming, writing, parenting, and businessing. The coding and businessing happens at <a href=\"http://technicalrex.com/\" target=\"_blank\">Technical Rex</a>, board gaming with anyone who says yes, writing on <a href=\"http://geekandsundry.com/author/erikgillespie/\" target=\"_blank\">Geek & Sundry</a>, and evidence of parenting can be found on my <a href=\"http://gillespieproject.com/\" target=\"_blank\">blog</a>.",
+			"tech": "Java, JavaScript (client- and server-side), SQL, shell scripting (including just getting around the terminal). More abstract things such as HTTP and REST. Not-coding-but-handy-for-coders things like Inkscape and Gimp, agile concepts, unit testing, and application security.",
+			"contact_methods": [
+				{
+					"type": "GitHub",
+					"body": "egillespie"
+				},
+				{
+					"type": "Email",
+					"body": "erik.gillespie@gmail.com"
+				},
+				{
+					"type": "Stack Overflow",
+					"body": "erik-gillespie",
+					"url": "http://stackoverflow.com/users/1696044/erik-gillespie/"
+				},
+				{
+					"type": "LinkedIn",
+					"body": "eriklgillespie"
+				},
+				{
+					"type": "Twitter",
+					"body": "eriklgillespie"
+				},
+				{
+					"type": "Blog",
+					"body": "The Gillespie Project",
+					"url": "http://gillespieproject.com/"
+				},
+				{
+					"type": "Business",
+					"body": "Technical Rex",
+					"url": "http://technicalrex.com/"
+				}
+			],
+			"roles": [
+				"Mentor"
+			]
+		},
+		{
+			"name": "Kiera Wheatley",
+			"bio": "Hi! My name is Kiera Wheatley and I'm a Computer Science major at Michigan State University. I will be graduating in the Spring. I am pursuing a career in software development. I love video games and steak.",
+			"tech": "Beyond the languages we use for web development, I could also mentor C++, C, and C# confidently.",
+			"contact_methods": [
+				{
+					"type": "GitHub",
+					"body": "kieraw"
+				},
+				{
+					"type": "LinkedIn",
+					"body": "kiera-wheatley"
+				}
+			],
+			"roles": [
+				"Mentor"
+			]
+		},
+		{
+			"name": "Nicole Lawrence",
+			"bio": "I'm a senior at Michigan State University currently majoring in Computer Science and Engineering with a cognate in Media and Information. I am the current webmaster of MSU's Women in Computing (WIC) club. I got into computer science in high school and haven't looked back. I like how you can turn seemingly meaningless letters and numbers into something wonderful; whether it is a website or a mobile app. The list of possibilities is endless!",
+			"tech": "HTML5, CSS, JS, SCSS, PHP, and Unix terminal commands.",
+			"contact_methods": [
+				{
+					"type": "GitHub",
+					"body": "icy-wolf"
+				},
+				{
+					"type": "Email",
+					"body": "nicole.lawrence93@gmail.com"
+				}
+			],
+			"roles": [
+				"Mentor"
+			]
+		},
+		{
+			"name": "Stuart Pearman",
+			"bio": "Hi, I'm Stuart! I haven't been coding for long, a little more than two years, but what I've discovered is that you can do a lot with a little knowledge. Coding has become a passion of mine, but learning new things and sharing them with others is really what I love to do most. As someone who has too many hobbies to count, coding has complemented my life ways I never could have expected, and many of the positive opportunities I've had in the past few years would have never come to me had I not developed this wonderful new skill. I hope to continue to learn and to grow, creating new experiences for myself and others for many years to come.",
+			"tech": "Design and animation, HTML, CSS, JavaScript and jQuery, Git and GitHub, and video game development with JS Canvas or Unity.",
+			"contact_methods": [
+				{
+					"type": "GitHub",
+					"body": "stuartpearman"
+				},
+				{
+					"type": "Email",
+					"body": "swpearman@gmail.com"
+				}
+			],
+			"roles": [
+				"Mentor"
+			]
+		}
+	];
 
 /***/ },
 /* 232 */
