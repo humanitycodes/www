@@ -6,3 +6,4 @@ machine:
 test:
   override:
     - bundle exec rspec
+    - npm run test
