@@ -1,5 +1,5 @@
 .navbar-brand img {
   display: inline-block;
-  height: 100%;
+  height: $navbar-height - $navbar-padding-vertical * 2;
   vertical-align: top;
 }
