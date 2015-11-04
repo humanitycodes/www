@@ -23,6 +23,7 @@ module.exports = Radium class LessonsMap extends React.Component
       window and window.remove-event-listener 'resize', @mapper.draw, false
     @mapper = new LessonsMapper @container-id, @state.lessons
     @mapper.draw!
+    enable-popovers-for '#' + @container-id
     window and window.add-event-listener 'resize', @mapper.draw, false
 
   should-component-update: (next-props, next-state) ->

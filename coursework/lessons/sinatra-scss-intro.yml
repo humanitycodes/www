@@ -1,9 +1,10 @@
-title: Jquery events
+title: SCSS in Sinatra
 categories:
   - wip
-  - js
+  - css
+  - ruby
 prereqs:
-  - jquery-intro
+  - sinatra-assets-and-layouts
 project:
   title: arst
   criteria:

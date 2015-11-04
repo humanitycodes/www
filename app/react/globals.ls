@@ -24,13 +24,5 @@ root import require './helpers.ls'
 # VENDOR RUN
 if window?
   require 'jquery-ujs'
-  # require 'bootstrap/js/dropdown'
   require 'bootstrap/js/tooltip'
   require 'bootstrap/js/popover'
-
-  jQuery(document).ready !->
-    jQuery('[data-toggle="popover"]').popover do
-      container: 'body'
-      placement: 'bottom'
-      animation: false
-      trigger: 'hover'

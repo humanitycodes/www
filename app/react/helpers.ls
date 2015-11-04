@@ -21,3 +21,10 @@ module.exports =
       html = html.replace /<p>|<\/p>/gi, ''
 
     html
+
+  enable-popovers-for: (container-selector) !->
+    jQuery("#{container-selector} [data-toggle=\"popover\"]").popover do
+      container: 'body'
+      placement: 'bottom'
+      animation: false
+      trigger: 'hover'

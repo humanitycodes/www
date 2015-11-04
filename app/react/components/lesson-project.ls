@@ -36,6 +36,7 @@ module.exports = class LessonProject extends React.Component
               $label do
                 $input do
                   type: 'checkbox'
+                $span do
                   dangerously-set-inner-HTML:
                     __html: parse-markdown do
                       criterion

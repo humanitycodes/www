@@ -1,0 +1,11 @@
+title: Get a taste of test-driven development in Sinatra with Rspec
+categories:
+  - wip
+  - ruby
+  - tests
+prereqs:
+  - sinatra-helper-methods
+project:
+  title: arst
+  criteria:
+    - arst
