@@ -40,7 +40,8 @@
     "yaml-loader": "^0.1.0"
   },
   "scripts": {
-    "test": "NODE_ENV=test jest",
+    "test": "NODE_ENV=test jest app/react",
+    "test:watch": "npm run test -- --watch --watchExtensions ls",
     "start": "webpack -w --config webpack/dev.config.js",
     "start-hot-dev": "webpack-dev-server --hot --inline --config webpack/hot-dev.config.js",
     "build": "webpack -p --config webpack/production.config.js"

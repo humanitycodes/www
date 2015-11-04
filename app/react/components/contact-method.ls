@@ -1,6 +1,7 @@
 module.exports = class ContactMethod extends React.Component
   render: ->
-    const { type, body, url } = @props.method
+    const { method } = @props
+    const { type, body, url } = method
 
     const icon-for =
       GitHub: 'github'
@@ -16,13 +17,15 @@ module.exports = class ContactMethod extends React.Component
       return method.url if method.url
 
       switch method.type
-      case 'GitHub' then "https://github.com/#{method.body}"
-      case 'Twitter' then "https://twitter.com/#{method.body}"
+      case 'GitHub'   then "https://github.com/#{method.body}"
+      case 'Twitter'  then "https://twitter.com/#{method.body}"
       case 'LinkedIn' then "https://www.linkedin.com/in/#{method.body}"
-      case 'Email' then "mailto:#{method.body}"
-      case 'Slack' then "https://lansingcodes.slack.com/messages/@#{method.body}"
+      case 'Email'    then "mailto:#{method.body}"
+      case 'Slack'    then "https://lansingcodes.slack.com/messages/@#{method.body}"
 
-    $a href: url-for(@props.method),
-      $i class-name: "fa fa-#{icon-for[type] or 'link'}"
+    $a href: url-for(method),
+      $i do
+        ref: 'icon'
+        class-name: "fa fa-#{icon-for[type] or 'link'}"
       ' '
-      type
+      $span ref: 'content', type
