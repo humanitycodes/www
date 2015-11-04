@@ -3,7 +3,7 @@ describe 'ContactMethod' (_) !->
   before-each !->
     @ContactMethod = require '../contact-method.ls'
 
-  describe 'when passed a GitHub contact method for chrisvfritz without a URL' (_) !->
+  describe 'when passed a GitHub contact method for chrisvfritz WITHOUT a URL' (_) !->
 
     before-each !->
       component = TestUtils.render-into-document do
@@ -46,7 +46,7 @@ describe 'ContactMethod' (_) !->
         content-node = ReactDOM.find-DOM-node @rendered-component.refs.content
         expect content-node.inner-HTML .to-equal 'GitHub'
 
-  describe 'when passed a GitHub contact method for chrisvfritz without a URL' (_) !->
+  describe 'when passed a GitHub contact method for chrisvfritz WITH a URL' (_) !->
 
     before-each !->
       component = TestUtils.render-into-document do
