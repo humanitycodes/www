@@ -1,14 +1,14 @@
 ## The web developer's dilemma
 
-Building features into a website can be tricky sometimes, especially when other people are involved in the process. Non-developers don't know what's possible or what's difficult, so they'll ask things like, "So when you click on the sign up button, could the button slowly transform into a popup with the sign up form through some fancy animation?"
+Working with non-developers can be tricky. They don't know what's possible or what's difficult, so they'll say things like, "When you click on this button, I want a sign up form to appear, but I want the button to _transform_ into the sign up form. You know, like a person transforming into a werewolf."
 
-If my answer isn't, "You don't actually want that and here's why," then it'll probably be, "Maybe." I say maybe because _I_ don't want to build it, but in my experience, someone else has _usually_ already put in the work and made their code freely available.
+When I'm confronted with something like this - and assuming I don't think it's a terrible idea - I'll probably answer, "Maybe." I say maybe because _I_ don't want to build that feature. It sounds like _a lot_ of work. And where would I even start? But if someone else has already done all the work... well, in that case, I'll gladly use their code.
 
-So how do you find out? If I think I know the words to describe what I want, I'll start Googling. Otherwise, I'll ask other web developers to see if they have any tips.
+So how do you find out? If I think I know the words to describe what I want, I'll start Googling. Otherwise, I'll ask other developers to see if they have any tips.
 
 In this case, I happen to know that in web development, the technical term for an in-page popup is a "modal", so I turn to Google and type in "[javascript transform button into modal](https://www.google.com/#q=javascript+transform+button+into+modal)". The very first result is [Morphing Modal Window](https://codyhouse.co/gem/morphing-modal-window/). I try out the demo and it seems to be exactly what I had in mind. There's also a download link which gives me the code for the demo, including a collection of JavaScript, CSS, and even a custom image for a close button. The page itself also has step-by-step instructions for integrating this code into my current website. Score!
 
-And in case that turns out to not work the way I wanted, the [the Adaptive Modal library](http://www.thepetedesign.com/demos/adaptive-modal_demo.html) also seems like a good option. And if I don't need the button to necessarily transform into the modal, I can get some great results with [the Colorbox jQuery plugin](http://www.jacklmoore.com/colorbox/)
+And in case that turns out to not work the way I wanted, [the Adaptive Modal library](http://www.thepetedesign.com/demos/adaptive-modal_demo.html) also seems like a good option. And if I don't need the button to necessarily transform into the modal, I can get some great results with [the Colorbox jQuery plugin](http://www.jacklmoore.com/colorbox/). Those were also found through Google.
 
 ---
 
