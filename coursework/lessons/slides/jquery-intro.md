@@ -53,7 +53,7 @@ Not to fear, jQuery still has tricks up its sleeve:
 $('code').parent('pre')
 ```
 
-Excellent! jQuery is actually used on this page, but instead of using the dollar sign (`$`), we explicitly name it with `jQuery`. That means the code snippet above will instead look like this:
+Excellent! jQuery is actually used on this page, but instead of using the short-hand dollar sign (`$`), we explicitly name it with `jQuery`. That means the code snippet above will instead look like this:
 
 ``` js
 jQuery('code').parent('pre')
@@ -141,7 +141,7 @@ $codeBlocks.on('click', function(){
 })
 ```
 
-And finally, there's _one more_ change I'd like to make. We're creating a jQuery object out of `this` twice with `$(this)`. That's not only unnecessary duplication, but it's also relatively slow. To clean up our code and speed things up, we could assign `$(this)` to a variable, like we did with `$codeBlocks` - or, we could _chain_ these functions.
+And finally, there's _one more_ change I'd like to make. We're creating a jQuery object out of `this` twice with `$(this)`. That's not only unnecessary duplication, but it's also relatively slow. To clean up our code and speed things up, we could assign `jQuery(this)` to a variable, like we did with `$codeBlocks` - or, we could _chain_ these functions.
 
 That looks like this:
 
@@ -204,7 +204,7 @@ $codeBlocks.on('click', function(){
 
 That's _almost_ right. It meets the second criterion, but breaks the first one, because whenever we click on an item that's already been selected, the `selected` class is first removed, then added again by `toggleClass`, making it look like nothing is happening.
 
-Really, we want to remove the `selected` class for any elements _except_ the one that was clicked on. To do that, we can chain `not(this)` onto our `$('.selected')` selector:
+Really, we want to remove the `selected` class for any elements _except_ the one that was clicked on. To do that, we can chain `not(this)` onto our `jQuery('.selected')` selector:
 
 ``` js
 var $codeBlocks = jQuery('code').parent('pre')
