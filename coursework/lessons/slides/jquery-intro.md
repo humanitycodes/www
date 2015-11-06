@@ -53,9 +53,15 @@ Not to fear, jQuery still has tricks up its sleeve:
 $('code').parent('pre')
 ```
 
-Excellent! Open up the development console in your browser now and paste that code in to make sure it's working on this page.
+Excellent! jQuery is actually used on this page, but instead of using the dollar sign (`$`), we explicitly name it with `jQuery`. That means the code snippet above will instead look like this:
 
-When you've confirmed that it works, we'll move on making something happen when we click on it.
+``` js
+jQuery('code').parent('pre')
+```
+
+Open up the development console in your browser now and paste that code in to make sure it's working on this page. It should return a list of `pre` elements. As you put your mouse over each one, the corresponding code block on the page should highlight.
+
+When you've confirmed that it's working, we'll move on making something happen when we click on it.
 
 ---
 
@@ -64,7 +70,7 @@ When you've confirmed that it works, we'll move on making something happen when 
 Let's store our jQuery selector in a variable. We're grabbing all the code blocks on a page, so how about `codeBlocks`? Actually, let's also put a dollar sign in front of it:
 
 ``` js
-var $codeBlocks = $('code').parent('pre')
+var $codeBlocks = jQuery('code').parent('pre')
 ```
 
 When using jQuery, the dollar sign in front is a convention. We use it for variables that contain a jQuery object, so that we know what we can call jQuery functions on, like the `on` function.
@@ -90,7 +96,7 @@ $codeBlocks.on('hover', function(){
 Now let's combine the last few code blocks. Try copying these lines into the developer console of this page:
 
 ``` js
-var $codeBlocks = $('code').parent('pre')
+var $codeBlocks = jQuery('code').parent('pre')
 
 $codeBlocks.on('click', function(){
   console.log('You clicked on me!')
@@ -114,24 +120,24 @@ Fortunately, jQuery has a `css` function, which allows you to use what you alrea
 Here's what the result looks like:
 
 ``` js
-var $codeBlocks = $('code').parent('pre')
+var $codeBlocks = jQuery('code').parent('pre')
 
 $codeBlocks.on('click', function(){
-  $(this).css('border', '20px solid #A0C1A0')
-  $(this).css('box-shadow', '0 0 30px #A0C1A0')
+  jQuery(this).css('border', '20px solid #A0C1A0')
+  jQuery(this).css('box-shadow', '0 0 30px #A0C1A0')
 })
 ```
 
 This works, but it can be improved a little. Since we're mentioning `#A0C1A0` in two related commands, let's assign it to a variable. That way, if we decide to change the color, we only have to change it in one place.
 
 ``` js
-var $codeBlocks = $('code').parent('pre')
+var $codeBlocks = jQuery('code').parent('pre')
 
 $codeBlocks.on('click', function(){
   var highlightColor = '#A0C1A0'
 
-  $(this).css('border', '20px solid ' + highlightColor)
-  $(this).css('box-shadow', '0 0 30px ' + highlightColor)
+  jQuery(this).css('border', '20px solid ' + highlightColor)
+  jQuery(this).css('box-shadow', '0 0 30px ' + highlightColor)
 })
 ```
 
@@ -140,12 +146,12 @@ And finally, there's _one more_ change I'd like to make. We're creating a jQuery
 That looks like this:
 
 ``` js
-var $codeBlocks = $('code').parent('pre')
+var $codeBlocks = jQuery('code').parent('pre')
 
 $codeBlocks.on('click', function(){
   var highlightColor = '#A0C1A0'
 
-  $(this)
+  jQuery(this)
     .css('border', '20px solid ' + highlightColor)
     .css('box-shadow', '0 0 30px ' + highlightColor)
 })
@@ -178,21 +184,21 @@ Great, now we can just add and remove that class to elements instead of manually
 First, let's use the very useful `toggleClass` to alternately add or remove the `selected` class from the clicked-on code block:
 
 ``` js
-var $codeBlocks = $('code').parent('pre')
+var $codeBlocks = jQuery('code').parent('pre')
 
 $codeBlocks.on('click', function(){
-  $(this).toggleClass('selected')
+  jQuery(this).toggleClass('selected')
 })
 ```
 
 Fantastic! That's our first criterion out of the way. Now to unselect any other previously selected code blocks. Well, how about this:
 
 ``` js
-var $codeBlocks = $('code').parent('pre')
+var $codeBlocks = jQuery('code').parent('pre')
 
 $codeBlocks.on('click', function(){
-  $('.selected').removeClass('selected')
-  $(this).toggleClass('selected')
+  jQuery('.selected').removeClass('selected')
+  jQuery(this).toggleClass('selected')
 })
 ```
 
@@ -201,11 +207,11 @@ That's _almost_ right. It meets the second criterion, but breaks the first one, 
 Really, we want to remove the `selected` class for any elements _except_ the one that was clicked on. To do that, we can chain `not(this)` onto our `$('.selected')` selector:
 
 ``` js
-var $codeBlocks = $('code').parent('pre')
+var $codeBlocks = jQuery('code').parent('pre')
 
 $codeBlocks.on('click', function(){
-  $('.selected').not(this).removeClass('selected')
-  $(this).toggleClass('selected')
+  jQuery('.selected').not(this).removeClass('selected')
+  jQuery(this).toggleClass('selected')
 })
 ```
 
