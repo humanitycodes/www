@@ -13,7 +13,7 @@ module.exports =
     const renderer = new marked.Renderer()
 
     renderer.link = (href, title, text) ->
-      """ <a href="#{href}" title="#{title || ''}" target="_blank">#{text}</a> """
+      """<a href="#{href}" title="#{title || ''}" target="_blank">#{text}</a>"""
 
     html = marked markdown, renderer: renderer
 
