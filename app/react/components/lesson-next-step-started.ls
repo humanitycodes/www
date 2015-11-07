@@ -1,6 +1,6 @@
 require! {
-  './lesson-project-submission-instructions': LessonProjectSubmissionInstructions
-  './new-issue-form': NewIssueForm
+  './lesson-project-submission-instructions.ls': LessonProjectSubmissionInstructions
+  './new-issue-form.ls': NewIssueForm
 }
 
 module.exports = class LessonNextStepStarted extends React.Component
@@ -8,7 +8,8 @@ module.exports = class LessonNextStepStarted extends React.Component
     const { repo-URL, project } = @props
 
     const clone-URL = "#{ repo-URL }.git"
-    const project-folder-name = repo-URL.match(/(codelab\-[\w\-]+)/)[0]
+    project-folder-name = repo-URL
+      .match /(codelab\-[\w\-]+)/ .0
 
     $div id: 'next-steps-started',
       $p 'Looks great! You now have a repository at:'

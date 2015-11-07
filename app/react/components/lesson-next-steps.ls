@@ -1,9 +1,9 @@
 require! {
   'highlight.js': Highlight
-  './lesson-next-step-unstarted': LessonNextStepUnstarted
-  './lesson-next-step-started': LessonNextStepStarted
-  './lesson-next-step-submitted': LessonNextStepSubmitted
-  './lesson-next-step-approved': LessonNextStepApproved
+  './lesson-next-step-unstarted.ls': LessonNextStepUnstarted
+  './lesson-next-step-started.ls': LessonNextStepStarted
+  './lesson-next-step-submitted.ls': LessonNextStepSubmitted
+  './lesson-next-step-approved.ls': LessonNextStepApproved
 }
 
 module.exports = class LessonNextSteps extends React.Component

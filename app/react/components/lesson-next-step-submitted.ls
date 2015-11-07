@@ -1,5 +1,5 @@
 require! {
-  './lesson-project-submission-instructions': LessonProjectSubmissionInstructions
+  './lesson-project-submission-instructions.ls': LessonProjectSubmissionInstructions
 }
 
 module.exports = class LessonNextStepSubmitted extends React.Component
