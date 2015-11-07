@@ -1,10 +1,10 @@
-title: CSS transitions, animations, transforms
+title: Animate webpages with CSS transitions, transforms, and keyframe animations
 categories:
   - wip
   - css
 prereqs:
   - advanced-css-selectors
 project:
-  title: arst
+  title: Attach the 
   criteria:
     - arst
