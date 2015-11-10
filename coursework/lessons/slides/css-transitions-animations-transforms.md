@@ -282,6 +282,32 @@ To animate this button, we had to define all the various stages it goes through 
 
 Then once again, we use refer to the animation we created in a class. In this case, the animation is called `rainbow` and the class is called `flashy`.
 
+__One more thing though__. To maximize browser support, it's a good idea to also include the `-webkit-` vendor prefix when defining your keyframe animation.
+
+```
+@keyframes rainbow {
+  0%   { background: #a0d1d1; }
+  20%  { background: #8dcc95; }
+  40%  { background: #d4c8a0; }
+  60%  { background: #c995ad; }
+  80%  { background: #ac91b8; }
+  100% { background: #a0d1d1; }
+}
+
+@-webkit-keyframes rainbow {
+  0%   { background: #a0d1d1; }
+  20%  { background: #8dcc95; }
+  40%  { background: #d4c8a0; }
+  60%  { background: #c995ad; }
+  80%  { background: #ac91b8; }
+  100% { background: #a0d1d1; }
+}
+
+.flashy {
+  animation: rainbow 10s infinite;
+}
+```
+
 ---
 
 ## Controlling exactly _how_ transitions happen

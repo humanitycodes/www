@@ -1,10 +1,13 @@
 title: Animate webpages with CSS transitions, transforms, and keyframe animations
 categories:
-  - wip
   - css
 prereqs:
   - advanced-css-selectors
 project:
-  title: Attach the 
+  title: Build an animated report page
   criteria:
-    - arst
+    - Build a table using [a `table` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table#Examples), listing statistics for various branches of a national organization. Example stats should all be very impressive business terms, such as "Synergy Coefficient" or "Projected Bitcoin Dynamics". Include at least 3 stats for a very impressive table.
+    - When the user hovers over each table cell, the background color should slowly __transition__ to a different color.
+    - When the user hovers over the table, it should __transition__ to be slightly larger with a fancy __scale transform__.
+    - When the user hovers over a table row (`tr`), the row should __transition_ to the right slightly with a __translateX transform__.
+    - The client needs a fancy logo, so quickly create one with the [Hipster Logo Generator](https://www.hipsterlogogenerator.com/), then include it in your page, above the table. It's very important to the client that a super awesome __keyframe animation__ is applied when a user hovers over the logo. (You can create your own or steal [an attention seeker from animate.css](https://github.com/daneden/animate.css/tree/master/source/attention_seekers)).

@@ -5,6 +5,7 @@ categories:
   - tests
 prereqs:
   - sinatra-helper-methods
+  - sinatra-gems-arrays-uninjected-erb
 project:
   title: arst
   criteria:

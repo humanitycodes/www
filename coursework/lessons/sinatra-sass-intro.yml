@@ -1,0 +1,14 @@
+title: Program your CSS with SASS in Sinatra
+categories:
+  - css
+  - ruby
+prereqs:
+  - sinatra-assets-and-layouts
+  - css-transitions-animations-transforms
+  - twitter-bootstrap
+project:
+  title: Upgrade the CSS on a mockup to simpler and more powerful SASS
+  criteria:
+    - You're building off [this mock app](https://github.com/chrisvfritz/sinatra-sass-intro-practice/archive/master.zip) (copy those files into your project directory).
+    - The CSS in `public/stylesheets/sass/app.scss` is refactored according to [the TODO comments in the file](https://github.com/chrisvfritz/sinatra-sass-intro-practice/blob/master/public/stylesheets/sass/app.scss).
+    - Your client has mentioned they want the page to "pop" more, with _just a hint_ of pizazz. To accomplish this, uncomment and specify override values for all of the commented-out Bootstrap variables, as well as five more you choose from [the Boostrap variables list](http://getbootstrap.com/customize/#less-variables).
