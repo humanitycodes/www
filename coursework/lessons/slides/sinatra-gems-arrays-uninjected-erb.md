@@ -127,6 +127,12 @@ Now to start playing with the gem we just installed, we have to let Ruby know we
 require 'cat_api'
 ```
 
+This should return `true`, meaning the gem was found, like this:
+
+```
+=> true
+```
+
 Now looking at [the usage document](https://github.com/chrisvfritz/cat_api#usage) for the cat_api gem, it seems like we should be able get an array of cats just by typing in these two lines:
 
 ``` ruby
@@ -220,7 +226,6 @@ Excellent! By now, ideas should be beginning to form about how you could use thi
 So let's set up a new `app.rb` that can specialize in cats.
 
 ``` ruby
-# app.rb
 require 'sinatra'
 require 'cat_api'
 
@@ -237,13 +242,12 @@ You'll notice that we're requiring the cat_api gem, to let Ruby know we want to 
 Since our `config.ru` is responsible for running this app, let's update that file accordingly:
 
 ``` ruby
-# config.ru
 require File.join( File.dirname(__FILE__), 'app' )
 
 run CatIndustriesApp
 ```
 
-OK, now let's take a closer look at the route we defined:
+OK, now let's take a closer look at the route we defined in `app.rb`:
 
 ``` ruby
 get '/cats' do
@@ -252,9 +256,7 @@ get '/cats' do
 end
 ```
 
-That second line looks similar to what we were doing in `irb`, but in this case, our variable starts with an `@`. That makes it an "instance variable". In Ruby web development, instance variables are often used to pass specific information to our views, so that we can keep most of our Ruby in actual Ruby (`.rb`) files, rather than having it clutter up our views with a bunch of lines of uninjected Ruby.
-
-If that variable were called `pictures` instead of `@pictures`, our `cats.erb` view file wouldn't be able to see it.
+That second line looks similar to what we were doing in `irb`, but in this case, our variable starts with an `@`. That makes it an __instance variable__. In Sinatra, what's special about instance variables is they're automatically shared with our views. If we just called that variable `pictures` (without the starting `@`), our `.erb` view file would never receive the list of cats we got from the Cat API.
 
 ---
 
