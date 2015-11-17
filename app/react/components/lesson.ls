@@ -38,7 +38,7 @@ module.exports = class Lesson extends React.Component
     return if new-page < 1 or new-page > @slides!.length
 
     const new-URL = "#{@base-URL!}/#{new-page}"
-    history.push-state {}, null, new-URL
+    history.replace-state {}, null, new-URL
     @set-state do
       page: parse-int new-page
 
