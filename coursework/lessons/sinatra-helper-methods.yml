@@ -4,7 +4,11 @@ categories:
   - ruby
 prereqs:
   - sinatra-erb
+  - css-font-families
+  - twitter-bootstrap
 project:
-  title: arst
+  title: Define and use methods in a Sinatra app
   criteria:
-    - arst
+    - "Define and use a method called `pluralize` in your app. It should take two parameters: `singular_name` and `count`. `pluralize('cat', 5)` should return `'5 cats'`, `pluralize('cat', 1)` should return `'1 cat'`, and `pluralize('cat', 0)` should return `'0 cats'`."
+    - "Define and use a method called `use_google_font` in your app. It should take a single parameter: `font`. It should return the `link` element to include the font and a `style` element that applies the font to the body. Example usage would be `use_google_font('Open Sans')`. This one requires you know how to [customize the fonts in a webpage](http://lansingcodelab.com/lessons/css-font-families/1), so complete or review that lesson if you need to."
+    - "Define and use a method called `icon_button` in your app. It should take 3 parameters: `icon`, `type` (with a default value of `'default'`), and `message`, with a default value of `''`. That means the only required parameter is `icon`. It should return a button with an icon, similar to the [example in the Bootstrap docs](http://getbootstrap.com/components/#glyphicons-examples). Note that Bootstrap must be correctly included in your app for this to work."
