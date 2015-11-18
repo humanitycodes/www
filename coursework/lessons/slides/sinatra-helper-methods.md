@@ -136,11 +136,12 @@ def current_date_usa
 end
 
 def current_date_europe
+  current_time = Time.now
   "#{ current_time.day }/#{ current_time.month }/#{ current_time.year }"
 end
 ```
 
-That works _alright_, but let's say we want One Method To Rule Them All. For that, we can use a nifty feature called __method parameters__. Here's an example:
+That works _alright_, but let's say we want One Method To Rule Them All (and only one method we have to remember when working in our views). For that, we can use a nifty feature called __method parameters__. Here's an example:
 
 ``` ruby
 def current_date(date_format)
@@ -166,7 +167,7 @@ Canada formats dates like the United States (month/day/year), but the rest of No
 
 - Since we're describing so many different regions, `current_date_usa` and `current_date_europe` aren't very good method names. Instead, let's rename them to `current_date_mdy` and `current_date_dmy`, respectively. I think these better describe what the methods actually do.
 - Since we're not using `usa` and `europe` to describe formats anymore, we notice that what's _really_ being passed to `date_format` is a country, so let's rename that variable to `country.`
-- Now that we have Canada also using the month/day/year date format, let's upgrade our conditional (the `if` statement) to check if the `country` is `'usa'` _OR_ the `country` is `'canada'`. In Ruby and many other programming languages, the way we write "or" is with double pipes (`||`), which can usually be found on a key above the Enter key.
+- Now that we have Canada also using the month/day/year date format, let's upgrade our conditional (the `if` statement) to check if the `country` is `'usa'` _OR_ the `country` is `'canada'`. In Ruby and many other programming languages, the way we write "or" is with double pipes (`||`). Pipe (`|`) can usually be found on a key above the Enter key.
 
 ``` ruby
 def current_date(country)
@@ -208,11 +209,11 @@ end
 
 ## Figuring out how to do things in Ruby
 
-So we've got a tiny problem. We figure out someone's country by text they type in. Some people are typing `usa` and some are typing `USA`, with capitals - even though we have clear instructions _not_ to use capitals! It happens. Users, amiright?
+So we've got a tiny problem. We figure out someone's country by text they type in. Some people are typing `usa` and some are typing `USA`, with capitals - even though we have clear instructions _not_ to use capitals! It happens. Users, am I right?
 
 The problem is that `country == 'usa'` returns `false` when the country passed in is `USA`. It's case sensitive. And... we have no idea how to make it _not_ case sensitive.
 
-Trust me, having no idea how to do something will happen _all the time_ when working in any programming language. It's normal to turn to Google with something like, "ruby compare case insensitive". When I searched for that just now, the first result was [this page](http://stackoverflow.com/questions/2844507/ruby-string-compare-regardless-of-string-case), which explained with examples how I could use the `casecmp` method to compare strings case insensitively.
+Trust me, having no idea how to do something will happen _all the time_ when working in any programming language. It's normal to turn to Google with something like, "ruby don't pay attention to case", "ruby uppercase and lowercase doesn't matter", or "ruby string compare case insensitive". When I searched for that just now, the first result was [this page](http://stackoverflow.com/questions/2844507/ruby-string-compare-regardless-of-string-case), which explained with examples how I could use the `casecmp` method to compare strings case insensitively.
 
 ``` ruby
 def current_date(country)
@@ -245,7 +246,7 @@ There are often big chunks of HTML that we find ourselves having to write out al
 
 That's a lot of HTML to type out when all we really care about is that we're creating a widget, with a title of `This is my title` and content of `This is my content.`. So how can we be lazier?
 
-Well, we've already created strings with `""` and `''`. When creating multiline strings though, it's often useful to use a percent (`%`) with any opening and closing symbol, like the parentheses. Here's an example.
+Well, we've already created strings with `""` and `''`. When creating multiline strings that may have `"`s and `'`s inside of them though, it's often useful to use a percent (`%`) with any opening and closing symbol, like the parentheses (`(` and `)`). Here's an example:
 
 ``` ruby
 def sidebar_widget(title, content)
@@ -262,7 +263,7 @@ def sidebar_widget(title, content)
 end
 ```
 
-See how we're building the HTML in the string and injecting the title and content where they need to be? With that method, we can create the same HTML with a simple:
+Notice how even though we have `"` characters, they aren't closing the string. And see how we're building the HTML in the string and injecting the title and content where they need to be? With that method, we can create the same HTML with a simple:
 
 ```
 <%= sidebar_widget("This is my title", "This is my content.") %>

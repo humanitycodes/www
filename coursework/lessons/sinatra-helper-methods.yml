@@ -1,6 +1,5 @@
 title: Avoid repetition in your Ruby with helper methods
 categories:
-  - wip
   - ruby
 prereqs:
   - sinatra-erb
