@@ -28,7 +28,7 @@
     "prelude-ls": "^1.1.2",
     "radium": "^0.14.3",
     "react": "^0.14.0",
-    "react-bootstrap": "^0.27.3",
+    "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.0",
     "react-router": "1.0.0-rc3",
     "react-tools": "*",
