@@ -21,6 +21,7 @@ module.exports = class LessonNextStepSubmitted extends React.Component
         ". If there's any possible room for improvement, a mentor will let you know. If you need to make changes, you'll want to make sure you also update your code on GitHub and make the new version live with these steps:"
 
       $(LessonProjectSubmissionInstructions) do
+        submission-instructions: @props.submission-instructions
         project-folder-name: project-folder-name
         categories: categories
 

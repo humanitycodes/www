@@ -24,6 +24,7 @@ module.exports = class LessonNextStepStarted extends React.Component
         " where you'll keep your code."
       $p "Now whenever you make changes, you'll follow the steps below to push your code to GitHub (so mentors can see the code) and then to Surge (so mentors can see the live result):"
       $(LessonProjectSubmissionInstructions) do
+        submission-instructions: @props.submission-instructions
         project-folder-name: project-folder-name
         categories: @props.categories
       $p do

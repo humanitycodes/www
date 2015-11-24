@@ -22,6 +22,7 @@ module.exports = class LessonNextSteps extends React.Component
 
   render: ->
     const { key, project, categories, status } = @props.lesson
+    const submission-instructions = @props.lesson.submission_instructions
     const repo-key = "#{ @props.user.username }/codelab-#{ key }"
     const repo-URL = "https://github.com/#{ repo-key }"
 
@@ -31,10 +32,12 @@ module.exports = class LessonNextSteps extends React.Component
         repo-URL: repo-URL
         project: project
         categories: categories
+        submission-instructions: submission-instructions
     case 'submitted' then
       $(LessonNextStepSubmitted) do
         repo-URL: repo-URL
         categories: categories
+        submission-instructions: submission-instructions
     case 'approved' then
       $(LessonNextStepApproved)!
     default then
