@@ -21,8 +21,8 @@ module.exports = Radium class NewIssueForm extends React.Component
 
     if all-criteria-are-checked!
 
-      const mentor = @refs.mentor.get-DOM-node!.value
-      const hosted-URL = @refs.hosted-URL.get-DOM-node!.value
+      const mentor = @refs.mentor.value
+      const hosted-URL = @refs.hosted-URL.value
       const new-issue-URL = """
         #{ @props.repo-URL }/issues/new?#{
           jQuery.param do
@@ -34,12 +34,24 @@ module.exports = Radium class NewIssueForm extends React.Component
 
     else
 
-      jQuery('html,body').animate do
-        scrollTop: jq-project-criteria.offset!.top
-      .promise!.done !->
-        alert("Please make sure your work meets the project criteria before submitting. As you do, check each checkbox. Then you can submit your work for feedback.")
+      jq-html-and-body = jQuery('html,body')
+      jq-project-cell = jQuery('#project-cell')
+
+      if jq-project-cell.has-class 'collapsed'
+        jq-project-cell.trigger 'click'
+      else
+        jq-html-and-body.trigger 'click'
+
+      set-timeout do
+        !->
+          jq-html-and-body.animate do
+            scrollTop: jq-project-criteria.offset!.top
+          .promise!.done !->
+            alert("Please make sure your work meets the project criteria before submitting. As you do, check each checkbox. Then you can submit your work for feedback.")
+        500
 
   render: ->
+
     $form do
       class-name: 'well'
       on-submit: @open-new-issue

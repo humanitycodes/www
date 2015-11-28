@@ -34,5 +34,8 @@ module CodeLab
 
     # Autoload coursework
     config.autoload_paths << Rails.root.join('coursework')
+
+    # Include font files in sprockets
+    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf)
   end
 end

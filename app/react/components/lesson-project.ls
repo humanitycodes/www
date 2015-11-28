@@ -1,28 +1,44 @@
-require! {
-  './lesson-next-steps': LessonNextSteps
-}
+module.exports = Radium class LessonProject extends React.Component
 
-module.exports = class LessonProject extends React.Component
+  (props) ->
+    super props
+    @state =
+      is-hidden: false
+    @styles =
+      project-wrapper:
+        base:
+          overflow: 'hidden'
+          transition: 'all 0.5s'
+        hidden:
+          width: 0
+          height: 0
+          opacity: 0
+      criteria:
+        base:
+          line-height: 1.6
+          font-size: '1.1em'
+      criterion:
+        base:
+          margin-bottom: 10
 
   render: ->
+
     $div do
       id: 'project'
+      style:
+        * @styles.project-wrapper.base
+        * @props.is-hidden and @styles.project-wrapper.hidden
 
       $h3 do
+        style:
+          margin-top: 0
         dangerously-set-inner-HTML:
-          __html: 'Project: ' + parse-markdown do
+          __html: parse-markdown do
             @props.lesson.project.title
             unwrap: true
 
       $div do
         id: 'project-criteria'
-        style:
-          background: '#f9f7f5'
-          marginTop: 20
-          marginBottom: 20
-          marginLeft: -20
-          marginRight: -20
-          padding: '15px 20px'
 
         $h4 'Criteria'
 
@@ -45,17 +61,12 @@ module.exports = class LessonProject extends React.Component
         else
 
           $ul do
-            @props.lesson.project.criteria |> map (criterion) ->
+            style: @styles.criteria.base
+            @props.lesson.project.criteria |> map (criterion) ~>
               $li do
+                style: @styles.criterion.base
                 key: criterion
                 dangerously-set-inner-HTML:
                   __html: parse-markdown do
                     criterion
                     unwrap: true
-
-      $h4 'Next steps'
-
-      $(LessonNextSteps) do
-        user: @props.user
-        lesson: @props.lesson
-        authenticity-token: @props.authenticity-token

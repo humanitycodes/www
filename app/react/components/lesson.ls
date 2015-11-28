@@ -3,14 +3,54 @@ require! {
   './lesson-slides-navigation': LessonSlidesNavigation
   './lesson-slides': LessonSlides
   './lesson-project': LessonProject
+  './lesson-project-status-sidebar': LessonProjectStatusSidebar
+  './lesson-breadcrumbs': LessonBreadcrumbs
 }
 
-module.exports = class Lesson extends React.Component
+module.exports = Radium class Lesson extends React.Component
   (props) !->
     super props
     @state =
       page: props.page
       lesson: props.lesson
+      project-is-hidden: false
+    @styles =
+      wrapper:
+        base:
+          text-align: 'left'
+        hidden-project:
+          text-align: 'center'
+      card:
+        base:
+          display: 'inline-block'
+          text-align: 'left'
+          padding: 0
+      project-status-sidebar:
+        base:
+          display: 'table-cell'
+          width: 50
+          line-height: 0
+          background: '#2D3642'
+          color: 'white'
+      project:
+        base:
+          display: 'table-cell'
+          background: '#3E79B9'
+          vertical-align: 'top'
+          color: 'white'
+          padding: '40px 30px'
+          transition: 'all 0.5s'
+          cursor: 'w-resize'
+        hidden:
+          padding: '40px 10px'
+          cursor: 'e-resize'
+      content:
+        base:
+          display: 'table-cell'
+          width: 650
+          vertical-align: 'top'
+          padding: '40px 60px'
+          background: 'white'
 
   slides: ~>
     @state.lesson.slides.split '\n---\n'
@@ -44,47 +84,72 @@ module.exports = class Lesson extends React.Component
 
   render: ->
 
+    const slides = @slides!
+
     $div do
+      style:
+        * @styles.wrapper.base
+        * @state.project-is-hidden and @styles.wrapper.hidden-project
+
+      $(LessonBreadcrumbs) do
+        title: @state.lesson.title
 
       $(Card) do
+        style: @styles.card.base
+
+        if @props.user
+          $div do
+            style: @styles.project-status-sidebar.base
+            $(LessonProjectStatusSidebar) do
+              lesson: @state.lesson
+              user: @props.user
+
+        if @props.user
+          $div do
+            id: 'project-cell'
+            class-name: @state.project-is-hidden and 'collapsed'
+            on-click: (event) !~>
+              const jq-target = jQuery(event.target)
+              const target-is-label = jq-target.is 'label'
+              const target-in-label = !!jq-target.closest('label').0
+              return if target-is-label or target-in-label
+              @set-state do
+                project-is-hidden: not @state.project-is-hidden
+            style:
+              * @styles.project.base
+              * @state.project-is-hidden and @styles.project.hidden
+
+            $(LessonProject) do
+              lesson: @state.lesson
+              authenticity-token: @props.authenticity-token
+              user: @props.user
+              is-hidden: @state.project-is-hidden
+
         $div do
-          style:
-            margin-bottom: 15
-          $a href: '/lessons', 'Lessons'
-          ' > '
-          $strong @state.lesson.title
-        if @slides!.length > 1
-          $(LessonSlidesNavigation) do
-            page: @state.page
-            slides: @slides!
-            base-URL: @base-URL!
-            on-update-page: @update-page
+          style: @styles.content.base
+          if slides.length > 1
+            $(LessonSlidesNavigation) do
+              page: @state.page
+              slides: slides
+              base-URL: @base-URL!
+              on-update-page: @update-page
 
-      $(Card) do
-        style:
-          max-width: 600
-          margin-top: -21
-          margin-left: 'auto'
-          margin-right: 'auto'
-          padding: '20px 50px 50px'
-          border-top: 0
-          border-bottom: 0
-          border-top-left-radius: 0
-          border-top-right-radius: 0
-        $(LessonSlides) do
-          slides: @slides!
-          page: @state.page
-          base-URL: @base-URL!
-          on-update-page: @update-page
+          $div do
+            style:
+              margin: do
+                if slides.length > 1
+                  '30px 0'
+                else
+                  0
+            $(LessonSlides) do
+              slides: slides
+              page: @state.page
+              base-URL: @base-URL!
+              on-update-page: @update-page
 
-      if @props.user
-        $(Card) do
-          style:
-            max-width: 600
-            margin-left: 'auto'
-            margin-right: 'auto'
-            padding: 50
-          $(LessonProject) do
-            lesson: @state.lesson
-            authenticity-token: @props.authenticity-token
-            user: @props.user
+          if slides.length > 1
+            $(LessonSlidesNavigation) do
+              page: @state.page
+              slides: slides
+              base-URL: @base-URL!
+              on-update-page: @update-page

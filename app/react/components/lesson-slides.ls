@@ -34,15 +34,6 @@ module.exports = class LessonSlides extends React.Component
           dangerously-set-inner-HTML:
             __html: parse-markdown slide
 
-        if @props.slides.length > 1
-          $div do
-            $hr!
-            $(LessonSlidesNavigation) do
-              page: @props.page
-              slides: @props.slides
-              base-URL: @props.base-URL
-              on-update-page: @update-page
-
     else
 
       $div do

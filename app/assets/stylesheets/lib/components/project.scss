@@ -1,0 +1,48 @@
+#project-cell {
+  position: relative;
+
+  &:not(.collapsed) {
+    &:after {
+      content: 'PROJECT';
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 10px;
+      background: white;
+      color: #3E79B9;
+      opacity: 0.8;
+      letter-spacing: 2px;
+    }
+  }
+
+  &.collapsed {
+    &:after {
+      content: '';
+      width: 20px;
+      height: 100%;
+      background: #3E79B9;
+      border-radius: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transition: right 0.2s;
+    }
+
+    &:hover {
+      &:after {
+        right: -10px;
+      }
+    }
+  }
+}
+
+#project {
+  a {
+    color: #fff;
+    text-decoration: underline;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
