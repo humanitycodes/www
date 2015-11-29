@@ -34,7 +34,7 @@ But strings are more powerful than just normal text. Want to know how many chara
 "This is what I want the message box to say.".length
 ```
 
-It counts up all the letters for you automatically!
+It counts up all the characters for you automatically!
 
 You can also add strings together with the `+` sign:
 
