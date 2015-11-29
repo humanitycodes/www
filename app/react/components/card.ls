@@ -1,6 +1,7 @@
 module.exports = class Card extends React.Component
   render: ->
+    default-props =
+      class-name: "well card #{@props.class-name}"
+
     $div do
-      class-name: 'well card'
-      style: @props.style
-      @props.children
+      default-props import @props

@@ -66,10 +66,16 @@ module.exports = Radium class Lesson extends React.Component
         @set-state do
           lesson: response.lesson
 
+  component-did-update: (prev-props, prev-state) !->
+    if prev-state.page !== @state.page
+      jQuery('html,body').scrollTop do
+        jQuery('#project-card').offset().top
+
+
   update-page: (event) ~>
     event.prevent-default!
 
-    const new-page =
+    const new-page = parse-int do
       if event.target.dataset
         event.target.dataset.new-page
       else
@@ -80,7 +86,7 @@ module.exports = Radium class Lesson extends React.Component
     const new-URL = "#{@base-URL!}/#{new-page}"
     history.replace-state {}, null, new-URL
     @set-state do
-      page: parse-int new-page
+      page: new-page
 
   render: ->
 
@@ -95,6 +101,7 @@ module.exports = Radium class Lesson extends React.Component
         title: @state.lesson.title
 
       $(Card) do
+        id: 'project-card'
         style: @styles.card.base
 
         if @props.user
