@@ -154,16 +154,16 @@ surge # Run the surge command and follow its instructions
 
 So we have some code and it looks pretty good to us. Now what would a pro do? Share it and get feedback! So that's what _we're_ going to do. In fact, that's what we'll do for every Code Lab project. For our first time, this also requires a little setup.
 
-1. Create an account on [GitHub](https://github.com/). This is where many, if not most developers, choose to share their code.
+1. Create an account on [GitHub](https://github.com/), then make sure to  __confirm your email address__. GitHub is where many, if not most developers, choose to share their code.
 2. Install Git (which we'll use to get our code on GitHub):
   - __Mac OS X__: `brew install git` on the terminal
   - __Ubuntu__: `sudo apt-get install git` on the terminal
   - __Windows__: you already have it installed, as it's part of the Git Bash terminal
 3. Log in to this site with the "Sign in with GitHub" button in the upper-right.
-4. Follow instructions below in the "Next Steps" section. Once you've created a folder with the `git clone` command, move your `index.html` file into that folder, then follow the rest of the instructions.
+4. Follow the steps in the sidebar to the left. Once you've downloaded the repository folder, move your `index.html` file into that folder, then follow the rest of the instructions.
 
 ---
 
 ## You're done!
 
-Whew, that was a long one. Don't worry, future lessons won't be so involved. Because of our hard work on this lesson though, we're now set up to build websites _extremely quickly_, put them online, for free, in _seconds_, and very easily get feedback on our code. And all using the tools and processes of __real developers__. Great work!
+Whew, that was a long one. Don't worry, future lessons won't be so involved. Because of our hard work on this lesson though, we're now set up to build websites _extremely quickly_, put them online, for free, and very easily get feedback on our code. And all using the tools and processes of __real developers__. Great work!
