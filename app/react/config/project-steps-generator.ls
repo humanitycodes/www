@@ -49,6 +49,7 @@ module.exports = (lesson, user) ->
             clone-URL
       octicon: 'repo-clone'
       is-active: lesson.status in <[ started submitted ]>
+      is-complete: lesson.status is 'approved'
 
     * title: 'Commit your changes'
       content: $ol do
@@ -61,6 +62,7 @@ module.exports = (lesson, user) ->
           ' (wraps up all currently added (i.e. staged) changes in a commit)'
       octicon: 'git-commit'
       is-active: lesson.status in <[ started submitted ]>
+      is-complete: lesson.status is 'approved'
 
     * title: 'Upload your latest code to GitHub'
       content: $ol do
@@ -70,6 +72,7 @@ module.exports = (lesson, user) ->
           ' (pushes your latest commits to GitHub - i.e origin)'
       octicon: 'repo-push'
       is-active: lesson.status in <[ started submitted ]>
+      is-complete: lesson.status is 'approved'
 
     * title: 'Publish your website'
       content: $ol do
@@ -88,6 +91,7 @@ module.exports = (lesson, user) ->
             ' (to make your website live on the Internet)'
       octicon: 'cloud-upload'
       is-active: lesson.status in <[ started submitted ]>
+      is-complete: lesson.status is 'approved'
 
     * octicon: 'arrow-down'
 
