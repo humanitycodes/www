@@ -1,4 +1,4 @@
-title: Get a taste of test-driven development in Sinatra with Rspec
+title: Get a taste of test-driven development in Sinatra with RSpec
 categories:
   - wip
   - ruby
@@ -7,6 +7,12 @@ prereqs:
   - sinatra-helper-methods
   - sinatra-gems-arrays-uninjected-erb
 project:
-  title: arst
+  title: Develop new helper methods for an app using test-driven development
   criteria:
-    - arst
+    - After creating and downloading your repository, follow [the steps in the README](https://github.com/chrisvfritz/codelab-sinatra-tdd-helper-methods#readme) to get tests passing for the first 3 helper methods [in `helpers/methods_practice_helpers.rb`](https://github.com/chrisvfritz/codelab-sinatra-tdd-helper-methods/blob/master/helpers/methods_practice_helpers.rb)
+    - There are 5 more empty helper methods, none of which we currently have tests for. Using the current tests as an example, try writing your own now for as many of these methods as you'd like (but _at least_ 1), then fill out the logic for the method until the tests are green. The farther down you go, the more complex these methods get, but you can stop whenever you'd like.
+  steps:
+    create: |
+      Instead of creating a new repository with the usual button here, we'll be building off an existing project at [`github.com/chrisvfritz/codelab-sinatra-tdd-helper-methods`](https://github.com/chrisvfritz/codelab-sinatra-tdd-helper-methods).
+
+      Before we can work on it though, we need to create our own copy of the repository by "forking" it with the `Fork` button in the upper right of that page. Once you've done that, refresh this page and Code Lab will detect your repository."

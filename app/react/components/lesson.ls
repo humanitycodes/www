@@ -28,13 +28,15 @@ module.exports = Radium class Lesson extends React.Component
       project-status-sidebar:
         base:
           display: 'table-cell'
-          width: 50
+          min-width: 50
+          max-width: 50
           line-height: 0
           background: '#2D3642'
           color: 'white'
       project:
         base:
           display: 'table-cell'
+          width: '100%'
           background: '#3E79B9'
           vertical-align: 'top'
           color: 'white'
@@ -42,12 +44,14 @@ module.exports = Radium class Lesson extends React.Component
           transition: 'all 0.5s'
           cursor: 'w-resize'
         hidden:
+          width: 'auto'
           padding: '40px 10px'
           cursor: 'e-resize'
       content:
         base:
           display: 'table-cell'
-          width: 650
+          min-width: 650
+          max-width: 650
           vertical-align: 'top'
           padding: '40px 60px'
           background: 'white'
@@ -116,9 +120,10 @@ module.exports = Radium class Lesson extends React.Component
             id: 'project-cell'
             class-name: @state.project-is-hidden and 'collapsed'
             on-click: (event) !~>
+              const black-listed-element-types = 'label,a'
               const jq-target = jQuery(event.target)
-              const target-is-label = jq-target.is 'label'
-              const target-in-label = !!jq-target.closest('label').0
+              const target-is-label = jq-target.is black-listed-element-types
+              const target-in-label = !!jq-target.closest(black-listed-element-types).0
               return if target-is-label or target-in-label
               @set-state do
                 project-is-hidden: not @state.project-is-hidden
