@@ -84,7 +84,11 @@ module.exports = (lesson, user) ->
 
     * title: 'Upload your latest code to GitHub'
       content: do
-        lesson.project.steps.upload or
+        if lesson.project.steps?upload?
+          $div do
+            dangerously-set-inner-HTML:
+              __html: parse-markdown lesson.project.steps.upload
+        else
           $ol do
             $cd-instructions
             $li do
@@ -123,10 +127,10 @@ module.exports = (lesson, user) ->
 
     * title: 'Get feedback from a mentor'
       content: do
-        if lesson.project.steps?master?
+        if lesson.project.steps?submit?
           $div do
             dangerously-set-inner-HTML:
-              __html: parse-markdown lesson.project.steps.master
+              __html: parse-markdown lesson.project.steps.submit
         else
           $div do
             $p do
