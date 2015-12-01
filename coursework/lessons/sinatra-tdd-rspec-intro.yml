@@ -1,11 +1,10 @@
-title: Get a taste of test-driven development in Sinatra with RSpec
+title: Write tests for Sinatra helper methods with RSpec
 categories:
   - wip
   - ruby
   - tests
 prereqs:
-  - sinatra-helper-methods
-  - sinatra-gems-arrays-uninjected-erb
+  - sinatra-tdd-helper-methods
 project:
   title: Develop new helper methods for an app using test-driven development
   criteria:
