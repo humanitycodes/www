@@ -62,7 +62,9 @@ module.exports = Radium class LessonProjectStatusSidebarStep extends React.Compo
           animation: false
           placement: 'right'
           overlay: $(Popover) do
-            id: popover-id + Math.random!
+            id: popover-id + '-preview'
+            style:
+              max-width: 600
             step.title
 
           $g do
