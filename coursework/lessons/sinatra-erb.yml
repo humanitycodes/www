@@ -4,8 +4,9 @@ categories:
 prereqs:
   - sinatra-intro
 project:
-  title: Build an instant dating profile generator (it does not have to be for humans - questions could be catered to pets, plants, aliens, or members of a fictional universe)
+  title: Build an instant dating profile generator
   criteria:
+    - The dating profile is not necessarily for humans - questions could be catered to pets, plants, aliens, or members of a fictional universe
     - The root of your site (`/`) has a form to collect information that will be embedded in the dating profile
     - Submitting the form at the root of the site creates a new dating profile at `/profile`
     - One of the form inputs takes the URL of an image to be displayed on the generated profile
