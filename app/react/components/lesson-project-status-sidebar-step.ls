@@ -57,7 +57,11 @@ module.exports = Radium class LessonProjectStatusSidebarStep extends React.Compo
         """.replace /\s/g, ''
 
         $(OverlayTrigger) do
-          trigger: step.title? and step.is-active and not document.get-element-by-id(popover-id) and <[ hover ]>
+          trigger: do
+            if step.title? and step.is-active and not document.get-element-by-id(popover-id)
+              <[ hover ]>
+            else
+              []
           root-close: true
           animation: false
           placement: 'right'
@@ -75,7 +79,11 @@ module.exports = Radium class LessonProjectStatusSidebarStep extends React.Compo
               r: node-size / 2
               cy: -node-size / 2
               style:
-                cursor: step.content? and (step.is-active or (step.is-complete and step.complete-on-click)) and 'pointer'
+                cursor: do
+                  if step.content? and (step.is-active or (step.is-complete and step.complete-on-click))
+                    'pointer'
+                  else
+                    'auto'
                 opacity: step.content? and not step.is-active and 0.3
                 transition: 'all 0.2s'
                 ':hover':

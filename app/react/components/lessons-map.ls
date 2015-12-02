@@ -1,5 +1,5 @@
 require! {
-  '../d3/lessons-mapper': LessonsMapper
+  '../lib/lessons-mapper': LessonsMapper
 }
 
 module.exports = Radium class LessonsMap extends React.Component

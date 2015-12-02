@@ -75,7 +75,6 @@ module.exports = Radium class Lesson extends React.Component
       jQuery('html,body').scrollTop do
         jQuery('#project-card').offset().top
 
-
   update-page: (event) ~>
     event.prevent-default!
 
@@ -103,6 +102,13 @@ module.exports = Radium class Lesson extends React.Component
 
       $(LessonBreadcrumbs) do
         title: @state.lesson.title
+        collapsed: @state.project-is-hidden
+        on-lesson-change: (new-lesson) !~>
+          const new-URL = "/lessons/#{new-lesson.key}/1"
+          history.replace-state {}, null, new-URL
+          @set-state do
+            lesson: new-lesson
+            page: 1
 
       $(Card) do
         id: 'project-card'

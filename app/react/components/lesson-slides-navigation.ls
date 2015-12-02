@@ -6,6 +6,11 @@ module.exports = class LessonSlidesNavigation extends React.Component
 
   component-did-mount: !->
     document.onkeydown = (event) ~>
+      return if event.target.tag-name in <[
+        INPUT
+        TEXTAREA
+      ]>
+
       const fake-page-update-click-event = (new-page) ~>
         prevent-default: !->
         target:
