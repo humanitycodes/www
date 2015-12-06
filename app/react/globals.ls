@@ -1,4 +1,4 @@
-root = global || window
+root = global or window
 
 # VENDOR ASSIGN
 root import
