@@ -1,12 +1,12 @@
-## arst
+## Setting up our specs
 
-RSpec specs are usually organized into a `spec` folder, which itself typically has a folder structure that mirrors the structure of your app. So for example, for a `pluralize` method in
+RSpec specs are usually organized into a `spec` folder, which itself typically has a folder structure that mirrors the structure of your app. So for example, for a `pluralize` method in:
 
 ```
 helpers/string_helpers.rb
 ```
 
-we'd put our spec in
+we'd put our spec in:
 
 ```
 spec/helpers/string_helpers/pluralize_spec.rb
@@ -91,7 +91,7 @@ end
 
 ## `describe` / `context`
 
-`describe` accepts a string or class. It is used to organize specs. `context` is an alias for `describe`, meaning they do exactly the same thing. People will use `describe` in some situations and `context` in others simply because it reads better. We essentially use them to build sentences, such as:
+`describe` accepts a string or class. It is used to organize specs. `context` is an alias for `describe`, meaning they do exactly the same thing. People will use `describe` in some situations and `context` in others simply because it reads better. We use them to build sentences, such as:
 
 ```
 StringHelpers#pluralize when the singular word is "cat" and the number is 0 returns "0 cats"
