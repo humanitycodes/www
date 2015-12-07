@@ -15,3 +15,7 @@ project:
       Instead of creating a new repository with the usual button here, we'll be building off an existing project at [`github.com/chrisvfritz/codelab-sinatra-tdd-helper-methods`](https://github.com/chrisvfritz/codelab-sinatra-tdd-helper-methods).
 
       Before we can work on it though, we need to create our own copy of the repository by "forking" it with the `Fork` button in the upper right of that page. Once you've done that, refresh this page and Code Lab will detect your repository."
+    download: |
+      1. `cd` into the directory where you're keeping your Code Lab projects (unless you're already there)
+      2. `git clone https://github.com/chrisvfritz/codelab-sinatra-tdd-helper-methods.git`
+      3. __Since this repository is a fork of another repo, we have to [manually enable Issues](http://programmers.stackexchange.com/questions/179468/forking-a-repo-on-github-but-allowing-new-issues-on-the-fork#answer-179470) so that we can get feedback later.__
