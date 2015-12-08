@@ -76,7 +76,7 @@ module.exports = (lesson, user) ->
               $code 'git add -A .'
               ' (adds all file modifications, additions, and deletions to the list of changes to be committed'
             $li do
-              $code 'git commit -m "a message describing your changes'
+              $code 'git commit -m "a message describing your changes"'
               ' (wraps up all currently added (i.e. staged) changes in a commit)'
       octicon: 'git-commit'
       is-active: lesson.status in <[ started submitted ]>
