@@ -10,13 +10,13 @@ module.exports = Radium class LessonProjectStatusSidebar extends React.Component
     jq-window = jQuery window
     jq-sidebar = jQuery 'svg#lesson-project-status-sidebar'
     jq-sidebar-wrapper = jq-sidebar.parent!
-    jq-sidebar-offset = jq-sidebar.offset!.top
-    jq-sidebar-height = parse-int jq-sidebar.attr('height')
+    jq-sidebar-offset = -> jq-sidebar-wrapper.offset!.top
+    jq-sidebar-height = -> parse-int jq-sidebar.attr('height')
     jq-window.on 'scroll' ~>
-      if jq-sidebar-height <= jq-window.height! and jq-sidebar-offset <= jq-window.scroll-top!
+      if jq-sidebar-height! <= jq-window.height! and jq-sidebar-offset! <= jq-window.scroll-top!
         jq-sidebar.css 'position', 'fixed'
         jq-sidebar.css 'top', do
-          offset = (jq-sidebar-wrapper.offset!.top + jq-sidebar-wrapper.outer-height!) - (jq-window.scroll-top! + jq-sidebar-height)
+          offset = (jq-sidebar-wrapper.offset!.top + jq-sidebar-wrapper.outer-height!) - (jq-window.scroll-top! + jq-sidebar-height!)
           if offset > 0
             0
           else
