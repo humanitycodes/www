@@ -96,7 +96,7 @@ But what about the second half of the joke?
 
 To understand this part, we have to first understand what an `a` element is. The `a` is short for anchor, which unfortunately is a pretty terrible name. What you should know is that these elements are almost always used for links.
 
-Unfortunately, an anchor element by itself doesn't _mean_ anything. It doesn't link to anywhere. That's where __attributes__ come in. Let's say I want to link to google.com. I could rewrite opening tag above to:
+Unfortunately, an anchor element by itself doesn't _mean_ anything. It doesn't link to anywhere. That's where __attributes__ come in. Let's say I want to link to google.com. I could the rewrite opening tag above to:
 
 ``` html
 <a href="http://www.google.com/">
@@ -168,4 +168,4 @@ The `input` element creates a text input with the placeholder text "Username":
 
 ## 10 essential HTML tags
 
-Last time I checked, there were 89 different HTML tags, but we're going to start with just the 10 most common. Check out [this list of the 10 essential HTML tags](http://www.99lime.com/_bak/topics/you-only-need-10-tags/). Then take a stab at the project below!
+Last time I checked, there were 89 different HTML tags, but we're going to start with just the 10 most common. Check out [this list of the 10 essential HTML tags](http://www.99lime.com/_bak/topics/you-only-need-10-tags/). Then take a stab at the project!
