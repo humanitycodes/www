@@ -1,6 +1,5 @@
 title: Get a taste of test-driven development in Sinatra with RSpec
 categories:
-  - wip
   - ruby
   - tests
 prereqs:
