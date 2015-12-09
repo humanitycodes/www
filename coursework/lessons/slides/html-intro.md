@@ -94,7 +94,7 @@ But what about the second half of the joke?
 <A>: Like </a>this.
 ```
 
-To understand this part, we have to first understand what a `a` element is. The `a` is short for anchor, which unfortunately is a pretty terrible name. What you should know is that these elements are almost always used for links.
+To understand this part, we have to first understand what an `a` element is. The `a` is short for anchor, which unfortunately is a pretty terrible name. What you should know is that these elements are almost always used for links.
 
 Unfortunately, an anchor element by itself doesn't _mean_ anything. It doesn't link to anywhere. That's where __attributes__ come in. Let's say I want to link to google.com. I could rewrite opening tag above to:
 
