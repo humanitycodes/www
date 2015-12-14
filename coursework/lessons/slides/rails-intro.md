@@ -291,10 +291,12 @@ gem 'cat_api'
 bundle install
 ```
 
+This makes the `cat_api` gem available in our app, so that we can easily pull in cat pictures.
+
 ### 2) A `cats` action in our static controller
 
 ``` ruby
-# app/static_controller.rb
+# app/controllers/static_controller.rb
 def cats
   @cats = CatAPI.new.get_images(results_per_page: 10)
 end
@@ -362,7 +364,7 @@ get '/cat-pictures(/:number_of_cats)' => 'static#cats'
 
 ## Displaying a navigation menu
 
-So there's a tiny problem. If a visitor goes to the root of our application, they have no way of knowing that we have an `/about` page or a `/cat-pictures` page. To fix this, we'll use Rails' built-in [URL helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html) and [route helpers](http://guides.rubyonrails.org/routing.html) to display a navigation menu.
+So there's a tiny problem. If a visitor goes to the root of our website (`/`) - or any other page - they have no way of knowing that we also have an `/about` page or a `/cat-pictures` page. To fix this, we'll use Rails' built-in [URL helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html) and [route helpers](http://guides.rubyonrails.org/routing.html) to display a navigation menu.
 
 ### Route helpers
 
@@ -413,7 +415,7 @@ Which means we now also have a `cat_pictures_path` method available in our views
 
 If we combine route helpers with the `link_to` URL helper, we can create a nice list of the pages in our app.
 
-``` erb
+```
 <ul>
   <li><%= link_to 'Home', root_path %></li>
   <li><%= link_to 'About', about_path %></li>
