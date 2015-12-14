@@ -10,15 +10,17 @@ So what kinds of features? What exactly can you build with Rails? GitHub, for on
 
 The command to generate the files for a new Rails app also creates a folder to keep them in, so before we do anything, let's first `cd` into the folder where you keep Code Lab projects.
 
-Then in the Ruby setup lesson, we already installed Ruby and the `rails` gem, so now starting a new Rails app is as simple as:
+Then in the Ruby setup lesson, we already installed Ruby and the `rails` gem, so now starting a new Rails app is as simple as a single terminal command:
 
 ``` bash
+# DO NOT RUN THIS YET :-)
 rails new codelab-rails-intro
 ```
 
 We're not writing any tests for now though, so to keep things simpler, our modified command to create a new rails app will instead be:
 
 ``` bash
+# OK, GO AHEAD AND RUN THIS COMMAND
 rails new codelab-rails-intro --skip-test-unit
 ```
 
@@ -47,7 +49,7 @@ As you'll see, we already have a single folder in there called `layouts`, contai
 
 ### View file extensions
 
-And just like in Sinatra, it's in good ol' ERB. But there's one difference. This file actually has _two_ extensions. First, `html`, _then_ `erb`. Just note for now that this is important for some of Rails' magic.
+And just like in Sinatra, it's in good ol' ERB. But there's one difference. This file actually has _two_ extensions. First, `html`, _then_ `erb`. That's basically saying, "We have some ERB that we're going to turn into HTML." Just note for now that this is important for some of Rails' magic.
 
 ---
 
@@ -79,9 +81,9 @@ Would you want to look at this kind of CSS while styling your app?
 .first_class{width:100%;height:auto}.second_class{width:32px;height:32px;background:#324962}
 ```
 
-Of course not. The problem is, all the comments, spaces, newlines, and unnecessary semi-colons that make this work easier _also_ make files bigger. And the bigger files are, the longer they take to download. Which means slower page loads.
+Of course not. The problem is, all the comments, spaces, newlines, and unnecessary semi-colons that make this code easier to read _also_ make files bigger. And the bigger files are, the longer they take to download. Which means slower page loads.
 
-That's why the asset pipeline will automatically strip away all that stuff in a live, "production" environment like Heroku.
+That's why the asset pipeline will strip away all that stuff in a live, "production" environment like Heroku.
 
 ---
 
@@ -104,11 +106,11 @@ A __route__ is a rule for what should happen when a user visits different parts 
 
 Since Rails apps often get a little more complex, we organize things a little differently. Instead of having our routes and actions together, our routes are all listed in `config/routes.rb` and our actions are organized into __controllers__ in the `app/controllers` folder.
 
-It's hard to wrap your head around without an example, so let's start creating some pages for our app. On the next page, we'll expore the process by creating _Home_ and _About_ pages.
+It's hard to wrap your head around without an example, so let's start creating some pages for our app. On the next page, we'll explore the process by creating _Home_ and _About_ pages.
 
 ---
 
-## Rails generators
+## Adding features with Rails generators
 
 Rails has nifty __generators__ to make common tasks simpler. We need some static pages (i.e. pages that aren't tied to our database), so let's create a new controller called `static` to keep them in. This controller will have two actions, called `home` and `about`.
 
@@ -137,7 +139,7 @@ invoke    scss
 create      app/assets/stylesheets/static.scss
 ```
 
-Now let's dive in these files and what they do.
+This is a list of routes and files that have been created. Now let's dive in these files to explore what they do.
 
 ### The controller
 
@@ -188,7 +190,7 @@ route  get 'static/about'
 route  get 'static/home'
 ```
 
-We also have two new routes, one for each action. You can find both of these in `config/routes.rb`. This is what they mean:
+We also have two new routes, one for each action. These aren't new files that have been created, but rather new lines that have been added to `config/routes.rb` - where all routes live. This is what they mean:
 
 ``` ruby
 get 'static/home'
@@ -205,20 +207,24 @@ Let's actually change these. How about we make `home` the root our app (`/`), th
 ``` ruby
 root 'static#home'
 # when a visitor goes to the root of our app (`/`), send
-# them to the `home` action in the `static` controller
+# them to the `home` action in the `static` controller -
+# the format here is NAME_OF_CONTROLLER#NAME_OF_ACTION
 
 get '/about' => 'static#about'
 # when a visitor goes to `/about`, send them to the
-# `about` action in the `static` controller
+# `about` action in the `static` controller - once again,
+# we're using the format NAME_OF_CONTROLLER#NAME_OF_ACTION
 ```
 
-The comments in `routes.rb` have even more examples of kinds of routes you can create.
+The comments at the bottom of `routes.rb` have even more examples of kinds of routes you can create.
 
 ### Summary of routes, controllers, and views
 
 To summarize what we've gone over so far, I've prepared this little infographic.
 
 [![Serving a page in Rails](http://i.imgur.com/elBnQLi.jpg)](http://i.imgur.com/elBnQLi.jpg)
+
+If you still have questions about how this works at this point, call over a mentor so they can explain it better.
 
 ### The helper
 
