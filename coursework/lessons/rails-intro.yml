@@ -6,6 +6,7 @@ prereqs:
   - jquery-intro
   - sinatra-sass-intro
   - sinatra-gems-arrays-uninjected-erb
+  - sinatra-helper-methods
 project:
   title: Build a basic Rails app with a few simple pages
   criteria:
