@@ -445,9 +445,9 @@ There are a few things we have to change to get Rails ready for Heroku. [Heroku'
 
 We're not working with the database yet, but we our app still comes with one.
 
-Ideally, it's a good idea to use the same database locally (on your computer) as you do in production (on Heroku). We don't live in an ideal world though, so for the sake of simplicity and because we won't be doing any complex database work for a while, you're going to use the very simple SQLite3 locally, but PostgreSQL on Heroku (since it doesn't work with SQLite3).
+Ideally, it's a good idea to use the same database locally (on your computer) as you do in production (on Heroku). We don't live in an ideal world though, so for the sake of simplicity and because we won't be doing any complex database work for a while, you're going to use the very simple SQLite3 locally (which is the default), but PostgreSQL on Heroku (since it doesn't work with SQLite3).
 
-Fortunately, Rails has different __environments__ available, so that we can differentiate our setup in the `development` environment (when we're running Rails on our computer) from the `production` environment (when Rails is running on the server that the world sees).
+Fortunately, Rails has different __environments__ available, so that we can differentiate our setup in the `development` environment (when we're running Rails on our computer) from the `production` environment (when Rails is running on Heroku).
 
 Here's how we set up our development and production environments to use different databases.
 
