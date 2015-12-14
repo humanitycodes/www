@@ -28,12 +28,17 @@ rails new codelab-rails-intro --skip-test-unit
 
 ## Tour of a new Rails app
 
-This just created a new folder called `codelab-rails-intro`, with (by my count) 50 new files, containing 976 lines of code. Woah. Fortunately, you don't have to know what all of them do for a long time yet!
-
-Instead, we'll take a quick tour of the most important parts. To do so, `cd` into that folder and open it in Atom with:
+This just created a new folder called `codelab-rails-intro`, with (by my count) 50 new files, containing 976 lines of code. Woah. Fortunately, you don't have to know what all of them do for a long time yet! For now, all you need to do is `cd` into your new `codelab-rails-intro` folder and run:
 
 ``` bash
-cd codelab-rails-intro
+bundle install
+```
+
+This ensures that all the dependencies listed in your new Gemfile are installed on your computer.
+
+Now we'll take a quick tour of the most important parts of our new Rails app. Go ahead and open it up in Atom with:
+
+``` bash
 atom .
 ```
 
@@ -57,7 +62,7 @@ And just like in Sinatra, it's in good ol' ERB. But there's one difference. This
 
 In Sinatra, we kept our static assets (like CSS, JavaScript, and images) in a folder called `public`. Rails actually has a `public` folder too, used for the same purpose, but __you'll almost never use it__.
 
-Instead, for any CSS, JavaScript, or images, there are actually corresponding folders set up for you in `app/assets`. Placing files in these folders makes them a part of __the asset pipeline__, which allows you to use preprocessors and does automatic concatenation and minimization (with optional compression).
+Instead, for any CSS, JavaScript, or images, there are actually corresponding folders set up for you in `app/assets`. Placing files in these folders makes them a part of __the asset pipeline__, which allows you to use preprocessors and does automatic concatenation and minification.
 
 Sound like a bunch of gobbledygook? Don't worry - we'll go over what all of those words mean right now.
 
@@ -73,7 +78,7 @@ It's often useful to organize your CSS and JS into many files and folders. The p
 
 So the asset pipeline helps out here by concatenating (i.e. combining) all our CSS into one big CSS file and all our JS into one big JS file.
 
-### Minimization
+### Minification
 
 Would you want to look at this kind of CSS while styling your app?
 
@@ -112,9 +117,11 @@ It's hard to wrap your head around without an example, so let's start creating s
 
 ## Adding features with Rails generators
 
-Rails has nifty __generators__ to make common tasks simpler. We need some static pages (i.e. pages that aren't tied to our database), so let's create a new controller called `static` to keep them in. This controller will have two actions, called `home` and `about`.
+Many websites will have pages that just have information about the website or company. And everyone who visits these pages should always see the same thing. Since they don't change, instead always displaying the same HTML whenever someone visits them, they're said to be __static__. Most of my Rails apps will have some static pages, like _Home_ and _About_ pages.
 
-The generator command we run in the terminal to accomplish this is:
+Now for many common tasks, Rails has nifty __generators__ to make your work easier. One of the first things I often do in a new Rails project is create a new controller called `static` to keep them in. To start with, this controller will have two actions, called `home` and `about`.
+
+The generator command we'll run in the terminal to accomplish this is:
 
 ``` bash
 rails generate controller Static home about
@@ -139,7 +146,7 @@ invoke    scss
 create      app/assets/stylesheets/static.scss
 ```
 
-This is a list of routes and files that have been created. Now let's dive in these files to explore what they do.
+This is a list of routes and files that have been created to support this new controller and the two actions we created for it. Now let's dive into these files and explore what they do.
 
 ### The controller
 
@@ -159,7 +166,7 @@ class StaticController < ApplicationController
 end
 ```
 
-This is defining two actions: `home` and `about`. Both are just empty methods right now, so we're not running any Ruby code before passing the baton to our view.
+This is defining two actions: `home` and `about`. Both are just empty methods right now, so we're not running any Ruby code before handing over the page to our view.
 
 But... don't we still need something like `erb :home`, like we did in Sinatra? We don't! Unless we want to [render a specific view](http://apidock.com/rails/ActionController/Base/render), each action will default to looking for a view file in `app/views/NAME_OF_CONTROLLER/NAME_OF_ACTION.html.*`. In this case, our generator has already created `app/views/static/home.html.erb` and `app/views/static/about.html.erb`, so we're all set.
 
@@ -260,7 +267,15 @@ invoke    scss
 create      app/assets/stylesheets/static.scss
 ```
 
-Finally, the generator created some empty files for any JavaScript or CSS we might need for our static pages. Don't want to write in CoffeeScript? Then just rename `static.coffee` to `static.js`.
+Finally, the generator created some empty files for any JavaScript or CSS we might need for our static pages.
+
+Don't know any CoffeeScript yet? Then just rename `static.coffee` to `static.js`. If you do this, make sure to delete the CoffeeScript comment in the file, because it's not valid JavaScript:
+
+``` coffee
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+```
 
 ---
 
@@ -272,7 +287,9 @@ Let's run our app to test that everything is working. The command to run the Rai
 rails server
 ```
 
-Note that instead of serving to `localhost:9292` like Sinatra, Rails apps serve to `localhost:3000` by default. Now check it out in your browser!
+Note that instead of serving to `localhost:9292` like Sinatra, Rails apps serve to `localhost:3000` by default. Now check it out in your browser! If you see something like the image below, everything is working!
+
+![Default home page](https://cloud.githubusercontent.com/assets/7085184/11793667/ed80801c-a27a-11e5-959f-dee51a1885c9.png)
 
 ---
 
@@ -320,7 +337,7 @@ get '/cat-pictures' => 'static#cats'
 <% end %>
 ```
 
-Now check out the app in your browser to make sure you're getting some cat pics at `/cat-pictures`.
+Now launch your app with `rails server` and check out the app in your browser to make sure you're getting some cat pics at `/cat-pictures`.
 
 ---
 
@@ -377,7 +394,7 @@ Prefix Verb URI Pattern             Controller#Action
        GET  /cat-pictures(.:format) static#cats
 ```
 
-See the _Prefix_ column? Rails takes those prefixes and appends `_path` to them, to automatically create helper methods you can use in your view. For example:
+See the _Prefix_ column? Those prefixes are used in helper methods that Rails automatically provides for you. One set of helper methods has `_path` added to the end of each prefix. For example:
 
 ``` ruby
 root_path  # returns "/"
@@ -413,7 +430,7 @@ Which means we now also have a `cat_pictures_path` method available in our views
 
 ### URL Helpers
 
-If we combine route helpers with the `link_to` URL helper, we can create a nice list of the pages in our app.
+Rails also gives us a whole bunch of other helper methods out-of-the-box. One I use all the time is the `link_to` method, which generates the HTML for a link. If we combine route helpers with Rails' `link_to` URL helper, we can create a nice list of pages in our app.
 
 ```
 <ul>
@@ -433,7 +450,9 @@ This would generated the following HTML:
 </ul>
 ```
 
-Can you guess where you'd put this code so that it would show up at the top of every page?
+Can you guess where you'd put this code so that it would show up at the top of every page? When you're ready for the answer, highlight this hidden block of text:
+
+<span style="background:rgb(51,51,51)">app/views/layouts/application.html.erb</span>
 
 ---
 
@@ -443,9 +462,9 @@ There are a few things we have to change to get Rails ready for Heroku. [Heroku'
 
 ### Configure your database
 
-We're not working with the database yet, but we our app still comes with one.
+We're not working with the database yet, but our app still comes with one.
 
-Ideally, it's a good idea to use the same database locally (on your computer) as you do in production (on Heroku). We don't live in an ideal world though, so for the sake of simplicity and because we won't be doing any complex database work for a while, you're going to use the very simple SQLite3 locally (which is the default), but PostgreSQL on Heroku (since it doesn't work with SQLite3).
+Ideally, it's a good idea to use the same database technology locally (on your computer) as you do in production (on Heroku). We don't live in an ideal world though, so for the sake of simplicity and because we won't be doing any complex database work for a while, you're going to use the very simple SQLite3 locally (which is the default), but PostgreSQL on Heroku (since it doesn't work with SQLite3).
 
 Fortunately, Rails has different __environments__ available, so that we can differentiate our setup in the `development` environment (when we're running Rails on our computer) from the `production` environment (when Rails is running on Heroku).
 

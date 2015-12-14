@@ -63,8 +63,15 @@ module.exports = (lesson, user) ->
                   $code do
                     'rails new '
                     project-folder-name
+                    ' --skip-test-unit'
                   " (unless you've already created your Rails app)"
                 $cd-instructions
+                $li do
+                  $code 'bundle install'
+                  " (to ensure everything in our new Gemfile is installed)"
+                $li do
+                  $code 'git init'
+                  " (to initialize the directory as a git repository)"
                 $li do
                   $code do
                     'git remote add origin '
