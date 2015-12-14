@@ -140,7 +140,7 @@ Why wouldn't we just want to use the latest version of everything? Great questio
 
 Now the moment of truth! Almost. If we try to run our webapp right now using `rackup`, we'll probably get an error like this:
 
-``` bash
+``` output
 cannot load such file -- sinatra (LoadError)
 ```
 
@@ -162,7 +162,7 @@ rackup
 
 If the `rackup` command was successful, you should see something like this (it need not look exactly like this - as long as you don't get an error message, you're fine):
 
-``` bash
+``` output
 [2015-09-30 12:58:25] INFO  WEBrick 1.3.1
 [2015-09-30 12:58:25] INFO  ruby 2.2.1 (2015-02-26) [x86_64-darwin14]
 [2015-09-30 12:58:25] INFO  WEBrick::HTTPServer#start: pid=1542 port=9292

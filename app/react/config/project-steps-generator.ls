@@ -42,9 +42,11 @@ module.exports = (lesson, user) ->
       complete-on-click: ->
         window.open repo-URL, '_blank'
 
-    * octicon: 'arrow-down'
-
-    * title: 'Download the repository folder'
+    * title: do
+        if 'rails' in lesson.categories
+          'Add the repository to your Rails project folder'
+        else
+          'Download the repository folder'
       content: do
         if lesson.project.steps?download?
           $div do
@@ -55,13 +57,28 @@ module.exports = (lesson, user) ->
             $li do
               $code 'cd'
               " into the directory where you're keeping your Code Lab projects (unless you're already there)"
-            $li do
-              $code do
-                'git clone '
-                clone-URL
+            if 'rails' in lesson.categories
+              $span do
+                $li do
+                  $code do
+                    'rails new '
+                    project-folder-name
+                  " (unless you've already created your Rails app)"
+                $cd-instructions
+                $li do
+                  $code do
+                    'git remote add origin '
+                    clone-URL
+            else
+              $li do
+                $code do
+                  'git clone '
+                  clone-URL
       octicon: 'repo-clone'
-      is-active: lesson.status in <[ started submitted ]>
-      is-complete: lesson.status is 'approved'
+      is-active: lesson.status in <[ started ]>
+      is-complete: lesson.status in <[ submitted approved ]>
+
+    * octicon: 'arrow-down'
 
     * title: 'Commit your changes'
       content: do
@@ -157,7 +174,7 @@ module.exports = (lesson, user) ->
 
     * octicon: 'arrow-down'
 
-    * title: "Ensure mastery"
+    * title: 'Ensure mastery'
       content: do
         if lesson.project.steps?master?
           $div do

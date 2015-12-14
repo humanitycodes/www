@@ -1,0 +1,19 @@
+title: Build simple webapps with Ruby on Rails
+categories:
+  - wip
+  - ruby
+  - rails
+prereqs:
+  - js-libraries-and-jquery-plugins
+  - sinatra-sass-intro
+  - sinatra-gems-arrays-uninjected-erb
+  - sinatra-helper-methods
+project:
+  title: Build a basic Rails app with a few simple pages
+  criteria:
+    - a `home` action in a `StaticController` is served to `/`, which shows some content unique to this page
+    - an `about` action in a `StaticController` is served to `/about`, which shows some content unique to this page
+    - a `cats` action in a `StaticController` is served to `/cat-pictures`, which shows at least 1 cat picture, then shows the number of cat pictures requested when visiting `/cat-pictures/3` (for 3 cats) or `/cat-pictures/5` (for 5 cats), for example
+    - well-labeled links to all of the above routes exist on all pages of the app, using path helpers and without including the same code in every view file
+    - there's some CSS that goes through Rails' asset pipeline that visibly affects every page
+    - at least 1 helper method is used for some visible effect on at least 1 page

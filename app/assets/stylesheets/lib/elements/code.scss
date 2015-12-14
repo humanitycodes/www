@@ -3,6 +3,23 @@ pre > code {
   padding: 19px !important;
   white-space: pre;
   word-wrap: normal;
+
+  &.lang-output {
+    display: block;
+    background: #26292C;
+    color: #CFD2D1;
+    position: relative;
+    padding-top: 42px !important;
+
+    &:after {
+      content: 'TERMINAL OUTPUT';
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.3);
+    }
+  }
 }
 
 code {
