@@ -13,7 +13,7 @@ live-server
 
 Now visit `localhost:8080` in your web browser to see your website. Do you see your homepage? Then try visiting `localhost:8080/about.html` to make sure you see your About page.
 
-You can stop `live-server` at any time by pressing `ctrl-c`. 
+You can stop `live-server` at any time by pressing `ctrl-c`.
 
 ---
 
@@ -35,19 +35,19 @@ First, what's a __route__? A route is the definition of where some information o
 
 Now for a business website, you might also want a `/staff` page, then another page for each member of your staff at `/staff/alice`, `/staff/bob`, etc. Can you guess how we'd make this possible? You'd need a directory structure like this:
 
-```
+``` bash
 my-project-folder
-|-- index.html
+|-- index.html         # /
 |-- about
-|   |-- index.html
+|   |-- index.html     # /about
 |-- staff
-|   |-- index.html
+|   |-- index.html     # /staff
 |   |-- alice
-|   |   |-- index.html
+|   |   |-- index.html # /staff/alice
 |   |-- bob
-|   |   |-- index.html
+|   |   |-- index.html # /staff/bob
 |   |-- carla
-|   |   |-- index.html
+|   |   |-- index.html # /staff/carla
 ```
 
 We're using folders to define our routes and `index.html` files to define what should be displayed at each one. These routes are called __nested__ because the folders are inside one another, just like Russian Matryoshka dolls.
