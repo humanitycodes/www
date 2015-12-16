@@ -10,6 +10,7 @@ pre > code {
     color: #CFD2D1;
     position: relative;
     padding-top: 42px !important;
+    overflow-wrap: break-word;
 
     &:after {
       content: 'TERMINAL OUTPUT';

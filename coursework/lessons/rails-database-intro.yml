@@ -1,0 +1,18 @@
+title: Build webapps that can save information in Rails
+categories:
+  - wip
+  - ruby
+  - rails
+prereqs:
+  - rails-intro
+project:
+  title: Build a Rails app with a single, editable model
+  criteria:
+    - you've generated a scaffold for a model (other than Post) - [check this list](https://gist.github.com/chrisvfritz/bfdae85cb78f654626bd) if you need ideas
+    - your model has at least 3 attributes, of at least 3 separate data types
+    - >
+      every column for your model's table uses `null: false` and/or `default: ...` where and only where appropriate
+    - the `index` action for your model is linked to from a homepage in a `static` controller
+    - the homepage has information describing what the webapp is for
+    - every attribute on the model is visible and clearly labeled on the views for the `index` and `show` actions
+    - every attribute on the model is editable through the `new`/`create` and `edit`/`update` actions
