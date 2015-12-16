@@ -12,7 +12,12 @@ project:
     - your model has at least 3 attributes, of at least 3 separate data types
     - >
       every column for your model's table uses `null: false` and/or `default: ...` where and only where appropriate
-    - the `index` action for your model is linked to from a homepage in a `static` controller
-    - the homepage has information describing what the webapp is for
+    - a homepage built with a `static` controller describes what the webapp is for
+    - the homepage has a link to the `index` action for your model
     - every attribute on the model is visible and clearly labeled on the views for the `index` and `show` actions
     - every attribute on the model is editable through the `new`/`create` and `edit`/`update` actions
+  steps:
+    publish: |
+      - `cd` into your `codelab-rails-database-intro` directory (unless you're already there)
+      - `heroku create` (unless you've already created a Heroku app for this project), then `git push heroku master` (to make your website live on the Internet)
+      - `heroku run rake db:migrate` (if you just pushed a commit with a new database migration)

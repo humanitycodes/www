@@ -4,7 +4,7 @@ Rails is often referred to as an "MVC framework" - meaning it's a web framework 
 
 But what about __models__? Well, each model is a kind of _thing_ we want to save information about in our app. For example, Twitter will save information about users and tweets. Email services will need to save information about users, emails, attachments, and contacts. We'll have a model for each of these that defines which details we want to keep track of in our database.
 
-To better wrap our heads around this, let's walk through a complete, hypothetical model for blog posts. As we do, it'll be helpful to have a dummy app you can play around with now and delete afterwards. Go ahead and create that now:
+To better wrap our heads around this, let's walk through a complete, hypothetical model for blog posts. As we do, it'll be helpful to have a dummy app you can play around with now and delete afterwards. Go ahead and create that now in your Code Lab directory:
 
 ``` bash
 rails new models_practice --skip-test-unit
@@ -28,11 +28,17 @@ And now to give these more Ruby-friendly names, where each word is separated by 
 
 Great! Now that we know what kind of information we want to keep track of, let's take a tour of some of the most common data types we have available in Rails.
 
-Although it's certainly not necessary for this lesson, if you happen to have experience working directly with databases, note that these general types correspond to more specific types in specific databases. Since implementations vary between databases, the advice I give will not be universally true. Instead, I'll be assuming you're using PostgreSQL, which is a popular and very powerful open source database.
+<div class="callout callout-info text-muted">
 
-This is also not [a complete list of data types available](http://stackoverflow.com/questions/17918117/rails-4-datatypes#answer-22725797), but rather a simplified list of the most common types.
+  <h4>Note</h4>
 
-OK, let's dive in.
+  <p>Although it's certainly not necessary for this lesson, if you happen to have experience working directly with databases, note that these general types correspond to more specific types in specific databases. Since implementations vary between databases, the advice I give will not be universally true. Instead, I'll be assuming you're using PostgreSQL, which is a popular and very powerful open source database.</p>
+
+  <p>This is also not [a complete list of data types available](http://stackoverflow.com/questions/17918117/rails-4-datatypes#answer-22725797), but rather a simplified list of the most common types.</p>
+
+</div>
+
+OK, let's dive in.f
 
 <hr>
 
@@ -58,7 +64,7 @@ The `date` type stores a date, the `time` type stores a time, and the `datetime`
 
 <hr>
 
-Now let's go back to our data for blog posts and figure out which Rails Rails data types we want to use.
+Now let's go back to our data for blog posts and figure out which Rails data types we want to use.
 
 - `title` will be shorter text, so the `string` type is probably most appropriate
 - `content` will be longer text, so let's use the `text` type there
@@ -148,7 +154,7 @@ This __database migration__ describes the changes we'll be making to our databas
 
 You'll also notice that Rails added a line for timestamps. This creates two additional columns, `created_at` and `updated_at`, that are automatically filled in by Rails whenever we create or update a __record__.
 
-OK... so a lot of new language here: table, columns, records. Fortunately, it's not as complicated as it sounds. You can think of a table as a spreadsheet, each column an actual column in that spreadsheet, and each record as a row, like this:
+There's a lot of new language here: tables, columns, and records. Fortunately, it's not as complicated as it sounds. You can think of a table as a spreadsheet, each column an actual column in that spreadsheet, and each record as a row, like this:
 
 <table class="table table-striped">
   <thead>
@@ -192,7 +198,7 @@ When I first started using Rails, something that confused me was that tables and
 
 Here's the distinction: __"table" describes how information is organized in the database, whereas "model" describes the Ruby we use to interact with that table__. That might not click right at this moment, but it doesn't have to. What you _do_ have to understand is this:
 
-__When we're working in a database migration or writing SQL (the language of the database), we'll use database words. Everywhere else in our app, we'll typically use Rails' language.__
+__When we're working in a database migration or writing SQL (the language of the database), we'll use database words (like "table"). Everywhere else in our app, we'll typically use Rails' language (like "model").__
 
 And just as tables corresponds to models, columns correspond to attributes:
 
@@ -223,7 +229,7 @@ Back to our migration file!
 
 So what Rails generated is pretty good, but let's modify this file a little to better represent how our post should behave. We'll figure out how to modify it by asking this one question: __Will there ever be a case when the value of one of these columns should be `null` (i.e. N/A)?__
 
-Often, the answer is no. In the case of our `title` and `content`, these might be _empty_, but they'll never be _non-existant_. Likewise, `is_published` should never be _nothing_. Rather, it should start out as `false`.
+Often, the answer is no. In the case of our `title` and `content`, these might be _empty_, but they'll never be _non-existent_ for most blogs. Likewise, `is_published` should never be _nothing_. Rather, it should start out as `false`.
 
 If we had a `published_at` column, which stored a `datetime` of when the post was published, sometimes that _would_ `null`. If a post hasn't been published yet, asking the question, "When was it published?" doesn't have an answer.
 
@@ -314,9 +320,15 @@ edit_post GET    /posts/:id/edit(.:format) posts#edit
           DELETE /posts/:id(.:format)      posts#destroy
 ```
 
-You can [learn more about the command here](http://guides.rubyonrails.org/routing.html#resources-on-the-web).
+<div class="callout callout-info text-muted">
 
-It's also worth noting that the routes generated by the `resources` command are said to be __RESTful__. REST stands for Representational State Transfer. I know. That doesn't clarify anything, does it? If you want to dive into REST, I recommend checking out [this discussion on Stack Overflow](http://stackoverflow.com/questions/671118/what-exactly-is-restful-programming). I only mention it now because you're likely to hear this acronym a lot.
+  Note
+
+  <p>You can [learn more about the command here](http://guides.rubyonrails.org/routing.html#resources-on-the-web), if you're curious. Otherwise, we'll be diving into it more deeply in a later lesson.</p>
+
+  <p>It's also worth noting that the routes generated by the `resources` command are said to be __RESTful__. REST stands for Representational State Transfer. I know. That doesn't clarify anything, does it? If you want to dive into REST, I recommend checking out [this discussion on Stack Overflow](http://stackoverflow.com/questions/671118/what-exactly-is-restful-programming). I only mention it now because you're likely to hear this acronym a lot.</p>
+
+</div>
 
 Otherwise, you can just remember for now that it's The Right Way to build out routes for a model in your database. If you're not using the `resources` command for a model, you're probably doing it wrong.
 
@@ -354,7 +366,13 @@ We have a view for the:
 - show action, to show information for a single post
 - new action, to show a form for a single, new post
 
-And we also have a form __partial__, indicated by the leading underscore. A partial contains view code that's extracted out of action views, either to DRY up the code or to make it more modular. In this case, the `_form.html.erb` partial is used in the views for both the `new` and `edit` actions.
+And we also have a view __partial__ (`_form.html.erb`). Partials always start with an underscore and contain view code that isn't tied to a specific action. Instead, it's rendered into one or more views with a `render` helper, like this:
+
+``` html
+<%= render 'form' %>
+```
+
+Partials are useful for DRYing up your view code or to make it more modular. In this case, the `_form.html.erb` partial is rendered in the views for both the `new` and `edit` actions, since both of them need the same form.
 
 ---
 
@@ -365,13 +383,15 @@ create      app/views/posts/index.json.jbuilder
 create      app/views/posts/show.json.jbuilder
 ```
 
-JSON? Huh? JSON is a special format that webapps often use to talk to _each other_ and to _themselves_. It looks like this:
+JSON? Huh? You can go right ahead and skip this page if you want, as you won't have to know anything about JSON for quite a while.
+
+But... if you're curious, JSON stands for "JavaScript Object Notation". It's a special format that webapps often use to talk to _each other_ and to _themselves_. It looks like this:
 
 ``` json
 [{"id":1,"title":"Test","content":"post content","is_published":false,"url":"http://localhost:3000/posts/1.json"}]
 ```
 
-These two files set up what JSON we show for the `index` and `show` actions. They're in a new format you haven't seen before, called [`jbuilder`](https://github.com/rails/jbuilder). You don't have to worry too much about it for now.
+These two files set up what JSON will be shown for the `index` and `show` actions. They're in a new format you haven't seen before, called [`jbuilder`](https://github.com/rails/jbuilder). You don't have to worry too much about it for now.
 
 ---
 
@@ -403,7 +423,9 @@ Once again, we have a file for JavaScript and SCSS for posts, but we also have o
 
 ## Deploying to Heroku
 
-The only thing we have to keep in mind for Heroku is that just like we had to run a command to migrate our database locally, we'll have to run a command to migrate our database _after we deploy_. You can run commands on your Heroku app with `heroku run`. In this case, we'll use:
+The only thing we have to keep in mind for Heroku is that just like we had to run a command to migrate our database locally, we'll have to run a command to migrate our database _after we deploy_.
+
+You can run commands on your Heroku app with `heroku run`. In this case, we'll use:
 
 ``` bash
 heroku run rake db:migrate
