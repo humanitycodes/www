@@ -89,3 +89,5 @@ No matter what page we're on, that absolute link will work. Now let's look at th
 Subtle difference. When we're at `/` (our homepage), that link will work. When we're on the `/staff` page though, it'll send a visitor to `/staff/staff/alice` - a page that doesn't exist! When you're at `/staff/bob`, that link will send a visitor to `/staff/bob/staff/alice` - another non-existent page. Yuck.
 
 So stick with absolute links. Then no matter what page you're on, your links will _always_ work!
+
+Now go ahead and apply these concepts to create a directory of students in the project.
