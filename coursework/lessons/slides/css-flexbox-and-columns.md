@@ -27,14 +27,14 @@ We have a row, with two columns inside it. In our case, we'd like these columns 
 
 That should work, right? I'll add a few more styles, such as padding on the top and bottom of row and some nice backgrounds to help us distinguish everything.
 
-<pre><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
+<p><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
   <div style="background:rgb(127,178,189);width:50%;">
     This is the 1st column.
   </div>
   <div style="background:rgb(119, 175, 105);width:50%;">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 Uhh... it didn't work. Inspecting the first column with your web browser's developer tools, you can see that there's a right margin being added to fill up the rest of the row:
 
@@ -51,14 +51,14 @@ To fix this, we can change how our items display with: `display: inline-block`. 
 }
 ```
 
-<pre><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
+<p><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
   <div style="background:rgb(127,178,189);display:inline-block;width:50%;">
     This is the 1st column.
   </div>
   <div style="background:rgb(119, 175, 105);display:inline-block;width:50%;">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 What?! That didn't work either? Inspecting the first column, we can see there isn't any margin added. So... just to experiment, let's temporarily change the width of columns to `40%`:
 
@@ -71,14 +71,14 @@ What?! That didn't work either? Inspecting the first column, we can see there is
 
 And we get:
 
-<pre><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
+<p><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
   <div style="background:rgb(127,178,189);display:inline-block;width:40%;">
     This is the 1st column.
   </div>
-  <div style="background:rgb(119, 175, 105);display:inline-block;width:40%;">
+  <div style="background:rgb(119,175,105);display:inline-block;width:40%;">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 What's that space between the two columns? It doesn't seem to be a margin. Googling, "display inline-block space between elements", it looks like [we're not the only ones to encounter this problem](https://css-tricks.com/fighting-the-space-between-inline-block-elements/). The newline between our columns is being interpreted as a space. So we could change our HTML to:
 
@@ -94,13 +94,13 @@ What's that space between the two columns? It doesn't seem to be a margin. Googl
 
 Let's see if it worked:
 
-<pre><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
+<p><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
   <div style="background:rgb(127,178,189);display:inline-block;width:40%;">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:inline-block;width:40%;">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 Alright, so we that got rid of the space. But... changing our HTML to affect the styling of our page seems weird. And it'd be too easy for someone else to see that, assume it's a typo, and change it back.
 
@@ -117,13 +117,13 @@ So there's another solution we can use. There won't be any space if the font siz
 }
 ```
 
-<pre><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;font-size:0">
+<p><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;font-size:0">
   <div style="background:rgb(127,178,189);display:inline-block;width:40%;font-size:16px">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:inline-block;width:40%;font-size:16px">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 Excellent! Still hacky, but we like that slightly more. Now that we have a working solution, let's change our css back to `width: 50%`.
 
@@ -141,13 +141,13 @@ Excellent! Still hacky, but we like that slightly more. Now that we have a worki
 And just to make sure it still works:
 
 
-<pre><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;font-size:0">
+<p><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;font-size:0">
   <div style="background:rgb(127,178,189);display:inline-block;width:50%;font-size:16px">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:inline-block;width:50%;font-size:16px">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 Beautiful! That seemed a lot more painful than it should have been, but it works now.
 
@@ -171,13 +171,13 @@ Now let's just add a little padding to columns, so that the text isn't right up 
 
 And looking at the result:
 
-<pre><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;font-size:0">
+<p><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;font-size:0">
   <div style="box-sizing:content-box;background:rgb(127,178,189);display:inline-block;width:50%;font-size:16px;padding:10px">
     This is the 1st column.
   </div><div style="box-sizing:content-box;background:rgb(119, 175, 105);display:inline-block;width:50%;font-size:16px;padding:10px;">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 Are you @#%&ing kidding me?! Padding breaks everything?
 
@@ -226,13 +226,13 @@ html {
 
 And now we have have our padding without messing up the layout!
 
-<pre><div style="background:#efefef;padding: 10px 0;font-size:0">
+<p><div style="background:#efefef;padding: 10px 0;font-size:0">
   <div style="background:rgb(127,178,189);display:inline-block;width:50%;font-size:16px;padding:10px">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:inline-block;width:50%;font-size:16px;padding:10px;">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 But say we want a 10 pixel margin between these two columns? We can add `margin: 0 5px` (meaning we want no margin on the top or bottom, but 5 pixels on either side). I use 5 pixels instead of 10 pixels, because the two will add up in the middle. Then we have to employ a few new tricks.
 
@@ -264,13 +264,13 @@ html {
 
 And here's how it renders:
 
-<pre><div style="background:#efefef;padding: 10px 0;font-size:0;margin:0 -5px">
+<p><div style="background:#efefef;padding: 10px 0;font-size:0;margin:0 -5px">
   <div style="background:rgb(127,178,189);display:inline-block;width:calc(50% - 10px);font-size:16px;padding:10px;margin:0 5px">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:inline-block;width:calc(50% - 10px);font-size:16px;padding:10px;margin:0 5px">
     This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 You'll notice that the margin on the left and right _is_ visible right now, but only because we've given our row `div` a background, which we normally wouldn't do. So ignoring that, we can see by inspecting the page that the edges of our column line up perfectly with the edges of our content.
 
@@ -280,43 +280,43 @@ Now it's important to note that as of writing, the `calc` function will not work
 
 Finally, there's one other problem with this solution. What if one column has more stuff in it than the other column?
 
-<pre><div style="background:#efefef;padding: 10px 0;font-size:0;margin:0 -5px">
+<p><div style="background:#efefef;padding: 10px 0;font-size:0;margin:0 -5px">
   <div style="background:rgb(127,178,189);display:inline-block;width:calc(50% - 10px);font-size:16px;padding:10px;margin:0 5px">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:inline-block;width:calc(50% - 10px);font-size:16px;padding:10px;margin:0 5px">
     This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 Yuck. The first column shows up way at the bottom. Fortunately, this can be fixed with a simple `vertical-align: top` on the columns.
 
-<pre><div style="background:#efefef;padding: 10px 0;font-size:0;margin:0 -5px">
+<p><div style="background:#efefef;padding: 10px 0;font-size:0;margin:0 -5px">
   <div style="background:rgb(127,178,189);display:inline-block;width:calc(50% - 10px);font-size:16px;padding:10px;margin:0 5px;vertical-align:top">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:inline-block;width:calc(50% - 10px);font-size:16px;padding:10px;margin:0 5px;vertical-align:top">
     This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 But sometimes, I want columns to be as tall as each other. I could use `display: table-cell` on the columns to use tables _without_ actually using the semantic table elements, but then I lose my margins (because table cells don't support margins) and have to resort back to `width: 50%` instead of the fancy `calc`ulation, because calculating table cell width with `calc` also isn't allowed.
 
-<pre><div style="background:#efefef;padding: 10px 0;font-size:0">
+<p><div style="background:#efefef;padding: 10px 0;font-size:0">
   <div style="background:rgb(127,178,189);display:table-cell;width:50%;font-size:16px;padding:10px;vertical-align:top">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:table-cell;width:50%;font-size:16px;padding:10px;vertical-align:top">
     This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 But! I _could_ add a border to these columns, which just happens to use the same color as the background of its container. Then for my row `div`, I'll re-add `margin: 0 -5px`. Now everything works as it did before, with columns the same height.
 
-<pre><div style="background:#efefef;padding: 10px 0;font-size:0;margin:0 -5px">
+<p><div style="background:#efefef;padding: 10px 0;font-size:0;margin:0 -5px">
   <div style="background:rgb(127,178,189);display:table-cell;width:50%;font-size:16px;padding:10px;vertical-align:top;border:5px solid #efefef">
     This is the 1st column.
   </div><div style="background:rgb(119, 175, 105);display:table-cell;width:50%;font-size:16px;padding:10px;vertical-align:top;border:5px solid #efefef">
     This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 If this feels hacky to you, you're not alone. But believe it or not, this was also _normal_ until very recently. On the next page, we'll learn how you can set up two freakin' columns without jumping through hoop after hoop.
 
@@ -339,13 +339,13 @@ When you're building new websites from scratch though, you _should_ be using __f
 
 And the result:
 
-<pre><div style="background:#efefef;padding: 10px 0;display:flex">
+<p><div style="background:#efefef;padding: 10px 0;display:flex">
   <div style="background:rgb(127,178,189);width:50%;padding:10px">
     This is the 1st column.
   </div><div style="background:rgb(119,175,105);width:50%;padding:10px">
     This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 When we add our margin with the negative margin trick:
 
@@ -362,13 +362,13 @@ When we add our margin with the negative margin trick:
 
 It still works:
 
-<pre><div style="background:#efefef;padding: 10px 0;display:flex;margin:0 -5px">
+<p><div style="background:#efefef;padding: 10px 0;display:flex;margin:0 -5px">
   <div style="background:rgb(127,178,189);width:50%;padding:10px;margin:0 5px">
     This is the 1st column.
   </div><div style="background:rgb(119,175,105);width:50%;padding:10px;margin:0 5px">
     This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column. This is the 2nd column.
   </div>
-</div></pre>
+</div></p>
 
 What if we wanted 3 columns?
 
@@ -383,7 +383,7 @@ What if we wanted 3 columns?
 }
 ```
 
-<pre><div style="background:#efefef;padding: 10px 0;display:flex;margin:0 -5px">
+<p><div style="background:#efefef;padding: 10px 0;display:flex;margin:0 -5px">
   <div style="background:rgb(127,178,189);width:33.33333333333%;padding:10px;margin:0 5px">
     This is the 1st column.
   </div>
@@ -393,7 +393,7 @@ What if we wanted 3 columns?
   <div style="background:rgb(127,178,189);width:33.33333333333%;padding:10px;margin:0 5px">
     This is the 3rd column.
   </div>
-</div></pre>
+</div></p>
 
 But this is just scratching the surface. We can be smarter than this. We don't even have to know how many columns we have ahead of time. If we want all our columns to be the same width, we can use `flex-basis` and `flex-grow`.
 
@@ -412,7 +412,7 @@ But this is just scratching the surface. We can be smarter than this. We don't e
 
 This is the result, with 5 columns:
 
-<pre><div style="background:#efefef;padding: 10px 0;display:flex;margin:0 -5px">
+<p><div style="background:#efefef;padding: 10px 0;display:flex;margin:0 -5px">
   <div style="background:rgb(127,178,189);flex-basis:0;flex-grow:1;padding:10px;margin:0 5px">
     1st column
   </div>
@@ -428,7 +428,7 @@ This is the result, with 5 columns:
   <div style="background:rgb(127,178,189);flex-basis:0;flex-grow:1;padding:10px;margin:0 5px">
     5th column
   </div>
-</div></pre>
+</div></p>
 
 It's probably still difficult to understand exactly what `flex-basis` and `flex-grow` are doing right now. Don't worry, they'll make more sense as you see more examples on the following pages!
 
@@ -465,11 +465,11 @@ main {
 
 We're setting `main` to grow 3 times as fast as `.sidebar` with `flex-grow`. The result:
 
-<pre><div style="padding:10px 0;background:#efefef;display:flex">
+<p><div style="padding:10px 0;background:#efefef;display:flex">
   <div style="background:rgb(127,178,189);flex-basis:0;flex-grow:1">Sidebar 1</div>
   <div style="background:rgb(119,175,105);flex-basis:0;flex-grow:3">Main content area</div>
   <div style="background:rgb(127,178,189);flex-basis:0;flex-grow:1">Sidebar 2</div>
-</div></pre>
+</div></p>
 
 Now the more common case might be to have fixed widths for the sidebars, then wanting the main content to fill in the rest:
 
@@ -489,11 +489,11 @@ main {
 
 Now we've given the sidebars a `flex-basis` (starting size) of 150 pixels and completely removed their ability to grow to fit the container, they never grow larger than 150 pixels. This is the result:
 
-<pre><div style="padding:10px 0;background:#efefef;display:flex">
+<p><div style="padding:10px 0;background:#efefef;display:flex">
   <div style="background:rgb(127,178,189);flex-basis:150px;flex-grow:0">Sidebar 1</div>
   <div style="background:rgb(119,175,105);flex-basis:0;flex-grow:1">Main content area</div>
   <div style="background:rgb(127,178,189);flex-basis:150px;flex-grow:0">Sidebar 2</div>
-</div></pre>
+</div></p>
 
 It's important to know that as the screen gets very small, the sidebars will still _shrink_ to make sure there's room to show the content in `main`. If you wanted to make sure the sidebars remained 150 pixels wide _no matter what_, you could also add `flex-shrink: 0`.
 
@@ -521,14 +521,14 @@ In this case, we'll want to use `flex-wrap: wrap`, so that when there are a lot 
 }
 ```
 
-<pre><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap">
+<p><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap">
   <img style="" src="http://lorempixel.com/150/150/cats">
   <img style="" src="http://lorempixel.com/150/150/cats">
   <img style="" src="http://lorempixel.com/150/150/cats">
   <img style="" src="http://lorempixel.com/150/150/cats">
   <img style="" src="http://lorempixel.com/150/150/cats">
   <img style="" src="http://lorempixel.com/150/150/cats">
-</div></pre>
+</div></p>
 
 Maybe just a bit of margin to space things out a bit? And let's also center the images.
 
@@ -543,25 +543,25 @@ Maybe just a bit of margin to space things out a bit? And let's also center the 
 }
 ```
 
-<pre><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
+<p><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
   <img style="margin:5px" src="http://lorempixel.com/150/150/cats">
   <img style="margin:5px" src="http://lorempixel.com/150/150/cats">
   <img style="margin:5px" src="http://lorempixel.com/150/150/cats">
   <img style="margin:5px" src="http://lorempixel.com/150/150/cats">
   <img style="margin:5px" src="http://lorempixel.com/150/150/cats">
   <img style="margin:5px" src="http://lorempixel.com/150/150/cats">
-</div></pre>
+</div></p>
 
 Very nice! Now what happens when we have differently sized images?
 
-<pre><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
+<p><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
   <img style="margin:5px" src="http://lorempixel.com/450/400/cats">
   <img style="margin:5px" src="http://lorempixel.com/200/150/cats">
   <img style="margin:5px" src="http://lorempixel.com/175/150/cats">
   <img style="margin:5px" src="http://lorempixel.com/150/190/cats">
   <img style="margin:5px" src="http://lorempixel.com/200/180/cats">
   <img style="margin:5px" src="http://lorempixel.com/350/300/cats">
-</div></pre>
+</div></p>
 
 Uhh, that's OK, I guess. I'd rather have everything with the same width though, so let's bring back `flex-basis`, setting it to 150 pixels, because we know every image will be _at least_ that wide.
 
@@ -577,14 +577,14 @@ Uhh, that's OK, I guess. I'd rather have everything with the same width though, 
 }
 ```
 
-<pre><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
+<p><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
   <img style="margin:5px;flex-basis:150px" src="http://lorempixel.com/450/400/cats">
   <img style="margin:5px;flex-basis:150px" src="http://lorempixel.com/200/150/cats">
   <img style="margin:5px;flex-basis:150px" src="http://lorempixel.com/175/150/cats">
   <img style="margin:5px;flex-basis:150px" src="http://lorempixel.com/150/190/cats">
   <img style="margin:5px;flex-basis:150px" src="http://lorempixel.com/200/180/cats">
   <img style="margin:5px;flex-basis:150px" src="http://lorempixel.com/350/300/cats">
-</div></pre>
+</div></p>
 
 Ewww... they're all squooshed. As we've seen before, flexbox stretches the heights of children, which does _weird_ things with images. So let's wrap each image in their own container:
 
@@ -617,7 +617,7 @@ And then update our CSS:
 }
 ```
 
-<pre><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
+<p><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
   <div style="margin:5px;flex-basis:150px">
     <img src="http://lorempixel.com/450/400/cats">
   </div>
@@ -636,7 +636,7 @@ And then update our CSS:
   <div style="margin:5px;flex-basis:150px">
     <img src="http://lorempixel.com/350/300/cats">
   </div>
-</div></pre>
+</div></p>
 
 And... why are they spaced out so weirdly now? Here's a little trick that I spent _hours_ Googling to learn. When you have a container that just has an image, _always_ give the container `line-height: 0`.
 
@@ -653,7 +653,7 @@ And... why are they spaced out so weirdly now? Here's a little trick that I spen
 }
 ```
 
-<pre><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
+<p><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
   <div style="margin:5px;flex-basis:150px;line-height:0">
     <img src="http://lorempixel.com/450/400/cats">
   </div>
@@ -672,7 +672,7 @@ And... why are they spaced out so weirdly now? Here's a little trick that I spen
   <div style="margin:5px;flex-basis:150px;line-height:0">
     <img src="http://lorempixel.com/350/300/cats">
   </div>
-</div></pre>
+</div></p>
 
 Much better!
 
