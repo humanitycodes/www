@@ -1,0 +1,13 @@
+title: Laying out webpages with flexbox and columns
+categories:
+  - wip
+  - css
+prereqs:
+  - advanced-css-selectors
+project:
+  title: Build a webpage based on [this mockup given to you by a client](https://www.dropbox.com/s/sspxdosr98qg0pw/Screenshot%202015-12-20%2016.54.30.png?dl=1)
+  criteria:
+    - The text in the "Join A Game section" should flow into two columns, because it'll be a lot longer in the real website
+    - The games in the "Top Games" section show 3 games per row, though there may be up to 9, so if there are more than 3, there should be 3 per line
+    - The "Search Games" input should always be the same size (about 300 pixels wide maybe?)
+    - In the "Create A Game" section, the list should always take up half the space and the "Create Your Own Game" button should take up the other half
