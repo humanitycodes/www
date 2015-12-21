@@ -1,0 +1,20 @@
+title: Interact with your database through Rails' ActiveRecord models
+categories:
+  - wip
+  - ruby
+  - rails
+prereqs:
+  - rails-database-intro
+project:
+  title: Build an advanced search form for the model from your previous project
+  criteria:
+    - Users can search your database through a form on your model's `index` page
+    - Users can refine the search with _any_ attribute for your model, including `created_at` and `updated_at` (but not including `id`) - [Rails form tag helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html) will be useful for this
+  steps:
+    download: |
+      1. `cd` into the directory where you're keeping your Code Lab projects (unless you're already there)
+      2. Create a copy of the previous project with `cp -R codelab-rails-database-intro {{repo-key}}`
+      3. `cd` into your `{{repo-key}}` directory
+      4. `bundle install` (to ensure everything in the Gemfile is installed)
+      5. `git remote rm origin` (so that our `origin` remote doesn't point to our old project on GitHub)
+      6. `git remote add origin {{clone-URL}}`

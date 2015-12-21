@@ -11,6 +11,17 @@ module.exports = (lesson, user) ->
   const clone-URL = "#{ repo-URL }.git"
   const issues-URL = "#{ repo-URL }/issues"
 
+  if lesson.project.steps?
+    for step-name, step-content of lesson.project.steps
+      const parsed-step = do
+        step-content
+          .replace /\{\{project-folder-name\}\}/g, project-folder-name
+          .replace /\{\{repo-key\}\}/g, repo-key
+          .replace /\{\{repo-URL\}\}/g, repo-URL
+          .replace /\{\{clone-URL\}\}/g, clone-URL
+          .replace /\{\{issues-URL\}\}/g, issues-URL
+      lesson.project.steps[step-name] = parsed-step
+
   const $cd-instructions =
     $li do
       $code 'cd'
