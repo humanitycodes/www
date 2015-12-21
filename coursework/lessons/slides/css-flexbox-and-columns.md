@@ -25,7 +25,7 @@ We have a row, with two columns inside it. In our case, we'd like these columns 
 }
 ```
 
-That should work, right? I'll add a few more styles, such as padding on the top and bottom of row and some nice backgrounds to help us distinguish everything.
+That should work, right? I'll add a few more styles, such as padding on the top and bottom of the row and some nice backgrounds to help us distinguish everything.
 
 <p><div style="box-sizing:content-box;background:#efefef;padding: 10px 0;">
   <div style="background:rgb(127,178,189);width:50%;">
@@ -125,7 +125,7 @@ So there's another solution we can use. There won't be any space if the font siz
   </div>
 </div></p>
 
-Excellent! Still hacky, but we like that slightly more. Now that we have a working solution, let's change our css back to `width: 50%`.
+Excellent! Still hacky, but it looks slightly better. Now that we have a working solution, let's change our css back to `width: 50%`.
 
 ```
 .row {
@@ -238,7 +238,7 @@ But say we want a 10 pixel margin between these two columns? We can add `margin:
 
 First, since I don't want any margin to the left of the first column or to the right of the last column, I'll define `margin: 0 -5px`. Yes, you read that right. It's a __negative margin__ on the sides. Instead of adding space between the edge of the container, it'll pull an element _beyond_ the edge of its container.
 
-Second, we need to calculate the width of our columns a little better. Since even `box-sizing: border-box` won't include margins in width calculations. We need to subtract our margin from the the width manually, which we can do with the `calc` function in CSS: `width: calc(50% - 10px)`.
+Second, we need to calculate the width of our columns a little better, because even `box-sizing: border-box` won't include margins in width calculations. We need to subtract our margin from the the width manually, which we can do with the `calc` function in CSS: `width: calc(50% - 10px)`.
 
 Altogether, here's our new CSS:
 
@@ -355,7 +355,7 @@ When we add our margin with the negative margin trick:
   margin: 0 -5px;
 }
 .column {
-  widht: 50%;
+  width: 50%;
   margin: 0 5px;
 }
 ```
@@ -378,7 +378,7 @@ What if we wanted 3 columns?
   margin: 0 -5px;
 }
 .column {
-  width: 33.33333333333%
+  width: 33.33333333333%;
   margin: 0 5px;
 }
 ```
@@ -395,7 +395,7 @@ What if we wanted 3 columns?
   </div>
 </div></p>
 
-But this is just scratching the surface. We can be smarter than this. We don't even have to know how many columns we have ahead of time. If we want all our columns to be the same width, we can use `flex-basis` and `flex-grow`.
+Notice how we didn't even have to use `calc` here? But this is just scratching the surface. We can be smarter than this. We don't even have to know how many columns we have ahead of time. If we want all our columns to be the same width, we can use `flex-basis` and `flex-grow`.
 
 ```
 .row {
@@ -530,7 +530,7 @@ In this case, we'll want to use `flex-wrap: wrap`, so that when there are a lot 
   <img style="" src="http://lorempixel.com/150/150/cats">
 </div></p>
 
-Maybe just a bit of margin to space things out a bit? And let's also center the images.
+Maybe just a bit of margin to space things out a bit? And let's also center the images with `justify-content: center`. `justify-content` is a special property that for distributing the space between and around flex items.
 
 ```
 .image-gallery {
@@ -615,6 +615,9 @@ And then update our CSS:
   flex-basis: 150px;
   margin: 5px;
 }
+.image-container > img {
+  width: 100%;
+}
 ```
 
 <p><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
@@ -638,7 +641,9 @@ And then update our CSS:
   </div>
 </div></p>
 
-And... why are they spaced out so weirdly now? Here's a little trick that I spent _hours_ Googling to learn. When you have a container that just has an image, _always_ give the container `line-height: 0`.
+Much better! Sometimes though, setting a fixed width (like 150 pixels) isn't _exactly_ what we want. What if we wanted our flex item widths to be more dynamic and guarantee they stretch to fill the entire container width?
+
+All we have to do is update `flex-basis` to `calc(33.33333333333% - 10px)`. Notice that when we're spreading flexboxes across more than row, we _do_ need `calc` again. Why isn't flexbox smart enough with multiple rows? It managed just fine when we had just a single row. Honestly, I have no idea. This is just what works.
 
 ```
 .image-gallery {
@@ -647,34 +652,34 @@ And... why are they spaced out so weirdly now? Here's a little trick that I spen
   justify-content: center;
 }
 .image-gallery > .image-container {
-  flex-basis: 150px;
-  line-height: 0;
+  flex-basis: calc(33.33333333333% - 10px);
   margin: 5px;
+}
+.image-container > img {
+  width: 100%;
 }
 ```
 
 <p><div style="padding:10px 0;background:#efefef;display:flex;flex-wrap:wrap;justify-content:center">
-  <div style="margin:5px;flex-basis:150px;line-height:0">
-    <img src="http://lorempixel.com/450/400/cats">
+  <div style="margin:5px;flex-basis:calc(33.33333333333% - 10px)">
+    <img style="width:100%" src="http://lorempixel.com/450/400/cats">
   </div>
-  <div style="margin:5px;flex-basis:150px;line-height:0">
-    <img src="http://lorempixel.com/200/150/cats">
+  <div style="margin:5px;flex-basis:calc(33.33333333333% - 10px)">
+    <img style="width:100%" src="http://lorempixel.com/200/150/cats">
   </div>
-  <div style="margin:5px;flex-basis:150px;line-height:0">
-    <img src="http://lorempixel.com/175/150/cats">
+  <div style="margin:5px;flex-basis:calc(33.33333333333% - 10px)">
+    <img style="width:100%" src="http://lorempixel.com/175/150/cats">
   </div>
-  <div style="margin:5px;flex-basis:150px;line-height:0">
-    <img src="http://lorempixel.com/150/190/cats">
+  <div style="margin:5px;flex-basis:calc(33.33333333333% - 10px)">
+    <img style="width:100%" src="http://lorempixel.com/150/190/cats">
   </div>
-  <div style="margin:5px;flex-basis:150px;line-height:0">
-    <img src="http://lorempixel.com/200/180/cats">
+  <div style="margin:5px;flex-basis:calc(33.33333333333% - 10px)">
+    <img style="width:100%" src="http://lorempixel.com/200/180/cats">
   </div>
-  <div style="margin:5px;flex-basis:150px;line-height:0">
-    <img src="http://lorempixel.com/350/300/cats">
+  <div style="margin:5px;flex-basis:calc(33.33333333333% - 10px)">
+    <img style="width:100%" src="http://lorempixel.com/350/300/cats">
   </div>
 </div></p>
-
-Much better!
 
 ---
 
@@ -721,32 +726,92 @@ Pretty simple, eh? Column properties aren't supported in Internet Explorer 9 and
 
 ## Using column properties for mosaic image layouts
 
-There's one other thing I like to use column properties for.
+Just as we spread text evenly across multiple columns, we can do the same with other elements - like images!
 
 <p><div style="-webkit-column-count: 3;-moz-column-count: 3;column-count: 3;-webkit-column-gap: 10px;-moz-column-gap: 10px;column-gap: 10px;">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&1">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&2">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&3">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&4">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&5">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&6">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&7">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&8">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&9">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&10">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&11">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&12">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&13">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&14">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&15">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&16">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&17">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&18">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&19">
-  <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&20">
+  <div data-count="1"  class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&1">
+  </div>
+  <div data-count="2"  class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&2">
+  </div>
+  <div data-count="3"  class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&3">
+  </div>
+  <div data-count="4" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&4">
+  </div>
+  <div data-count="5" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&5">
+  </div>
+  <div data-count="6" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&6">
+  </div>
+  <div data-count="7" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&7">
+  </div>
+  <div data-count="8" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&8">
+  </div>
+  <div data-count="9" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&9">
+  </div>
+  <div data-count="10" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&10">
+  </div>
+  <div data-count="11" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&11">
+  </div>
+  <div data-count="12" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&12">
+  </div>
+  <div data-count="13" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&13">
+  </div>
+  <div data-count="14" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&14">
+  </div>
+  <div data-count="15" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&15">
+  </div>
+  <div data-count="16" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&16">
+  </div>
+  <div data-count="17" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&17">
+  </div>
+  <div data-count="18" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&18">
+  </div>
+  <div data-count="19" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&19">
+  </div>
+  <div data-count="20" class="example-mosaic-image">
+    <img style="margin-bottom:10px" src="http://thecatapi.com/api/images/get?format=src&type=jpg&20">
+  </div>
 </div></p>
 
-It's a beautiful mosaic. And this was achieved with:
+<style>
+.example-mosaic-image {
+  position: relative;
+}
+.example-mosaic-image:after {
+  content: attr(data-count);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background: rgba(255,255,255,0.9);
+  text-align: center;
+  border-bottom-right-radius: 3px;
+}
+</style>
+
+It's a beautiful mosaic! I've also added numbers to the corners so you can see the images flowing down, then to the top of the next column, just like text does.
+
+Achieving this neat trick only requires something like this:
 
 ``` html
 <div class="image-mosaic">
@@ -772,4 +837,4 @@ It's a beautiful mosaic. And this was achieved with:
 }
 ```
 
-Previously, this kind of magic was only achievable with JavaScript and I actually meet very few people who realize this can be achieved with CSS alone!
+Previously, this kind of magic was only achievable with JavaScript and I actually meet very few people who realize this is possible with CSS alone!
