@@ -687,7 +687,7 @@ All we have to do is update `flex-basis` to `calc(33.33333333333% - 10px)`. Noti
 
 This is just the tip of the iceberg with flexbox. I've shared the properties I think you'll find most useful, but you'll likely encounter situations where you need to know more. In this case, I recommend [CSS Tricks' _Complete Guide to Flexbox_](https://css-tricks.com/snippets/css/a-guide-to-flexbox/). It covers every flexbox property, with detailed explanations and examples for each.
 
-If your brain is feeling pretty full right now, you can come back here when you're coding up a layout. If you're feeling ready for more, you can go ahead and skim that page, so that you have a better idea of what else is possible.
+If your brain is feeling pretty full right now though, don't worry about it. This lesson teaches you everything you need to know to complete the project. If/when you're feeling ready for more, you can go ahead and skim that page, so that you have a better idea of what else is possible.
 
 ---
 

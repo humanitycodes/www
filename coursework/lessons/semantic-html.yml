@@ -6,9 +6,9 @@ prereqs:
 project:
   title: "Create an HTML page with a list of blog posts (about anything, but preferrably outrageous: for example, from the perspective of your cat, including only musings on grapefruit)"
   criteria:
-    - include a `header` element with the name of your blog and a tagline
-    - include a `footer` element with copyright information and a design credit
-    - include either a working `video` or `audio` element (you can use other sources, but `http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4` is a good video source and `http://www.w3schools.com/tags/horse.mp3` is a good audio source)
+    - include a [`header`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header) element with the name of your blog and a tagline
+    - include a [`footer`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) element with copyright information and a design credit
+    - include either a working [`video`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) or [`audio`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio) element (you can use other sources, but `http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4` is a good video source and `http://www.w3schools.com/tags/horse.mp3` is a good audio source)
     - include at least 2 blog posts (of at least one sentence each)
+    - include the [`main`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main), [`article`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article), [`section`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section), [`blockquote`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote), [`figure`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure), and [`figcaption`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) elements, in contexts where they make semantic sense
     - return no errors (warnings are OK) when uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
-    - include the `main`, `article`, `section`, `blockquote`, `figure`, and `figcaption` elements, in contexts where they make semantic sense
