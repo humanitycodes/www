@@ -22,7 +22,11 @@ module.exports = Radium class NewIssueForm extends React.Component
     if all-criteria-are-checked!
 
       const mentor = @refs.mentor.value
-      const hosted-URL = @refs.hosted-URL.value
+
+      hosted-URL = @refs.hosted-URL.value
+      unless /^http/.test hosted-URL
+        hosted-URL = 'http://' + hosted-URL
+
       const new-issue-URL = """
         #{ @props.repo-URL }/issues/new?#{
           jQuery.param do
