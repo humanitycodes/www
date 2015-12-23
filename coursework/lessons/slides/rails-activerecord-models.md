@@ -40,13 +40,15 @@ Did you get back something like this?
 => "RailsDatabaseIntro"
 ```
 
-If so, everything's working! Just like with `irb`, you can get back to your normal terminal at any time with by entering `exit`.
+If so, everything's working! Just like with `irb`, you can get back to your normal terminal at any time by entering `exit`.
 
 ---
 
 ## Interacting with the database through your model
 
-Now for the fun part. If we want to create a new post in the Rails console, it's as simple as:
+Now for the fun part. I'll be playing with my `Post` model, but you can use the model and attributes you created in the previous project, as you follow along.
+
+So first, let's say I want to create a new post in the Rails console. It's as simple as:
 
 ``` ruby
 Post.create(title: '10 best cats', content: 'list of cats...')
@@ -152,7 +154,7 @@ And you see that string in the first parameter? _That's_ some SQL. It's checking
 
 <div class="callout callout-warning">
 
-  <h4>Note</h4>
+  <h4>Important</h4>
 
   <p>In Ruby and most other programming languages, `=` is an _assignment_ operator, which means it's used to change the value of a variable. It sets the variable to the left of the `=` to the value of whatever's to the right of it. In contrast, `==` is a more typical _equality_ operator.</p>
 
@@ -197,7 +199,7 @@ Here's a list of generic SQL comparison operators:
 </tbody>
 </table>
 
-These operators can allow you to do more than just check for equality, which is pretty common. For example, let's say there's a post I was working on some time in the last week. I can bring up all the posts created _after_ (i.e. greater than) a week ago with:
+These operators can allow you to do more than just check for equality. For example, let's say there's a post I was working on some time in the last week. I can bring up all the posts created _after_ (i.e. greater than) a week ago with:
 
 ``` ruby
 Post.where('updated_at > ?', 1.week.ago)
@@ -225,16 +227,6 @@ Post.
   destroy
 ```
 
-__SQL also has `AND` and `OR` operators.__ Let's say I wanted to find all the unpublished posts that have a blank title _or_ blank content. This would do the trick:
-
-``` ruby
-Post.
-  where(is_published: false).
-  where('title = ? OR content = ?', '', '')
-```
-
-Notice also that for each `?`, I need to include a new parameter.
-
 ---
 
 ## Implementing a simple text search for an `index` action
@@ -250,7 +242,7 @@ Post.where('LOWER(title) LIKE LOWER(?)', "%#{title_search}%")
 
 Here, I'm comparing a lowercased version of the title with a lowercased version of the search query, which in this case, is `"cat"`.
 
-You'll also notice that in the second parameter, I've included a `%` on other side of my query. Those are wildcard operators and they're saying there may be some text _before_ our query and there may be some text _after_ it.
+You'll also notice that in the second parameter, I've included a `%` on either side of my query. Those are wildcard operators and they're saying there may be some text _before_ our query and there may be some text _after_ it.
 
 If we don't include those, `LIKE` will behave just like `=`. One major difference between `LIKE` and `=` is that `LIKE` supports wildcards, whereas `=` is only for finding _exact_ equality.
 
@@ -268,7 +260,7 @@ If we don't include those, `LIKE` will behave just like `=`. One major differenc
 
 </div>
 
-Now let's get out of the Rails console and start changing our app's files to implement this search feature. First, we'll add a search box somewhere on our index page, using [Rails' form tag helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html):
+Now let's get out of the Rails console and start changing our app's files to implement this search feature. Remember to modify these examples to suit your model, rather than the `Post` model. First, we'll add a search box somewhere on our index page, using [Rails' form tag helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html):
 
 ```
 <!-- app/views/posts/index.html.erb -->
@@ -317,7 +309,7 @@ def index
 end
 ```
 
-If a search query is present (i.e. has been submitted in the form), we run a search and store the results in `@posts`. Otherwise, we just store all the posts in `@posts`. That's all you need to add a great search feature.
+If a search query is present (i.e. has been submitted in the form), we run a search and store the results in `@posts`. Otherwise, we just store _all_ the posts in `@posts`. That's all you need to add a great search feature.
 
 Now you have the rest of the day to figure out how to look busy.
 
