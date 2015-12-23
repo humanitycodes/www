@@ -1,6 +1,5 @@
 title: Interact with your database through Rails' ActiveRecord models
 categories:
-  - wip
   - ruby
   - rails
 prereqs:
@@ -9,7 +8,7 @@ project:
   title: Build an advanced search form for the model from your previous project
   criteria:
     - Users can search your database through a form on your model's `index` page
-    - Users can refine the search with _any_ attribute for your model, including `created_at` and `updated_at` (but not including `id`) - [Rails form tag helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html) will be useful for this
+    - Fields exist in your search for all the attributes in your model, including `created_at` and `updated_at` (but not including `id`) - [Rails form tag helpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html) will be useful for this
   steps:
     download: |
       1. `cd` into the directory where you're keeping your Code Lab projects (unless you're already there)
