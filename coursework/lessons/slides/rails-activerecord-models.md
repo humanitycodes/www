@@ -46,7 +46,7 @@ If so, everything's working! Just like with `irb`, you can get back to your norm
 
 ## Interacting with the database through your model
 
-Now for the fun part. I'll be playing with my `Post` model, but you can use the model and attributes you created in the previous project, as you follow along.
+Now for the fun part. Go back into the `rails console` if you exited. I'll be playing with my `Post` model, but you can use the model and attributes you created in the previous project, as you follow along. 
 
 So first, let's say I want to create a new post in the Rails console. It's as simple as:
 

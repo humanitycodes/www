@@ -1,6 +1,7 @@
 title: Use jQuery to select elements, respond to events, and manipulate styles
 categories:
   - js
+  - jquery
 prereqs:
   - advanced-css-selectors
   - external-assets

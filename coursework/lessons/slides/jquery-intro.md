@@ -16,7 +16,7 @@ OK, so inspecting the page, it looks like the blocks of code are always in `code
 
 I'm working in Google Chrome, so I'll right-click on a code block, then hit `Inspect Element`. Then I'll start playing with some CSS properties on one of the `pre` elements. I finally settle on:
 
-``` css
+```
 border: 20px solid #A0C1A0;
 box-shadow: 0 0 30px #A0C1A0;
 ```
@@ -45,7 +45,7 @@ What if you want to target all the `li`s with a class of `active` inside of a `u
 $('ul.links li.active')
 ```
 
-Awesome! Now for our use case. We want to target `pre` elements, but only those that have a `code` element inside of them. Using a CSS selector, that's... huh. Impossible. There's no way to do that.
+Awesome! Now for our use case. We want to target `pre` elements, but _only_ those that have a `code` element inside of them. Using a CSS selector, that's... huh. Impossible. There's no way to do that.
 
 Not to fear, jQuery still has tricks up its sleeve:
 
