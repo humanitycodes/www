@@ -592,7 +592,7 @@ $('.js-markdown-previewer-container').each(function() {
 
   function renderInput(markdown) {
     $markdownInput.val(markdown)
-    // https://github.com/jackmoore/autosize/issues/165
+    // HACK: https://github.com/jackmoore/autosize/issues/165
     autosize.update($markdownInput)
   }
 
@@ -647,121 +647,13 @@ $('.js-markdown-previewer-container').each(function() {
 })
 ```
 
-Take a good long look at this code. Here's what's happening:
+Take a good look at this code. Here's what's happening:
 
-1. When this code is first run, we "initialize" it by making sure our input autosizes, then we ensure everything looks as it should by calling `renderAll()` with the initial contents of our markdown input.
+1. When it's first run, we "initialize" it by making sure our input autosizes, then we ensure everything looks as it should by calling `renderAll()` with the initial contents of our markdown input.
 2. It's `renderAll`'s job to keep a list of all the elements that change depending on the state of our markdown. It then passes that state to each element-specific renderer.
 3. Each element-specific renderer is in charge thinking about how that element should look, based on the new state of the markdown.
 4. Whenever an event is fired, all it has to worry about now is, "What's the new state of the markdown?" Then it passed that to `renderAll()`
 
-Responsibilities are now much more clearly defined and adding new features doesn't feel so overwhelming. I don't have to be thinking about _everything_ at once anymore. I can just worry about one function at a time.
+Responsibilities are now much more clearly defined, so I don't have to be thinking about _everything_ at once anymore. I can just worry about one function at a time, one element at a time.
 
-The code has even become simple enough that I feel comfortable building 90% of Simone's new feature before I even know what I'll do to convert the HTML into markdown:
-
-``` js
-$('.js-markdown-previewer-container').each(function() {
-
-  // --------
-  // ELEMENTS
-  // --------
-
-  var $container = $(this)
-  var $markdownInput = $container.find('.js-markdown-input')
-  var $htmlInput = $container.find('.js-html-input')
-  var $markdownPreview = $container.find('.js-markdown-preview')
-  var $clearMarkdownButton = $container.find('.js-clear-markdown-button')
-
-  // -------
-  // PARSERS
-  // -------
-
-  function markdownToHtml(markdown) {
-    return marked(markdown)
-  }
-
-  function htmlToMarkdown(html) {
-    // TODO
-  }
-
-  // ---------
-  // RENDERERS
-  // ---------
-
-  function renderMarkdownInput(markdown) {
-    $markdownInput.val(markdown)
-    // https://github.com/jackmoore/autosize/issues/165
-    autosize.update($markdownInput)
-  }
-
-  function renderHTMLInput(html) {
-    $htmlInput.val(html)
-    // https://github.com/jackmoore/autosize/issues/165
-    autosize.update($htmlInput)
-  }
-
-  function renderClearButton(markdown) {
-    if (markdown.length > 0) {
-      $clearMarkdownButton.prop('disabled', false)
-      $clearMarkdownButton.text('Clear')
-    } else {
-      $clearMarkdownButton.prop('disabled', true)
-      $clearMarkdownButton.text('Cleared')
-    }
-  }
-
-  function renderPreview(html) {
-    $markdownPreview.html(html)
-    if (html.length > 0) {
-      $markdownPreview.removeClass('empty')
-    } else {
-      $markdownPreview.addClass('empty')
-    }
-  }
-
-  function renderAll(stateType, newState) {
-    var markdown, html
-    if (stateType == 'markdown') {
-      markdown = newState
-      html = markdownToHtml(markdown)
-    } else {
-      html = newState
-      markdown = htmlToMarkdown(html)
-    }
-    renderMarkdownInput(markdown)
-    renderHTMLInput(html)
-    renderClearButton(markdown)
-    renderPreview(html)
-  }
-
-  // --------------
-  // INITIALIZATION
-  // --------------
-
-  function initialize() {
-    autosize($markdownInput)
-    autosize($htmlInput)
-    renderAll('markdown', $markdownInput.val())
-  }
-
-  initialize()
-
-  // ------
-  // EVENTS
-  // ------
-
-  $markdownInput.on('input', function() {
-    renderAll('markdown', this.value)
-  })
-
-  $htmlInput.on('input', function() {
-    renderAll('html', this.value)
-  })
-
-  $clearMarkdownButton.on('click', function() {
-    renderAll('markdown', '')
-  })
-
-})
-```
-
-Now all I have to do is fill in the `htmlToMarkdown` function and it should start working. I'll leave that as a challenge for you.
+And most importantly, coding is _fun_ again! I feel powerful again. And instead of the overwhelmingly frustrated, I'm actually excited to implement Simone's new feature. But I'll leave that as an exercise to the reader. :-)
