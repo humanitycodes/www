@@ -9,7 +9,7 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
       = link_to root_path, class: 'navbar-brand' do
-        =' image_tag 'lansing-codes-logo.svg'
+        => image_tag 'lansing-codes-logo.svg'
         | Code Lab
 
     .collapse.navbar-collapse#navbar_links
@@ -32,7 +32,7 @@ nav.navbar.navbar-default
           li.dropdown
             a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" expanded="false"
               .glyphicon.glyphicon-user>
-              =' current_user.name
+              => current_user.name
               span.caret
             ul.dropdown-menu
               li= link_to 'Projects', current_user.portfolio_url, target: '_blank'

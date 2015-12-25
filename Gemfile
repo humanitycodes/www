@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 gem 'pg'                         # Use postgresql as the database for Active Record
 gem 'sass-rails', '~> 5.0'       # Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.5' # Bootstrap!
+gem 'bootstrap-sass', '~> 3.3.6' # Bootstrap!
 gem 'uglifier', '>= 1.3.0'       # Use Uglifier as compressor for JavaScript assets
 gem 'jquery-rails'               # Use jquery as the JavaScript library
 gem 'jbuilder', '~> 2.0'         # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -29,22 +29,22 @@ end
 group :development, :test do
   gem 'pry-rails'               # Use pry for the rails console
   gem 'spring-commands-rspec'   # Implements the rspec command for Spring
-  gem 'rspec-rails', '~> 3.3.3' # Use rspec for testing
+  gem 'rspec-rails', '~> 3.4.0' # Use rspec for testing
   gem 'factory_girl_rails'      # A fixtures replacement with a straightforward definition syntax
   gem 'guard-rspec'             # Watches our app for changes, to automatically and selectively run tests
 end
 
 group :test do
   gem 'capybara', '~> 2.5.0'         # Helpers to simulate how a real user would interact with your app
-  gem 'database_cleaner', '~> 1.4.1' # A set of strategies for cleaning your database
+  gem 'database_cleaner', '~> 1.5.1' # A set of strategies for cleaning your database
   gem 'launchy', '~> 2.4.3'          # Facilitates launching external applications
   gem 'poltergeist'                  # PhantomJS driver for Capybara
-  gem 'webmock', '~> 1.21.0'         # For stubbing and setting expectations on HTTP requests
+  gem 'webmock', '~> 1.22.3'         # For stubbing and setting expectations on HTTP requests
   gem 'codeclimate-test-reporter', require: false
 end
 
 group :production do
-  gem 'rollbar', '~> 2.4.0'
-  gem 'oj', '~> 2.12.14'
+  gem 'rollbar', '~> 2.7.1'
+  gem 'oj', '~> 2.14.2'
   gem 'newrelic_rpm'
 end
