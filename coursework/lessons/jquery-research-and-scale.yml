@@ -1,18 +1,17 @@
 title: Use jQuery to build maintainable, scalable features
 categories:
-  - wip
   - js
   - jquery
 prereqs:
   - js-libraries-and-jquery-plugins
 project:
-  title: Build a road trip gas calculator with jQuery
+  title: Build a road trip gas money calculator with jQuery
   criteria:
     - >
       Three inputs are used to calculate what each person on the road trip should contribute to gas: mileage rate, total miles, number of riders
     - Mileage rate should start at 0.5 (50 cents), with a minimum value of 0.1
     - Total miles should start at 0, with a minimum value of 0
-    - Number of riders should start at 1, with a minimum value of 1 and maximum value of 5
+    - Number of riders should start at 1, with a minimum value of 1 and maximum value of 5 (since that's the max we can fit in our car)
     - >
       The calculated share per person should be: total miles * mileage rate / number of riders
     - The element that displays the resulting calculation (which I'll call "the result element") should start out displaying "$0.00", then continue to display a dollar amount in that format as the number increases

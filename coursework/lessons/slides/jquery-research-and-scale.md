@@ -1,6 +1,6 @@
 ## Your job as a programmer
 
-Programming is a little strange, compared to most other jobs. For an accountant at a sporting goods store, let's say the manager strolls up one day, obviously excited about a new idea.
+Programming is a little strange, compared to most other jobs. Imagine an accountant and a manager at a sporting goods store. The manager strolls up one day, obviously excited about a new idea.
 
 __Manager__: "I'd like to make it so that when we're working with a previous customer, we can pull of a quick summary of their interests and past budget on our tablets."
 
@@ -22,11 +22,11 @@ Here's the secret though: it's not as scary as it sounds. It involves some Googl
 
 ![UNLIMITED POWER](http://i.imgur.com/YG08UPf.jpg)
 
-To get there though, we need a great process. So using jQuery, we'll explore this process of building something that starts out _relatively_ simple, then gets more and more complex. We'll run into weird issues and bugs, but we'll use a few tricks and free tools at our disposal to solve them all.
+To get there though, we need a great process, and that takes practice. Today we'll use jQuery to explore this process of building something that starts out relatively simple, then gets more and more complex. We'll run into weird issues and bugs, but we'll use a few tricks and free tools at our disposal to solve them all.
 
 ---
 
-## Researching a new feature request
+## Researching new features with GitHub
 
 I'm helping my friend Simone build a webapp for writing short stories and she has this idea:
 
@@ -71,7 +71,7 @@ That's pretty cool!
 <div class="callout callout-info text-muted">
   <h4>Note</h4>
 
-  <p>As a little aside, [this lesson itself](https://github.com/lansingcodelab/www/blob/master/coursework/lessons/slides/jquery-review-and-research.md) was written in markdown. It's also a very popular markup language for people to write documentation in. If you include a `README.md` file at the root of a Git repository and then push it to GitHub, it'll even show up on that repository's page, automatically converted to pretty HTML!</p>
+  <p>As a little aside, [this lesson itself](https://github.com/lansingcodelab/www/blob/master/coursework/lessons/slides/jquery-review-and-research.md) was written in markdown. It's also a very popular markup language for writing documentation. If you include a `README.md` file at the root of a Git repository and then push it to GitHub, it'll even show up on that repository's page, automatically converted to pretty HTML! Whether you know it or not, it's also what you've been writing to format comments on GitHub issues.</p>
 </div>
 
 Alright, so I sort of get the idea of markdown now. Let's check out [her other link](http://markdownlivepreview.com/), with the example of what she wants.
@@ -80,7 +80,7 @@ Ohh... that _is_ cool. But how do I convert markdown into HTML in JavaScript? Le
 
 For me, the top 3 results are all GitHub projects and in the descriptions, two of these call themselves markdown "parsers". I didn't know that word before. When I see new vocabulary like that, I like to make a mental note of it, in case it comes in handy in future Googling.
 
-OK, so let's click on [the first link](https://github.com/chjj/marked). When I'm looking at a project on GitHub, here are a few things I'm looking for:
+But now that we have some GitHub projects to check out, how do we judge them? How do we decide what to use? Here are a few simple strategies you can use for _any_ GitHub project:
 
 ### Does it have a lot of stars?
 
@@ -88,11 +88,11 @@ This indicates how popular a project is. And if it's popular, it usually works p
 
 ### When was the last commit?
 
-This gives me an indication of whether the project is still being kept up to date. You can find the last commit (![Last commit on July 31](https://www.dropbox.com/s/senijbpghd3javs/Screenshot%202015-12-23%2015.15.00.png?dl=1)) on the right side of a GitHub project page, directly above the list of folders and files. For different projects, this date might be more or less important. If it's a web framework that handles security for you, [like Rails](https://github.com/rails/rails), you want updates _at least_ every few months, to keep up with the latest threats. If it's an implementation of very specific algorithm invented in 2008, [like jLouvain](https://github.com/upphiminn/jLouvain), then if it was last updated in 2008, that's OK. It won't have changed since then.
+This gives me an indication of whether the project is still being kept up to date. You can find the last commit (![Last commit on July 31](https://www.dropbox.com/s/senijbpghd3javs/Screenshot%202015-12-23%2015.15.00.png?dl=1)) on the right side of a GitHub project page, directly above the list of folders and files. For different projects, this date might be more or less important. If it's a web framework that handles security for you, [like Rails](https://github.com/rails/rails), you want updates _at least_ every few months, to keep up with the latest threats. If it's a library for looking up country codes and currencies, like [Country Data](https://github.com/OpenBookPrices/country-data), then it should only need to update when a new country is founded or a current country changes its currency, which isn't that often.
 
-### How old are the open issues?
+### How old are the open issues and pull requests?
 
-This helps me understand how quickly the developer(s) are responding to problems. If there are a lot of really old issues (especially more than a year old) that no one has even responded to, that doesn't bode well.
+This helps me understand how quickly the development team is responding to problems. If there are a lot of really old issues and/or pull requests (especially more than a year old) that no one has even responded to, that doesn't bode well. Old bugs are also much more alarming than old feature requests.
 
 ### How accessible is the documentation?
 
@@ -100,11 +100,82 @@ I want thorough documentation or a link to thorough documentation in their READM
 
 <hr>
 
+## Applying these strategies
+
+So let's take a better look at these first 3 results:
+
+- [`markdown-js`](https://github.com/evilstreak/markdown-js)
+- [`showdown`](https://github.com/showdownjs/showdown)
+- [`marked`](https://github.com/chjj/marked)
+
+To make things simpler, I'll organize everything into a nice table (you'll have to scroll horizontally to see it all):
+
+<div style="overflow-x:scroll;margin-bottom:20px">
+<table style="width:800px;max-width:800px" class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Stars</th>
+      <th>Last Commit</th>
+      <th>Oldest Open Issues</th>
+      <th>Documentation Quality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`markdown-js`</td>
+      <td>4,232</td>
+      <td>7 months ago</td>
+      <td>60 open issues. 3 are still open from 4 years ago, 2 of which are bugs. 1 issue from 2 years ago hasn't even been responded to. There's also one issue about lacking HTML support, which might be a dealbreaker for Simone. 17 open pull requests, the oldest dating back to 4 years ago.</td>
+      <td>The README seems well organized with simple-looking code examples.</td>
+    </tr>
+    <tr>
+      <td>`showdown`</td>
+      <td>3,190</td>
+      <td>5 days ago</td>
+      <td>12 open issues. Only 4 older than a few months, with the oldest from 11 months ago. None of these very old issues are bugs. 5 open pull requests, with one almost 2 years old.</td>
+      <td>The README also seems good. No significant difference in ease of reading or ease of use from a quick glance.</td>
+    </tr>
+    <tr>
+      <td>`marked`</td>
+      <td>8,058</td>
+      <td>5 months ago</td>
+      <td>A whopping 247 open issues 122 open pull requests, some dating back to almost 4 year ago! The vast majority of these seem to be feature requests, rather than bugs though. Many older issues haven't even been responded to.</td>
+      <td>`marked` claims it runs faster than other parsers and seems to have _a lot_ more features than the other projects, which all seem well-documented in the README.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+Glancing at this, I'm going to remove `markdown-js` from the running immediately. It lacks a feature many find important and development seems very slow. Now it's between `marked` and `showdown`. `marked` is more popular and feature rich, but the developers seem quite a bit less responsive. `showdown` is less powerful and popular, but seems better supported. It's a tough decision. I feel like I need more information.
+
+### Extra Googling to break ties
+
+Let's [Google "marked vs markdown"](https://www.google.com/search?q=marked+vs+showdown). The relevant results seem to mostly discuss switching from `showdown` to `marked`, which already makes me lean toward `marked`. Reading those, it looks like the extra features `marked` provides really are very useful for a lot of people.
+
+[One of the results](https://github.com/pioul/Minimalist-Online-Markdown-Editor/issues/8) did end up switching from `showdown`, but _not_ to `marked`. Instead, they use [a project called `markdown-it`](https://github.com/markdown-it/markdown-it), which claims to a "markdown parser done right." Ugh... another parser?! It seems very active, but only has only 1,129 stars. It supports plugins, which was one feature `marked` didn't have. Only 1,129 stars though.
+
+So now I'm kind of torn between `marked` and `markdown-it`. I tried Googling "marked vs markdown-it" and it one oft-requested feature that `markdown-it` seems to lack is heading anchors. I asked Simone if that's important and she just shrugged. So these both seem like fine options.
+
+#### What are other projects using?
+
+To figure out who's using these projects, let's do some more advanced Googling with [`markdown "(switching|switched|moved) to (markdown-it|marked)"`](https://www.google.com/search?q=markdown+"(switching%7Cswitched)+to+(markdown-it%7Cmarked)"). I see a lot of people switching to `markdown-it` here.
+
+Now let's try `markdown "(switching|switched|moved)" from marked to "markdown-it"` and `markdown "(switching|switched|moved)" from markdown-it to "marked"`. I can't find anyone who's switching from `markdown-it` to marked, but a few projects have switched from `marked` to "markdown-it". It also looks like Discourse and Markdown Editor, which are both popular projects that use markdown, now both use `markdown-it`. _But_! Atom, which has more stars on GitHub than both of those other projects combined, uses `marked`.
+
+So we have two great projects. Both are popular, powerul, and easy-to-use. `marked` seems slightly more powerful right now, but `markdown-it` is better supported...
+
+### What to do when it's not straight-forward
+
 So there's good news and there's bad news. No matter what you might want to do...
 
 > "The Internet has a ton of information about this stuff. _Unfortunately_, the Internet has a ton of information about this stuff. And it's really hard to sift through to find the things that are useful." - Sarah Mei
 
-If you want a deeper dive into making great technology choices, check out Sarah Mei's excellent (and only half-hour!) talk on the subject:
+So while it's impossible to know whether you have the Absolute Perfect Solution to a given problem, __sometimes you just have to _pick something___. So let's just flip a coin and... use the `marked` library.
+
+### Learning more about making great technical decisions
+
+We've made this decision, but if you want a deeper dive into making great technology choices in the future, check out Sarah Mei's excellent (and only half-hour!) talk on the subject:
 
 <iframe width="530" height="300" src="https://www.youtube.com/embed/FzzL_QDKv0c?rel=0" frameborder="0" allowfullscreen></iframe>
 
@@ -112,15 +183,15 @@ If you want a deeper dive into making great technology choices, check out Sarah 
 
 ## Parsing a Stack Overflow question
 
-OK, so to recap, we have:
+OK, so to recap, we now have:
 
-- a better idea of what markdown,
+- a better idea of what markdown is,
 - an example of what Simone wants, and
 - a library ([marked](https://github.com/chjj/marked)) that promises to "parse" markdown easily and quickly
 
 Let's start writing some code.
 
-We know we need a place for users to _write_ their markdown and a place for them to see the preview, so let's create those to elements and give them `id`s so we can target them with jQuery.
+We know we need a place for users to _write_ their markdown and a place for them to _see_ the preview, so let's create those two elements and give them `id`s so we can target them with jQuery.
 
 ``` html
 <textarea id="markdown-input"></textarea>
@@ -197,7 +268,7 @@ $('#markdown-input').on('input', function(){
 })
 ```
 
-But how do I know that works? One of my favorite ways to figure out if an event is being fired at the appropriate times is adding a `console.log` statement:
+But how do I know that works? One of my favorite ways to figure out if an event is being triggered at the appropriate times is adding a `console.log` statement:
 
 ``` js
 $('#markdown-input').on('input', function(){
@@ -205,7 +276,7 @@ $('#markdown-input').on('input', function(){
 })
 ```
 
-With that code in place, I can fool around to see if I can break things in my browser of choice, which happens to be Google Chrome. My earlier research wasn't _entirely_ wasted though, because seeing all the things that didn't work in some browsers, I now have a better list of things to test, including:
+With that code in place, I can fool around to see if I can break things in my browser of choice, which happens to be Google Chrome. My earlier research wasn't _entirely_ wasted, because seeing all the things that didn't work in some browsers, I now have a better list of things to test, including:
 
 - typing
 - deleting
@@ -217,7 +288,7 @@ With that code in place, I can fool around to see if I can break things in my br
 
 And it looks like my jQuery event callback triggers on all of them! OK, so now that I've confirmed this part is working as expected, let's move on to the next step: getting the contents of the `textarea`.
 
-Fortunately, I saw code examples that accessed the contents of `textarea`s in my previous Googling. They used `this.value`. Let's try it.
+Fortunately, I saw code examples that accessed the contents of a `textarea` in my previous Googling. They used `this.value`. Let's try it.
 
 ``` js
 $('#markdown-input').on('input', function(){
@@ -226,6 +297,8 @@ $('#markdown-input').on('input', function(){
 ```
 
 After typing some stuff in the `textarea`, I can see in my web browser's JavaScript console that it's working!
+
+![JavaScript console](http://i.imgur.com/Cxski3y.png)
 
 ---
 
@@ -256,7 +329,7 @@ If they have it, they'll often offer URLs for minified and unminified versions o
 
 ### Where to find the correct files on GitHub repos
 
-If a library isn't available via a CDN, you'll just have to download it and link to it like usual. But sometimes, there will seem to be a lot of files and folders with neither of the filenames you're looking for in plain site.
+If a library isn't available via a CDN, you'll just have to download it and link to it like usual. But sometimes, there will seem to be a lot of files and folders with neither of the filenames you're looking for in plain sight.
 
 Here's the trick: If you don't immediately see these filenames, look in a `dist` folder if they have one. This is the most typical name for the folder with all the files _distributed_ to users like you.
 
@@ -286,7 +359,13 @@ OK, so we've included the marked library in our website now. And [from the docum
 marked('# Marked in browser\n\nRendered by **marked**.')
 ```
 
-So it looks like they're just passing the string of markdown into a `marked` function. Let's try it.
+So it looks like they're just passing the string of markdown into a `marked` function. Now that we have `marked` in our page, let's try it in the JavaScript console. For me, it returned this HTML:
+
+``` js
+"<h1>Marked in browser</h1><p>Rendered by <strong>marked</strong>.</p>"
+```
+
+Cool! Now let's see if it works for our markdown input.
 
 ``` js
 $('#markdown-input').on('input', function(){
@@ -294,11 +373,11 @@ $('#markdown-input').on('input', function(){
 })
 ```
 
-And... it's working! OK, I feel like we're really picking up steam now. Now how would we use this HTML to update the contents of our `#markdown-preview`? Let's [google it: "jquery update element contents"](https://www.google.com/search?q=jquery+update+element+contents)
+Again, we're getting HTML returned! I feel like we're really picking up steam now. Now how would we use this HTML to update the contents of our `#markdown-preview`? Let's [google it: "jquery update element contents"](https://www.google.com/search?q=jquery+update+element+contents)
 
 The two top results are jQuery's `.html()` function and the `.text()` function. Reading about them on those pages, it looks like they _kind of_ do the same thing. But then why would there be two, separate functions? Reading carefully, there seems to be a slight, but significant difference.
 
-I _think_ the `.html()` function actually turns the text you give it into HTML elements, while the `.text()` function won't. Well, there's one easy way test if I'm understanding right. I'll load up my webpage, which already has jQuery in it and I'll try to see if these two lines give me different results:
+I _think_ the `.html()` function actually turns the text you give it into HTML elements, while the `.text()` function won't. Well, there's one easy way test if I'm understanding right. I'll load up my webpage, which already has jQuery in it, and I'll try to see if these two lines give me different results:
 
 ``` js
 $('#markdown-preview').html('<h1>Testing</h1>')
@@ -335,7 +414,7 @@ $('#markdown-input').on('input', function(){
 })
 ```
 
-Wow, that's working beautifully! I guess we're done - and in only 3 beautiful lines.
+Wow, that's working beautifully! I guess we're done - and in only 3 elegant lines.
 
 ---
 
@@ -462,7 +541,7 @@ An email? Fine, I'll log in...
 > - We want the input to start off only one line high, but then get taller as text flows onto the next line. If you delete text, it should also get shorter again.
 > - We'll actually want multiple of these input and preview pairs on some pages, so I think we'll have to switch from targeting these with `id`s to `class`es. Can you make that work?
 
-![Really?](http://i.imgur.com/ZLdLiC9.jpg)
+![Really?](https://camo.githubusercontent.com/0792bd4738c10291ef4354356ac3f1b444dd492f/687474703a2f2f6d2e6d656d6567656e2e636f6d2f6a7768786c652e6a7067)
 
 OK, time to get in the zone. After a few hours of research and troubleshooting, I now have a demo with this HTML:
 
@@ -570,7 +649,7 @@ Doesn't that look cleaner? On the next page, you'll see how it's done and how it
 
 Before we even start _thinking_ about implementing Simone's new feature, let's do a major refactor. Right now, when I'm working on an event, I have to remember how all the elements work, because every event shares the job of updating all the elements.
 
-What if for each element, there could be _one_ specific place in our code that worried about how that element should look. And then there'd be _one_ place that worried about which elements we have to keep up-to-update. We can define isolated places in our code, each with a specific job, using __functions__. You've seen those before, but we haven't used them for any complex organization.
+What if for each element, there could be _one_ specific place in our code that worried about how that element should look. And then there'd be _one_ place that worried about which elements we have to keep up-to-date. We can define isolated places in our code, each with a specific job, using __functions__. You've seen those before, but we haven't used them for any complex organization.
 
 So let's reorganize the code, splitting it up into functions and __making sure each function has only a [single responsibility](https://en.wikipedia.org/wiki/Single_responsibility_principle)__.
 
@@ -651,9 +730,9 @@ Take a good look at this code. Here's what's happening:
 
 1. When it's first run, we "initialize" it by making sure our input autosizes, then we ensure everything looks as it should by calling `renderAll()` with the initial contents of our markdown input.
 2. It's `renderAll`'s job to keep a list of all the elements that change depending on the state of our markdown. It then passes that state to each element-specific renderer.
-3. Each element-specific renderer is in charge thinking about how that element should look, based on the new state of the markdown.
-4. Whenever an event is fired, all it has to worry about now is, "What's the new state of the markdown?" Then it passed that to `renderAll()`
+3. Each element-specific renderer is in charge of thinking about how that element should look, based on the new state of the markdown.
+4. Whenever an event is triggered, all it has to worry about now is, "What's the new state of the markdown?" Then it passes that to `renderAll()`
 
 Responsibilities are now much more clearly defined, so I don't have to be thinking about _everything_ at once anymore. I can just worry about one function at a time, one element at a time.
 
-And most importantly, coding is _fun_ again! I feel powerful again. And instead of the overwhelmingly frustrated, I'm actually excited to implement Simone's new feature. But I'll leave that as an exercise to the reader. :-)
+And most importantly, coding is _fun_ again! I feel powerful again. And instead of overwhelmingly frustrated, I'm actually excited to implement Simone's new feature. But I'll leave that as an exercise for you, if you'd like to tackle it. :-)
