@@ -292,7 +292,7 @@ end
 
 def valid_url
   # If the url looks at least kind of like a valid web address
-  if url =~ /\Ahttps?:\/\/[\w\.-]+\S*\z/ix
+  if url =~ /\Ahttps?:\/\/[\w\.-]+\S*\z/i
     begin
       # Try to visit the page and check the header response
       response = Net::HTTP.get_response URI.parse(url)

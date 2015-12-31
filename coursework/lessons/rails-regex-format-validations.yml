@@ -1,0 +1,25 @@
+title: Use regular expressions (aka "regex") to more strictly control the format of `string` and `text` data
+categories:
+  - wip
+  - ruby
+  - rails
+prereqs:
+  - rails-model-validations
+project:
+  title: Add format validations to a community blogging app
+  criteria:
+    - >
+      In our community, "flurb" is a very, very bad word. If the __title__ or __content__ contain the word "flurb", or variants such as "Flurb", "flurbing", "flurber", "flerb", "florb", or "fl|_|rb", this error is added to the attribute: `can't include the word "flurb" or a variation thereof`
+    - >
+      Validate that the __name__ only contains letters, spaces, periods, dashes, and commas. Otherwise, this error should be added to the name attribute: `isn't a valid name (only letters, spaces, periods, dashes, and commas allowed)`
+    - To help you know when your regex is working, some tests have been written in [spec/models/post_spec.rb](https://github.com/chrisvfritz/codelab-rails-regex-format-validations/blob/master/spec/models/post_spec.rb). Run `rspec` from your project directory to run these tests. When it reports `0 failures`, you're done!
+  steps:
+    create: |
+      Instead of creating a new repository with the usual button here, we'll be building off an existing project at [`github.com/chrisvfritz/codelab-rails-regex-format-validations`](https://github.com/chrisvfritz/codelab-rails-regex-format-validations).
+
+      Before we can work on it though, we need to create our own copy of the repository by "forking" it with the `Fork` button in the upper right of that page. Once you've done that, refresh this page and Code Lab will detect your repository."
+    download: |
+      1. `cd` into the directory where you're keeping your Code Lab projects (unless you're already there)
+      2. `git clone https://github.com/chrisvfritz/codelab-rails-regex-format-validations.git`
+      3. __Since this repository is a fork of another repo, we have to [manually enable Issues](http://programmers.stackexchange.com/questions/179468/forking-a-repo-on-github-but-allowing-new-issues-on-the-fork#answer-179470) so that we can get feedback later.__
+      4. cd into your new `codelab-rails-regex-format-validations` folder and run `bundle install --without production` to install all the gems in the `Gemfile`.
