@@ -139,21 +139,26 @@ module.exports = class LessonsMapper
       return base-width if @approved-lesson-keys.index-of(key) > -1
       if is-hovered then base-width + 3 else base-width
 
-    nodes.select 'circle'
-      .attr 'class', 'lesson'
-      .attr 'data-toggle', 'popover'
-      .attr 'data-content', (key) ~> @graph.node(key).lesson.title
-      .style 'transition', 'stroke-width 0.3s'
-      .style 'cursor', 'pointer'
-      .style 'stroke-width', (key) -> circle-stroke-width key
-      .on 'mouseover', (key) !->
-        D3.select(@)
-          .style 'stroke-width', circle-stroke-width(key, true)
-      .on 'mouseout', (key) !->
-        D3.select(@)
-          .style 'stroke-width', circle-stroke-width(key)
-      .on 'click', (key) !->
-        location.assign "/lessons/#{key}"
+    nodes.select 'circle' .remove!
+
+    nodes.insert 'a', ':first-child'
+      .attr 'xlink:href', (key) -> "/lessons/#{key}"
+      .append 'circle'
+        .attr 'r', @node-diameter / 2 + 10
+        .attr 'class', 'lesson'
+        .attr 'data-toggle', 'popover'
+        .attr 'data-content', (key) ~> @graph.node(key).lesson.title
+        .style 'transition', 'stroke-width 0.3s'
+        .style 'cursor', 'pointer'
+        .style 'stroke-width', (key) -> circle-stroke-width key
+        .on 'mouseover', (key) !->
+          D3.select(@)
+            .style 'stroke-width', circle-stroke-width(key, true)
+        .on 'mouseout', (key) !->
+          D3.select(@)
+            .style 'stroke-width', circle-stroke-width(key)
+        # .on 'click', (key) !->
+        #   location.assign "/lessons/#{key}"
 
     nodes.select 'g.label text'
       .style 'pointer-events', 'none'
