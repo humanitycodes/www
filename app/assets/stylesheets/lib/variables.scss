@@ -13,6 +13,7 @@ $navbar-default-link-color: $navbar-default-color;
 $navbar-default-link-active-color: $navbar-default-color;
 $navbar-default-link-hover-color: darken($navbar-default-link-color, 10%);
 
+$grid-float-breakpoint: 1000px;
 $navbar-height: 75px;
 $navbar-border-radius: 0;
 $navbar-default-link-active-bg: darken($navbar-default-bg, 1%);

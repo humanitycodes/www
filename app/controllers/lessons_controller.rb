@@ -1,5 +1,11 @@
 class LessonsController < ApplicationController
 
+  def search
+    @pages = Lesson.search params[:query], current_user
+  # rescue
+  #   @pages = []
+  end
+
   def index
     lessons = Lesson.all(
       current_user,

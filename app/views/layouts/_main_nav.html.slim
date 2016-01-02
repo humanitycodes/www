@@ -49,3 +49,11 @@ nav.navbar.navbar-default
           li= link_to '/auth/github' do
             span.glyphicon.glyphicon-log-in>
             | Sign in with GitHub
+
+      form.navbar-form.navbar-right role="search" action="#{lessons_search_path}"
+        .form-group
+          .input-group
+            input type="text" name="query" class="form-control" value="#{params[:query]}" placeholder="Search"
+            .input-group-btn
+              button.btn.btn-default type="submit"
+                span.glyphicon.glyphicon-search

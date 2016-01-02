@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/signout'              => 'sessions#destroy', as: :signout
   get    '/auth/failure'         => 'sessions#failure'
 
+  get '/lessons/search' => 'lessons#search'
   get '/lessons' => 'lessons#index'
   get '/lessons/:key/:page' => 'lessons#show'
   get '/lessons/:key', to: redirect('/lessons/%{key}/1')

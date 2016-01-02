@@ -157,8 +157,6 @@ module.exports = class LessonsMapper
         .on 'mouseout', (key) !->
           D3.select(@)
             .style 'stroke-width', circle-stroke-width(key)
-        # .on 'click', (key) !->
-        #   location.assign "/lessons/#{key}"
 
     nodes.select 'g.label text'
       .style 'pointer-events', 'none'

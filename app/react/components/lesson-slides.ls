@@ -40,5 +40,5 @@ module.exports = class LessonSlides extends React.Component
         $p "This lesson doesn't have a page #{ @props.page }. The last page is #{ @props.slides.length }."
         $p do
           'Would you like to see '
-          $a href: "/lessons/#{this.props.lesson.key}/1", 'page 1'
+          $a href: "/lessons/#{ @props.lesson.key }/1", 'page 1'
           ' instead?'

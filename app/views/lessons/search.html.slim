@@ -1,0 +1,29 @@
+- content_for :page_title, %("#{params[:query]}")
+
+h1.h2 Search Results
+
+- if @pages.blank?
+
+  p No matching lessons found.
+
+- else
+
+  - @pages.each do |lesson, pages|
+
+    section class="#{'text-muted' if lesson.status.nil? || lesson.status == 'unstarted'}"
+
+      h2.h3
+        = lesson.title
+
+      - pages.each do |page|
+
+        ul
+          li
+            h3.h4
+              ' #{page.number}:
+              = link_to page.url do
+                == page.title
+
+            ul
+              - page.matches.each do |match|
+                li== match
