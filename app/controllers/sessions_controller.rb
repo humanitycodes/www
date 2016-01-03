@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
 
   def create
     redirect_url = case request.referer
-    when 'https://github.com/' then lessons_path
-    else                            request.referer
+    when nil, 'https://github.com/' then lessons_path
+    else                                 request.referer
     end
 
     user = User.from_omniauth(request.env['omniauth.auth'])
