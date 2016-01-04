@@ -38,7 +38,7 @@ Great! Now that we know what kind of information we want to keep track of, let's
 
 </div>
 
-OK, let's dive in.f
+OK, let's dive in.
 
 <hr>
 
