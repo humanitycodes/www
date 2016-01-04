@@ -1,10 +1,8 @@
 ## Controlling the data
 
-In most apps, you want to more strictly control the data users enter beyond just its type (e.g. string, integer, boolean, etc). For example, you know those Terms of Service checkboxes? If you try _not_ checking the box saying that you agree to the Terms of Service, a message will appear when you try to submit saying something like, "You must agree to the Terms of Service before continuing."
+In most apps, you want to more strictly control the data users enter beyond just its type (e.g. string, integer, boolean, etc). For example, let's say I have a problem where I keep forgetting to enter a title for my blog posts. And the posts with no titles look really weird. How can I change my blogging app to make sure the title isn't left empty when creating a new post?
 
-So how do you do that? How do you stop data from actually saving in the database until it looks the way you want? The answer is validations.
-
-In Rails, we list validations for a model in our model file. If I had a `Post` model for example, this file would be `app/models/post.rb`. While we're here, let's say that I added a `terms_of_service:boolean` attribute to my `Post` model. And I want to _ensure_ that users agree to the Terms of Service before creating a blog post. I could change my `Post` model from:
+Fortunately, Rails has a feature to help us place detailed restrictions on our models. They're called __validations__. We list validations for a model in our model file. In a `Post` model for example, this file would be `app/models/post.rb`. While we're here, let's update our model to validate that a title is present. We'll change:
 
 ``` ruby
 class Post < ActiveRecord::Base
@@ -15,43 +13,66 @@ to:
 
 ``` ruby
 class Post < ActiveRecord::Base
-  validates :terms_of_service, acceptance: true
+  validates :title, presence: true
 end
 ```
 
-Now if we try to create or update a post _without_ the Terms of Service checked, users will see a message like this:
+Now if we try to create or update a post _without_ a title, users will see a message like this:
 
-![Terms of Service error message](https://www.dropbox.com/s/91fl0o6f6t4v4kh/Screenshot%202015-12-28%2012.45.28.png?dl=1)
+![title error message](https://www.dropbox.com/s/0tu7h9zoa1s0yoo/Screenshot%202016-01-03%2023.26.44.png?dl=1)
 
-If we want to specify our own error message, we can set `acceptance:` to a hash of options instead of `true`:
+If we want to specify our own error message, we can set `presence:` to a list of options instead of `true`:
 
 ``` ruby
 class Post < ActiveRecord::Base
-  validates :terms_of_service, acceptance: {
-    message: "must be accepted before continuing"
+  validates :title, presence: {
+    message: "is blank because you forgot to add one again!"
   }
 end
 ```
 
-![Terms of Service custom error message](https://www.dropbox.com/s/roa2510xzn4wk5i/Screenshot%202015-12-28%2012.28.16.png?dl=1)
+And now we'll see this instead:
+
+![title custom error message](https://www.dropbox.com/s/dvg5m5aiaz0xxye/Screenshot%202016-01-03%2023.28.51.png?dl=1)
+
+We can even set up some validations to only happen _sometimes_. For example, maybe I'm OK with an empty title before a post is published, because no on will see it. We could update the validation to only run if the post is set to be published, by adding another option:
+
+``` ruby
+class Post < ActiveRecord::Base
+  validates :title, presence: {
+    message: "can't be blank for a published post",
+    if: :is_published
+  }
+end
+```
+
+This works great, but sometimes the conditions under which you want a validation to run are a little more complicated than whether a single, boolean attribute is set to `true` or `false`.
+
+For example, what if we have two different kinds of posts:
+
+- Longer posts (more than 140 characters), where a title is displayed so we _do_ want to validate its presence.
+- Shorter posts (140 characters or less), which show up more like a tweet on the frontend, so the title won't even display. In this case, we _don't_ want the validation to run.
+
+In cases like this, we can define more complicated boolean expressions in a method, like this:
+
+``` ruby
+class Post < ActiveRecord::Base
+  validates :title, presence: {
+    message: "can't be blank for published posts longer than 140 characters",
+    if: :is_published_with_longer_content?
+  }
+
+  def is_published_with_longer_content?
+    is_published && content.length > 140
+  end
+end
+```
 
 ---
 
 ## Validation helpers
 
 This is just the tip of the iceberg. Out of the box, Rails includes a bunch of validation helpers. Below are the ones I find myself using the most, with a typical example for each:
-
-### [`acceptance`](http://apidock.com/rails/ActiveModel/Validations/HelperMethods/validates_acceptance_of)
-
-Validates that an attribute is `true`.
-
-``` ruby
-class Post < ActiveRecord::Base
-  validates :terms_of_service, acceptance: {
-    message: "must be accepted before continuing"
-  }
-end
-```
 
 ### [`presence`](http://apidock.com/rails/ActiveModel/Validations/HelperMethods/validates_presence_of)
 
