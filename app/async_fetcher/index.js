@@ -1,2 +1,2 @@
-require('babel/register');
-require('./app/server').start();
+require('babel-core/register')
+require('./app/server').default.start()

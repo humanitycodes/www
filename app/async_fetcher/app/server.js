@@ -1,37 +1,63 @@
 import Restify from 'restify'
+import omit from 'lodash.omit'
+
+import getParams from './helpers/get-params'
+import githubReposObserverFactory from './sources/lessons-approved'
 
 export default {
-  start: (env) => {
+  start: (callback) => {
 
     const server = Restify.createServer({
       name: 'api.codelab-fetcher.local'
     })
 
     server.get('/lesson-repos/:token', (request, response, next) => {
-      const query = request._url && request._url.query ? JSON.parse(`{"${request._url.query.replace(/&/g, '","').replace(/=/g, '":"')}"}`, (key, value) => {
-        return key === "" ? value : decodeURIComponent(value)
-      }) : {}
 
-      const source = require('./sources/lessons-approved')(request.params.token, query)
+      const query = getParams(request)
       const repos = {}
-      source.subscribe(
-        repo => {
+      const githubRepo$ = githubReposObserverFactory(request.params.token, query)
+
+      githubRepo$.subscribe(
+        (repo) => {
           repos[repo.name.replace(/codelab-/,'')] = repo.status
         },
-        error => {
-          console.log(error)
-        },
+        (error) => { throw(error) },
         () => {
-          response.send({
-            lessons: repos
-          })
+          response.send({ lessons: repos })
           next()
         }
       )
+
+    })
+
+    server.get('/projects/:token', (request, response, next) => {
+
+      const query = getParams(request)
+      const repos = {}
+
+      githubReposObserverFactory(
+        request.params.token, query
+      ).subscribe(
+        (repo) => {
+          repos[repo.name.replace(/codelab-/,'')] = omit(repo,
+            'name', 'owner'
+          )
+        },
+        (error) => { throw(error) },
+        () => {
+          response.send({ lessons: repos })
+          next()
+        }
+      )
+
     })
 
     server.listen(4000, () => {
-      console.log('%s listening at %s', server.name, server.url)
+      if (callback) {
+        callback(server)
+      } else {
+        console.log('%s listening at %s', server.name, server.url)
+      }
     })
   }
 }

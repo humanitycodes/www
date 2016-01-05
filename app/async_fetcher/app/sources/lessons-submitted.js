@@ -1,61 +1,49 @@
 import Rx from 'rx'
+import merge from 'lodash.merge'
+
+import githubClientFactory from '../apis/github-client-factory'
+import githubReposObserverFactory from './lessons-started'
 
 export default (token, query) => {
-  const githubRepo$ = require('./lessons-started')(token, query)
-  const GithubClient = require('../apis/github')(token)
+  const GithubClient = githubClientFactory(token)
+  const githubRepo$ = githubReposObserverFactory(token, query)
 
-  return Rx.Observable.create(observer => {
-    let repos = []
-    githubRepo$.subscribe(
-      repo => {
-        repos.push(repo)
-      },
-      error => {
-        console.log(error)
-      },
-      () => {
-        console.log('Fetching issues...')
-        if (repos.length === 0) {
-          return observer.onCompleted()
-        }
-        let issueCallCompletions = 0
-        repos.forEach(repo => {
-          GithubClient.issues.repoIssues({
-            user: repo.owner,
-            repo: repo.name,
-            state: 'all',
-            sort: 'updated',
-            direction: 'desc',
-            per_page: 100
-          }, (error, issues) => {
-            console.log('Issues fetched.')
-            if (error) return console.log(error)
-            issueCallCompletions += 1
-            let codeLabIssue = undefined
-            const foundACodeLabIssue = issues.some(issue => {
-              if (issue.title === 'Code Lab Feedback') {
-                codeLabIssue = issue
-                return true
-              }
-            })
-            if (foundACodeLabIssue) {
-              observer.onNext({
-                name: repo.name,
-                owner: repo.owner,
-                issue: codeLabIssue.number,
-                status: 'submitted'
+  return githubRepo$.flatMap((repo) => {
+    return Rx.Observable.create((observer) => {
+      GithubClient.issues.repoIssues({
+
+        // https://developer.github.com/v3/issues/#list-issues-for-a-repository
+        user: repo.owner,
+        repo: repo.name,
+        state: 'all',
+        sort: 'updated',
+        direction: 'desc',
+        per_page: 100
+
+      }, (error, issues) => {
+
+        if (error) throw(error)
+
+        const foundACodeLabIssue = issues.some((issue) => {
+          if (issue.title === 'Code Lab Feedback') {
+            observer.onNext(
+              merge(repo, {
+                issue: issue.number,
+                status: 'submitted',
+                submittedAt: issue.created_at
               })
-            } else {
-              observer.onNext(repo)
-            }
-            if (issueCallCompletions === repos.length) {
-              console.log('Issues processed.')
-              return observer.onCompleted()
-            }
-          })
+            )
+            return true
+          }
         })
-      }
-    )
-  })
 
+        if (!foundACodeLabIssue) {
+          observer.onNext(repo)
+        }
+
+        observer.onCompleted()
+
+      })
+    })
+  })
 }
