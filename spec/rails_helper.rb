@@ -42,7 +42,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.before(:each) do
-    stub_request(:get, %r{http://localhost:4000/lesson-repos/}).
+    stub_request(:get, %r{http://localhost:4000/projects/}).
       to_return(status: 200, body: '{"lessons":{}}')
   end
 end
