@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   resources :repositories, only: [:create, :update]
   post '/repositories/:key/submit' => 'repositories#submit'
 
-  resources :projects, only: [:index]
-  put '/projects' => 'projects#refresh', as: 'refresh_projects'
+  # TODO: Readd this feature after student payments is live
+  # resources :projects, only: [:index]
+  # put '/projects' => 'projects#refresh', as: 'refresh_projects'
 
   get '/team' => 'pages#staff'
   get '/students' => 'pages#students'

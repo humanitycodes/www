@@ -86,7 +86,9 @@ module.exports = Radium class Lesson extends React.Component
     if prev-state.page is not @state.page and
       prev-state.lesson.key is @state.lesson.key
       jQuery('html,body').scroll-top do
-        jQuery('#lesson-card').offset().top
+        jQuery('#lesson-card').offset!.top
+    else
+      Turbolinks?cache-current-page!
 
   component-will-unmount: !->
     window.remove-event-listener 'resize', @update-page-width

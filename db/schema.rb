@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026210551) do
+ActiveRecord::Schema.define(version: 20160106020948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151026210551) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.hstore   "lesson_statuses",      default: {}
+    t.json     "projects",             default: {}, null: false
   end
 
   add_index "users", ["lesson_statuses"], name: "index_users_on_lesson_statuses", using: :gin

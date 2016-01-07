@@ -44,14 +44,14 @@ class Lesson
           lesson_hash[:key] == key
         end
         return unless lesson_hash
-        Lesson.new lesson_hash, user_dictionary(user, [key])
+        Lesson.new lesson_hash, user_dictionary(user, key)
       end
     end
 
     def search query, user, options={}
       return [] if query.blank? || !(query =~ /\A\p{L}+[\p{Word}\p{Space}\p{Punct}]*\z/)
       Lesson.all(user, options).sort_by do |lesson|
-        lesson.status.nil? || lesson.status == 'unstarted' ? 1 : 0
+        lesson.project['status'].nil? ? 1 : 0
       end.map do |lesson|
         lesson.pages.select do |page|
           query.split(/\s/).all? do |query_word|
@@ -97,19 +97,19 @@ class Lesson
   private
 
     def user_dictionary user, keys=nil
-      user && LessonsStatusFetcher.new(user, keys).dictionary
+      user && LessonsProjectsFetcher.new(user, keys: keys).dictionary
     end
 
   end
 
-  attr_reader :title, :categories, :prereqs, :project, :key, :slides, :status
+  attr_reader :title, :categories, :prereqs, :project, :key, :slides
 
-  def initialize lesson_hash, status_dictionary=nil
+  def initialize lesson_hash, project_dictionary=nil
     lesson_hash.each do |attribute, value|
       instance_variable_set("@#{attribute}", value)
     end
-    if status_dictionary
-      @status = status_dictionary[@key]
+    if project_dictionary && project_dictionary[@key]
+      @project.merge! project_dictionary[@key]
     end
   end
 

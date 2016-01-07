@@ -10,7 +10,7 @@ h1.h2 Search Results
 
   - @pages.each do |lesson, pages|
 
-    section class="#{'text-muted' if lesson.status.nil? || lesson.status == 'unstarted'}"
+    section class="#{'text-muted' if lesson.project['status'].nil?}"
 
       h2.h3
         = lesson.title

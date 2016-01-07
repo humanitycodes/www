@@ -13,7 +13,7 @@ module.exports = class LessonsMapper
 
   evaluate-for-user: ~>
     @approved-lesson-keys = @lessons
-      |> filter (.status is 'approved')
+      |> filter (.project.status is 'approved')
       |> map (.key)
 
     const lesson-key-is-approved = (key) ~>
@@ -129,7 +129,7 @@ module.exports = class LessonsMapper
       classes =
         * 'node'
         * lesson.categories.0
-        * lesson.status
+        * lesson.project.status
 
       @recommended-lesson-keys.index-of(key) > -1 and classes.push('recommended')
       classes.join ' '
@@ -143,6 +143,9 @@ module.exports = class LessonsMapper
 
     nodes.insert 'a', ':first-child'
       .attr 'xlink:href', (key) -> "/lessons/#{key}"
+      .on 'click', (key) !->
+        D3.event.prevent-default!
+        Turbolinks.visit D3.select(@).node!.get-attribute('href')
       .append 'circle'
         .attr 'r', @node-diameter / 2 + 10
         .attr 'class', 'lesson'

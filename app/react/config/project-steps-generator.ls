@@ -44,8 +44,8 @@ module.exports = (lesson, user) ->
                 type: <[ primary block ]>
                 'Create a repository on GitHub'
       octicon: 'repo'
-      is-active: !lesson.status?
-      is-complete: lesson.status?
+      is-active: not lesson.project.status?
+      is-complete: lesson.project.status?
       complete-content: $span do
         "You've created a GitHub repository at:"
         $br!
@@ -78,7 +78,7 @@ module.exports = (lesson, user) ->
                   " (unless you've already created your Rails app)"
                 $cd-instructions
                 $li do
-                  $code 'bundle install'
+                  $code 'bundle install --without production'
                   " (to ensure everything in our new Gemfile is installed)"
                 $li do
                   $code 'git init'
@@ -93,8 +93,8 @@ module.exports = (lesson, user) ->
                   'git clone '
                   clone-URL
       octicon: 'repo-clone'
-      is-active: lesson.status in <[ started ]>
-      is-complete: lesson.status in <[ submitted approved ]>
+      is-active: lesson.project.status in <[ started ]>
+      is-complete: lesson.project.status in <[ submitted approved ]>
 
     * octicon: 'arrow-down'
 
@@ -114,8 +114,8 @@ module.exports = (lesson, user) ->
               $code 'git commit -m "a message describing your changes"'
               ' (wraps up all currently added (i.e. staged) changes in a commit)'
       octicon: 'git-commit'
-      is-active: lesson.status in <[ started submitted ]>
-      is-complete: lesson.status is 'approved'
+      is-active: lesson.project.status in <[ started submitted ]>
+      is-complete: lesson.project.status is 'approved'
 
     * title: 'Upload your latest code to GitHub'
       content: do
@@ -130,8 +130,8 @@ module.exports = (lesson, user) ->
               $code 'git push origin master'
               ' (pushes your latest commits to GitHub - i.e origin)'
       octicon: 'repo-push'
-      is-active: lesson.status in <[ started submitted ]>
-      is-complete: lesson.status is 'approved'
+      is-active: lesson.project.status in <[ started submitted ]>
+      is-complete: lesson.project.status is 'approved'
 
     * title: 'Publish your website'
       content: do
@@ -149,14 +149,21 @@ module.exports = (lesson, user) ->
                 $code 'surge --domain SPECIFIC-SUBDOMAIN.surge.sh'
                 ' will push to a specific URL)'
             else
-              $li do
-                $code 'heroku create'
-                " (unless you've already created a Heroku app for this project), then "
-                $code 'git push heroku master'
-                ' (to make your website live on the Internet)'
+              $span do
+                $li do
+                  $code 'heroku create'
+                  " (unless you've already created a Heroku app for this project)"
+                $li do
+                  $code 'git push heroku master'
+                  ' (to make your website live on the Internet)'
+                if 'rails' in lesson.categories
+                  $li do
+                    $code 'heroku open'
+                    ' (to open the website in your browser)'
+
       octicon: 'cloud-upload'
-      is-active: lesson.status in <[ started submitted ]>
-      is-complete: lesson.status is 'approved'
+      is-active: lesson.project.status in <[ started submitted ]>
+      is-complete: lesson.project.status is 'approved'
 
     * octicon: 'arrow-down'
 
@@ -180,10 +187,10 @@ module.exports = (lesson, user) ->
               repo-URL: repo-URL
               project: lesson.project
       octicon: 'organization'
-      is-active: lesson.status in <[ started ]>
-      is-complete: lesson.status in <[ submitted approved ]>
+      is-active: lesson.project.status in <[ started ]>
+      is-complete: lesson.project.status in <[ submitted approved ]>
       complete-content: do
-        if lesson.status is 'submitted'
+        if lesson.project.status is 'submitted'
           "Great job submitting your work for review! A mentor will take a look and give you feedback until it's shipit-worthy. If changes to your code are necessary, you'll want to repeat the previous set of steps for each change."
         else
           "You submitted your work and it's been approved. Congratulations!"
@@ -215,6 +222,6 @@ module.exports = (lesson, user) ->
                 "opened issues for your repository"
               "."
       octicon: 'squirrel'
-      is-active: lesson.status is 'submitted'
-      is-complete: lesson.status is 'approved'
+      is-active: lesson.project.status is 'submitted'
+      is-complete: lesson.project.status is 'approved'
   ]

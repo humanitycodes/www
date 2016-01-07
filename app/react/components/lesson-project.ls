@@ -42,7 +42,7 @@ module.exports = Radium class LessonProject extends React.Component
 
         $h4 'Criteria'
 
-        if @props.lesson.status is 'started'
+        if @props.lesson.project.status is 'started'
 
           @props.lesson.project.criteria |> map (criterion) ->
             $div do

@@ -32,7 +32,8 @@ export default (token, query) => {
               merge(repo, {
                 comment: comment.id,
                 status: 'approved',
-                approvedAt: comment.updated_at
+                approvedAt: comment.updated_at,
+                approvedBy: comment.user.login
               })
             )
             return true
