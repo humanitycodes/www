@@ -1,5 +1,5 @@
 import Rx from 'rx'
-import merge from 'lodash.merge'
+import { merge } from 'lodash'
 
 import githubClientFactory from '../apis/github-client-factory'
 import githubReposObserverFactory from './lessons-submitted'

@@ -1,5 +1,5 @@
 import Restify from 'restify'
-import omit from 'lodash.omit'
+import { omit } from 'lodash'
 
 import getParams from './helpers/get-params'
 import githubReposObserverFactory from './sources/lessons-approved'
