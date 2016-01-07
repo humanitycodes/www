@@ -12,7 +12,8 @@ export default (token, query) => {
       visibility: 'public',
       type: 'owner',
       sort: 'updated',
-      direction: 'desc'
+      direction: 'desc',
+      per_page: 100
 
     }, (error, repos) => {
 
