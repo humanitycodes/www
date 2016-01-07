@@ -7,7 +7,7 @@ class LessonsProjectsFetcher
   end
 
   def dictionary
-    @user.projects.merge!(fetch['lessons'])
+    @user.projects = @user.projects.merge(fetch['lessons'])
     @user.save
     @user.projects
   end

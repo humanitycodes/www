@@ -108,7 +108,7 @@ class Lesson
       instance_variable_set("@#{attribute}", value)
     end
     if project_dictionary && project_dictionary[@key]
-      @project.merge! project_dictionary[@key]
+      @project = @project.merge project_dictionary[@key]
     end
   end
 

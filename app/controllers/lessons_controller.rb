@@ -9,7 +9,7 @@ class LessonsController < ApplicationController
   def index
     lessons = Lesson.all(
       current_user,
-      force_refresh: request.format.symbol == :json || params[:force]
+      force_refresh: true #request.format.symbol == :json || params[:force]
     )
     @presenter = @presenter.merge({
       lessons: lessons,
@@ -24,7 +24,7 @@ class LessonsController < ApplicationController
     lesson = Lesson.find(
       params[:key],
       current_user,
-      force_refresh: request.format.symbol == :json || params[:force]
+      force_refresh: true #request.format.symbol == :json || params[:force]
     )
     unless lesson
       flash.now[:alert] = "There isn't a lesson with the key: #{params[:key]}"
