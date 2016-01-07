@@ -88,7 +88,6 @@ class Lesson
           page.lesson = lesson
           page.title = MARKDOWN_SEARCH_RENDERER.render(page.title).gsub(/\A<p>(.+)<\/p>\Z/, '\1')
           page.url = "/lessons/#{lesson.key}/#{page.number}"
-          arst if page.matches.any? { |match| match.blank? }
           page
         end
       end.flatten.compact.group_by(&:lesson)
