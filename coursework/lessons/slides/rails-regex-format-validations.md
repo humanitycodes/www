@@ -1,12 +1,12 @@
 ## What is a regular expression?
 
-Regular expressions are a special language for defining patterns in strings. In many programming languages, including Ruby, they typically start with a forward slash (`/`), followed by the regular expression, then ending with another forward slash, like this:
+Regular expressions (often abbreviated as "regex") are a special language for defining patterns in strings. In many programming languages, including Ruby, they typically start with a forward slash (`/`), followed by the regular expression, then ending with another forward slash, like this:
 
 ``` ruby
 /some regular expression/
 ```
 
-While regular expressions can look very complicated at first, some are very simple. For example, let's say we want to enforce the first rule of Fight Club, which as we all know, is to _never_ talk about Fight Club. The problem is, our users at `no-clubs-over-here-especially-about-fighting.com` keep breaking the rule! So before they post anything to the website, we first want to make sure they do _not_ mention Fight Club.
+While regular expressions can look very complicated at first, some are very simple. For example, let's say we want to enforce the first rule of Fight Club, which as you might know, is to [_never_ talk about Fight Club](https://www.youtube.com/watch?v=pOa4fvUlhiE). The problem is, our users at `no-clubs-over-here-especially-about-fighting.com` keep breaking the rule! So before they post anything to the website, we first want to make sure they do _not_ mention Fight Club.
 
 To check if a string contains the phrase "Fight Club", the regular expression would be:
 
@@ -131,9 +131,7 @@ There's another problem. Some people are spelling Fight Club as all one word, li
 "Fightclub"
 ```
 
-We want to catch that too - and this is where things get a little more complicated. While all the letters of the alphabet just mean "look for this letter", a lot of other characters have special meaning in regex. For example, `?` doesn't look for a literal question mark. Instead, it's a __modifier__, meaning it modifies whatever's right before it.
-
-In regex, `?` means "whatever is before me _might_ be here". This will be really useful for helping us catch both "Fight Club" as two words and "Fightclub" as one word:
+We want to catch that too - and this is where things get a little more complicated. We need a regular expression that means looks for "fight club" with or without a space. To do this, we'll use a question mark. In regex, while all the letters of the alphabet just mean "look for this letter," a lot of other characters have special meanings. The character `?` doesn't look for a literal question mark. Instead, it's a __modifier__: it modifies whatever's right before it. __`?` means that the preceding character may or may not be present.__
 
 ``` ruby
 /Fight ?Club/i
@@ -143,7 +141,7 @@ By adding a question mark after the space, we're saying there _might_ be a space
 
 ### What if you wanted to check for a _literal_ question mark?
 
-Sometimes, you might want to check that there's actually a question mark in the string. In this case, you can __escape__ the `?` with a back slack (`\`), like this: `\?`. That tells the regex that you mean that letter _literally_. So to match any strings with question marks in them, you could use:
+Sometimes, you might want to check that there's _actually_ a question mark in the string. In this case, you can __escape__ the `?` with a back slash (`\`), like this: `\?`. That tells the regex that you mean that letter _literally_. So to match any strings with question marks in them, you could use:
 
 ``` ruby
 /\?/
@@ -195,7 +193,15 @@ end
 
 ## Diving deep into regular expressions with a game!
 
-Guess what? There's a great game for exploring regular expressions! It's called [RegexOne](http://regexone.com/). I want you to completely finish the tutorial, then come back here. You can complete the "Additional Problems" as well if you'd like, but only if you're _really_ geeking regular expressions at that point.
+Guess what? There's a great game for exploring regular expressions! It's called [RegexOne](http://regexone.com/). I want you to completely finish lessons 1-15 of the tutorial, then come back here. You can complete the Additional/Practice Problems as well if you'd like, but only if you're _really_ geeking regular expressions at that point.
+
+<div class="callout callout-warning">
+
+  <h4>Important</h4>
+
+  <p>While the game let's you can advance to the next lesson as soon as you get a check mark, <strong>try to get the entire text that you're matching to turn green so you know you really understand the lesson</strong>.</p>
+
+</div>
 
 ---
 
@@ -212,16 +218,16 @@ validates :phone_number, format: {
 ```
 
 That regular expression should make a little more sense now, but the `\A` at the beginning and `\z` at the end will still be unfamiliar. They match the beginning of a string and end of a string, respectively. Now you may be thinking,
-"Wait? Don't `^` and `$` do that?". In _JavaScript's_ regex, which what that game just taught you, yes. In _Ruby's_ regex, no.
+"Wait? Don't `^` and `$` do that?". In _JavaScript's_ regex, which is what that game just taught you, yes. In _Ruby's_ regex, no.
 
-Ugh, there are different _dialects_ of regular expressions? Yes, unfortunately. But don't worry, most dialects are _very, very_ similar. The entire time that you're using regex, you'll probably only ever have to be aware of this one difference:
+Ugh, there are different _dialects_ of regular expressions? Yes, unfortunately. But don't worry, most dialects are very, very similar. The entire time that you're using regex, you'll probably only ever have to be aware of this one difference:
 
 - In JavaScript, `^` and `$` match the beginning of a _string_ and end of a _string_, respectively.
 - In Ruby, `^` and `$` match the beginning of a _line_ and end of a _line_, respectively. To match the beginning and end of a _string_ like in JavaScript, you'll use `\A` and `\z` (mind the cases).
 
 So what's the practical difference? What would happen if we validated `phone_number` with `/^\d{3}-\d{3}-\d{4}$/` instead? Well, this kind of input would be allowed:
 
-```
+``` md
 I'm technically on a separate line as the phone number
 555-555-5555
 so the validation will still pass if you're using `^` and `$`.
@@ -235,7 +241,7 @@ Yuck, so just remember this for Ruby format validations: __always begin your reg
 
 I would say it's nearly impossible to _master_ regular expressions. They can get pretty complex! And you know what? You shouldn't have to. Why learn a super obscure feature of regex that you might never even use?
 
-Instead, the best strategy is to just Google stuff when your regex skills fail you. The trick here is you always want to prepend your searches with the name of the language you're using, then "regex". So for example, if I wanted to find the regex for German letters with an umlaut (letters with two dots above it like `ä`, `ö`, and `ü`), I might search for [`ruby regex umlaut letters`](https://www.google.com/search?q=ruby+regex+umlaut+letters).
+Instead, the best strategy is to just Google stuff when your regex skills fail you. The trick here is you always want to start your searches with the name of the language you're using, then "regex". So for example, if I wanted to find the regex for German letters with an umlaut (letters with two dots above it like `ä`, `ö`, and `ü`), I might search for [`ruby regex umlaut letters`](https://www.google.com/search?q=ruby+regex+umlaut+letters).
 
 Besides Google though, there are two other resources I find _immensely_ useful in the situations where I need to construct some more complicated regex:
 
