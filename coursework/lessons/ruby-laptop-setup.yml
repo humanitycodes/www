@@ -7,8 +7,8 @@ prereqs:
 project:
   title: Deploy Heroku's "Get Started with Ruby" app to both GitHub and Heroku
   criteria:
-    - be in a GitHub repo (since you're getting the app from Heroku, you'll have to go to the project folder, then remove their origin with `git remote rm origin`, and finally once again add the correct GitHub repo with `git remote add origin https://github.com/YOUR-USERNAME/codelab-ruby-laptop-setup.git`)
-    - be hosted on Heroku
+    - push Heroku's sample app to GitHub
+    - host Heroku's sample app on Heroku
   steps:
     download: |
       - `cd` into the directory where you're keeping your Code Lab projects (unless you're already there)
