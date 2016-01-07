@@ -20,6 +20,6 @@ project:
       Before we can work on it though, we need to create our own copy of the repository by "forking" it with the `Fork` button in the upper right of that page. Once you've done that, refresh this page and Code Lab will detect your repository."
     download: |
       1. `cd` into the directory where you're keeping your Code Lab projects (unless you're already there)
-      2. `git clone https://github.com/chrisvfritz/codelab-rails-regex-format-validations.git`
+      2. `git clone {{clone-URL}}`
       3. __Since this repository is a fork of another repo, we have to [manually enable Issues](http://programmers.stackexchange.com/questions/179468/forking-a-repo-on-github-but-allowing-new-issues-on-the-fork#answer-179470) so that we can get feedback later.__
       4. cd into your new `codelab-rails-regex-format-validations` folder and run `bundle install --without production` to install all the gems in the `Gemfile`.
