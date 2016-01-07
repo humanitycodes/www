@@ -153,7 +153,7 @@ class Toy < ActiveRecord::Base
 end
 ```
 
-### [`uniqueness`](http://apidock.com/rails/ActiveModel/Validations/HelperMethods/validates_uniqueness_of)
+### [`uniqueness`](http://apidock.com/rails/ActiveRecord/Validations/ClassMethods/validates_uniqueness_of)
 
 Validates that an attribute is unique within the scope of its model and optionally, within the scope of other attributes.
 
