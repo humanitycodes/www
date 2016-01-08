@@ -6,4 +6,3 @@
 //= require bootstrap-custom
 
 Turbolinks.ProgressBar.disable()
-Turbolinks.enableTransitionCache()
