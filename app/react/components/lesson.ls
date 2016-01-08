@@ -72,7 +72,6 @@ module.exports = Radium class Lesson extends React.Component
     @state.page-width < 1200
 
   refetch-lesson: !~>
-    console.log 'refetching lesson...'
     if @props.user
       jQuery.get-JSON do
         @base-URL! + '/' + @state.page + '.json'
