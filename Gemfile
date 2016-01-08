@@ -17,8 +17,8 @@ gem 'github_api'
 gem 'puma'
 gem 'redcarpet'
 gem 'react_webpack_rails', '0.0.5'
-gem 'turbolinks', github: 'chrisvfritz/turbolinks'
-gem 'nprogress-rails'
+# gem 'turbolinks', github: 'chrisvfritz/turbolinks'
+# gem 'nprogress-rails'
 
 group :development do
   gem 'spring'            # Spring speeds up development by keeping your application running in the background

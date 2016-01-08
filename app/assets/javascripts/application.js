@@ -1,9 +1,11 @@
-//= require turbolinks
 //= require react_integration
 //= require react_bundle
-//= require nprogress
-//= require nprogress-turbolinks
 //= require bootstrap-custom
 
-Turbolinks.ProgressBar.disable()
-Turbolinks.enableTransitionCache()
+// Turbolinks.ProgressBar.disable()
+// Turbolinks.enableTransitionCache()
+
+// require turbolinks
+
+// require nprogress
+// require nprogress-turbolinks
