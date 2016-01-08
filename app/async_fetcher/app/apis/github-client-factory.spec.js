@@ -2,7 +2,6 @@ import expect from 'expect'
 import githubClientFactory from './github-client-factory'
 
 describe('apis/github-client', () => {
-
   it('raises an error without a token', () => {
     expect(() => {
       githubClientFactory()
@@ -13,5 +12,4 @@ describe('apis/github-client', () => {
     const GithubClient = githubClientFactory('some-token')
     expect(GithubClient).toExist()
   })
-
 })

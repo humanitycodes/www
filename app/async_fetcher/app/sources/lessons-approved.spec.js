@@ -13,22 +13,22 @@ lessonsApproved.__Rewire__('githubClientFactory', (() => {
         callback(null, [
           {
             id: 1,
-            body: 'something something'
+            body: 'something something',
           }, {
             id: 2,
-            body: 'Looks good! :shipit: :smiley: :tada:'
-          }
+            body: 'Looks good! :shipit: :smiley: :tada:',
+          },
         ])
-      }
-    }
+      },
+    },
   })
 
   stub.withArgs('invalid-token').returns({
     issues: {
       getComments: (options, callback) => {
         callback(new Error('here is an error from GitHub'), null)
-      }
-    }
+      },
+    },
   })
 
   return stub
@@ -46,7 +46,7 @@ lessonsApproved.__Rewire__('githubReposObserverFactory', (() => {
         status: 'approved',
         submittedAt: '2011-04-22T13:33:48Z',
         comment: 2,
-        approvedAt: '2011-01-22T13:33:48Z'
+        approvedAt: '2011-01-22T13:33:48Z',
       }, {
         issue: 2,
         name: 'codelab-blahdy-blah',
@@ -54,8 +54,8 @@ lessonsApproved.__Rewire__('githubReposObserverFactory', (() => {
         status: 'approved',
         submittedAt: '2011-04-22T13:33:48Z',
         comment: 2,
-        approvedAt: '2011-01-22T13:33:48Z'
-      }
+        approvedAt: '2011-01-22T13:33:48Z',
+      },
     ])
   )
 
@@ -71,19 +71,17 @@ lessonsApproved.__Rewire__('githubReposObserverFactory', (() => {
 })())
 
 describe('sources/lessons-approved', () => {
-
   it('generates an observable', () => {
     const observable = lessonsApproved('some-token', {})
     expect(observable instanceof Rx.Observable).toEqual(true)
   })
 
   describe('the observable', () => {
-
     it('throws an error when GitHub returns an error', (done) => {
       const observable = lessonsApproved('invalid-token', {})
 
       observable.subscribe(
-        (repo) => {},
+        () => {},
         (error) => {
           expect(error).toEqual(
             new Error('here is an error from GitHub')
@@ -95,13 +93,13 @@ describe('sources/lessons-approved', () => {
     })
 
     it('adds extra issue attributes where an approving comment is found', (done) => {
-      let repos = []
+      const repos = []
 
       const observable = lessonsApproved('some-token', {})
 
       observable.subscribe(
         (repo) => { repos.push(repo) },
-        (error) => { throw(error) },
+        (error) => { throw error },
         () => {
           expect(repos).toEqual([
             {
@@ -111,7 +109,7 @@ describe('sources/lessons-approved', () => {
               name: 'codelab-static-laptop-setup',
               owner: 'chrisvfritz',
               status: 'approved',
-              submittedAt: '2011-04-22T13:33:48Z'
+              submittedAt: '2011-04-22T13:33:48Z',
             }, {
               approvedAt: '2011-01-22T13:33:48Z',
               comment: 2,
@@ -119,8 +117,8 @@ describe('sources/lessons-approved', () => {
               name: 'codelab-blahdy-blah',
               owner: 'chrisvfritz',
               status: 'approved',
-              submittedAt: '2011-04-22T13:33:48Z'
-            }
+              submittedAt: '2011-04-22T13:33:48Z',
+            },
           ])
           done()
         }

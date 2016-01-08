@@ -20,11 +20,10 @@ export default (token, query) => {
         user: repo.owner,
         repo: repo.name,
         number: repo.issue,
-        per_page: 100
+        per_page: 100,
 
       }, (error, comments) => {
-
-        if (error) throw(error)
+        if (error) throw error
 
         const foundAnApprovingComment = comments.some((comment) => {
           if (comment.body.match(/:shipit:/)) {
@@ -33,7 +32,7 @@ export default (token, query) => {
                 comment: comment.id,
                 status: 'approved',
                 approvedAt: comment.updated_at,
-                approvedBy: comment.user.login
+                approvedBy: comment.user.login,
               })
             )
             return true
@@ -45,7 +44,6 @@ export default (token, query) => {
         }
 
         observer.onCompleted()
-
       })
     })
   })

@@ -7,12 +7,12 @@ export default (token) => {
     protocol: 'https',
     host: 'api.github.com',
     timeout: 5000,
-    headers: { 'user-agent': 'CodeLab' }
+    headers: { 'user-agent': 'CodeLab' },
   })
 
   client.authenticate({
     type: 'oauth',
-    token
+    token,
   })
 
   return client

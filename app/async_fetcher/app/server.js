@@ -6,32 +6,28 @@ import githubReposObserverFactory from './sources/lessons-approved'
 
 export default {
   start: (callback) => {
-
     const server = Restify.createServer({
-      name: 'api.codelab-fetcher.local'
+      name: 'api.codelab-fetcher.local',
     })
 
     server.get('/lesson-repos/:token', (request, response, next) => {
-
       const query = getParams(request)
       const repos = {}
       const githubRepo$ = githubReposObserverFactory(request.params.token, query)
 
       githubRepo$.subscribe(
         (repo) => {
-          repos[repo.name.replace(/codelab-/,'')] = repo.status
+          repos[repo.name.replace(/codelab-/, '')] = repo.status
         },
-        (error) => { throw(error) },
+        (error) => { throw error },
         () => {
           response.send({ lessons: repos })
           next()
         }
       )
-
     })
 
     server.get('/projects/:token', (request, response, next) => {
-
       const query = getParams(request)
       const repos = {}
 
@@ -39,17 +35,16 @@ export default {
         request.params.token, query
       ).subscribe(
         (repo) => {
-          repos[repo.name.replace(/codelab-/,'')] = omit(repo,
+          repos[repo.name.replace(/codelab-/, '')] = omit(repo,
             'name', 'owner'
           )
         },
-        (error) => { throw(error) },
+        (error) => { throw error },
         () => {
           response.send({ lessons: repos })
           next()
         }
       )
-
     })
 
     server.listen(4000, () => {
@@ -59,5 +54,5 @@ export default {
         console.log('%s listening at %s', server.name, server.url)
       }
     })
-  }
+  },
 }

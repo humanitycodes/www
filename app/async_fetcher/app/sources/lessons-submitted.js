@@ -18,11 +18,10 @@ export default (token, query) => {
         state: 'all',
         sort: 'updated',
         direction: 'desc',
-        per_page: 100
+        per_page: 100,
 
       }, (error, issues) => {
-
-        if (error) throw(error)
+        if (error) throw error
 
         const foundACodeLabIssue = issues.some((issue) => {
           if (issue.title === 'Code Lab Feedback') {
@@ -30,7 +29,7 @@ export default (token, query) => {
               merge(repo, {
                 issue: issue.number,
                 status: 'submitted',
-                submittedAt: issue.created_at
+                submittedAt: issue.created_at,
               })
             )
             return true
@@ -42,7 +41,6 @@ export default (token, query) => {
         }
 
         observer.onCompleted()
-
       })
     })
   })
