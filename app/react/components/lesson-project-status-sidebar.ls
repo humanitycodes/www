@@ -26,7 +26,7 @@ module.exports = Radium class LessonProjectStatusSidebar extends React.Component
 
   render: ->
 
-    const steps = generate-steps @props.lesson, @props.user
+    const steps = generate-steps @props.lesson, @props.user, @props.on-refetch-lesson
 
     # Absolute, uninherited sizing
     const sidebar-width = 50

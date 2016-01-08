@@ -34,7 +34,12 @@ module.exports = Radium class NewIssueForm extends React.Component
             body: "Hey @#{mentor}, can you take a look at this? It's [hosted here](#{hosted-URL}) and meets the following [project](http://lansingcodelab.com/lessons/#{@props.repo-URL.split('codelab-')[1]}/1) criteria:\n\n- [x] #{@props.project.criteria.join('\n- [x] ')}"
         }
       """
+
+      jQuery('body').trigger 'click' # Closes form popover
+
       window.open( new-issue-URL, '_blank' ).focus!
+
+      jQuery(window).one 'focus', @props.on-refetch-lesson
 
     else
 

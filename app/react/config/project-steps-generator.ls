@@ -3,7 +3,7 @@ require! {
   '../components/post-button': PostButton
 }
 
-module.exports = (lesson, user) ->
+module.exports = (lesson, user, on-refetch-lesson) ->
 
   const project-folder-name = "codelab-#{ lesson.key }"
   const repo-key = "#{ user.username }/#{ project-folder-name }"
@@ -186,6 +186,7 @@ module.exports = (lesson, user) ->
             $(NewIssueForm) do
               repo-URL: repo-URL
               project: lesson.project
+              on-refetch-lesson: on-refetch-lesson
       octicon: 'organization'
       is-active: lesson.project.status in <[ started ]>
       is-complete: lesson.project.status in <[ submitted approved ]>

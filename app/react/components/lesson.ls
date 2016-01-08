@@ -71,16 +71,19 @@ module.exports = Radium class Lesson extends React.Component
   page-is-skinny: ~>
     @state.page-width < 1200
 
-  component-will-mount: !->
-    @update-page-width!
-    window.add-event-listener 'resize', @update-page-width
-
+  refetch-lesson: !~>
+    console.log 'refetching lesson...'
     if @props.user
       jQuery.get-JSON do
         @base-URL! + '/' + @state.page + '.json'
       .done (response) ~>
         @set-state do
           lesson: response.lesson
+
+  component-will-mount: !->
+    @update-page-width!
+    window.add-event-listener 'resize', @update-page-width
+    @refetch-lesson!
 
   component-did-update: (prev-props, prev-state) !->
     if prev-state.page is not @state.page and
@@ -200,6 +203,7 @@ module.exports = Radium class Lesson extends React.Component
               $(LessonProjectStatusSidebar) do
                 lesson: @state.lesson
                 user: @props.user
+                on-refetch-lesson: @refetch-lesson
 
           if @page-is-skinny!
             $div do
