@@ -11,11 +11,11 @@ html
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Open+Sans:400,600,700'
     = stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
     = stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css'
-    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 
     - if Rails.env.production?
       = render 'layouts/rollbar_js'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     - if Rails.env.development?
       = render 'layouts/react_hot_assets'
 

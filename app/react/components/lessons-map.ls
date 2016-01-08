@@ -42,7 +42,7 @@ module.exports = Radium class LessonsMap extends React.Component
   component-did-update: (prev-props, prev-state) !->
     if prev-state.lessons is not @state.lessons
       @initialize-new-mapper!
-      # Turbolinks?cache-current-page!
+      Turbolinks?cache-current-page!
 
   component-will-unmount: !->
     window and window.remove-event-listener 'resize', @mapper.draw, false

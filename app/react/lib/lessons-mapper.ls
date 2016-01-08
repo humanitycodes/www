@@ -1,5 +1,5 @@
 require! {
-  'D3': D3
+  'd3': D3
   'dagre-d3': DagreD3
 }
 
@@ -143,10 +143,9 @@ module.exports = class LessonsMapper
 
     nodes.insert 'a', ':first-child'
       .attr 'xlink:href', (key) -> "/lessons/#{key}"
-      # HACK: Fixing SSL issue
-      # .on 'click', (key) !->
-      #   D3.event.prevent-default!
-      #   Turbolinks.visit D3.select(@).node!.get-attribute('href')
+      .on 'click', (key) !->
+        D3.event.prevent-default!
+        Turbolinks.visit D3.select(@).node!.get-attribute('href')
       .append 'circle'
         .attr 'r', @node-diameter / 2 + 10
         .attr 'class', 'lesson'
