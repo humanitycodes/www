@@ -1,6 +1,7 @@
 title: Build a simple webapp with Sinatra
 categories:
   - ruby
+  - sinatra
 prereqs:
   - ruby-laptop-setup
 project:

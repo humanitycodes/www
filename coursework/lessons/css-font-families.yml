@@ -1,6 +1,7 @@
 title: Customize the fonts in a webpage
 categories:
   - css
+  - fonts
 prereqs:
   - external-assets
   - stealing-style

@@ -1,6 +1,7 @@
 title: Lay out webpages with flexbox and columns
 categories:
   - css
+  - flexbox
 prereqs:
   - advanced-css-selectors
 project:

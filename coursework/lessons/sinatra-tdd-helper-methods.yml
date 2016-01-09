@@ -1,7 +1,7 @@
 title: Get a taste of test-driven development in Sinatra with RSpec
 categories:
   - ruby
-  - tests
+  - testing
 prereqs:
   - sinatra-helper-methods
   - sinatra-gems-arrays-uninjected-erb

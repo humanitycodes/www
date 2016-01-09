@@ -1,6 +1,7 @@
 title: Animate webpages with CSS transitions, transforms, and keyframe animations
 categories:
   - css
+  - animation
 prereqs:
   - advanced-css-selectors
 project:

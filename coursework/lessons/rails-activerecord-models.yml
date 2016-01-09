@@ -2,6 +2,7 @@ title: Interact with your database through Rails' ActiveRecord models
 categories:
   - ruby
   - rails
+  - activerecord
 prereqs:
   - rails-database-intro
 project:

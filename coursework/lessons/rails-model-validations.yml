@@ -2,6 +2,7 @@ title: Control the data you accept in Rails with model validations
 categories:
   - ruby
   - rails
+  - validation
 prereqs:
   - rails-database-intro
 project:

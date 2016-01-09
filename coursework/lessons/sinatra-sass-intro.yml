@@ -2,6 +2,7 @@ title: Program your CSS with SASS in Sinatra
 categories:
   - css
   - ruby
+  - sass
 prereqs:
   - sinatra-assets-and-layouts
   - css-transitions-animations-transforms

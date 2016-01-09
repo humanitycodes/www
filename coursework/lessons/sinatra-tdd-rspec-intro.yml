@@ -2,7 +2,8 @@ title: Write tests for Sinatra helper methods with RSpec
 categories:
   - wip
   - ruby
-  - tests
+  - testing
+  - rspec
 prereqs:
   - sinatra-tdd-helper-methods
 project:

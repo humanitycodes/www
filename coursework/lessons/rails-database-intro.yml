@@ -2,6 +2,7 @@ title: Build webapps that can save information in Rails
 categories:
   - ruby
   - rails
+  - sql
 prereqs:
   - rails-intro
 project:
