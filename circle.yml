@@ -9,4 +9,4 @@ test:
   override:
     - bundle exec rspec
     - npm run test
-    - cd app/async_fetcher && npm run test
+    - cd app/async_fetcher && npm install && npm run test
