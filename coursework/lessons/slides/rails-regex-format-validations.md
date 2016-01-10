@@ -225,7 +225,7 @@ Ugh, there are different _dialects_ of regular expressions? Yes, unfortunately. 
 - In JavaScript, `^` and `$` match the beginning of a _string_ and end of a _string_, respectively.
 - In Ruby, `^` and `$` match the beginning of a _line_ and end of a _line_, respectively. To match the beginning and end of a _string_ like in JavaScript, you'll use `\A` and `\z` (mind the cases).
 
-So what's the practical difference? What would happen if we validated `phone_number` with `/^\d{3}-\d{3}-\d{4}$/` instead? Well, this kind of input would be allowed:
+So what's the practical difference? What would happen if we validated `phone_number` with `/^\d{3}-\d{3}-\d{4}$/` instead? The result is _any_ multi-line input would be allowed, as long as a valid phone number is on one of those lines. So for example, this text would pass the validation:
 
 ``` md
 I'm technically on a separate line as the phone number
