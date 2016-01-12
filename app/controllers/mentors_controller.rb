@@ -7,10 +7,17 @@ class MentorsController < ApplicationController
       redirect_to root_url, alert: 'No user exists with that username.' and return
     end
 
-    events = Github.new(
-      user: user.username,
-      oauth_token: user.github_token
-    ).activity.events.performed(user.username, public: true, per_page: 100 )
+    events = (1..3).to_a.map do |page|
+      Github.new(
+        user: user.username,
+        oauth_token: user.github_token
+      ).activity.events.performed(
+        user.username,
+        public: true,
+        per_page: 100,
+        page: page
+      )
+    end.flatten
 
     @comments = events.select do |event|
       event.payload.comment &&
