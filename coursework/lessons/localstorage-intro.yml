@@ -1,0 +1,16 @@
+title: Use localStorage to save information for visitors
+categories:
+  - wip
+  - js
+  - localStorage
+prereqs:
+  - js-booleans-and-comparators
+project:
+  title: Build a website that allows the user to switch between day and night color themes and remembers their choice
+  criteria:
+    - Builds off a previous project
+    - Includes a button, which when clicked, will toggle the website between day and night mode by changing the class on the body with `document.body.className = 'some-class-name'`
+    - When in day mode, the background of the website is bright, with a darker color for the text
+    - When in night mode, the background of the website is a very dark color, with a brighter color for the text
+    - When a user changes the theme, their choice is remembered and the appropriate color theme is shown on every subsequent visit
+    - Somewhere on the page, the user is told how many times they've visited a page on the website
