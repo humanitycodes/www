@@ -3,6 +3,7 @@ categories:
   - js
 prereqs:
   - js-functions-strings-variables
+  - external-assets
 project:
   title: Write a short choose-your-own adventure story in JavaScript
   criteria:

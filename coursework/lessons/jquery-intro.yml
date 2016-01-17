@@ -4,7 +4,6 @@ categories:
   - jquery
 prereqs:
   - advanced-css-selectors
-  - external-assets
   - js-booleans-and-comparators
 project:
   title: Program Tic Tac Toe
