@@ -1,6 +1,6 @@
 ## Where every page knows your name
 
-It's pretty great that we can get information from a user with JavaScript. But you know what stinks about this code below?
+It's pretty great that we can get information from a user with JavaScript. But there's a problem with this code:
 
 ``` js
 var firstName = prompt("What's your first name?")
@@ -36,11 +36,11 @@ Here's an example of how we might use those two functions to build a website tha
 </html>
 ```
 
-Before we dive into that, create a temporary folder with an `index.html` file inside, then paste that code into the file. Make sure to launch the page with `live-server`, because `localStorage` doesn't work with the `file://` protocol in some browsers.
+Before we dive into that, create a folder (just call it "test") with an `index.html` file inside, then paste that code into the file. Make sure to launch the page with `live-server`, because `localStorage` doesn't work with the `file://` protocol in some browsers.
 
 Did you try it? It should have asked you your name, then displayed a greeting with your name on the page.
 
-Now... try refreshing! Did it ask for your name again? It shoudn't have. When you told it your name the first time, is saved you information with `localStorage.setItem`. Then when you refreshed, it ran `localStorage.getItem` to see if it already had a name for it - and it did. So it just displayed it.
+Now... try refreshing! Did it ask for your name again? It shouldn't have. When you told the page your name the first time, it saved your information with `localStorage.setItem`. Then when you refreshed, it ran `localStorage.getItem` to see if it already had a name stored - and it did. So it just displayed it.
 
 Now let's walk through the code line by line, to see _exactly_ how we're achieving this miracle of cyber-friendliness.
 
@@ -65,6 +65,14 @@ So if the `firstName` is `null`, which again, means it couldn't find a `firstNam
 
 1. the name of the item we want to set into storage
 2. the value we want to store
+
+<div class="callout callout-info">
+
+  <h4>Note</h4>
+
+  <p>If it helps, think of `setItem` as writing to a dictionary. The 1st parameter is the word and the 2nd parameter its definition. Then with `getItem`, we retrieve the definition by looking up the word.</p>
+
+</div>
 
 In our case, the value we want to store is in the variable `firstName`.
 
@@ -94,7 +102,7 @@ And actually, it's even more specific than that. Information isn't even shared a
 
 Between 2MB and 10MB, [depending on the browser](http://www.html5rocks.com/en/tutorials/offline/quota-research/). If you're thinking, "2MB doesn't sound like very much...", it's probably more than you think when you're just storing strings.
 
-To get a better idea of how much text is in 2MB, check out [the text file in this ZIP](https://gist.github.com/chrisvfritz/6880d96c100a9a3ad825/archive/a8dbce78fba793fc5254cd3bc1d031d27ec17c6b.zip). It's exactly 2MB. 2 million characters. 14,285 tweets. It's not _quite_ enough to fit Tolstoy's famously long _War and Peace_, but you can fit most of it. Shave off the boring bits and you're good.
+To get a better idea of how much text is in 2MB, check out [the text file in this ZIP](https://gist.github.com/chrisvfritz/6880d96c100a9a3ad825/archive/a8dbce78fba793fc5254cd3bc1d031d27ec17c6b.zip). It's exactly 2MB. 2 million random characters. The equivalent to 14,285 full tweets. It's not _quite_ enough to fit Tolstoy's famously long _War and Peace_, but you can get most of it. Shave off the boring bits and you're good.
 
 ### How long will `localStorage` data stay on a user's computer?
 
@@ -132,7 +140,9 @@ localStorage.getItem('myNumber') + 1
 
 `1 + 1` is `2`, right? Yes... but `"1" + 1` is `"11"`, because if you add a string and a number together, JavaScript will turn the number into a string and combine them into a single string.
 
-But! _Every other operator_ will do the opposite, trying to turn your string into a number, then performing the operation to give you a number. So for example, `("1" + 1) * 2` will first create `"11"` then turn it into `11` and times it by `2`, giving you `22` - which _is_ a number like you were expecting, but a wildly wrong number!
+But! Only addition behaves like this. _Every other operator_ (like `-`, `*`, and `/`) will do the opposite, first turning your string into a number, then performing the operation to return a number. For example, `"1" - 1` will return `0` and `"1" * 2` will return `2`. In both cases, exactly what we want.
+
+But when you combine stringified numbers, addition, _and_ other operators, difficult-to-debug madness will ensue! Let's take `("1" + 1) * 2`. It will first create `"11"` then turn it into `11` and times it by `2`, giving you `22` - which _is_ a number like you were expecting, but a wildly wrong number!
 
 If you work with `localStorage` forgetting that it always saves as a string, you'll grow very frustrated, very quickly. Heck, you'll probably end up questioning your sanity and basic math skills.
 
@@ -164,7 +174,7 @@ Don't worry about them yet. In fact, you don't even have to know what they _are_
 
 ## Other `localStorage` functions
 
-These are some other functions you'll probably use less often, but will still come in handy in specific situations. Try them out in the JavaScript console, on the name-remembering page we were just playing with.
+These are some other functions you'll probably use less often, but that will still come in handy in specific situations. Try them out in the JavaScript console, on the name-remembering page we were just playing with.
 
 ### `localStorage.valueOf()`
 

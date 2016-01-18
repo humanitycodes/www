@@ -1,6 +1,5 @@
 title: Use localStorage to save information for visitors
 categories:
-  - wip
   - js
   - localStorage
 prereqs:
@@ -13,4 +12,4 @@ project:
     - When in day mode, the background of the website is bright, with a darker color for the text
     - When in night mode, the background of the website is a very dark color, with a brighter color for the text
     - When a user changes the theme, their choice is remembered and the appropriate color theme is shown on every subsequent visit
-    - Somewhere on the page, the user is told how many times they've visited a page on the website
+    - Somewhere on the page, the user is told how many times they've visited the website
