@@ -1,18 +1,36 @@
-.jumbotron.text-center
-  h1 Lansing Code Lab
-  h2 style="font-family: Consolas, Lucida Console, monospace"
-    input.transparent autofocus="true" value="learn to code" onfocus="this.value = this.value"
-  p.h2 for $99 / month
+<!DOCTYPE html>
+ 
+<html>
+  <head>
+    <title>Learn to Code in Lansing | Lansing Code Lab</title>
+    <meta class="metaTagTop" name="description" content="Learn to Code at the Lansing Code Lab. Learn How it Works, Pricing, &amp; More!">
+    <meta class="metaTagTop" name="keywords" content="Learn to Code, Lansing Code Lab, Learn to Code in Lansing"><meta class="metaTagTop" name="author" content="Jesse Flores">
+    <meta class="metaTagTop" property="og:image" content="https://images.clickfunnels.com/56/339750bdda11e58596a3d490dd4464/icon-tall-square-fixed-300-transparent.png" id="social-image">
+  <script>
 
-.row
-  .col-sm-6.col-sm-offset-3
-    h3.text-center Apply now
-    form action="//formspree.io/hello@lansingcodelab.com" method="POST"
-      .form-group
-        label for="application-name" Name
-        input.form-control#application-name type="text" name="name"
-      .form-group
-        label for="application-email" Email
-        input.form-control#application-email type="email" name="_replyto"
-      .form-group
-        button.form-control.btn.btn-primary type="submit" Begin the journey
+      function getParameterByName(name) {
+          name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+          var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+              results = regex.exec(location.search);
+          return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+      $preview = getParameterByName("preview");
+
+
+      if( $preview == "" ){
+        // do nothing
+      } else if( $preview == "control" ){
+        document.cookie = "lander-ab-tests-8290289=lander_control";
+      } else{
+        document.cookie = "lander-ab-tests-8290289=lander_" + $preview;
+      }
+
+    </script>
+    <link rel="stylesheet" media="screen" href="https://assets3.clickfunnels.com/assets/lander.css"/>
+    <script type="text/javascript" src="https://static.clickfunnels.com/clickfunnels/landers/tmp/7d5yb7lfg6g044wl.js" charset="UTF-8"></script>
+    <style>#IntercomDefaultWidget{display:none;}#Intercom{display:none;}</style>
+    <meta name="nodo-proxy" content="html"/>
+  </head>
+  <body>
+  </body>
+</html> 

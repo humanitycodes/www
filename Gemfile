@@ -17,7 +17,7 @@ gem 'github_api'
 gem 'puma'
 gem 'redcarpet'
 gem 'react_webpack_rails', '0.0.5'
-gem 'turbolinks', git: 'git://github.com/rails/turbolinks.git', ref: 'dd31f4b2996f2300631f89339ada82c65b95f4c2'
+gem 'turbolinks' #, git: 'git://github.com/rails/turbolinks.git', ref: 'dd31f4b2996f2300631f89339ada82c65b95f4c2'
 gem 'nprogress-rails'
 
 group :development do

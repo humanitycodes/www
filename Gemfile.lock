@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/rails/turbolinks.git
-  revision: dd31f4b2996f2300631f89339ada82c65b95f4c2
-  ref: dd31f4b2996f2300631f89339ada82c65b95f4c2
-  specs:
-    turbolinks (3.0.0)
-      coffee-rails
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -295,6 +287,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -353,6 +347,6 @@ DEPENDENCIES
   slim-rails
   spring
   spring-commands-rspec
-  turbolinks!
+  turbolinks
   uglifier (>= 1.3.0)
   webmock (~> 1.22.3)
