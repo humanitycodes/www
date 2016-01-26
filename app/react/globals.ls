@@ -1,7 +1,7 @@
 root = global or window
 
 # POLYFILLS
-SVGElement.prototype.getTransformToElement ?= (toElement) ->
+SVGElement?prototype.getTransformToElement ?= (toElement) ->
   toElement.getScreenCTM!.inverse!.multiply @getScreenCTM!
 
 # VENDOR ASSIGN
