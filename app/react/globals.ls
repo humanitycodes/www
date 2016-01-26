@@ -1,5 +1,9 @@
 root = global or window
 
+# POLYFILLS
+SVGElement.prototype.getTransformToElement ?= (toElement) ->
+  toElement.getScreenCTM!.inverse!.multiply @getScreenCTM!
+
 # VENDOR ASSIGN
 root import
   jQuery:   require 'jquery'

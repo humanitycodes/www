@@ -61,6 +61,11 @@ module.exports = class UserReport extends React.Component
       ]
       count: 0
 
+    data.push do
+      categories: []
+      date: new Date!
+      count: last(data).count
+
     # Scale the range of the data
     x.domain D3.extent data, (.date)
     y.domain [0, D3.max data, (.count)]
