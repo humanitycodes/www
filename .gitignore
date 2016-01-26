@@ -13,3 +13,4 @@
 /tmp
 node_modules
 npm-debug.log.*
+lib/tasks/db_pull.rake
