@@ -8,12 +8,12 @@ gem 'uglifier', '>= 1.3.0'       # Use Uglifier as compressor for JavaScript ass
 gem 'jquery-rails'               # Use jquery as the JavaScript library
 gem 'jbuilder', '~> 2.0'         # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'slim-rails'
-gem 'autoprefixer-rails'
+gem 'autoprefixer-rails', '~> 6.3.1'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'rest-client'
-gem 'github_api'
+gem 'github_api', '~> 0.13.1'
 gem 'puma'
 gem 'redcarpet'
 gem 'react_webpack_rails', '0.0.5'
@@ -37,7 +37,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 2.5.0'         # Helpers to simulate how a real user would interact with your app
+  gem 'capybara', '~> 2.6.0'         # Helpers to simulate how a real user would interact with your app
   gem 'database_cleaner', '~> 1.5.1' # A set of strategies for cleaning your database
   gem 'launchy', '~> 2.4.3'          # Facilitates launching external applications
   gem 'poltergeist'                  # PhantomJS driver for Capybara
