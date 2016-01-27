@@ -76,6 +76,14 @@ You may be thinking, "Wait? Why do the indices start at 0 instead of 1. Wouldn't
 
 The reason an index starts at 0, is it describes __the distance from the start of the array__. The first element _is_ at the start of the array, so there is no distance. It's 0.
 
+<div class="callout callout-info">
+
+  <h4>Note</h4>
+
+  <p>If you're still having trouble wrapping your head around indices, it might help to know that they work similarly to ages. On your first birthday (the _actual_ day of your birth), you're 0 years old. Then for the second birthday, you're 1 year old. And so on.</p>
+
+</div>
+
 OK. So we've accessed the first item. How would we access the 2nd?
 
 ``` js
@@ -294,7 +302,7 @@ Now once again, we'll review these parameters in the context we'll actually use 
 - New item: we don't want to add a new item, so this should be left empty
 
 ``` js
-books.splice(1, 1)
+numbers.splice(1, 1)
 => [3]
 ```
 
@@ -394,7 +402,7 @@ newTodoInput.onkeypress = function(event) {
 }
 ```
 
-Yay! It seems to be working. Now let's use our mad array modification skills to add the value of our text input to our `todos` array:
+Yay! It seems to be working. Now let's use our newfound array modification skills to add the value of our text input to our `todos` array:
 
 ``` js
 var todos = []
@@ -522,7 +530,7 @@ todoList.innerHTML = todos.map(function(todo) {
 }).join('')
 ```
 
-Do you see that `join('')` on the last line below? That takes each item and combines them into a single string, with an empty string between each item. That makes it so that we don't get:
+Do you see that `join('')` on the last line above? That takes each item and combines them into a single string, with an empty string between each item. That makes it so that we don't get:
 
 ``` html
 <li>todo 1</li>,<li>todo 2</li>,<li>todo 3</li>
@@ -588,9 +596,9 @@ document.getElementById('some-id').onclick = function() {
 }
 ```
 
-This is a special case we haven't yet encountered though. We can't specific the click behavior for elements that don't even exist yet! Fortunately, there's a special technique we can use that sounds more complicated than it actually is: __event delegation__.
+This is a special case we haven't yet encountered though. We can't specify the click behavior for elements that don't even exist yet! Fortunately, there's a special technique we can use that sounds more complicated than it actually is: __event delegation__.
 
-Instead of watching for an event on the elements that will be dynamically added and removed, you can watch for the event on the containing element that will always be there. In this case, that's our `todoList` element.
+Instead of watching for an event on the elements that will be dynamically added and removed (our list items), you can watch for the event on the _containing element_ that will always be there (our `todoList` element).
 
 ``` js
 todoList.onclick = function(event) {
@@ -642,9 +650,9 @@ todoList.onclick = function(event) {
 }
 ```
 
-Excellent! Now we only have one problem remaining. When a button is clicked, how will we know _which_ todo to remove. For this, there's a special kind of attribute we can use called a __data attribute__. As you might guess from the name, it's for attaching extra data to an element! If I wanted to attach a name of "Chris" to an element, I could add `data-name="Chris"` to its list of attributes.
+Excellent! Now we only have one problem remaining: When a button is clicked, how will we know _which_ todo to remove? For this, there's a special kind of attribute we can use called a __data attribute__. As you might guess from the name, it's for attaching extra data to an element! If I wanted to attach a name of "Chris" to an element, I could add `data-name="Chris"` to its list of attributes.
 
-In this case, we want to add the `index` of the item, which we can get from a second parameter in our `map` function, then set it to a `data-index` attribute.
+In this case, we want to attach the `index` of the item, which we can get from a second parameter in our `map` function (see below), then set it to a `data-index` attribute.
 
 ``` js
 todoList.innerHTML = todos.map(function(todo, index) {
@@ -655,7 +663,7 @@ todoList.innerHTML = todos.map(function(todo, index) {
 }).join('')
 ```
 
-Now we can access the `dataset.index` of our clicked element to get the index of the item we should remove from the array, then call our `renderTodos` function to update the page.
+Now we can access the `dataset.index` of our clicked element to find out which item we should remove from the array. After we remove that item from `todos`, we call our `renderTodos` function to update the page.
 
 ``` js
 todoList.onclick = function(event) {
@@ -705,4 +713,4 @@ todoList.onclick = function(event) {
 
 ## Now it's your turn
 
-At this point, you're taking over this code base and implementing some new features in the project. If you run into a problem you're not sure how to solve, don't hesitate Googling for more information. Or if you try that for a while and are still stuck, ask a mentor for help.
+At this point, you're taking over this code base and implementing some new features in the project. If you run into a problem you're not sure how to solve, don't hesitate to Google for more information. Or if you try that for a while and are still stuck, ask a mentor for help.

@@ -1,6 +1,5 @@
 title: Managing lists of things in JavaScript
 categories:
-  - wip
   - js
   - arrays
 prereqs:
@@ -10,6 +9,7 @@ project:
   criteria:
     - The current number of todo items is always displayed below the list of todos.
     - A "Clear all" button exists, which will clear all todos when clicked.
-    - A "Can't decide!" button exists, which picks a random todo item and shows it to the user in an alert.
     - >
-      Each todo item contains two additional buttons: "↑" and "↓", which move the item up or down in the list, respectively. If the item is already at the top or bottom, then the button to move it further up or down, respectively, should not appear.
+      A "Can't decide!" button exists, which picks a random todo item from the user's list and shows it in an alert. (Hint: you may have to use Google here.)
+    - >
+      (Optional) Each todo item contains two additional buttons: "↑" and "↓", which move the item up or down in the list, respectively. If the item is already at the top or bottom, then the button to move it further up or down, respectively, should not appear. Again, Google will likely be helpful here.
