@@ -15,14 +15,18 @@ module.exports = class Staff extends React.Component
     leaders = difference(staff, founders)
       |> filter (member) ->
         member.roles |> any (is 'Leader')
+      |> sort-by (member) ->
+        return 1 if member.title is 'Operations Director'
+        return 2 if member.title is 'Outreach Director'
+        Infinity
 
     mentors = difference(staff, founders ++ leaders)
       |> filter (member) ->
         member.roles |> any (is 'Mentor')
 
-    const list-members = (members) ->
+    const list-members = (members, should-shuffle) ->
       members
-        |> shuffle
+        |> if should-shuffle then shuffle else -> members
         |> map (member) ->
           $(StaffMember) do
             key: member.username
@@ -36,4 +40,4 @@ module.exports = class Staff extends React.Component
         sm-offset: 1
         list-members founders
         list-members leaders
-        list-members mentors
+        list-members mentors, true

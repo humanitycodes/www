@@ -17,6 +17,11 @@ module.exports = Radium class StaffMember extends React.Component
       name:
         base:
           margin-top: 0
+      title:
+        base:
+          opacity: 0.4
+          margin-left: 20
+          font-size: '0.8em'
       contact-list:
         base:
           margin-bottom: 0
@@ -28,7 +33,7 @@ module.exports = Radium class StaffMember extends React.Component
 
   render: ->
     const {
-      name, bio, tech, contact_methods, roles, username, image_path
+      name, title, bio, tech, contact_methods, roles, username, image_path
     } = @props.member
 
     $(Card) do
@@ -45,6 +50,9 @@ module.exports = Radium class StaffMember extends React.Component
             class-name: 'h3'
             style: @styles.name.base
             name
+            $span do
+              style: @styles.title.base
+              title
           $p dangerously-set-inner-HTML: { __html: bio }
           $p do
             $strong 'Technologies: '
