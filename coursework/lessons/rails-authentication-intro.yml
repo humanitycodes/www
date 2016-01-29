@@ -1,0 +1,24 @@
+title: Save users in the database, allow them to sign in and out, and give them special abilities
+categories:
+  - wip
+  - ruby
+  - rails
+  - authentication
+prereqs:
+  - rails-activerecord-models
+project:
+  title: Add authentication to an app so that only authorized users can make changes to the database
+  criteria:
+    - Displays a "Sign in" link _only_ to anonymous visitors
+    - Displays a the user's email address and a "Sign out" link when they are signed in
+    - At least 1 authorized user is in the database of the live site with the email `testuser@example.com` and the password `catgifs12345` - don't worry, you can delete it after I approve your submission :-)
+    - Only _signed in users_ are given access to controller actions that modify the database
+    - Links to unauthorized actions are _not_ displayed to anonymous visitors (such as links to create a new record, edit a record, or delete a record)
+  steps:
+    download: |
+      1. `cd` into the directory where you're keeping your Code Lab projects (unless you're already there)
+      2. Create a copy of the previous project with `cp -R codelab-rails-activerecord-models {{project-folder-name}}`
+      3. `cd` into your `{{project-folder-name}}` directory
+      4. `bundle install` (to ensure everything in the Gemfile is installed)
+      5. `git remote rm origin` (so that our `origin` remote doesn't point to our old project on GitHub)
+      6. `git remote add origin {{clone-URL}}`
