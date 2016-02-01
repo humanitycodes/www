@@ -1,6 +1,5 @@
 title: Save users in the database, allow them to sign in and out, and give them special abilities
 categories:
-  - wip
   - ruby
   - rails
   - authentication

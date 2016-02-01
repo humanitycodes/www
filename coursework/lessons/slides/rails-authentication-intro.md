@@ -20,7 +20,7 @@ There are many popular gems for Rails, such as [`devise`](https://github.com/pla
 
 When you need to get a full-featured authentication system up and running quickly, `devise` is a fantastic option. It has great documentation and continues to be refined based on the latest security best practices.
 
-The problem is, when you've never built an authentication system before, a gem like that can be a little overwhelming when you want something _a little_ different. And we do. We want to turn our blogging platform into an exclusively club, where only people we authorize can have an account and post content.
+The problem is, when you've never built an authentication system before, a gem like that can be a little overwhelming when you want to make a few changes from the default. And we do. We want to turn our blogging platform into an exclusively club, where only people with accounts can post content, but _we_ set up those accounts.
 
 Building this from scratch will help us learn much more about how authentication works - and is actually less complicated than you might think.
 
@@ -60,6 +60,11 @@ We can create our model with Rails' model generator:
 
 ```
 rails generate model User email:string password:digest
+```
+
+And then run the accompanying migration to update our database:
+
+```
 rake db:migrate
 ```
 
@@ -67,13 +72,13 @@ Note that we're using a new data type for the `password` called `digest` (provid
 
 ### Testing out our password encryption
 
-Now we have a `User` model, but there’s no way for the outside world to create and destroy users. We however, are mighty developers! We don't need no stinkin' front-end. Let's open up the `rails console` in the terminal:
+Now we have a `User` model, with no way for the outside world to create and destroy users. We however, are mighty developers! We don't need no stinkin' front-end. Let's open up the `rails console` in the terminal:
 
 ```
 rails console
 ```
 
-Now let's create a new user:
+Then let's create a new user:
 
 ``` ruby
 User.create(email: 'hello@lansingcodelab.com', password: '123456')
@@ -94,6 +99,16 @@ Notice that instead of storing a `password` field, we have a `password_digest` w
 ## Allowing users to sign in and out
 
 As we implement this next feature, there will be _quite a few steps_ before we finally arrive at a working app for users to sign in and out. The project for this lesson will simply require completing these steps, so build off an old project with at least 1 model in it.
+
+It's also important at this stage to introduce a new piece of vocabulary: __sessions__. When a user signs in, we keep track of them in a session, which temporarily stores a unique, secret code in their browser that we use to identify them.
+
+For security reasons, this code is usually set to delete itself after about 2 weeks - which is why you often have to sign into a website again, even though you never signed out.
+
+On the next page, we'll create a sessions controller, with actions to allow us to:
+
+1. collect the user's email and password,
+2. allow us to create sessions (signing users in), and
+3. destroy sessions (signing users out)
 
 ---
 
@@ -144,7 +159,7 @@ And then some other, less essential files were also generated:
 - `app/assets/javascripts/sessions.coffee`
 - `app/assets/stylesheets/sessions.scss`
 
-There's still a bit of work we'll want to do with the files that creates, but now we at least have a skeleton.
+There's still a bit of work we'll want to do with those files, but now we at least have a skeleton.
 
 ### Modifying the sessions controller
 
@@ -165,24 +180,31 @@ The create action is the most complicated. But below in the comments, I explain 
 
 ``` ruby
 def create
-  # Looking for a user with the given email address and storing either that
-  # user (if a user was found) or `nil` (if no user was found) in the `user`
-  # variable
+  # Look for a user with the given email address and
+  # store either that user (if a user was found) or
+  # `nil` (if no user was found) in the `user` variable
   user = User.find_by(email: params[:email])
-  # If we found a user with that email address AND the given password works
-  # with our password digest
+
+  # If we found a user with that email address AND the
+  # given password works with our password digest
   if user && user.authenticate(params[:password])
-    # Store the user's id in the session, to keep track of who's signed in
-    # (to learn more about this seemingly magical `session` variable Rails
-    # provides, [check out these docs](http://guides.rubyonrails.org/security.html#sessions))
+
+    # Store the user's id in the session, to keep track
+    # of who's signed in (to learn more about this
+    # seemingly magical `session` variable Rails provides,
+    # [check out these docs](http://guides.rubyonrails.org/security.html#sessions))
     session[:user_id] = user.id
-    # Redirect to the `root_url` and display a notice that the user has
-    # successfully signed in
+
+    # Redirect to the `root_url` and display a notice that
+    # the user has successfully signed in
     redirect_to root_url, notice: 'Successfully signed in!'
+
   # If the email or password were wrong
   else
+
     # Alert the user that their credentials are bad
     flash.alert = 'Invalid email/password combination. Please try again.'
+
     # Render `new.html.erb` in `app/views/sessions/`
     render :new
   end
@@ -195,14 +217,69 @@ The destroy action isn't as complicated. It just replaces the user id we saved i
 
 ``` ruby
 def destroy
-  # Set the `:user_id` stored in the `session` back to `nil`, essentially
-  # forgetting about the user that was signed in
+  # Set the `:user_id` stored in the `session` back to
+  # `nil`, essentially forgetting about the user that
+  # was signed in
   session[:user_id] = nil
-  # Redirect to the `root_url` and display a notice that the user has
-  # successfully signed out
+
+  # Redirect to the `root_url` and display a notice that
+  # the user has successfully signed out
   redirect_to root_url, notice: 'Successfully signed out!'
 end
 ```
+
+---
+
+## Creating more intuitive routes
+
+For the first time in our Rails adventures, we're going to do some more complicated stuff with routing. To give you a little more context for what we're about to do, I recommend reading [the Rails routing documentation](http://guides.rubyonrails.org/routing.html), up to and including section _2.3 Path and URL Helpers_.
+
+Are you back? Good.
+
+So right now, `config/routes.rb` lists these routes for sessions:
+
+``` ruby
+get 'sessions/new'
+get 'sessions/create'
+get 'sessions/destroy'
+```
+
+That means, for example, that when a visitor goes to `/sessions/new`, a `GET` request will be sent to the `new` action in the `sessions` controller. These aren't very user-friendly routes though, so we're going to remove them and create our own.
+
+I personally like nice `/sign-in` and `/sign-out` paths, so let's set those up instead, along with a simpler `/session` path to create a session.
+
+``` ruby
+get '/sign-in' => 'sessions#new'
+post '/session' => 'sessions#create'
+delete '/sign-out' => 'sessions#destroy'
+```
+
+As you might have noticed, only the request to `/sign-in` is a `GET` request, because that's the only one that doesn't make any changes to data we're storing. It's just fetching information - in our case, the form for the user to enter their information.
+
+We'll submit that form with a `POST` request to `/session`, because it's _creating_ something: a new session for the user. And when a user signs out, they'll click a link that sends a `DELETE` request to `/sign-out`, because it's _destroying_ something: the session that the user had previously created.
+
+<div class="callout callout-info">
+
+  <h4>Note</h4>
+
+  <p>So... why did Rails give us 3 routes with `GET` requests? Isn't it supposed to automagically do things for us?</p>
+
+  <p>It's because when we generate a controller, Rails doesn't know what we want to do with each action. It can't read our mind. So it guesses, defaulting to `GET`. In this case, it guessed wrong.</p>
+
+</div>
+
+Now when we run `rake routes`:
+
+``` output
+  Prefix Verb   URI Pattern             Controller#Action
+ sign_in GET    /sign-in(.:format)      sessions#new
+ session POST   /session(.:format)      sessions#create
+sign_out DELETE /sign-out(.:format)     sessions#destroy
+```
+
+Looking at the prefix column, we can see that prefixes were generated for all of these paths. These prefixes give us access to the following helper methods: `sign_in_path`, `session_path`, and `sign_out_path`, which we can use to generate these more intuitive paths in our app. Yay!
+
+---
 
 ### Modifying the views
 
@@ -211,9 +288,9 @@ The only view we actually need is the `new` view, to show our sign in form. Once
 Then in `new.html.erb`, we'll set up our sign in form:
 
 ```
-<h1>Log In</h1>
+<h1>Sign In</h1>
 
-<%= form_tag sessions_path do %>
+<%= form_tag session_path do %>
 
   <div class="field">
     <%= label_tag :email %><br>
@@ -232,53 +309,39 @@ Then in `new.html.erb`, we'll set up our sign in form:
 <% end %>
 ```
 
----
-
-## Creating more intuitive routes
-
-Right now, `config/routes.rb` lists these routes.
-
-``` ruby
-get 'sessions/new'
-get 'sessions/create'
-get 'sessions/destroy'
-```
-
-That means, for example, that when a visitor goes to `/sessions/new`, they'll be directed to the `new` action in the `sessions` controller. These aren't great routes though, so we're going to delete them and create our own.
-
-Now let's replace them with:
-
-``` ruby
-resources :sessions, only: [:new, :create, :destroy]
-```
-
-When we run `rake routes`, we can see that this single line creates the following paths:
+When our app runs, that will generate HTML similar to this (without the nice comments - I added those just for you!):
 
 ```
-   sessions POST   /sessions(.:format)     sessions#create
-new_session GET    /sessions/new(.:format) sessions#new
-    session DELETE /sessions/:id(.:format) sessions#destroy
+<h1>Sign In</h1>
+
+<!-- Form that sends information to our `create` action -->
+<form action="/session" accept-charset="UTF-8" method="post">
+
+  <!-- Two hidden fields that Rails automatically includes -->
+  <!-- in forms for compatibility and security purposes,   -->
+  <!-- respectively.                                       -->
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="authenticity_token" value="srrnVNHaz9/dmZvKvK8Q4QCnMB5noahSU/ht/9tWN34fPsFm2jKjh52kx0i7kkjqrPPW/VupYdswF4vRiSDbjQ==" />
+
+  <!-- Email field -->
+  <div class="field">
+    <label for="email">Email</label><br>
+    <input type="text" name="email" id="email" />
+  </div>
+
+  <!-- Password field -->
+  <div class="field">
+    <label for="password">Password</label><br>
+    <input type="password" name="password" id="password" />
+  </div>
+
+  <!-- Submit button -->
+  <div class="actions">
+    <input type="submit" name="commit" value="Sign In" />
+  </div>
+
+</form>
 ```
-
-I actually like nice `/sign-in` and `/sign-out` paths though, so let's set those up too:
-
-``` ruby
-get '/sign-in' => 'sessions#new'
-delete '/sign-out' => 'sessions#destroy'
-```
-
-Now when we run `rake routes`:
-
-```
-     Prefix Verb   URI Pattern             Controller#Action
-   sessions POST   /sessions(.:format)     sessions#create
-new_session GET    /sessions/new(.:format) sessions#new
-    session DELETE /sessions/:id(.:format) sessions#destroy
-    sign_in GET    /sign-in(.:format)      sessions#new
-   sign_out DELETE /sign-out(.:format)     sessions#destroy
-```
-
-We can see that we now have access to `sign_in_path` and `sign_out_path` helpers, linking to very intuitive paths in our app. Yay!
 
 ---
 
@@ -389,9 +452,10 @@ def only_allow_signed_in_users
 end
 ```
 
-Then in the controllers for any models you want to protect, you can set this method to run before every action, except the ones you want to specifically allow. I usually place `before_action`s at the top of my controllers.
-
+Then in the controllers for any models you want to protect, we can make this method run before any actions that can change the database, by adding this line at the top:
 
 ``` ruby
 before_action :only_allow_signed_in_users, except: [:index, :show]
 ```
+
+The `before_action` method calls another method (in our case, `only_allow_signed_in_users`), before every action in the controller. We exclude the `index` and `show` actions, because those only _display_ information. They don't allow the user to make changes. So we're OK opening them up to anyone, whether they're signed in or not.
