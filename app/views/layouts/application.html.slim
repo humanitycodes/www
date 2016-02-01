@@ -8,9 +8,9 @@ html
     - else
       title Lansing Code Lab
 
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700'
-    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
-    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 
     - if Rails.env.production?

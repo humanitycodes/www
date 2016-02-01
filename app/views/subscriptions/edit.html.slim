@@ -1,0 +1,41 @@
+h1 Membership
+
+.well.card
+
+  p.h3.text-center style="margin: 10px 0 30px"
+    ' You're currently subscribed through
+    = Time.at(@subscription['current_period_end']).stamp('January 26th, 2016')
+    | .
+
+  .jumbotron
+
+    h2 Billing Information
+    p
+      => @card['brand']
+      code> XXXX XXXX XXXX #{@card['last4']}
+      span.text-muted
+        | (expires #{@card['exp_month']}/#{@card['exp_year']})
+
+    = form_tag subscription_path, { method: :put } do
+      script {
+        src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="#{Rails.configuration.stripe[:publishable_key]}"
+
+        data-email="#{current_user.email}"
+
+        data-label="Update Card Details"
+
+        data-image="#{image_path 'lansing-codes-logo.svg'}"
+        data-name="Lansing Code Lab"
+        data-description="LEARN TO CODE"
+        data-panel-label="Update Card"
+        data-allow-remember-me="false"
+      }
+
+  p
+    ' Need a receipt or to take a month off?
+    = link_to 'Contact us', 'mailto:accounts@lansingcodelab.com'
+    | .
+
+  p= link_to 'Cancel Membership', subscription_path, class: 'text-danger', data: { method: :delete, confirm: "Are you sure you want to end your Code Lab membership?" }

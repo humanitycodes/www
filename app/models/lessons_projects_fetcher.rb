@@ -19,6 +19,8 @@ private
       fetcher_url +
         "?only=#{keys_to_fetch.join(',')}"
     )
+  rescue
+    {'lessons' => {}}
   end
 
   def keys_to_fetch

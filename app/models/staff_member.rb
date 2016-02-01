@@ -1,9 +1,21 @@
 class StaffMember
 
-  def self.all
-    CODELAB_STAFF.map do |member_data|
-      StaffMember.new(member_data)
+  class << self
+
+    def all
+      CODELAB_STAFF.map do |member_data|
+        StaffMember.new(member_data)
+      end
     end
+
+    def method_missing method_name
+      all.select do |member|
+        member.roles.map(&:downcase).include?(
+          method_name.to_s.downcase.singularize
+        )
+      end
+    end
+
   end
 
   attr_reader :name, :bio, :tech, :contact_methods, :roles

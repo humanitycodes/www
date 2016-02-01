@@ -54,7 +54,7 @@ module.exports = class UserReport extends React.Component
     data.unshift do
       categories: []
       date: minimum [
-        new Date @props.user.created_at
+        new Date @props.presentedUser.created_at
         data
           |> map (.date)
           |> minimum
