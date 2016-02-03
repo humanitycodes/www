@@ -92,14 +92,14 @@ module.exports = class LessonsMapper
     @svg.call @zoomer
 
     const zoom-with-scroll = !~>
-      const current-offset-x = parse-int do
-        @svg-inner
-          .attr 'transform'
-          .match /(?:translate\()+([\-\d]+)[ ,]+/ .1
-
-      const translate-to = current-offset-x - D3.event.delta-x
-      if translate-to
-        @zoom translate-to
+      try
+        const current-offset-x = parse-int do
+          @svg-inner
+            .attr 'transform'
+            .match /(?:translate\()+([\-\d]+)[ ,]+/ .1
+        const translate-to = current-offset-x - D3.event.delta-x
+        if translate-to
+          @zoom translate-to
 
     @svg.on 'wheel.zoom', zoom-with-scroll
     @svg.on 'mousewheel.zoom', zoom-with-scroll

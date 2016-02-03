@@ -15,10 +15,6 @@ feature 'New subscription page', :omniauth do
         it 'displays a price of $99' do
           expect(page).to have_css('script[data-amount="9900"]', visible: false)
         end
-
-        it 'blah', js: true do
-          click 'button.stripe-button-el'
-        end
       end
     end
 
