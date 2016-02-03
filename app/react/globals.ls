@@ -27,5 +27,6 @@ root import require './helpers.ls'
 
 # VENDOR RUN
 if window?
+  require 'jquery-ujs'
   require 'bootstrap/js/tooltip'
   require 'bootstrap/js/popover'

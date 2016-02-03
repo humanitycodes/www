@@ -6,6 +6,7 @@ require 'capybara/rails'
 require 'capybara/rspec'
 
 require_relative 'support/webmock'
+require_relative 'support/vcr'
 require_relative 'support/capybara'
 require_relative 'support/database_cleaner'
 require_relative 'support/factory_girl'

@@ -46,6 +46,7 @@ group :test do
   gem 'poltergeist'                  # PhantomJS driver for Capybara
   gem 'webmock', '~> 1.22.3'         # For stubbing and setting expectations on HTTP requests
   gem 'codeclimate-test-reporter', require: false
+  gem 'vcr'
 end
 
 group :production do

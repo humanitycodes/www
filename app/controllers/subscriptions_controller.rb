@@ -42,7 +42,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def edit
-    authorize! :update, Subscription
     @card = current_user.
       customer_identity.stripe_object['sources']['data'].
       find { |datum| datum['object'] == 'card' }
