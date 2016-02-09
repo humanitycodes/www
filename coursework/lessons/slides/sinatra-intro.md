@@ -150,6 +150,8 @@ That's because there are a lot of gems for Ruby and they wouldn't all fit on you
 bundle install
 ```
 
+You may notice that this command creates a new file called `Gemfile.lock`, which stores a snapshot of the _exact_ versions of all the gems your application is using. Note that you'll _never_ edit this file directly - the only way it changes is through `bundle` commands.
+
 _Now_ let's try to run our app with the following command (make sure you're still in your project directory):
 
 ``` bash
