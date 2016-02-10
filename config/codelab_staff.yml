@@ -85,17 +85,3 @@
       body: kiera-wheatley
   roles:
     - Mentor
--
-  name: Nicole Lawrence
-  title: Mentor
-  bio: I'm a senior at Michigan State University currently majoring in Computer Science and Engineering with a cognate in Media and Information. I am the current webmaster of MSU's Women in Computing (WIC) club. I got into computer science in high school and haven't looked back. I like how you can turn seemingly meaningless letters and numbers into something wonderful; whether it is a website or a mobile app. The list of possibilities is endless!
-  tech: HTML5, CSS, JS, SCSS, PHP, and Unix terminal commands.
-  contact_methods:
-    -
-      type: GitHub
-      body: icy-wolf
-    -
-      type: Email
-      body: nicole.lawrence93@gmail.com
-  roles:
-    - Mentor
