@@ -19,6 +19,13 @@ class SubscriptionsController < ApplicationController
       stripe_customer = Stripe::Customer.retrieve(
         current_user.customer_identity.stripe_id
       )
+      stripe_customer.sources.create(source: params[:stripeToken])
+      stripe_customer = Stripe::Customer.retrieve(
+        current_user.customer_identity.stripe_id
+      )
+      current_user.customer_identity.update!(
+        stripe_object: stripe_customer.as_json
+      )
     else
       stripe_customer = Stripe::Customer.create(
         description: 'Lansing Code Lab Membership',
@@ -39,6 +46,10 @@ class SubscriptionsController < ApplicationController
     ).save!
 
     redirect_to edit_subscription_path, notice: "You're now subscribed."
+  rescue Stripe::CardError => e
+    redirect_to new_subscription_path, alert: "There was a problem processing your card: #{e.json_body[:error][:type]}"
+  rescue Stripe::APIConnectionError => e
+    redirect_to new_subscription_path, alert: "We're having trouble reaching Stripe to process your card. Please try again in a few minutes."
   end
 
   def edit
@@ -57,10 +68,6 @@ class SubscriptionsController < ApplicationController
     stripe_customer.source = params[:stripeToken]
     stripe_customer.save
 
-    current_user.customer_identity.update(
-      stripe_object: stripe_customer.as_json
-    )
-
     redirect_to edit_subscription_path, notice: "Card updated."
   end
 
@@ -70,6 +77,10 @@ class SubscriptionsController < ApplicationController
     stripe_customer = Stripe::Customer.retrieve(
       current_user.customer_identity.stripe_id
     )
+
+    current_user.customer_identity.stripe_object['sources']['data'].each do |card|
+      stripe_customer.sources.retrieve( card['id'] ).delete
+    end
 
     stripe_subscription = stripe_customer.subscriptions.retrieve(
       subscription.stripe_id
@@ -88,6 +99,10 @@ class SubscriptionsController < ApplicationController
       # https://stripe.com/docs/api#event_types
       # https://www.masteringmodernpayments.com/stripe-webhook-event-cheatsheet
       case event_json['type']
+        when 'customer.updated'
+          customer = CustomerIdentity.find_by(stripe_id: event_object['id'])
+          customer.stripe_object = event_object
+          customer.save!
         when 'customer.subscription.updated'
           subscription = Subscription.find_by(stripe_id: event_object['id'])
           subscription.stripe_object = event_object
