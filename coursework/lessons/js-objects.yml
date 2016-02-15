@@ -1,6 +1,5 @@
 title: Store information about complex, real-world things (like people!) in JavaScript
 categories:
-  - wip
   - js
 prereqs:
   - js-arrays
@@ -16,3 +15,11 @@ project:
     - For each todo, `isComplete` begins as `false`
     - Checking or unchecking a checkbox marks its `isComplete` attribute to `true` or `false`, respectively
     - Next to the "Clear All" button, an additional button exists to "Clear Completed"
+  steps:
+    download: |
+      1. `cd` into the directory where you're keeping your Code Lab projects (unless you're already there)
+      2. Create a copy of the previous project with `cp -R codelab-js-arrays {{project-folder-name}}`
+      3. `cd` into your `{{project-folder-name}}` directory
+      4. `bundle install` (to ensure everything in the Gemfile is installed)
+      5. `git remote rm origin` (so that our `origin` remote doesn't point to our old project on GitHub)
+      6. `git remote add origin {{clone-URL}}`

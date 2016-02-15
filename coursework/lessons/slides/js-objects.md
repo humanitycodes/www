@@ -7,7 +7,7 @@ var firstName = 'Sam'
 var age = 27
 ```
 
-This works great, until you need to work with _many_ people, all of whom have their own first names and ages. We could add prefixes to differentiate all of these:
+This works great, until you need to work with _many_ people, all with their own first names and ages. We could add prefixes to differentiate all of these:
 
 ``` js
 var person1FirstName = 'Sam'
@@ -22,7 +22,7 @@ But it feels like a clunky solution. And what if we wanted to store an array of 
 Fortunately, JavaScript has a trick up its sleeve for situations just like this: __objects__. This is an object:
 
 ``` js
-var person1 = {
+{
   'firstName': 'Sam',
   'age': 27
 }
@@ -30,9 +30,18 @@ var person1 = {
 
 Similar to how an array is surrounded by square brackets (`[]`), an object is surrounded by curly braces (`{}`). Inside the curly braces is a comma-separated list of __keys__ and __values__.
 
-The keys are the strings on the left (`'firstName'`, `'lastName'`, `'age'`, etc). Keys are _always_ strings. They contain the labels for the values on the right.
+The keys are the strings on the left (`'firstName'`, `'lastName'`, `'age'`, etc). Keys are _always_ strings. They are the labels for the values on the right.
 
-Values can be _any_ data type: strings, numbers - even arrays and objects. To retrieve one of these values, we can use square brackets, just like when retrieving an item from an array by its index.
+Values, on the other hand, can be _any_ data type: strings, numbers - even arrays and objects. Now to start playing with this object, let's first assign it to a variable:
+
+``` js
+var person1 = {
+  'firstName': 'Sam',
+  'age': 27
+}
+```
+
+To retrieve one of these values by its key, we can use square brackets, just like when retrieving an item from an array by its index:
 
 ``` js
 person1['firstName']
@@ -42,7 +51,9 @@ person1['age']
 => 27
 ```
 
-### Working with objects in arrays
+---
+
+## Working with objects in arrays
 
 Objects also solve our problem of storing a lists of people. To store both Sam and Amani in an array, we can write:
 
@@ -78,7 +89,9 @@ In both cases, we're:
 1. retrieving a specific person, using the array index
 2. retrieving the value for a specific property in the object, using its key
 
-### Finding specific items in an array
+---
+
+## Finding specific items in an array
 
 When working with arrays of objects, we'll often have very specific questions in mind, like "How old is Sam?" To answer that question, we first need to find any people with a first name of "Sam". JavaScript arrays have a special method just for this purpose, called __`filter`__.
 
@@ -92,14 +105,14 @@ var peopleNamedSam = people.filter(function(person) {
 
 `filter` goes through each item in the array and passes it to a function we provide. If the function returns `true`, that item is added to a new array that `filter` returns. If the function returns `false`, then the item is essentially _filtered out_.
 
-It's important to note that unlike many array methods we've seen before, such as `push` and `splice`, __the original array is _not_ modified by `filter`__. Instead, we now have two arrays. There's the new array, with only people named Sam:
+It's important to note that unlike many array methods we've seen before, such as `push` and `splice`, __the original array is _not_ modified by `filter`__. Instead, we now have two arrays. There's the new array, `peopleNamedSame`, with only people named Sam:
 
 ``` js
 peopleNamedSam
 => [{ 'firstName': 'Sam', 'age': 27 }]
 ```
 
-And the original array (`people`), still contains everyone:
+And the original array, `people`, still contains everyone:
 
 ``` js
 people
@@ -153,7 +166,7 @@ Again, these two examples do _exactly_ the same thing, but one allows us to do a
 
 ### Except for keys that aren't valid variable names
 
-In order to use these shorthands, keys can't contain any characters that couldn't be in a variable name. So for example, spaces are a no no. It's technically possible to write object keys like this:
+In order to use these shorthands, keys can't contain any characters that couldn't be in a variable name. So for example, spaces are a no-no. It's technically possible to write object keys like this:
 
 ``` js
 var person = {
@@ -198,7 +211,7 @@ function findPeopleBy(attribute, value) {
 }
 ```
 
-As you may notice, we're using the long-form version `person[attribute]`, instead of `person.attribute`. What's wrong with `person.attribute` in this case? Well, the long form of that isn't `person[attribute]`, but rather `person['attribute']`. Do you see the subtle difference?
+As you may notice, we're using the long-form version `person[attribute]`, instead of `person.attribute`. What's wrong with `person.attribute` in this case? Well, the long-form of that isn't `person[attribute]`, but rather `person['attribute']`. Do you see the subtle difference?
 
 The former is passing in the value of an `attribute` variable, but the latter is passing in the literal string, `'attribute'` - which is not dynamic and certainly not what we want. This will be made clearer with examples:
 
@@ -248,13 +261,13 @@ var person = {
 }
 ```
 
-If Diya is sensitive about her age, which seems strange at 14, you could remove it with:
+If Diya decides she doesn't want to share her age, you could remove it with:
 
 ``` js
 delete person.age
 ```
 
-Now the age is gone from the person object:
+Now the age is gone from the `person` object:
 
 ``` js
 person
@@ -329,7 +342,11 @@ Now back to our JavaScript, here's how we could tell a random joke from the requ
 
 ``` js
 document.getElementById('joke-form').onsubmit = function(event) {
-  // Prevents the form from actually submitting.
+  // Prevents the form from actually submitting. Normally when a
+  // form submits, it sends information to a server. But in this
+  // case, we don't want to navigate away from the current page or
+  // do _anything_ with a server. Instead, we want to stay on the
+  // current page and run the Javascript that follows.
   event.preventDefault()
 
   // Finds the radio button that's checked and stores the value. You
