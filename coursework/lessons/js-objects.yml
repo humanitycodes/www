@@ -1,0 +1,18 @@
+title: Store information about complex, real-world things (like people!) in JavaScript
+categories:
+  - wip
+  - js
+prereqs:
+  - js-arrays
+  - advanced-css-selectors
+project:
+  title: Upgrade the todo list with objects
+  criteria:
+    - Instead of storing each todo as a string, todos are stored as objects with `title`, `description`, and `isComplete` properties
+    - The new todo input is upgraded to a `form` that collects both a title and a longer description
+    - Each todo is displayed as a `checkbox`, which will be checked if `isComplete` is `true`
+    - Each todo checkbox has a `label`, which contains the `title` of the todo
+    - The `description` of each todo is stored in the `title` attribute of the `label`, so that it appears in a tooltip when users hold their mouse over the todo
+    - For each todo, `isComplete` begins as `false`
+    - Checking or unchecking a checkbox marks its `isComplete` attribute to `true` or `false`, respectively
+    - Next to the "Clear All" button, an additional button exists to "Clear Completed"
