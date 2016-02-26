@@ -7,7 +7,7 @@
 .row
   .col-sm-6.col-sm-offset-3
     h3.text-center Apply now
-    form action="//formspree.io/hello@lansingcodelab.com" method="POST"
+    form#application action="//formspree.io/hello@lansingcodelab.com" method="POST"
       .form-group
         label for="application-name" Name
         input.form-control#application-name type="text" name="name"
@@ -16,3 +16,7 @@
         input.form-control#application-email type="email" name="_replyto"
       .form-group
         button.form-control.btn.btn-primary type="submit" Begin the journey
+
+- if Rails.env.production?
+  javascript:
+    document.forms['application'].onsubmit = function(){ ga('send', 'event', 'application', 'submit'); };

@@ -12,6 +12,12 @@ Assuming you have Ruby installed:
 bundle install
 ```
 
+And assuming you have NPM installed:
+
+``` shell
+npm install
+```
+
 Make sure Postgres is running and create the database:
 
 ``` shell
@@ -23,6 +29,8 @@ The app uses an asynchronous fetcher API that runs as a separate node app. The e
 ``` shell
 foreman start
 ```
+
+If all went well, you should be able to open http://localhost:3000/ in a web browser and see the Code Lab homepage.
 
 ### Testing
 
