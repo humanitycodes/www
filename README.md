@@ -30,6 +30,8 @@ The app uses an asynchronous fetcher API that runs as a separate node app. The e
 foreman start
 ```
 
+If all went well, you should be able to open http://localhost:3000/ in a web browser and see the Code Lab homepage.
+
 ### Testing
 
 The full test suite can be run with `bundle exec rspec`. If you'd like to keep a watcher selectively running tests in the background as you work, run `bundle exec guard`.
