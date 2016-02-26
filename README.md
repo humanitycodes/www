@@ -12,6 +12,12 @@ Assuming you have Ruby installed:
 bundle install
 ```
 
+And assuming you have NPM installed:
+
+``` shell
+npm install
+```
+
 Make sure Postgres is running and create the database:
 
 ``` shell
