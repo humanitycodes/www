@@ -2,7 +2,7 @@
 
 You know pages that save your work as you type, like on Wordpress or Google Docs? Or when a search engine shows you suggestions as you type? They're all using a technique called __Ajax__.
 
-It's when you want to _save_ information _to_ a server (like when saving work) or when you want to _get_ information _from_ a server, like with search suggestions - all while staying on the same page, without refreshing.
+It's for when you want to _save_ information _to_ a server (like when saving work) or when you want to _get_ information _from_ a server, like with search suggestions - all while staying on the same page, without refreshing.
 
 To help with this kind of work, jQuery has an `ajax` method, which makes it easy to implement features like this, often in less than a dozen lines of code!
 
@@ -15,7 +15,7 @@ $.ajax('http://yesno.wtf/api/')
   })
 ```
 
-That code gets a response from [yesno.wtf](http://yesno.wtf/), which is a website for helping you arbitrarily decide on yes/no questions. Once it receives the response, we'll send the user the answer in an alert.
+That code gets a __response__ from [yesno.wtf](http://yesno.wtf/), which is a website for helping you arbitrarily decide on yes/no questions. Once it's __done__ receiving the response, we'll run a __function__ that sends the user the response's __answer__ in an __alert__.
 
 Now let's attach that code to the `click` event of a button:
 
@@ -37,7 +37,7 @@ Now let's attach that code to the `click` event of a button:
 
 And see if it works:
 
-<p><button id="yesno-ajax-demo-button" onclick="javascript:jQuery.ajax('http://yesno.wtf/api/').done(function(response){alert(response.answer)})">Yes or No?</button></p>
+<p><button id="yesno-ajax-demo-button" onclick="javascript:setTimeout(function(){var yesno = ['yes', 'no']; alert(yesno[Math.floor(Math.random() * yesno.length)]); },100)">Yes or No?</button></p>
 
 Try that button a bunch of times. Sometimes you should get "yes" and sometimes "no", because each time you click, that JavaScript is visiting [yesno.wtf/api](http://yesno.wtf/api/) and getting a new answer.
 
@@ -47,7 +47,7 @@ Yay! That's Ajax. It might still seem a little like magic at this point, so let'
 
 ## JSON APIs: How websites talk to each other
 
-Sometimes when programming on the web, you want to fetch information from another website or even from your own website. But _you_ want to decide what to do with it. _You_ want to decide what users see.
+Sometimes when programming on the web, you want to fetch information from another website or even from your own website. But you don't want to keep it in its original formatting and context. _You_ want to decide what to do with it. _You_ want to decide what users see.
 
 Take a look at this HTML:
 
@@ -213,7 +213,7 @@ You'll even be able to interact with that object and expand it with black triang
 
 ![Exploring objects in chrome](https://www.dropbox.com/s/kizghx5yexxtd3r/Screenshot%202016-01-10%2022.43.48.png?dl=1)
 
-So we can see that one of the keys is `lessons`, whose value is an array of 32 different items. Let's grab the first one and inspect it:
+So we can see that one of the keys is `lessons`, whose value (in this case) is an array of 32 different items. Let's grab the first one and inspect it:
 
 ``` js
 testData.lessons[0]
@@ -264,7 +264,7 @@ That tells us each lesson has `categories`, a `key`, `prereqs`, a `project`, `sl
 
   <p>Then ask a friend to help you debug it and watch their increasingly confused expression as they try to figure out why any time they run `console.log`, it always prints `"sandwich"`. _Always_. And when they try to search your codebase for the word `sandwich`, they won't find it because of the way the string is being constructed.</p>
 
-  ![Gandalf debugging](https://i.imgflip.com/zzvls.jpg)
+  <p><img src="https://i.imgflip.com/zzvls.jpg" alt="Gandalf debugging"></p>
 
   <p>Don't wait _too long_ before telling them though... I don't want to be responsible for any destroyed relationships.</p>
 
@@ -276,7 +276,7 @@ That tells us each lesson has `categories`, a `key`, `prereqs`, a `project`, `sl
 
 So let's start playing with a real API and build a real feature. On many pages, you might see a loading indicator for a second, then some real data.
 
-<p><button onclick="javascript:(function(){loadingDataExampleContainer.innerHTML = '<span class=\'glyphicon glyphicon-loading\'></span> Loading...';setTimeout(function(error){loadingDataExampleContainer.innerHTML = '<ul><li><a href=\'http://www.meetup.com/GLUGnet/events/229005039/\'>Capital Area IT Council Networking Event</a></li><li><a href=\'http://www.meetup.com/Lansing-DevOps-Meetup/events/228964468/\'>Building a Bridge between AWS and Azure</a></li><li><a href=\'http://www.meetup.com/Mid-Michigan-Agile-Group/events/224510987/\'>Lean Lunch</a></li><li><a href=\'http://www.meetup.com/Lansing-Area-R-Users-Group/events/229153388/\'>R discussion and help</a></li><li><a href=\'http://www.meetup.com/PMI-Capital-Area-Chapter-Lunch-and-Learn/events/225586668/\'>Capital Area PMI Chapter Monthly Lunch and Learn</a></li><li><a href=\'http://www.meetup.com/Lansing-Ruby-Meetup-Group/events/228759282/\'>Something Involving Rails</a></li><li><a href=\'http://www.meetup.com/GLASS-Greater-Lansing-Area-for-SQL-Server/events/228876633/\'>GLASS March Meetup: Common SQL Server Mistakes and How to Avoid Them</a></li><li><a href=\'http://www.meetup.com/lansingweb/events/228742559/\'>Monthly Meetup</a></li><li><a href=\'http://www.meetup.com/Lansing-Javascript-Meetup/events/227924593/\'>Webpack (and other bundlers) with Miguel Castillo</a></li><li><a href=\'http://www.meetup.com/MoMoLansing/events/229053738/\'>Project-Based Innovation and the Fledge with Jerry Norris</a></li></ul>'}, 1000)})()">
+<p><button onclick="javascript:(function(){loadingDataExampleContainer.innerHTML = 'Loading...';setTimeout(function(error){loadingDataExampleContainer.innerHTML = '<ul><li><a href=\'http://www.meetup.com/GLUGnet/events/229005039/\'>Capital Area IT Council Networking Event</a></li><li><a href=\'http://www.meetup.com/Lansing-DevOps-Meetup/events/228964468/\'>Building a Bridge between AWS and Azure</a></li><li><a href=\'http://www.meetup.com/Mid-Michigan-Agile-Group/events/224510987/\'>Lean Lunch</a></li><li><a href=\'http://www.meetup.com/Lansing-Area-R-Users-Group/events/229153388/\'>R discussion and help</a></li><li><a href=\'http://www.meetup.com/PMI-Capital-Area-Chapter-Lunch-and-Learn/events/225586668/\'>Capital Area PMI Chapter Monthly Lunch and Learn</a></li><li><a href=\'http://www.meetup.com/Lansing-Ruby-Meetup-Group/events/228759282/\'>Something Involving Rails</a></li><li><a href=\'http://www.meetup.com/GLASS-Greater-Lansing-Area-for-SQL-Server/events/228876633/\'>GLASS March Meetup: Common SQL Server Mistakes and How to Avoid Them</a></li><li><a href=\'http://www.meetup.com/lansingweb/events/228742559/\'>Monthly Meetup</a></li><li><a href=\'http://www.meetup.com/Lansing-Javascript-Meetup/events/227924593/\'>Webpack (and other bundlers) with Miguel Castillo</a></li><li><a href=\'http://www.meetup.com/MoMoLansing/events/229053738/\'>Project-Based Innovation and the Fledge with Jerry Norris</a></li></ul>'}, 1000)})()">
   Click to fetch the upcoming tech events for the Lansing area
 </button></p>
 
@@ -292,7 +292,13 @@ So let's pop open an HTML file and add an element to contain our tech events. It
 </div>
 ```
 
-Then we'll add some JavaScript set to run as soon as the page loads. When we get a response, we change the contents of `#tech-events` to the value of `response`. As you'll see below, we're also using `JSON.stringify` to make the JSON appear on the page properly.
+Then we'll add some JavaScript set to run as soon as the page loads. Since we're using jQuery, don't forget to also include that in the page with:
+
+``` html
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+```
+
+When we get a response, we change the contents of `#tech-events` to the value of `response`. As you'll see below, we're also using `JSON.stringify` to make the JSON appear on the page properly.
 
 ``` html
 <div id="tech-events">
@@ -354,7 +360,20 @@ $.ajax('http://api.lansing.codes/v1/events/upcoming/list')
 That should produce something like this:
 
 ```
-Capital Area IT Council Networking Event,Building a Bridge between AWS and Azure,Lean Lunch,R discussion and help,Capital Area PMI Chapter Monthly Lunch and Learn,Something Involving Rails,GLASS March Meetup: Common SQL Server Mistakes and How to Avoid Them,Monthly Meetup,Webpack (and other bundlers) with Miguel Castillo,Project-Based Innovation and the Fledge with Jerry Norris
+Capital Area IT Council Networking EventBuilding a Bridge between AWS and AzureLean LunchR discussion and helpCapital Area PMI Chapter Monthly Lunch and LearnSomething Involving RailsGLASS March Meetup: Common SQL Server Mistakes and How to Avoid ThemMonthly MeetupWebpack (and other bundlers) with Miguel CastilloProject-Based Innovation and the Fledge with Jerry Norris
+```
+
+How about to start, we add a comma between each one? We can accomplish this by __joining__ all the items in our array of names into a single string with `.join(', ')`:
+
+``` js
+$.ajax('http://api.lansing.codes/v1/events/upcoming/list')
+  .done(function(response) {
+    $('#tech-events').html(
+      response.data.map(function(event) {
+        return event.attributes.name
+      }).join(', ')
+    )
+  })
 ```
 
 We're getting closer, but that presentation can definitely be improved. Let's organize these names in an unordered list, like this:
