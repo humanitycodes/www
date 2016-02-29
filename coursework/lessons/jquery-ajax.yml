@@ -1,0 +1,19 @@
+title: Load information from other websites with jQuery and Ajax
+categories:
+  - wip
+  - js
+  - jquery
+  - ajax
+prereqs:
+  - jquery-intro
+  - js-objects
+project:
+  title: Pull in a list of information from another website
+  criteria:
+    - |
+      One of the following APIs is used to list information on your website with jQuery Ajax:
+        - [Star Wars API](https://swapi.co/) (extra points if results are displayed in Wookiee)
+        - [Pokémon API](http://pokeapi.co/)
+        - [Cheapshark API](http://www.cheapshark.com/api/) (for videogame deals)
+        - [JSON Placeholder API](http://jsonplaceholder.typicode.com/) (has a lot of fake, example data)
+    - Data from the API is formatted into HTML that makes it easy to read.
