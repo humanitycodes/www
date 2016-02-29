@@ -15,5 +15,6 @@ project:
         - [Star Wars API](https://swapi.co/) (extra points if results are displayed in Wookiee)
         - [Pokémon API](http://pokeapi.co/)
         - [Cheapshark API](http://www.cheapshark.com/api/) (for videogame deals)
+        - [USDA Farmers Markets API](http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=48823)
         - [JSON Placeholder API](http://jsonplaceholder.typicode.com/) (has a lot of fake, example data)
     - Data from the API is formatted into HTML that makes it easy to read.
