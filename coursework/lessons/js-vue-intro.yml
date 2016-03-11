@@ -1,0 +1,22 @@
+title: Build complex interfaces with simple code using Vue
+categories:
+  - wip
+  - js
+  - vue
+prereqs:
+  - js-objects
+project:
+  title: Make a simple chat bot
+  criteria:
+    - There's an input box on the screen, for the user to talk to the chatbot
+    - We're keeping track of `userInput` in our `data` Vue option, which starts out as an empty string
+    - When the user types into the input box, our `userInput` data should automatically be updated
+    - We're keeping track of the chatbot's `response` in our `data` Vue option, which starts out as an empty string
+    - The `response` is displayed on the page in a `p` element below the input box
+    - If the `response` is empty, the element with the `response` inside it is NOT rendered on the page
+    - When a user presses enter inside the input box, we run a method that updates the response to contain a new string
+    - If a user enters "hi" or "hello", the bot's response updates to "Greetings, human!"
+    - If a user enters "how are you?", the response should be "I came into being through the excellent programming of my creator!"
+    - The chatbot has specific responses to at least 3 other possible inputs (you make these up)
+    - If the chatbot doesn't have a specific response to what the user entered, it randomly responds with one of at least 3 phrases to make it seem like it's listening - for example, "Very interesting! Tell me more." or "I guess that's one way to look at it."
+    - The [`.toLowerCase()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) method is used when checking what the user entered, so that it doesn't make a difference whether they type uppercase or lowercase letters
