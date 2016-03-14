@@ -10,8 +10,8 @@ That's because you have to do a _lot_ of thinking. You have to ask yourself:
 - Should I give those elements `id`s or `class`es?
 - What names should I give my `id`s and `class`es?
 - How should I organize the code?
-- How do I keep the page in sync with my latest data?
-- Which events can I attach directly to elements and which require delegation?
+- How do I make sure the page is always in sync with my data?
+- And if you're _really_ thinking ahead, which events can I attach directly to elements and which will require delegation?
 
 On top of that, you have to move any "smart" HTML into your JavaScript, so that you have to look all over the place just to see what kind of app you have. Take a look at this for example:
 
@@ -111,7 +111,8 @@ And now they want a "Clear" button to delete the name. OK, so to do that, we'll 
   }
 
   input.oninput = function (event) {
-    render(event.target.value)
+    var userName = event.target.value
+    render(userName)
   }
 
   clearButton.onclick = function () {
@@ -120,11 +121,27 @@ And now they want a "Clear" button to delete the name. OK, so to do that, we'll 
 </script>
 ```
 
-That's _almost_ enough. The input itself is still dumb. But if we just add `input.value = userName`, then we get some really weird stuff happening.
+That's _almost_ enough. While `#response-to-name` renders and clears as intended, the button doesn't actually clear the input. So we have to add something new to `render` (our function for updating the page). How about this?
 
-When we type anywhere except at the end of that input, the cursor is automatically reset to the end. That's because every time we type, `render` is overriding the value of the input with the exact same contents, forcing us out of our place.
+``` js
+function render (userName) {
+  // INPUT
+  input.value = userName
+  // RESPONSE
+  if (userName) {
+    response.innerHTML = '<p>' +
+      'Hi, ' +
+      '<strong>' + userName + '</strong>' +
+    '</p>'
+  } else {
+    response.innerHTML = ''
+  }
+}
+```
 
-It's annoying, but the fix isn't too bad. We'll just update our `render` function so that we _only_ update `input.value` when it's _not_ already equal to `userName`.
+Now we get some really weird stuff happening. If we type anywhere except at the end of that input, the cursor is reset to the end. That's because every time we type, `render` is overriding the value of the input with the exact same contents, forcing our cursor out of its place.
+
+It's annoying, but the fix isn't too bad. We'll just update our `render` function so that we _only_ update `input.value` when it's _not_ already equal to `userName` (i.e. when it's been updated, but _not_ from typing into the input).
 
 ``` js
 function render (userName) {
@@ -166,14 +183,14 @@ Since Vue is a library, let's include it in our app by adding this line to our `
 <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 ```
 
-And before we build anything, Vue likes to know which part of HTML we're going to be working in. So we'll create an element with an `id` - I'll use `app`.
+And before we build anything, Vue likes to know which part of the HTML we're going to be working in. So we'll create an element with an `id` - I'll use `app`.
 
 ``` html
 <div id="app">
 </div>
 ```
 
-Then below that, we'll create a `script` element. Inside it, we'll create a new Vue component and tell it to add some Vue magic to the `#app` `el`ement (notice we're using a handy CSS selector to target the element).
+Then below that, we'll create a `script` element. Inside it, we'll create a new Vue component and tell it to add some Vue magic to the `#app` `el`ement (notice we're using a handy CSS selector to target the element by its `id`).
 
 ``` html
 <script>
@@ -201,7 +218,7 @@ Now let's get started.
 First, we'll just have the greeting show up if the user has typed a `userName`. We'll use 3 of Vue's features to accomplish this:
 
 1. `v-model`: a special attribute that Vue provides for `input`s and `textarea`s. By setting `v-model="userName"`, we're telling Vue we want to keep track of what's typed in here and call it `userName`.
-2. `v-if`: only renders an element if something is "truthy" (i.e. exists - things that don't exist, like `null` or an empty string are "falsy")
+2. `v-if`: only renders an element if something is "truthy" (i.e. exists - things that don't exist, like `null` or an empty string, are "falsy")
 3. `{{ ... }}` allows us to inject JavaScript directly in our HTML. For example, `{{ userName }}` will show the value of `userName` at that place in the page.
 
 And here's what that looks like:
@@ -224,7 +241,7 @@ And here's what that looks like:
 
 A few things worth noting:
 
-- Apart from our container element, we didn't have to give _anything_ an id or class just to make it work with JavaScript.
+- Apart from our container element, we didn't have to give _anything_ a meaningless id or class just to make it work with JavaScript. Instead, Vue's attributes help us understand not just what something _is_, but what it _does_.
 - We didn't have to worry about events and rendering. When the data updates, the view _automatically_ updates.
 - All our HTML is in one place (no clunky adding together strings in JavaScript!)
 - Looking at our HTML, we can tell _exactly_ what our app does.
@@ -444,7 +461,7 @@ Well with `v-on`, you can add a dot (`.`) to the `keyup` and `keydown` events, t
 <input type="text" v-on:keyup.13="myMethod">
 ```
 
-Much cleaner. But... it gets _way_ better than that! Why the heck should we have to remember that the _enter_ key is key 13? Isn't that pretty dumb? Shouldn't the _computer_ remember that for us? With Vue, it does.
+Much cleaner. But... it gets _way_ better than that! Why the heck should we have to remember that the _enter_ key is key 13? Isn't that pretty annoying? Shouldn't the _computer_ remember that for us? Well with Vue, it does.
 
 For the _enter_ key and many other common keys, you can simply write its normal name, like this:
 
@@ -465,10 +482,10 @@ One of the things I love about Vue is its great community. The website features 
 So here's what you can do if you get stuck or want to do something you're not sure how to do:
 
 1. __Visit [the documentation](http://vuejs.org/guide/)__.
-  1. Browse section titles in the sidebar, looking for something related to my question.
+  1. Browse section titles in the sidebar, looking for something related to your question.
   2. If none of the section titles look relevant, use the search in the menu at the top.
 2. __Ask someone you know with more experience.__ If you're on the Lansing Codes Slack, [send me a message](https://lansingcodes.slack.com/messages/@chrisvfritz/) with your question. If you're _not_ on the Slack, [get an invite here](http://slack.lansing.codes/).
 3. __Seek help from the community__.
-  1. If my question is simple, I'll ask it in [the chat room](https://gitter.im/vuejs/vue).
-  2. If my question seems complex, I'll post it in [the forum](http://forum.vuejs.org/)
+  1. If your question is simple, ask it in [the chat room](https://gitter.im/vuejs/vue).
+  2. If your question seems complex, post it in [the forum](http://forum.vuejs.org/)
 4. If no one else is able to answer your question, leaving you with either a bug or a feature request, __seek help from Evan You (the creator of Vue)__. [Open an issue](https://github.com/vuejs/vue/issues) describing exactly what you're experiencing. As of writing, Evan resolves issues in an [average of 8 hours](http://issuestats.com/github/vuejs/vue), which is amazing!
