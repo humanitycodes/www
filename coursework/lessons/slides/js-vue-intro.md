@@ -255,7 +255,7 @@ Now for that pesky "Clear" button that caused us so much trouble before. Well, i
 <button v-on:click="userName = ''">Clear</button>
 ```
 
-_That's it._ When we want to bind events to an element, Vue gives us special attributes that start with `@`. `v-on:click` makes something happen when we click. Inside the contents of the attribute, we can run some JavaScript to set the `userName` to `''`. And we're done.
+_That's it._ When we want to bind events to an element, Vue gives us special attributes that start with `v-on`. `v-on:click` makes something happen when we click. Inside the contents of the attribute, we can run some JavaScript to set the `userName` to `''`. And we're done.
 
 While this is pretty great though, I like to keep things a little more organized. That's why Vue comes with a `methods` option, so that we can define functions for logic we want to move out of the HTML.
 
