@@ -324,7 +324,7 @@ First, it needs Vue! So typically in your `head`, you'll include:
 <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 ```
 
-Then you'll create a container element for Vue to work inside. You have to give it an `id`, but it doesn't matter what that `id` is.
+Then you'll create a container element for Vue to work inside of. You have to give it an `id`, but it doesn't matter what that `id` is.
 
 ``` html
 <div id="app">
@@ -438,13 +438,13 @@ document.getElementById('my-input').onkeyup = function (event) {
 }
 ```
 
-Well with `v-on`, you can append the `keyup` and `keydown` events with a dot (`.`) and then a number representing the specific key. So that looks like:
+Well with `v-on`, you can add a dot (`.`) to the `keyup` and `keydown` events, then add the number representing the specific key. So that looks like:
 
 ``` html
 <input type="text" v-on:keyup.13="myMethod">
 ```
 
-Much cleaner. But... it gets _way_ better than that! Why the heck should we have to remember that the _enter_ key is key 13. That's pretty dumb, right? Shouldn't the computer remember that for us? With Vue, it does.
+Much cleaner. But... it gets _way_ better than that! Why the heck should we have to remember that the _enter_ key is key 13? Isn't that pretty dumb? Shouldn't the _computer_ remember that for us? With Vue, it does.
 
 For the _enter_ key and many other common keys, you can simply write its normal name, like this:
 
@@ -468,7 +468,7 @@ So here's what you can do if you get stuck or want to do something you're not su
   1. Browse section titles in the sidebar, looking for something related to my question.
   2. If none of the section titles look relevant, use the search in the menu at the top.
 2. __Ask someone you know with more experience.__ If you're on the Lansing Codes Slack, [send me a message](https://lansingcodes.slack.com/messages/@chrisvfritz/) with your question. If you're _not_ on the Slack, [get an invite here](http://slack.lansing.codes/).
-2. __Seek help from the community__.
+3. __Seek help from the community__.
   1. If my question is simple, I'll ask it in [the chat room](https://gitter.im/vuejs/vue).
   2. If my question seems complex, I'll post it in [the forum](http://forum.vuejs.org/)
-3. If no one else is able to answer your question, leaving you with either a bug or a feature request, __seek help from Evan You (the creator of Vue)__. [Open an issue](https://github.com/vuejs/vue/issues) describing exactly what you're experiencing. As of writing, Evan resolves issues in an [average of 8 hours](http://issuestats.com/github/vuejs/vue), which is amazing!
+4. If no one else is able to answer your question, leaving you with either a bug or a feature request, __seek help from Evan You (the creator of Vue)__. [Open an issue](https://github.com/vuejs/vue/issues) describing exactly what you're experiencing. As of writing, Evan resolves issues in an [average of 8 hours](http://issuestats.com/github/vuejs/vue), which is amazing!
