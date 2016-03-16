@@ -145,6 +145,8 @@ module.exports = class LessonsMapper
       .attr 'xlink:href', (key) -> "/lessons/#{key}"
       .on 'click', (key) !->
         D3.event.prevent-default!
+        # Hide popovers to prevent them from being stored in back-button cache
+        jQuery('[data-original-title]').popover('hide')
         Turbolinks.visit D3.select(@).node!.get-attribute('href')
       .append 'circle'
         .attr 'r', @node-diameter / 2 + 10
