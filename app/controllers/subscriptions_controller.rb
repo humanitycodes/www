@@ -5,9 +5,13 @@ class SubscriptionsController < ApplicationController
 
   def new
     plan_id = if MSU_STUDENTS.include? current_user.username
-      'lcl-msu-student'
+      'lcl-msu-student' # $49
+    elsif DIVERSITY_SCHOLARSHIP_STUDENTS.include? current_user.username
+      'lcl-diversity-scholarship' # $69
+    elsif FOUNDING_STUDENTS.include? current_user.username
+      'lcl-founding-student' # $99
     else
-      'lcl-founding-student'
+      'lcl-student-mar16' # $129
     end
     @plan = Stripe::Plan.retrieve(plan_id)
   end
