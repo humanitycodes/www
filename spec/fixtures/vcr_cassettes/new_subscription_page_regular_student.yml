@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.stripe.com/v1/plans/lcl-msu-student
+    uri: https://api.stripe.com/v1/plans/lcl-student-mar16
     body:
       encoding: US-ASCII
       string: ''
@@ -29,11 +29,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 23 Mar 2016 16:02:42 GMT
+      - Wed, 23 Mar 2016 16:02:41 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '318'
+      - '304'
       Connection:
       - keep-alive
       Access-Control-Allow-Credentials:
@@ -47,7 +47,7 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store
       Request-Id:
-      - req_88VS03MiV4CWV3
+      - req_88VSnLzFfBlYJ5
       Stripe-Version:
       - '2015-10-16'
       Strict-Transport-Security:
@@ -56,19 +56,19 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "lcl-msu-student",
+          "id": "lcl-student-mar16",
           "object": "plan",
-          "amount": 4900,
-          "created": 1454198884,
+          "amount": 12900,
+          "created": 1458747366,
           "currency": "usd",
           "interval": "month",
           "interval_count": 1,
           "livemode": false,
           "metadata": {},
-          "name": "Lansing Code Lab (MSU Student)",
-          "statement_descriptor": "LANSING CODE LAB",
+          "name": "Lansing Code Lab Membership",
+          "statement_descriptor": null,
           "trial_period_days": null
         }
     http_version: 
-  recorded_at: Wed, 23 Mar 2016 16:02:41 GMT
+  recorded_at: Wed, 23 Mar 2016 16:02:40 GMT
 recorded_with: VCR 2.9.3
