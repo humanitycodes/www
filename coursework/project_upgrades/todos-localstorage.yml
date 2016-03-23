@@ -1,0 +1,17 @@
+title: Save todo list items between page loads with `localStorage`
+why: |
+  Having a fancy todo list in your browser is handy, but it's less useful if every time you refresh, you lose all your todo items. (Seems like a great excuse to not get anything done!)
+
+  Let's solve this problem by automatically saving todos in the browser as users add and remove them.
+base: js-arrays
+prereqs:
+  - localstorage-intro
+resources:
+  -
+    title: how to store an Array in localStorage?
+    source: Stack Overflow
+    url: http://stackoverflow.com/questions/3357553/how-to-store-an-array-in-localstorage
+criteria:
+  - When the page is loaded, any previously saved todos are retrieved from `localStorage` - defaulting to an empty array (`[]`) if none exist
+  - Whenever the array of todos is modified, the new todos are saved to `localStorage`
+  - A note is displayed in a `footer` letting users know that their todos are autosaved
