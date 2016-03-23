@@ -1,0 +1,13 @@
+title: Rails bootstrap
+draft: true
+categories:
+  - wip
+  - ruby
+  - rails
+  - bootstrap
+prereqs:
+  - rails-intro
+project:
+  title: arst
+  criteria:
+    - arst

@@ -1,0 +1,13 @@
+title: Rails simple form
+draft: true
+categories:
+  - wip
+  - ruby
+  - rails
+prereqs:
+  - rails-database-intro
+  - rails-organizing-scss
+project:
+  title: arst
+  criteria:
+    - arst
