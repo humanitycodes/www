@@ -1,0 +1,21 @@
+h1
+  =' @lesson.project['title']
+  span.text-muted title="#{@popularity_score}% of students who are ready for this lesson have submitted the project"
+    | (#{@popularity_score})
+
+h2 Criteria
+ul
+  - @lesson.project['criteria'].each do |criterion|
+    li= criterion
+
+- if @approved_user_lessons.any?
+  h2 Code Review Examples
+  ul
+    - @approved_user_lessons.each do |user_lesson|
+      li= link_to user_lesson.user.username, "https://github.com/#{user_lesson.user.username}/codelab-#{user_lesson.lesson.key}/issues/#{user_lesson.lesson.project['issue']}"
+
+- if @ongoing_user_lessons.any?
+  h2 Students Currently Working
+  ul
+    - @ongoing_user_lessons.each do |user_lesson|
+      li= link_to user_lesson.user.username, "https://github.com/#{user_lesson.user.username}/codelab-#{user_lesson.lesson.key}/issues/#{user_lesson.lesson.project['issue']}"

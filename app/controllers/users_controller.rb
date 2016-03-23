@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
     @presenter = @presenter.merge({
       lessons: Lesson.all(@user, force_refresh: params[:force]),
-      eventTimes: eventTimes,
+      eventTimes: event_times,
       presentedUser: @user
     })
   end

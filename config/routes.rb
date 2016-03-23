@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/lessons/search' => 'lessons#search'
   get '/lessons' => 'lessons#index'
+  get '/lessons/:key/project' => 'lessons#project'
   get '/lessons/:key/:page' => 'lessons#show'
   get '/lessons/:key', to: redirect('/lessons/%{key}/1')
 
