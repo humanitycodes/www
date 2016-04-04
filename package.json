@@ -12,6 +12,7 @@
   "dependencies": {
     "arch-dom": "^0.14.0",
     "bootstrap": "^3.3.5",
+    "cuid": "^1.3.8",
     "d3": "git+https://github.com/layar/d3.git#49077acd0c847f9dc9811efb96d963e323d32a54",
     "dagre-d3": "^0.4.10",
     "fs": "0.0.2",

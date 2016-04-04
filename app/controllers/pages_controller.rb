@@ -12,10 +12,4 @@ class PagesController < ApplicationController
     }
   end
 
-  def students
-    @presenter = {
-      students: Student.all
-    }
-  end
-
 end

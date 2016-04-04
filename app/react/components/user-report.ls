@@ -1,4 +1,5 @@
 require! {
+  './card': Card
   './lessons-map': LessonsMap
   './user-report-lessons': UserReportLessons
   './user-report-github-activity': UserReportGithubActivity
@@ -11,7 +12,9 @@ module.exports = class UserReport extends React.Component
 
   render: ->
     $div do
+      $h2 'User stats for ' + @props.presented-user.name
       $(LessonsMap) { ...@props }
-      $(UserReportGithubActivity) { ...@props }
-      $(UserReportLessons) { ...@props }
-      # $(User)
+      $(Card) do
+        $(UserReportGithubActivity) { ...@props }
+      $(Card) do
+        $(UserReportLessons) { ...@props }

@@ -1,8 +1,13 @@
 require! {
   'd3': D3
+  cuid
 }
 
 module.exports = class UserReportLessons extends React.Component
+
+  (props) ->
+    super props
+    @wrapper-id = 'user-report-lessons-' + cuid!
 
   render-graph: (container-id, lessons) !->
     $container = jQuery('#' + container-id)
@@ -118,7 +123,7 @@ module.exports = class UserReportLessons extends React.Component
     window.add-event-listener 'resize', @component-did-mount, false
 
   component-did-mount: !~>
-    @render-graph 'user-report-lessons', @props.lessons
+    @render-graph @wrapper-id, @props.lessons
 
   component-will-unmount: !->
     window.remove-event-listener 'resize', @component-did-mount, false
@@ -134,14 +139,14 @@ module.exports = class UserReportLessons extends React.Component
       $h3 do
         $strong "#{current-month-approval-count / 4} lessons per week"
         ' over the last month'
-      $div id: 'user-report-lessons'
+      $div id: @wrapper-id
       $style do
         """
-        \#user-report-lessons .axis path,
-        \#user-report-lessons .axis line {
-            fill: none;
-            stroke: grey;
-            stroke-width: 1;
-            shape-rendering: crispEdges;
+        ##{@wrapper-id} .axis path,
+        ##{@wrapper-id} .axis line {
+          fill: none;
+          stroke: grey;
+          stroke-width: 1;
+          shape-rendering: crispEdges;
         }
         """

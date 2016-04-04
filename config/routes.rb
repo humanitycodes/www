@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'students/index'
+
   constraints lambda { |req| req.session[:user_id].present? } do
     root to: redirect('/lessons'), as: :authenticated_root
   end
@@ -22,10 +24,10 @@ Rails.application.routes.draw do
   post '/repositories/:key/submit' => 'repositories#submit'
 
   get '/team' => 'pages#staff'
-  get '/students' => 'pages#students'
   get '/students-guide' => 'pages#students_guide'
 
   resources :users, only: [:edit, :show]
+  resources :students, only: [:index]
 
   resource :subscription, except: [:show]
   post "/stripe-webhook-#{Rails.application.secrets[:stripe][:webhook_hash]}" => 'subscriptions#webhook'

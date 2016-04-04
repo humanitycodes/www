@@ -1,8 +1,13 @@
 require! {
   'd3': D3
+  cuid
 }
 
 module.exports = class UserReportGithubActivity extends React.Component
+
+  (props) ->
+    super props
+    @wrapper-id = 'user-report-github-activity-' + cuid!
 
   render-graph: (container-id, event-times) !->
     $container = jQuery('#' + container-id)
@@ -92,7 +97,7 @@ module.exports = class UserReportGithubActivity extends React.Component
     window.add-event-listener 'resize', @component-did-mount, false
 
   component-did-mount: !~>
-    @render-graph 'user-report-github-activity', @props.event-times
+    @render-graph @wrapper-id, @props.event-times
 
   component-will-unmount: !->
     window.remove-event-listener 'resize', @component-did-mount, false
@@ -110,14 +115,14 @@ module.exports = class UserReportGithubActivity extends React.Component
           events-in-last-month.length
           ' actions on GitHub'
         ' in the last month'
-      $div id: 'user-report-github-activity'
+      $div id: @wrapper-id
       $style do
         """
-        \#user-report-github-activity .axis path,
-        \#user-report-github-activity .axis line {
-            fill: none;
-            stroke: grey;
-            stroke-width: 1;
-            shape-rendering: crispEdges;
+        ##{@wrapper-id} .axis path,
+        ##{@wrapper-id} .axis line {
+          fill: none;
+          stroke: grey;
+          stroke-width: 1;
+          shape-rendering: crispEdges;
         }
         """
