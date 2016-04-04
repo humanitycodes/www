@@ -80,7 +80,7 @@ module.exports = class LessonsMapper
       const distance-between-graph-edge-and-container-limit = @container-width - @margin-x * 2 - draw-width
       const min-x = D3.min [ 0, distance-between-graph-edge-and-container-limit ]
       const max-x = D3.max [ distance-between-graph-edge-and-container-limit, 0 ]
-      const translation = if translate-to then translate-to else D3.event.translate.0
+      const translation = if translate-to then translate-to else D3.event?translate?0
       const new-x = D3.min [ D3.max([ translation, min-x ]), max-x ]
       @zoomer.translate [new-x, 0]
       @svg-inner.attr 'transform', "translate(#{new-x},0)"
