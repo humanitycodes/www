@@ -1,5 +1,4 @@
 class LessonsController < ApplicationController
-
   def search
     @pages = Lesson.search params[:query], current_user
   end
@@ -27,6 +26,12 @@ class LessonsController < ApplicationController
     unless lesson
       flash.now[:alert] = "There isn't a lesson with the key: #{params[:key]}"
       render and return
+    end
+    begin
+      authorize! :show, lesson
+    rescue CanCan::AccessDenied
+      redirect_to new_subscription_path, alert: 'You must be subscribed to Code Lab to complete more than 3 lessons.'
+      return
     end
     @presenter = @presenter.merge({
       lesson: lesson,

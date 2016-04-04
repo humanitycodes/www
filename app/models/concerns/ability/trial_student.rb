@@ -8,4 +8,13 @@ module Concerns::Ability::TrialStudent
     end
   end
 
+  def lesson_abilities
+    can :show, Lesson do |lesson|
+      lesson.project['status'] == 'approved' ||
+        @user.lesson_statuses.values.select do |status|
+          status == 'approved'
+        end.count <= 3
+    end
+  end
+
 end

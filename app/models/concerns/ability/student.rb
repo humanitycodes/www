@@ -6,4 +6,8 @@ module Concerns::Ability::Student
     end
   end
 
+  def lesson_abilities
+    can :show, Lesson
+  end
+
 end

@@ -18,10 +18,8 @@ class Ability
       return developer_abilities if is_staff_with_role user, :developer
       return leader_abilities    if is_staff_with_role user, :leader
       return mentor_abilities    if is_staff_with_role user, :mentor
-      student_abilities
-      # TODO: Once we have everyone signed up through the new system, we'll remove the line above and uncomment the lines below.
-      # return student_abilities   if user.subscribed?
-      # trial_student
+      return student_abilities   if user.subscribed?
+      trial_student_abilities
     else
       anonymous_abilities
     end
