@@ -8,6 +8,14 @@ class User < ActiveRecord::Base
 
   acts_as_voter
 
+  scope :subscribed, -> {
+    where(
+      id: CustomerIdentity.where(
+        id: Subscription.pluck(:customer_identity_id)
+      ).pluck(:user_id)
+    )
+  }
+
   def to_param
     username
   end
