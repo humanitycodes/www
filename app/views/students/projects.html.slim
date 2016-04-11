@@ -1,0 +1,13 @@
+h1 Outstanding projects
+
+- if @presenter['lessons'].any?
+
+  ul
+    - @presenter['lessons'].each do |lesson|
+      li
+        = link_to "https://github.com/#{lesson['user']['username']}/codelab-#{lesson['key']}/issues/#{lesson['project']['issue']}" do
+          | #{lesson['user']['name']}: #{lesson['title']}
+
+- else
+
+  p There are no subscribed or active users with outstanding submitted projects.

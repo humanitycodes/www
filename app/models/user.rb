@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
 
   acts_as_voter
 
+  scope :active, -> {
+    where('updated_at > ?', 2.months.ago)
+  }
+
   scope :subscribed, -> {
     where(
       id: CustomerIdentity.where(
