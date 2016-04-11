@@ -71,17 +71,3 @@
   roles:
     - Leader
     - Mentor
--
-  name: Kiera Wheatley
-  title: Mentor
-  bio: Hi! My name is Kiera Wheatley and I'm a Computer Science major at Michigan State University. I will be graduating in the Spring. I am pursuing a career in software development. I love video games and steak.
-  tech: Beyond the languages we use for web development, I could also mentor C++, C, and C# confidently.
-  contact_methods:
-    -
-      type: GitHub
-      body: kieraw
-    -
-      type: LinkedIn
-      body: kiera-wheatley
-  roles:
-    - Mentor
