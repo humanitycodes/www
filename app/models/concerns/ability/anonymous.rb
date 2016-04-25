@@ -4,4 +4,8 @@ module Concerns::Ability::Anonymous
     can :read, User
   end
 
+  def lesson_abilities
+    can :read, Lesson
+  end
+
 end
