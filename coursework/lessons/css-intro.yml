@@ -16,4 +16,4 @@ project:
     - Include at least one instance of the `line-height` property.
     - All properties must have a visible effect.
     - Return no errors (warnings are OK) when the HTML document is uploaded to the [W3C Markup Validation Service](http://validator.w3.org/#validate_by_upload)
-    - Return no errors or warnings when contents of your CSS are pasted into [CSS Lint](http://csslint.net/)
+    - Return no errors (warnings are OK) when contents of your CSS are pasted into [CSS Lint](http://csslint.net/)
