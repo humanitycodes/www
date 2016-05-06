@@ -1,3 +1,13 @@
 img {
   max-width: 100%;
 }
+
+.lesson-slide {
+  img {
+    @extend .thumbnail;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+  }
+}

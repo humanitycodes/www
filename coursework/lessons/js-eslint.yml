@@ -1,0 +1,15 @@
+title: Writing great code without needing self-discipline
+categories:
+  - wip
+  - js
+  - linting
+prereqs:
+  - js-arrays
+project:
+  title: Hello fix my code plz
+  criteria:
+    - >
+      [This HTML file](https://gist.github.com/chrisvfritz/934c7cef66c524c185fed50c5b3f47c1) is used as a base for the project
+    - The project folder contains a properly configured `.eslintrc.js` file
+    - All linting errors in the `script` tag are fixed (so no red dots appear in Atom)
+    - Every feature of the todo app works correctly, with no errors ever appearing in the JavaScript console

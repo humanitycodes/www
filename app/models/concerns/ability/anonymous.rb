@@ -1,11 +1,11 @@
 module Concerns::Ability::Anonymous
 
   def user_abilities
-    can :read, User
+    can :read, ::User
   end
 
   def lesson_abilities
-    can :read, Lesson
+    can :read, ::Lesson
   end
 
 end
