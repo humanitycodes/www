@@ -70,7 +70,7 @@ If you're not using Atom, I recommend Googling `name-of-my-preferred-editor esli
 
 ---
 
-## Configure ESLint for your project
+## Configuring ESLint for your project
 
 First, you need a project. So go ahead and start the project for this lesson by creating the GitHub repo and cloning it. Then add [this HTML file](https://gist.github.com/chrisvfritz/934c7cef66c524c185fed50c5b3f47c1) to your project. It's a mess and it's broken. We're going to use ESLint to clean it up and fix it.
 
