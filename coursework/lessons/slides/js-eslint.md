@@ -4,9 +4,9 @@ Humans are _amazing_ at recognizing patterns. Take a look at this for example:
 
 ![Scatterplot](http://homer.salk.edu/homer/ngs/scatterLog.png)
 
-I have no idea what this is measuring and you probably don't either, but you've probably already drawn a line in your mind mapping the relationship. And your eyes have also likely wandered over to those outliers on the right. What's up with them? These outliers immediately grab your interest.
+I have no idea what this is measuring and you probably don't either, but you've probably already drawn a line in your mind mapping the relationship. And your eyes have also likely wandered over to those outliers on the right. What's up with them? They don't seem to follow the pattern, so they tend to grab your interest.
 
-When browsing code, you see outliers too. Take a look at this for example:
+Our eyes also notice outliers when reading code. Take a look at this for example:
 
 ``` js
 function blah () {
@@ -30,9 +30,11 @@ function arst () {
 }
 ```
 
-Over by the `something` function, you'll notice a few inconsistencies. This is really distracting. And when debugging, your brain will keep dragging you back here, even if there's nothing technically wrong with that code, because it breaks the pattern.
+Over by the `something` function, you'll notice a few inconsistencies. You might not be able to _help_ but notice them. They're distracting. And when debugging, your brain will keep dragging you back here - even if there's nothing technically wrong with that code - simply because it breaks the pattern.
 
-But staying consistent all the time is annoying. It requires self-discipline and making _a lot_ of decisions about your code, like where to have a space, or not a space, or where you indent, etc. Fortunately, there are programs that can help us write better code.
+What's worse, is that when we get used to seeing inconsistencies everywhere, we get worse at noticing actual errors. They blend in. Then we bang our heads against the wall when for some reason, our code doesn't seem to be working.
+
+But staying consistent all the time is annoying. It requires self-discipline and making _a lot_ of decisions about your code, like where to have a space, or no space, or where to indent, etc. Fortunately, there are programs that can help us write better code.
 
 When I write that bad code in Atom, this is what I see:
 
@@ -40,7 +42,7 @@ When I write that bad code in Atom, this is what I see:
 
 It immediately tells me what's wrong! I don't have to worry about making a silly mistake or waiting to hear what could be better in a code review. I can fix it right now.
 
-This kind of tool is called a __linter__. It gives us information about our code _as we write it_ to help us immediately work out inconsistencies, typos, and even errors.
+This kind of tool is called a __linter__. My guess is it's called a linter in reference to undesired laundry or pocket lint. It helps us find _code lint_, by giving us information about our code _as we write it_ so that we can immediately work out inconsistencies, typos, and even errors.
 
 ---
 
@@ -51,6 +53,8 @@ My favorite tool for catching these problems in JavaScript is ESLint. It's relat
 But before we can use it, we have to install it. Note that these steps only have to be done _once_ per computer.
 
 ### 1. Install the ESLint packages we need
+
+Run this in the terminal (note that it may take a few minutes):
 
 ``` sh
 npm install --global eslint eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-html
@@ -64,7 +68,8 @@ In Atom:
 2. Click on `Install` in the left sidebar
 3. Search for `linter-eslint` and click its blue `Install` button
 4. Click on the `Settings` button for `linter-eslint`
-5. Make sure `Lint HTML files` is checked
+5. Make sure `Lint HTML files` and `Use global ESLint installation` are checked
+6. Restart Atom
 
 If you're not using Atom, I recommend Googling `name-of-my-preferred-editor eslint plugin`
 
