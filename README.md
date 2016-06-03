@@ -12,7 +12,7 @@ Assuming you have Ruby installed:
 bundle install
 ```
 
-> ###### TIP
+> ###### :exclamation: TIP
 > If you get the following error:
 > ```
 > An error occurred while installing pg (0.18.4), and Bundler cannot continue.
