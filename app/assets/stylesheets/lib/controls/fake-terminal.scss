@@ -1,0 +1,11 @@
+.transparent {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  background: rgba(0,0,0,0.8);
+  color: #aab1be;
+  border: none;
+  padding: 1em;
+
+  &:focus { outline: none; }
+}

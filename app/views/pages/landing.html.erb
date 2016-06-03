@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   
   <title>Lansing Code Lab</title>
-  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta property="og:determiner" content="the">
   <meta name="og:title" content="Lansing Code Lab">
   
@@ -35,7 +37,7 @@
   <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'landing', media: 'all', 'data-turbolinks-track' => true %>
 
   <% if Rails.env.production? %>
     <%= render 'layouts/rollbar_js' %>
@@ -46,6 +48,7 @@
   </script>
   
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'typer' %>
   
   <% if Rails.env.development? %>
     <%= render 'layouts/react_hot_assets' %>
@@ -57,14 +60,10 @@
 <body>
   <%== render 'layouts/main_nav' %>
   <div class="container">
-    <%== render 'layouts/flash_messages' %>
-
     <div class="jumbotron text-center">
-      <h1>Lansing Code Lab</h1>
       <h2 style="font-family: Consolas, Lucida Console, monospace">
-        <input class="transparent" autofocus="true" value="learn to code" onfocus="this.value = this.value">
+        <textarea class="transparent" autofocus="true" rows="5" onfocus="Typer.type(this, 'Build Real Things.\n\nWith Real People.\n\nFrom Day One.')"></textarea>
       </h2>
-      <p class="h2">for $129 / month</p>
     </div>
     
     <div class="row">
@@ -80,7 +79,7 @@
             <input id="application-email" class="form-control" type="text" name="_replyto">
           </div>
           <div class="form-group">
-            <button class="form-control btn btn-primary" type="submit">Begin the journey</button>
+            <button class="form-control btn btn-primary" type="submit">Tell me more</button>
           </div>
         </form>
       </div>
