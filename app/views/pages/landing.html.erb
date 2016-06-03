@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Lansing Code Lab</title>
+  
+  <meta property="og:determiner" content="the">
+  <meta name="og:title" content="Lansing Code Lab">
+  
+  <meta name="description" content="Learn to code in Lansing, Michigan by building real websites and get help from professional developers.">
+  <meta property="og:description" content="Learn to code in Lansing, Michigan by building real websites and get help from professional developers.">
+
+  <meta name="keywords" content="lansing mi,lansing code lab,the code lab,the lansing code lab,learn to code,learn to code lansing mi,coding resources,programming resources,without college,be a programmer,programming,programmer,code,coding,development,make websites,build websites,learn html,learn css,learn javascript,learn ruby">
+
+  <meta name="geo.region" content="US-MI">
+  <meta name="geo.placename" content="Greater Lansing">
+  <meta name="geo.position" content="42.734552;-84.480615">
+  <meta name="ICBM" content="42.734552, -84.480615">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="#{request.url}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Lansing Code Lab">
+  
+  <meta property="og:image" content="#{image_url 'lansing-codes-logo.svg'}">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+  
+  <meta property="fb:admins" content="2327791">
+  <meta property="fb:admins" content="2335756">
+  <meta property="fb:admins" content="1261535380">
+
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <% if Rails.env.production? %>
+    <%= render 'layouts/rollbar_js' %>
+  <% end if %>
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-73509402-1', 'auto'); ga('send', 'pageview');
+  </script>
+  
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <% if Rails.env.development? %>
+    <%= render 'layouts/react_hot_assets' %>
+  <% end if %>
+  
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>
+<body>
+  <%== render 'layouts/main_nav' %>
+  <div class="container">
+    <%== render 'layouts/flash_messages' %>
+
+    <div class="jumbotron text-center">
+      <h1>Lansing Code Lab</h1>
+      <h2 style="font-family: Consolas, Lucida Console, monospace">
+        <input class="transparent" autofocus="true" value="learn to code" onfocus="this.value = this.value">
+      </h2>
+      <p class="h2">for $129 / month</p>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h3 class="text-center">Apply now</h3>
+        <form id="application" action="//formspree.io/hello@lansingcodelab.com" method="POST">
+          <div class="form-group">
+            <label for="application-name">Name</label>
+            <input id="application-name" class="form-control" type="text" name="name">
+          </div>
+          <div class="form-group">
+            <label for="application-email">Email</label>
+            <input id="application-email" class="form-control" type="text" name="_replyto">
+          </div>
+          <div class="form-group">
+            <button class="form-control btn btn-primary" type="submit">Begin the journey</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <% if Rails.env.production? %>
+    <script type="text/javascript">
+      document.forms['application'].onsubmit = function(){ ga('send', 'event', 'application', 'submit'); };
+    </script>
+    <% end if %>
+  </div>
+</body>
+</html>
+
+<!--
+/ Build Real Things. With Real People. From Day One.
+/ 
+/ "I joined CodeLab to learn how to build real apps.  I found it hard to stay committed to self-driven 'learn to code' programs that relied solely on personal motivation to consistently advance.   CodeLab provides the step-by-step structure and human touch that I need to stay on track." - Michael Henry, Founder, Cork CRM
+/ 
+/ We can help you achieve your code goals (for real).
+/ 
+/ Real-world development environments
+/ One-on-one support and accountability from personal trainers
+/ Lessons tailored to your individual learning goals
+/ Learn at home and at our lab (Monday and Wednesday evenings)
+/ No experience required
+/ 
+/ [Call to action form & button: Tell me more]
+/ Ready to get started? Submit an interest form and we'll set up an orientation for you! Your first three lessons are free.
+/ Code Lab membership costs $129 a month after that. 
+-->
