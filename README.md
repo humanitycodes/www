@@ -12,6 +12,17 @@ Assuming you have Ruby installed:
 bundle install
 ```
 
+> ###### TIP
+> If you get the following error:
+> ```
+> An error occurred while installing pg (0.18.4), and Bundler cannot continue.
+> Make sure that `gem install pg -v '0.18.4'` succeeds before bundling.
+> ```
+> Run the following command to install `pg` and then rerun `bundle install`:
+> ``` shell
+> sudo env ARCHFLAGS="-arch x86_64" gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
+> ```
+
 And assuming you have NPM installed:
 
 ``` shell
