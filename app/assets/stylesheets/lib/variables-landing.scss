@@ -1,17 +1,1 @@
-$body-bg: #3e79b9;
-
-$navbar-default-bg: rgba(0,0,0,0.3);
-$navbar-default-color: #f9f9f9;
-$navbar-default-link-color: $navbar-default-color;
-$navbar-default-link-active-color: $navbar-default-color;
-$navbar-default-link-hover-color: $navbar-default-link-color;
-
-$navbar-default-brand-color: #fff;
-$navbar-default-brand-active-color: $navbar-default-brand-color;
-$navbar-default-brand-hover-color: $navbar-default-brand-color;
-
-$navbar-height: 75px;
-$navbar-border-radius: 0;
-$navbar-default-border: fade_out($navbar-default-bg, 0.25);
-
-$btn-border-radius-base: 3px;
+$terminal-bg: lighten(#000, 15%);

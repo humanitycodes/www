@@ -14,6 +14,6 @@ var Typer = Typer || {};
     e.value += text[start++];
     window.setTimeout(function() {
       Typer.type(e, text, start);
-    }, Math.floor(Math.random() * 100) + (text[start] === '\n' ? 350 : 50));
+    }, Math.floor(Math.random() * 80) + (text[start] === '\n' ? 250 : 40));
   };
 }();
