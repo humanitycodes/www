@@ -41,8 +41,8 @@
 -
   name: Erik Gillespie
   title: Outreach Director
-  bio: I'm a professional juggler of coding, board gaming, writing, parenting, and businessing. The coding and businessing happens at <a href="http://technicalrex.com/" target="_blank">Technical Rex</a>, board gaming with anyone who says yes, writing on <a href="http://geekandsundry.com/author/erikgillespie/" target="_blank">Geek & Sundry</a>, and evidence of parenting can be found on my <a href="http://gillespieproject.com/" target="_blank">blog</a>.
-  tech: Java, JavaScript (client- and server-side), SQL, shell scripting (including just getting around the terminal). More abstract things such as HTTP and REST. Not-coding-but-handy-for-coders things like Inkscape and Gimp, agile concepts, unit testing, and application security.
+  bio: Besides my preoccupation with coding and business, I'm also a dad, board gamer, and blogger (I write about all of the above). I love jibber jabbering about all of these, so ask me about one of them some time!
+  tech: Java, JavaScript, Node, REST, Inkscape, Gimp, agile concepts, unit testing, application security, yada yada yada.
   contact_methods:
     -
       type: GitHub
@@ -51,23 +51,14 @@
       type: Email
       body: erik.gillespie@gmail.com
     -
-      type: Stack Overflow
-      body: erik-gillespie
-      url: http://stackoverflow.com/users/1696044/erik-gillespie/
-    -
       type: LinkedIn
       body: eriklgillespie
     -
       type: Twitter
       body: eriklgillespie
     -
-      type: Blog
-      body: The Gillespie Project
-      url: http://gillespieproject.com/
-    -
       type: Business
-      body: Technical Rex
-      url: http://technicalrex.com/
+      body: http://givingjar.org
   roles:
     - Leader
     - Mentor
