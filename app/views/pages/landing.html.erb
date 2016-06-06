@@ -58,12 +58,48 @@
   <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-  <%== render 'layouts/main_nav' %>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" data-target="#navbar_links" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to root_path, class: 'navbar-brand' do %>
+          <%= image_tag 'lansing-codes-logo.svg' %>
+          Lansing Code Lab
+        <% end %>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar_links">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Team', team_path %></li>
+          <li><a href="http://blog.lansingcodelab.com/" target="_blank">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to '/auth/github' do %>
+              <span class="glyphicon glyphicon-log-in"></span> Sign in with GitHub
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
   <div class="container">
-    <div class="jumbotron text-center">
-      <h2 style="font-family: Consolas, Lucida Console, monospace">
-        <textarea class="transparent" autofocus="true" rows="5" onfocus="Typer.type(this, 'Build Real Things.\n\nWith Real People.\n\nFrom Day One.')"></textarea>
-      </h2>
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h2 style="font-family: Consolas, Lucida Console, monospace">
+          <textarea class="transparent" autofocus="true" rows="5" columns="18" onfocus="Typer.type(this, 'Build Real Things.\n\nWith Real People.\n\nFrom Day One.')"></textarea>
+        </h2>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h2 style="font-family: Consolas, Lucida Console, monospace">
+          <textarea class="transparent" autofocus="true" rows="5" columns="18" onfocus="Typer.type(this, 'Build Real Things.\n\nWith Real People.\n\nFrom Day One.')"></textarea>
+        </h2>
+      </div>
     </div>
     
     <div class="row">
