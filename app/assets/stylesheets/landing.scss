@@ -13,10 +13,9 @@
 @import 'lib/controls/fake-terminal';
 
 body {
-  background-image: linear-gradient(
-      fade_out($body-bg, 0.3), 
-      fade_out($body-bg, 0.3)
-    ), url(/images/code-lab-grayscale.jpg);
+  background-image:
+    linear-gradient(fade_out($body-bg, 0.3), fade_out($body-bg, 0.3)),
+    url(/images/code-lab-grayscale.jpg);
   background-size: cover, cover;
   background-repeat: repeat, no-repeat;
 }
