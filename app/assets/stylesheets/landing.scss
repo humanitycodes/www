@@ -12,9 +12,12 @@
 @import 'lib/components/jumbotron';
 @import 'lib/controls/fake-terminal';
 
-.pitch {
-  color: $navbar-default-brand-color;
-  
+.call-to-action {
+  color: $call-to-action-color;
+  background-color: $call-to-action-bg;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
   h2 {
     margin-top: 0;
     font-weight: bold;
@@ -28,10 +31,27 @@
   h3 {
     margin-top: 0;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2em;
   }
   
   p {
     margin-top: 2em;
+  }
+}
+
+.application {
+  color: $application-color;
+  background-color: $application-bg;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid darken($application-bg, 8%);
+  
+  h3 {
+    font-weight: bold;
+  }
+  
+  button {
+    width: 50%;
+    margin-left: 25%;
   }
 }
