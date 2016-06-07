@@ -106,12 +106,14 @@
   background-color: $features-bg;
   padding: 30px;
   text-align: center;
+  font-size: 1.2em;
   
-  .lane {
+  .feature {
     padding: 20px;
   }
   
   .icon {
+    color: $features-icon-color;
     display: block;
     font-size: 2em;
     line-height: 1.7em;
