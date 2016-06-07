@@ -59,6 +59,8 @@
 
 .testimonial {
   color: $testimonial-color;
+  padding: 50px;
+
   background-image:
     linear-gradient(
       fade_out(darken($testimonial-bg, 20%), 0.3),
@@ -68,9 +70,7 @@
   background-position: center, 0 20%;
   background-size: cover, cover;
   background-repeat: repeat, no-repeat;
-  
-  padding: 50px;
-  
+    
   figure {
     font-style: italic;
     padding: 20px;
@@ -98,5 +98,22 @@
         fade_out(darken($testimonial-bg, 45%), 0.3),
         transparent
       );
+  }
+}
+
+.features {
+  color: $features-color;
+  background-color: $features-bg;
+  padding: 30px;
+  text-align: center;
+  
+  .lane {
+    padding: 20px;
+  }
+  
+  .icon {
+    display: block;
+    font-size: 2em;
+    line-height: 1.7em;
   }
 }

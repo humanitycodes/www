@@ -156,6 +156,33 @@
     </div>
   </div>
   
+  <div class="container-fluid features">
+    <div class="row lane">
+      <div class="col-sm-2 col-sm-offset-5">
+        <div class="glyphicon glyphicon-off icon"></div>No experience required
+      </div>
+    </div>
+    <div class="row lane">
+      <div class="col-sm-2 col-sm-offset-2">
+        <div class="glyphicon glyphicon-user icon"></div>One-on-one support and accountability from personal trainers
+      </div>
+      <div class="col-sm-2 col-sm-offset-1">
+        <div class="glyphicon glyphicon-wrench icon"></div>Practical projects with every lesson, or bring your own
+      </div>
+      <div class="col-sm-2 col-sm-offset-1">
+        <div class="glyphicon glyphicon-home icon"></div>Learn at home and at our lab (Monday and Wednesday evenings)
+      </div>
+    </div>
+    <div class="row lane">
+      <div class="col-sm-2 col-sm-offset-3">
+        <div class="glyphicon glyphicon-heart icon"></div>Lessons tailored to your individual learning goals
+      </div>
+      <div class="col-sm-2 col-sm-offset-2">
+        <div class="glyphicon glyphicon-briefcase icon"></div>Real-world development environments
+      </div>
+    </div>
+  </div>
+  
   <% if Rails.env.production? %>
   <script type="text/javascript">
     document.forms['application'].onsubmit = function(){ ga('send', 'event', 'application', 'submit'); };
@@ -163,21 +190,3 @@
   <% end if %>
 </body>
 </html>
-
-<!--
-/ Build Real Things. With Real People. From Day One.
-/ 
-/ "I joined CodeLab to learn how to build real apps.  I found it hard to stay committed to self-driven 'learn to code' programs that relied solely on personal motivation to consistently advance.   CodeLab provides the step-by-step structure and human touch that I need to stay on track." - Michael Henry, Founder, Cork CRM
-/ 
-/ We can help you achieve your code goals (for real).
-/ 
-/ Real-world development environments
-/ One-on-one support and accountability from personal trainers
-/ Lessons tailored to your individual learning goals
-/ Learn at home and at our lab (Monday and Wednesday evenings)
-/ No experience required
-/ 
-/ [Call to action form & button: Tell me more]
-/ Ready to get started? Submit an interest form and we'll set up an orientation for you! Your first three lessons are free.
-/ Code Lab membership costs $129 a month after that. 
--->
