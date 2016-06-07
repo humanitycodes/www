@@ -12,6 +12,11 @@
 @import 'lib/components/jumbotron';
 @import 'lib/controls/fake-terminal';
 
+.love {
+  color: #fc568d;
+  padding: 5px;
+}
+
 .call-to-action {
   color: $call-to-action-color;
   background-color: $call-to-action-bg;
