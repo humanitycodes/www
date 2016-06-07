@@ -15,7 +15,7 @@
 .call-to-action {
   color: $call-to-action-color;
   background-color: $call-to-action-bg;
-  padding-top: 15px;
+  padding-top: 10px;
   padding-bottom: 15px;
 
   h2 {
@@ -42,16 +42,61 @@
 .application {
   color: $application-color;
   background-color: $application-bg;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   border-top: 1px solid darken($application-bg, 8%);
-  
+
   h3 {
     font-weight: bold;
+    margin: 12px 0 24px;
   }
-  
+
   button {
     width: 50%;
     margin-left: 25%;
+  }
+}
+
+.testimonial {
+  color: $testimonial-color;
+  background-image:
+    linear-gradient(
+      fade_out(darken($testimonial-bg, 20%), 0.3),
+      fade_out(darken($testimonial-bg, 20%), 0.3)
+    ),
+    url(/images/code-lab-grayscale.jpg);
+  background-position: center, 0 20%;
+  background-size: cover, cover;
+  background-repeat: repeat, no-repeat;
+  
+  padding: 50px;
+  
+  figure {
+    font-style: italic;
+    padding: 20px;
+    
+    figcaption {
+      font-style: normal;
+      margin-top: 10px;
+      text-align: right;
+    }
+  }
+  
+  .right {
+    background-image:
+      linear-gradient(
+        -90deg,
+        fade_out(darken($testimonial-bg, 45%), 0.3),
+        transparent
+      );
+  }
+  
+  .left {
+    background-image:
+      linear-gradient(
+        90deg,
+        fade_out(darken($testimonial-bg, 45%), 0.3),
+        transparent
+      );
   }
 }

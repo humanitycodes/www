@@ -137,13 +137,30 @@
         </form>
       </div>
     </div>
-    
-    <% if Rails.env.production? %>
-    <script type="text/javascript">
-      document.forms['application'].onsubmit = function(){ ga('send', 'event', 'application', 'submit'); };
-    </script>
-    <% end if %>
   </div>
+    
+  <div class="container-fluid testimonial">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-6">
+        <figure class="right">
+          "I joined Code Lab to learn how to build real apps. I found it hard to stay committed to self-driven 'learn to code' programs that relied solely on personal motivation to consistently advance. Code Lab provides the step-by-step structure and human touch that I need to stay on track."
+          <figcaption>&mdash; Michael Henry, Founder, Cork CRM</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6">
+        <figure class="left">
+          "The Lansing Code Lab has not only taught me to code, but more importantly it's shown me how to implement and deploy that code to create actual web sites and applications. I've gained experience in the full set of development and coding tools, which is something you don't get in most of the online coding classes that are available."
+          <figcaption>&mdash; Scott Watkins, CEO, AdLuminate</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  
+  <% if Rails.env.production? %>
+  <script type="text/javascript">
+    document.forms['application'].onsubmit = function(){ ga('send', 'event', 'application', 'submit'); };
+  </script>
+  <% end if %>
 </body>
 </html>
 
