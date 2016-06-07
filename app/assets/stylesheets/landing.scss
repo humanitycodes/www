@@ -119,3 +119,8 @@
     line-height: 1.7em;
   }
 }
+
+.footer {
+  padding: 30px;
+  border-top: 1px solid darken($footer-bg, 8%);
+}
