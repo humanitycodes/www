@@ -18,12 +18,12 @@
 }
 
 .call-to-action {
-  color: $call-to-action-color;
   background-color: $call-to-action-bg;
   padding-top: 10px;
   padding-bottom: 15px;
 
   h2 {
+    color: $call-to-action-color;
     margin-top: 0;
     font-weight: bold;
     font-size: 4em;
@@ -52,6 +52,7 @@
   border-top: 1px solid darken($application-bg, 8%);
 
   h3 {
+    color: $brand-primary;
     font-weight: bold;
     margin: 12px 0 24px;
   }
