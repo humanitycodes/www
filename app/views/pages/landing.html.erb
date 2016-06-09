@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Lansing Code Lab</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:determiner" content="the">
+  <meta name="og:title" content="Lansing Code Lab">
+  
+  <meta name="description" content="Learn to code in Lansing, Michigan by building real websites and get help from professional developers.">
+  <meta property="og:description" content="Learn to code in Lansing, Michigan by building real websites and get help from professional developers.">
+
+  <meta name="keywords" content="lansing mi,lansing code lab,code lab,learn to code,coding resources,programming resources,without college,be a programmer,programming,programmer,code,coding,development,software development,make websites,build websites,learn html,learn css,learn javascript,learn ruby,computer science,computer programming">
+
+  <meta name="geo.region" content="US-MI">
+  <meta name="geo.placename" content="Greater Lansing">
+  <meta name="geo.position" content="42.734552;-84.480615">
+  <meta name="ICBM" content="42.734552, -84.480615">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= request.url %>">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Lansing Code Lab">
+  
+  <meta property="og:image" content="<%= image_url 'lansing-codes-logo.svg' %>">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300">
+  
+  <meta property="fb:admins" content="2327791">
+  <meta property="fb:admins" content="2335756">
+  <meta property="fb:admins" content="1261535380">
+
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:400,600,700', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'landing', media: 'all', 'data-turbolinks-track' => true %>
+
+  <% if Rails.env.production? %>
+    <%= render 'layouts/rollbar_js' %>
+  <% end if %>
+
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-73509402-1', 'auto'); ga('send', 'pageview');
+  </script>
+  
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'typer' %>
+  <%= javascript_include_tag 'formspree' %>
+  
+  <% if Rails.env.development? %>
+    <%= render 'layouts/react_hot_assets' %>
+  <% end if %>
+  
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" data-target="#navbar_links" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to root_path, class: 'navbar-brand' do %>
+          <%= image_tag 'lansing-codes-logo.svg' %>
+          Lansing Code Lab
+        <% end %>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar_links">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Team', team_path %></li>
+          <li><a href="http://blog.lansingcodelab.com/" target="_blank">Blog</a></li>
+          <li>
+            <a href="https://www.facebook.com/LansingCodeLab/" target="_blank">
+              <span class="fa fa-facebook-official" aria-hidden="true" style="font-size: 1.2em"></span>
+            </a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to '/auth/github' do %>
+              <span class="glyphicon glyphicon-log-in"></span> Sign in with GitHub
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container call-to-action">
+    <%== render 'layouts/flash_messages' %>
+
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <h2>Learn to Code</h2>
+        <h3>in Lansing, Michigan</h3>
+        <p>
+          Whether you want to make a website with HTML and CSS or program a rich web application with Ruby and JavaScript, we can help.
+        </p>
+        <p>
+          We provide lessons, hands-on practice, and local experts to help you learn how to code. All lessons are online so you can learn at home or in our lab!
+        </p>
+      </div>
+      <div class="col-md-6 col-sm-6 hidden-xs">
+        <div class="osx-window">
+          <h2 class="osx-terminal">
+            <textarea class="transparent" autofocus="true" rows="5" columns="18" onfocus="Typer.type(this, 'Build Real Things.\n\nWith Real People.\n\nFrom Day One.')"></textarea>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid application">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h3 class="text-center">Apply Now</h3>
+        <p>
+          Your first three lessons are free and membership is only $129 a month after that. Fill out the form below and we'll set up an orientation for you!
+        </p>
+        <form id="application" action="//formspree.io/hello@lansingcodelab.com" onsubmit="return FormSpree.submit(this)">
+          <div class="form-group">
+            <label for="application-name">Name</label>
+            <input id="application-name" class="form-control" type="text" name="name">
+          </div>
+          <div class="form-group">
+            <label for="application-email">Email</label>
+            <input id="application-email" class="form-control" type="text" name="_replyto">
+          </div>
+          <div class="form-group">
+            <button id="applyButton" class="form-control btn btn-primary" type="submit">Tell me more</button>
+            <div id="applyThanks" class="alert alert-info text-center" role="alert" style="display:none">
+              <div>
+                <span class="glyphicon glyphicon-heart love"></span>
+                <span class="glyphicon glyphicon-heart love"></span>
+                <span class="glyphicon glyphicon-heart love"></span>
+              </div>
+              Thank you for your interest in Lansing Code Lab! We'll email you soon to schedule your free orientation. You'll be coding in no time!
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    
+  <div class="container-fluid testimonial">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-6">
+        <figure class="right">
+          "I joined Code Lab to learn how to build real apps. I found it hard to stay committed to self-driven 'learn to code' programs that relied solely on personal motivation to consistently advance. Code Lab provides the step-by-step structure and human touch that I need to stay on track."
+          <figcaption>&mdash; Michael Henry, Founder, Cork CRM</figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-6">
+        <figure class="left">
+          "The Lansing Code Lab has not only taught me to code, but more importantly it's shown me how to implement and deploy that code to create actual web sites and applications. I've gained experience in the full set of development and coding tools, which is something you don't get in most of the online coding classes that are available."
+          <figcaption>&mdash; Scott Watkins, CEO, AdLuminate</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid features">
+    <div class="row lane">
+      <div class="col-sm-3 col-sm-offset-1 feature">
+        <div class="glyphicon glyphicon-off icon"></div>No experience required
+      </div>
+      <div class="col-sm-2 col-sm-offset-1 feature">
+        <div class="glyphicon glyphicon-heart icon"></div>Lessons tailored to your individual learning goals
+      </div>
+      <div class="col-sm-3 col-sm-offset-1 feature">
+        <div class="glyphicon glyphicon-home icon"></div>Learn at home and at our lab (Monday and Wednesday evenings)
+      </div>
+    </div>
+    <div class="row lane">
+      <div class="col-sm-3 col-sm-offset-1 feature">
+        <div class="glyphicon glyphicon-user icon"></div>One-on-one support and accountability from personal trainers
+      </div>
+      <div class="col-sm-2 col-sm-offset-1 feature">
+        <div class="glyphicon glyphicon-wrench icon"></div>Practical projects with every lesson, or bring your own
+      </div>
+      <div class="col-sm-3 col-sm-offset-1 feature">
+        <div class="glyphicon glyphicon-briefcase icon"></div>Real-world development environments
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid footer">
+    <div class="row">
+      <div class="col-sm-3">
+        &copy; <%= Time.now.year %> Humanity Codes, LLC
+      </div>
+      <div class="col-sm-1 col-sm-offset-8 text-right">
+        <a href="https://www.facebook.com/LansingCodeLab/" target="_blank">
+          <span class="fa fa-facebook-official" aria-hidden="true" style="font-size: 1.2em"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

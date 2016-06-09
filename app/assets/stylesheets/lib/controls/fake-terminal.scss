@@ -1,0 +1,39 @@
+$terminal-bg: lighten(#000, 15%);
+
+.osx-window {
+  background-image: url(/images/osx-buttons.png), url(/images/osx-title-bar.png);
+  background-position: 0 0, 0 0;
+  background-repeat: no-repeat, repeat-x;
+  background-color: $terminal-bg;
+  background-size: auto 22px;
+  padding: 22px 0 0 0;
+  border-radius: 6px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+.osx-terminal {
+  margin: 0;
+  font-family: Consolas, 'Lucida Console', monospace;
+}
+
+.transparent {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  background: $terminal-bg;
+  color: #aab1be;
+  border: none;
+  padding: 1em;
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: normal;
+
+  &:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 992px) {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}

@@ -1,0 +1,132 @@
+@import 'lib/variables';
+@import 'lib/variables-landing';
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+@import 'vendor/octicons';
+@import 'nprogress';
+@import 'nprogress-bootstrap';
+
+@import 'lib/components/navbar-brand';
+@import 'lib/components/jumbotron';
+@import 'lib/controls/fake-terminal';
+
+.love {
+  color: #fc568d;
+  padding: 5px;
+}
+
+.call-to-action {
+  background-color: $call-to-action-bg;
+  padding-top: 10px;
+  padding-bottom: 15px;
+
+  h2 {
+    color: $call-to-action-color;
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 4em;
+    
+    @media (max-width: 992px) {
+      font-size: 3em;
+    }
+  }
+  
+  h3 {
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 2em;
+  }
+  
+  p {
+    margin-top: 2em;
+  }
+}
+
+.application {
+  color: $application-color;
+  background-color: $application-bg;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-top: 1px solid darken($application-bg, 8%);
+
+  h3 {
+    color: $brand-primary;
+    font-weight: bold;
+    margin: 12px 0 24px;
+  }
+
+  button {
+    width: 50%;
+    margin-left: 25%;
+  }
+}
+
+.testimonial {
+  color: $testimonial-color;
+  padding: 50px;
+
+  background-image:
+    linear-gradient(
+      fade_out(darken($testimonial-bg, 20%), 0.3),
+      fade_out(darken($testimonial-bg, 20%), 0.3)
+    ),
+    url(/images/code-lab-grayscale.jpg);
+  background-position: center, 0 20%;
+  background-size: cover, cover;
+  background-repeat: repeat, no-repeat;
+    
+  figure {
+    font-style: italic;
+    padding: 20px;
+    
+    figcaption {
+      font-style: normal;
+      margin-top: 10px;
+      text-align: right;
+    }
+  }
+  
+  .right {
+    background-image:
+      linear-gradient(
+        -90deg,
+        fade_out(darken($testimonial-bg, 45%), 0.3),
+        transparent
+      );
+  }
+  
+  .left {
+    background-image:
+      linear-gradient(
+        90deg,
+        fade_out(darken($testimonial-bg, 45%), 0.3),
+        transparent
+      );
+  }
+}
+
+.features {
+  color: $features-color;
+  background-color: $features-bg;
+  padding: 30px;
+  text-align: center;
+  font-size: 1.2em;
+  
+  .feature {
+    padding: 20px;
+  }
+  
+  .icon {
+    color: $features-icon-color;
+    display: block;
+    font-size: 2em;
+    line-height: 1.7em;
+  }
+}
+
+.footer {
+  padding: 30px;
+  border-top: 1px solid darken($footer-bg, 8%);
+}

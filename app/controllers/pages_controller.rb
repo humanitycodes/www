@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def landing
+    render 'landing.html.erb', layout: false
   end
 
   def staff
