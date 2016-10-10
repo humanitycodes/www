@@ -2,7 +2,7 @@
 
 We've built some cool stuff with JavaScript so far! But you may have already noticed that as applications grow more complex, new features can become... frightening. You find yourself spending a lot of time doing this:
 
-![Staring at computer](https://pixabay.com/static/uploads/photo/2015/11/26/22/27/girl-1064658_960_720.jpg)
+![Staring at computer](https://i.imgur.com/EIEDeFq.jpg)
 
 That's because you have to do a _lot_ of thinking. You have to ask yourself:
 
@@ -163,7 +163,7 @@ function render (userName) {
 
 So everything works now, but even that relatively simple example seemed like it was a lot harder than it should be. The fact that we had to troubleshoot just to get a "Clear" button working is not a good sign. I don't know about you, but I'm already dreading the next feature request!
 
-![Dreading another feature request](https://pixabay.com/static/uploads/photo/2015/11/26/22/27/girl-1064659_960_720.jpg)
+![Dreading another feature request](https://i.imgur.com/8JP00B0.jpg)
 
 And you know what else I don't like? Without looking at our JavaScript, it's impossible to tell what our app _actually does_. We have to keep jumping around between the HTML and JavaScript and keeping stuff in our heads.
 
@@ -180,7 +180,7 @@ For now, sit back, relax, enjoy the puns, and get a taste for the workflow. Afte
 Since Vue is a library, let's include it in our app by adding this line to our `head`:
 
 ``` html
-<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 ```
 
 And before we build anything, Vue likes to know which part of the HTML we're going to be working in. So we'll create an element with an `id` - I'll use `app`.
@@ -249,7 +249,7 @@ A few things worth noting:
 
 Feeling pumped yet?! Are you starting to see the light? Let's commemorate this moment.
 
-![Look ma, I'm using Vue!](https://pixabay.com/static/uploads/photo/2015/11/26/22/27/notebook-1064660_960_720.jpg)
+![Look ma, I'm using Vue!](https://i.imgur.com/2lwW2PL.jpg)
 
 Now before we move on, there's one more thing I like to do when I start working with data in Vue apps. It's set a default value with the `data` option. Like this:
 
@@ -338,7 +338,7 @@ And finally, this is what we end up with in our finished app:
 First, it needs Vue! So typically in your `head`, you'll include:
 
 ``` html
-<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 ```
 
 Then you'll create a container element for Vue to work inside of. You have to give it an `id`, but it doesn't matter what that `id` is.
@@ -365,7 +365,7 @@ Altogether, that'll look something like this:
 <html>
   <head>
     <title>My App</title>
-    <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
   <body>
     <div id="app">
@@ -415,7 +415,7 @@ When we only want an element to display _some_ of the time, we can use `v-if` wi
 Whenever we want our data to appear on the page, we'll use `{{` and `}}` in our HTML, where we want the value of the data to appear. For example:
 
 ``` html
-<div id="app">  
+<div id="app">
   My name is {{ firstName }}{{ lastName }}. I live in {{ city }}, {{ state }} and my favorite food is {{ favoriteFood }}.
 </div>
 
