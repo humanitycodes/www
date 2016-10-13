@@ -63,16 +63,3 @@
   roles:
     - Leader
     - Mentor
--
-  name: Stuart Pearman
-  bio: Hi, I'm Stuart! I haven't been coding for long, a little more than two years, but what I've discovered is that you can do a lot with a little knowledge. Coding has become a passion of mine, but learning new things and sharing them with others is really what I love to do most. As someone who has too many hobbies to count, coding has complimented my life ways I never could have expected, and many of the positive opportunities I've had in the past few years would have never come to me had I not developed this wonderful new skill. I hope to continue to learn and to grow, creating new experiences for myself and others for many years to come.
-  tech: Design and animation, HTML, CSS, JavaScript and jQuery, Git and GitHub, and video game development with JS Canvas or Unity.
-  contact_methods:
-    -
-      type: GitHub
-      body: stuartpearman
-    -
-      type: Email
-      body: swpearman@gmail.com
-  roles:
-    - Mentor
