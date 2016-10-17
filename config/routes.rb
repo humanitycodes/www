@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-
-  constraints lambda { |req| req.session[:user_id].present? } do
-    root to: redirect('/lessons'), as: :authenticated_root
-  end
-
-  root 'pages#landing'
+  root 'lessons#index'
 
   match  '/auth/github/callback' => 'sessions#create', via: [:get, :post]
   delete '/signout'              => 'sessions#destroy', as: :signout
@@ -28,7 +23,7 @@ Rails.application.routes.draw do
   resources :students, only: [:index]
   get 'students/projects'
 
-  resource :subscription, except: [:show]
-  post "/stripe-webhook-#{Rails.application.secrets[:stripe][:webhook_hash]}" => 'subscriptions#webhook'
+  # resource :subscription, except: [:show]
+  # post "/stripe-webhook-#{Rails.application.secrets[:stripe][:webhook_hash]}" => 'subscriptions#webhook'
 
 end

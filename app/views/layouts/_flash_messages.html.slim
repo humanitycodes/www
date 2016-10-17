@@ -1,2 +1,4 @@
 - flash.each do |type, message|
   = render 'shared/alert', type: type, message: message
+- if flash.empty?
+  = render 'shared/alert', type: 'warning', message: 'Code Lab is no longer in operation, but our full curriculum is still available here for you to peruse for free. Project reviews and other mentorship services are no longer being offered, but if you\'d like to engage with a local community of passionate coders, we encourage you to join the free Lansing.Codes Slack at <a href="http://slack.lansing.codes">slack.lansing.codes</a>.'

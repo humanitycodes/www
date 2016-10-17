@@ -1,6 +1,5 @@
 require! {
   './lesson-project-status-sidebar-step': LessonProjectStatusSidebarStep
-
   '../config/project-steps-generator': generate-steps
 }
 
@@ -48,13 +47,13 @@ module.exports = Radium class LessonProjectStatusSidebar extends React.Component
       width: sidebar-width
       height: sidebar-margin-top * 2 + node-size + (node-size + node-padding) * (steps.length - 1)
 
-      steps.map (step, index) ~>
-        $(LessonProjectStatusSidebarStep) do
-          lesson: @props.lesson
-          step: step
-          index: index
-          sidebar-width: sidebar-width
-          node-size: node-size
-          sidebar-margin-top: sidebar-margin-top
-          node-padding: node-padding
-          icon-size: icon-size
+      # steps.map (step, index) ~>
+      #   $(LessonProjectStatusSidebarStep) do
+      #     lesson: @props.lesson
+      #     step: step
+      #     index: index
+      #     sidebar-width: sidebar-width
+      #     node-size: node-size
+      #     sidebar-margin-top: sidebar-margin-top
+      #     node-padding: node-padding
+      #     icon-size: icon-size
